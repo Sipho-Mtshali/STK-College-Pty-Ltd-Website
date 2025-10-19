@@ -313,7 +313,7 @@ nav * {
 
 /* Card hover effects */
 .hover-lift {
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; 
 }
 
 .hover-lift:hover {
