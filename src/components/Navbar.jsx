@@ -19,7 +19,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-40">
+    <nav className="bg-gray-900 shadow-lg sticky top-0 z-40 border-b border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -30,10 +30,10 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
           >
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">STK</span>
               </div>
-              <span className="text-xl font-bold text-gray-800 hidden sm:block">
+              <span className="text-xl font-bold text-white hidden sm:block">
                 Education
               </span>
             </Link>
@@ -49,10 +49,10 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? 'text-primary bg-primary/10'
-                      : 'text-gray-600 hover:text-primary hover:bg-gray-50'
+                      ? 'bg-blue-600 text-white shadow-lg'
+                      : 'text-gray-300 hover:text-green-400 hover:bg-gray-800'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -66,7 +66,7 @@ const Navbar = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-primary focus:outline-none focus:text-primary"
+              className="text-gray-300 hover:text-green-400 focus:outline-none focus:text-green-400 transition-colors duration-200"
             >
               {isOpen ? (
                 <FiX className="w-6 h-6" />
@@ -81,7 +81,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       {isOpen && (
         <motion.div
-          className="lg:hidden bg-white border-t border-gray-200"
+          className="lg:hidden bg-gray-900 border-t border-gray-700"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
@@ -97,10 +97,10 @@ const Navbar = () => {
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                  className={`flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
                     isActive
-                      ? 'text-primary bg-primary/10'
-                      : 'text-gray-600 hover:text-primary hover:bg-gray-50'
+                      ? 'bg-blue-600 text-white shadow-lg'
+                      : 'text-gray-300 hover:text-green-400 hover:bg-gray-800'
                   }`}
                 >
                   <Icon className="w-5 h-5" />

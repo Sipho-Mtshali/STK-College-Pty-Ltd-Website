@@ -48,11 +48,11 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-blue-900 to-blue-800 text-white relative overflow-hidden">
+    <footer className="bg-gray-900 text-white relative overflow-hidden border-t border-gray-700">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-72 h-72 bg-green-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -64,11 +64,11 @@ const Footer = () => {
                 <img src="/images/campus/STKLogo2.png" alt="STK Logo" className="w-10 h-10" />
               </div>
               <div>
-                <h3 className="text-xl font-bold">STK College</h3>
+                <h3 className="text-xl font-bold text-white">STK College</h3>
                 <p className="text-green-400 text-sm font-medium">Shape the Future With Us</p>
               </div>
             </div>
-            <p className="text-gray-200 mb-6 leading-relaxed">
+            <p className="text-gray-300 mb-6 leading-relaxed">
               Empowering students through quality education, matric upgrades, and IT training opportunities. 
               Your success is our mission.
             </p>
@@ -79,7 +79,7 @@ const Footer = () => {
                   <a
                     key={index}
                     href={social.href}
-                    className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white hover:bg-green-500 hover:text-white transition-all duration-200 transform hover:scale-110"
+                    className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 hover:bg-green-500 hover:text-white transition-all duration-200 transform hover:scale-110 border border-gray-700"
                     aria-label={social.name}
                   >
                     <Icon className="w-5 h-5" />
@@ -91,13 +91,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-white mb-6">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     to={link.path}
-                    className="text-gray-200 hover:text-green-400 transition-colors duration-200 flex items-center group"
+                    className="text-gray-300 hover:text-green-400 transition-colors duration-200 flex items-center group"
                   >
                     <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
                     {link.name}
@@ -109,13 +109,13 @@ const Footer = () => {
 
           {/* Programs */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Programs</h3>
+            <h3 className="text-lg font-semibold text-white mb-6">Programs</h3>
             <ul className="space-y-3">
               {programs.map((program, index) => (
                 <li key={index}>
                   <Link
                     to={program.path}
-                    className="text-gray-200 hover:text-green-400 transition-colors duration-200 flex items-center group"
+                    className="text-gray-300 hover:text-green-400 transition-colors duration-200 flex items-center group"
                   >
                     <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
                     {program.name}
@@ -127,14 +127,14 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Contact Info</h3>
+            <h3 className="text-lg font-semibold text-white mb-6">Contact Info</h3>
             <ul className="space-y-4">
               {contactInfo.map((contact, index) => {
                 const Icon = contact.icon;
                 return (
                   <li key={index} className="flex items-start space-x-3">
                     <Icon className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
-                    <span className="text-gray-200">{contact.text}</span>
+                    <span className="text-gray-300">{contact.text}</span>
                   </li>
                 );
               })}
@@ -143,16 +143,16 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-200 mb-4 md:mb-0">
+        <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="text-gray-300 mb-4 md:mb-0">
             <p>&copy; {currentYear} STK College. All rights reserved.</p>
           </div>
           
           <div className="flex items-center space-x-6">
-            <Link to="/privacy" className="text-gray-200 hover:text-green-400 transition-colors duration-200 text-sm">
+            <Link to="/privacy" className="text-gray-300 hover:text-green-400 transition-colors duration-200 text-sm">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-gray-200 hover:text-green-400 transition-colors duration-200 text-sm">
+            <Link to="/terms" className="text-gray-300 hover:text-green-400 transition-colors duration-200 text-sm">
               Terms of Service
             </Link>
             <button
