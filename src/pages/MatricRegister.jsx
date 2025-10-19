@@ -67,7 +67,7 @@ const MatricRegister = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-primary-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -76,10 +76,10 @@ const MatricRegister = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-primary-800 mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Matric Registration
           </h1>
-          <p className="text-xl text-ultra-dark max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
             Register for matric upgrade courses and take the next step towards your academic goals
           </p>
         </motion.div>
@@ -93,14 +93,14 @@ const MatricRegister = () => {
             className="lg:col-span-2"
           >
             <div className="card-enhanced rounded-2xl p-8">
-              <h2 className="text-2xl font-bold text-primary-800 mb-6">
+              <h2 className="text-2xl font-bold text-white mb-6">
                 Personal Information
               </h2>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Full Name */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     <FiUser className="inline w-4 h-4 mr-2" />
                     Full Name *
                   </label>
@@ -110,11 +110,11 @@ const MatricRegister = () => {
                       required: 'Full name is required',
                       minLength: { value: 2, message: 'Name must be at least 2 characters' }
                     })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                     placeholder="Enter your full name"
                   />
                   {errors.fullName && (
-                    <p className="mt-1 text-sm text-red-600 flex items-center">
+                    <p className="mt-1 text-sm text-red-400 flex items-center">
                       <FiAlertCircle className="w-4 h-4 mr-1" />
                       {errors.fullName.message}
                     </p>
@@ -123,7 +123,7 @@ const MatricRegister = () => {
 
                 {/* ID Number */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     <FiCreditCard className="inline w-4 h-4 mr-2" />
                     ID Number *
                   </label>
@@ -136,11 +136,11 @@ const MatricRegister = () => {
                         message: 'ID number must be 13 digits'
                       }
                     })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                     placeholder="Enter your 13-digit ID number"
                   />
                   {errors.idNumber && (
-                    <p className="mt-1 text-sm text-red-600 flex items-center">
+                    <p className="mt-1 text-sm text-red-400 flex items-center">
                       <FiAlertCircle className="w-4 h-4 mr-1" />
                       {errors.idNumber.message}
                     </p>
@@ -149,7 +149,7 @@ const MatricRegister = () => {
 
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     <FiMail className="inline w-4 h-4 mr-2" />
                     Email Address *
                   </label>
@@ -162,11 +162,11 @@ const MatricRegister = () => {
                         message: 'Invalid email address'
                       }
                     })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                     placeholder="Enter your email address"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-600 flex items-center">
+                    <p className="mt-1 text-sm text-red-400 flex items-center">
                       <FiAlertCircle className="w-4 h-4 mr-1" />
                       {errors.email.message}
                     </p>
@@ -175,7 +175,7 @@ const MatricRegister = () => {
 
                 {/* Phone */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     <FiPhone className="inline w-4 h-4 mr-2" />
                     Phone Number *
                   </label>
@@ -188,11 +188,11 @@ const MatricRegister = () => {
                         message: 'Invalid phone number'
                       }
                     })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                     placeholder="Enter your phone number"
                   />
                   {errors.phone && (
-                    <p className="mt-1 text-sm text-red-600 flex items-center">
+                    <p className="mt-1 text-sm text-red-400 flex items-center">
                       <FiAlertCircle className="w-4 h-4 mr-1" />
                       {errors.phone.message}
                     </p>
@@ -201,25 +201,25 @@ const MatricRegister = () => {
 
                 {/* Subjects */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     <FiBookOpen className="inline w-4 h-4 mr-2" />
                     Subjects to Upgrade *
                   </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-48 overflow-y-auto border border-gray-300 rounded-lg p-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-48 overflow-y-auto bg-gray-800 border border-gray-600 rounded-lg p-4">
                     {subjects.map((subject) => (
                       <label key={subject} className="flex items-center space-x-3">
                         <input
                           type="checkbox"
                           value={subject}
                           {...register('subjects', { required: 'Please select at least one subject' })}
-                          className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                          className="w-4 h-4 text-green-500 border-gray-600 bg-gray-700 rounded focus:ring-green-500"
                         />
-                        <span className="text-sm text-gray-700">{subject}</span>
+                        <span className="text-sm text-gray-300">{subject}</span>
                       </label>
                     ))}
                   </div>
                   {errors.subjects && (
-                    <p className="mt-1 text-sm text-red-600 flex items-center">
+                    <p className="mt-1 text-sm text-red-400 flex items-center">
                       <FiAlertCircle className="w-4 h-4 mr-1" />
                       {errors.subjects.message}
                     </p>
@@ -228,13 +228,13 @@ const MatricRegister = () => {
 
                 {/* Additional Information */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Additional Information
                   </label>
                   <textarea
                     {...register('additionalInfo')}
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                     placeholder="Any additional information or special requirements..."
                   />
                 </div>
@@ -243,7 +243,7 @@ const MatricRegister = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full btn-primary-high-contrast py-4 px-6 rounded-xl font-bold hover:shadow-medium focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center shadow-soft"
+                  className="w-full btn-primary-high-contrast py-4 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -263,10 +263,10 @@ const MatricRegister = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center"
+                    className="bg-green-500/20 border border-green-500 rounded-lg p-4 flex items-center"
                   >
-                    <FiCheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                    <span className="text-green-800">
+                    <FiCheckCircle className="w-5 h-5 text-green-400 mr-3" />
+                    <span className="text-green-400">
                       Registration submitted successfully! We'll contact you soon.
                     </span>
                   </motion.div>
@@ -276,10 +276,10 @@ const MatricRegister = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center"
+                    className="bg-red-500/20 border border-red-500 rounded-lg p-4 flex items-center"
                   >
-                    <FiAlertCircle className="w-5 h-5 text-red-600 mr-3" />
-                    <span className="text-red-800">
+                    <FiAlertCircle className="w-5 h-5 text-red-400 mr-3" />
+                    <span className="text-red-400">
                       Error submitting registration. Please try again.
                     </span>
                   </motion.div>
@@ -296,58 +296,58 @@ const MatricRegister = () => {
             className="space-y-6"
           >
             {/* Info Card */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+            <div className="card-enhanced rounded-xl p-6">
+              <h3 className="text-xl font-bold text-white mb-4">
                 Registration Information
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
+                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Free Registration</h4>
-                    <p className="text-sm text-gray-600">No registration fees required</p>
+                    <h4 className="font-semibold text-white">Free Registration</h4>
+                    <p className="text-sm text-gray-300">No registration fees required</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
+                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Flexible Schedule</h4>
-                    <p className="text-sm text-gray-600">Choose from various time slots</p>
+                    <h4 className="font-semibold text-white">Flexible Schedule</h4>
+                    <p className="text-sm text-gray-300">Choose from various time slots</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
+                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Expert Teachers</h4>
-                    <p className="text-sm text-gray-600">Experienced educators</p>
+                    <h4 className="font-semibold text-white">Expert Teachers</h4>
+                    <p className="text-sm text-gray-300">Experienced educators</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
+                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Study Materials</h4>
-                    <p className="text-sm text-gray-600">Comprehensive resources provided</p>
+                    <h4 className="font-semibold text-white">Study Materials</h4>
+                    <p className="text-sm text-gray-300">Comprehensive resources provided</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Contact Card */}
-            <div className="bg-primary text-white rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-bold mb-4">
+            <div className="card-enhanced rounded-xl p-6 border border-green-500/30">
+              <h3 className="text-xl font-bold text-white mb-4">
                 Need Help?
               </h3>
-              <p className="text-white mb-4 font-medium">
+              <p className="text-gray-200 mb-4 font-medium">
                 Our team is here to assist you with the registration process.
               </p>
               <div className="space-y-2">
-                <p className="text-sm">
+                <p className="text-sm text-gray-300">
                   <strong>Phone:</strong> +27 21 123 4567
                 </p>
-                <p className="text-sm">
+                <p className="text-sm text-gray-300">
                   <strong>Email:</strong> info@stkeducation.co.za
                 </p>
-                <p className="text-sm">
+                <p className="text-sm text-gray-300">
                   <strong>Hours:</strong> Mon-Fri 8AM-5PM
                 </p>
               </div>

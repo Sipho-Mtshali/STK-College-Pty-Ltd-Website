@@ -13,7 +13,6 @@ import {
   FiPhone
 } from 'react-icons/fi';
 
-
 const Staff = () => {
   const [staff, setStaff] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -147,6 +146,8 @@ const Staff = () => {
     }
   ];
 
+  const departments = [...new Set(mockStaff.map(member => member.department))];
+
   useEffect(() => {
     // In a real app, you would fetch from Firebase
     // For now, we'll use mock data
@@ -166,21 +167,19 @@ const Staff = () => {
     fetchStaff();
   }, []);
 
-  const departments = [...new Set(staff.map(member => member.department))];
-
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading staff information...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto mb-4"></div>
+          <p className="text-gray-300">Loading staff information...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-primary-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -189,10 +188,10 @@ const Staff = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-primary-800 mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Meet Our Team
           </h1>
-          <p className="text-xl text-ultra-dark max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
             Our dedicated team of educators and support staff are committed to providing 
             the best learning experience for every student at STK College.
           </p>
@@ -205,33 +204,33 @@ const Staff = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16"
         >
-          <div className="card-enhanced rounded-2xl p-6 text-center card-hover">
-            <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow">
+          <div className="card-enhanced rounded-2xl p-6 text-center hover-lift">
+            <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <FiUsers className="w-8 h-8 text-white" />
             </div>
-            <div className="text-3xl font-bold text-primary-600 mb-2">{staff.length}</div>
-            <div className="text-ultra-dark">Staff Members</div>
+            <div className="text-3xl font-bold text-green-400 mb-2">{staff.length}</div>
+            <div className="text-white font-medium">Staff Members</div>
           </div>
-          <div className="card-enhanced rounded-2xl p-6 text-center card-hover">
-            <div className="w-16 h-16 bg-gradient-to-br from-secondary-400 to-secondary-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow">
+          <div className="card-enhanced rounded-2xl p-6 text-center hover-lift">
+            <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <FiBookOpen className="w-8 h-8 text-white" />
             </div>
-            <div className="text-3xl font-bold text-secondary-700 mb-2">{departments.length}</div>
-            <div className="text-ultra-dark">Departments</div>
+            <div className="text-3xl font-bold text-yellow-400 mb-2">{departments.length}</div>
+            <div className="text-white font-medium">Departments</div>
           </div>
-          <div className="card-enhanced rounded-2xl p-6 text-center card-hover">
-            <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow">
+          <div className="card-enhanced rounded-2xl p-6 text-center hover-lift">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <FiClock className="w-8 h-8 text-white" />
             </div>
-            <div className="text-3xl font-bold text-primary-600 mb-2">10+</div>
-            <div className="text-ultra-dark">Years Avg. Experience</div>
+            <div className="text-3xl font-bold text-blue-400 mb-2">10+</div>
+            <div className="text-white font-medium">Years Avg. Experience</div>
           </div>
-          <div className="card-enhanced rounded-2xl p-6 text-center card-hover">
-            <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow">
+          <div className="card-enhanced rounded-2xl p-6 text-center hover-lift">
+            <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <FiStar className="w-8 h-8 text-white" />
             </div>
-            <div className="text-3xl font-bold text-primary-600 mb-2">4.8</div>
-            <div className="text-ultra-dark">Average Rating</div>
+            <div className="text-3xl font-bold text-green-400 mb-2">4.8</div>
+            <div className="text-white font-medium">Average Rating</div>
           </div>
         </motion.div>
 
@@ -243,10 +242,10 @@ const Staff = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="card-enhanced rounded-2xl overflow-hidden card-hover"
+              className="card-enhanced rounded-2xl overflow-hidden hover-lift"
             >
               {/* Profile Image */}
-              <div className="relative h-48 bg-gradient-to-br from-primary-500 to-primary-600">
+              <div className="relative h-48 bg-gradient-to-br from-blue-600 to-blue-800">
                 <div className="absolute inset-0 flex items-center justify-center">
                   {member.image && member.image !== '/Images/default-avatar.png' ? (
                     <img 
@@ -262,7 +261,7 @@ const Staff = () => {
                 </div>
                 <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
                   <div className="flex items-center space-x-1">
-                    <FiStar className="w-4 h-4 text-secondary-400" />
+                    <FiStar className="w-4 h-4 text-yellow-400" />
                     <span className="text-white text-sm font-medium">{member.rating}</span>
                   </div>
                 </div>
@@ -271,44 +270,44 @@ const Staff = () => {
               {/* Content */}
               <div className="p-6">
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold text-primary-800 mb-1">{member.name}</h3>
-                  <p className="text-primary-600 font-semibold mb-2">{member.position}</p>
-                  <div className="flex items-center space-x-2 text-sm text-gray-600">
+                  <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
+                  <p className="text-green-400 font-semibold mb-2">{member.position}</p>
+                  <div className="flex items-center space-x-2 text-sm text-gray-300">
                     <FiBookOpen className="w-4 h-4" />
                     <span>{member.department}</span>
                   </div>
                 </div>
 
                 <div className="space-y-3 mb-4">
-                  <div className="flex items-center space-x-2 text-sm text-gray-600">
+                  <div className="flex items-center space-x-2 text-sm text-gray-300">
                     <FiBookOpen className="w-4 h-4" />
                     <span>{member.qualifications}</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-sm text-gray-600">
+                  <div className="flex items-center space-x-2 text-sm text-gray-300">
                     <FiClock className="w-4 h-4" />
                     <span>{member.experience} experience</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-sm text-gray-600">
+                  <div className="flex items-center space-x-2 text-sm text-gray-300">
                     <FiMail className="w-4 h-4" />
                     <span className="truncate">{member.email}</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-sm text-gray-600">
+                  <div className="flex items-center space-x-2 text-sm text-gray-300">
                     <FiPhone className="w-4 h-4" />
                     <span>{member.phone}</span>
                   </div>
                 </div>
 
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
                   {member.bio}
                 </p>
 
                 <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-primary-800 mb-2">Specialties:</h4>
+                  <h4 className="text-sm font-semibold text-white mb-2">Specialties:</h4>
                   <div className="flex flex-wrap gap-2">
                     {member.subjects.map((subject, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1 bg-primary-100 text-primary-700 text-xs rounded-full font-medium"
+                        className="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full font-medium border border-green-500/30"
                       >
                         {subject}
                       </span>
@@ -316,7 +315,7 @@ const Staff = () => {
                   </div>
                 </div>
 
-                <button className="w-full btn-primary-high-contrast py-3 px-4 rounded-lg hover:shadow-medium transition-all duration-200 text-sm font-bold shadow-soft">
+                <button className="w-full btn-primary-high-contrast py-3 px-4 rounded-lg font-semibold transition-all duration-200">
                   Contact {member.name.split(' ')[0]}
                 </button>
               </div>
@@ -329,14 +328,14 @@ const Staff = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-2xl p-8 text-center shadow-large"
+          className="mt-16 card-enhanced rounded-2xl p-8 text-center"
         >
-          <h2 className="text-3xl font-bold mb-4">Join Our Team</h2>
-          <p className="text-gray-100 mb-6 max-w-2xl mx-auto text-lg leading-relaxed">
+          <h2 className="text-3xl font-bold text-white mb-4">Join Our Team</h2>
+          <p className="text-gray-200 mb-6 max-w-2xl mx-auto text-lg leading-relaxed">
             Are you passionate about education? We're always looking for dedicated 
             educators to join our team and make a difference in students' lives.
           </p>
-          <button className="btn-secondary-high-contrast px-8 py-4 rounded-xl font-bold hover:shadow-glow transition-all duration-300 transform hover:scale-105">
+          <button className="btn-secondary-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105">
             View Open Positions
           </button>
         </motion.div>

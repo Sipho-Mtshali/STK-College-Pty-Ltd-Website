@@ -80,7 +80,7 @@ const ITRegister = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-primary-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -89,10 +89,10 @@ const ITRegister = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-primary-800 mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
             IT Student Registration
           </h1>
-          <p className="text-xl text-ultra-dark max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
             Launch your career in technology with our comprehensive IT courses
           </p>
         </motion.div>
@@ -106,14 +106,14 @@ const ITRegister = () => {
             className="lg:col-span-2"
           >
             <div className="card-enhanced rounded-2xl p-8">
-              <h2 className="text-2xl font-bold text-primary-800 mb-6">
+              <h2 className="text-2xl font-bold text-white mb-6">
                 Student Information
               </h2>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Full Name */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     <FiUser className="inline w-4 h-4 mr-2" />
                     Full Name *
                   </label>
@@ -123,11 +123,11 @@ const ITRegister = () => {
                       required: 'Full name is required',
                       minLength: { value: 2, message: 'Name must be at least 2 characters' }
                     })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                     placeholder="Enter your full name"
                   />
                   {errors.fullName && (
-                    <p className="mt-1 text-sm text-red-600 flex items-center">
+                    <p className="mt-1 text-sm text-red-400 flex items-center">
                       <FiAlertCircle className="w-4 h-4 mr-1" />
                       {errors.fullName.message}
                     </p>
@@ -136,21 +136,21 @@ const ITRegister = () => {
 
                 {/* Student Number */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     <FiUser className="inline w-4 h-4 mr-2" />
                     Student Number
                   </label>
                   <input
                     type="text"
                     {...register('studentNumber')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                     placeholder="Enter your student number (if applicable)"
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     <FiMail className="inline w-4 h-4 mr-2" />
                     Email Address *
                   </label>
@@ -163,11 +163,11 @@ const ITRegister = () => {
                         message: 'Invalid email address'
                       }
                     })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                     placeholder="Enter your email address"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-600 flex items-center">
+                    <p className="mt-1 text-sm text-red-400 flex items-center">
                       <FiAlertCircle className="w-4 h-4 mr-1" />
                       {errors.email.message}
                     </p>
@@ -176,7 +176,7 @@ const ITRegister = () => {
 
                 {/* Phone */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     <FiPhone className="inline w-4 h-4 mr-2" />
                     Phone Number *
                   </label>
@@ -189,11 +189,11 @@ const ITRegister = () => {
                         message: 'Invalid phone number'
                       }
                     })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                     placeholder="Enter your phone number"
                   />
                   {errors.phone && (
-                    <p className="mt-1 text-sm text-red-600 flex items-center">
+                    <p className="mt-1 text-sm text-red-400 flex items-center">
                       <FiAlertCircle className="w-4 h-4 mr-1" />
                       {errors.phone.message}
                     </p>
@@ -202,7 +202,7 @@ const ITRegister = () => {
 
                 {/* Course Selection */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     <FiBookOpen className="inline w-4 h-4 mr-2" />
                     Select Course *
                   </label>
@@ -210,27 +210,27 @@ const ITRegister = () => {
                     {courses.map((course) => {
                       const Icon = course.icon;
                       return (
-                        <label key={course.id} className="flex items-start space-x-3 p-4 border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer">
+                        <label key={course.id} className="flex items-start space-x-3 p-4 bg-gray-800 border border-gray-600 rounded-lg hover:bg-gray-700 cursor-pointer transition-all duration-200">
                           <input
                             type="radio"
                             value={course.id}
                             {...register('course', { required: 'Please select a course' })}
-                            className="w-4 h-4 text-primary border-gray-300 focus:ring-primary mt-1"
+                            className="w-4 h-4 text-green-500 border-gray-600 bg-gray-700 focus:ring-green-500 mt-1"
                           />
                           <div className="flex-1">
                             <div className="flex items-center space-x-2 mb-1">
-                              <Icon className="w-5 h-5 text-primary" />
-                              <span className="font-semibold text-gray-900">{course.name}</span>
-                              <span className="text-sm text-gray-500">({course.duration})</span>
+                              <Icon className="w-5 h-5 text-green-400" />
+                              <span className="font-semibold text-white">{course.name}</span>
+                              <span className="text-sm text-gray-400">({course.duration})</span>
                             </div>
-                            <p className="text-sm text-gray-600">{course.description}</p>
+                            <p className="text-sm text-gray-300">{course.description}</p>
                           </div>
                         </label>
                       );
                     })}
                   </div>
                   {errors.course && (
-                    <p className="mt-1 text-sm text-red-600 flex items-center">
+                    <p className="mt-1 text-sm text-red-400 flex items-center">
                       <FiAlertCircle className="w-4 h-4 mr-1" />
                       {errors.course.message}
                     </p>
@@ -239,26 +239,26 @@ const ITRegister = () => {
 
                 {/* Previous Experience */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Previous IT Experience
                   </label>
                   <textarea
                     {...register('experience')}
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                     placeholder="Describe any previous experience with computers, programming, or IT..."
                   />
                 </div>
 
                 {/* Goals */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
                     Career Goals
                   </label>
                   <textarea
                     {...register('goals')}
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                     placeholder="What do you hope to achieve with this course? What are your career aspirations?"
                   />
                 </div>
@@ -267,7 +267,7 @@ const ITRegister = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full btn-primary-high-contrast py-4 px-6 rounded-xl font-bold hover:shadow-medium focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center shadow-soft"
+                  className="w-full btn-primary-high-contrast py-4 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -287,10 +287,10 @@ const ITRegister = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center"
+                    className="bg-green-500/20 border border-green-500 rounded-lg p-4 flex items-center"
                   >
-                    <FiCheckCircle className="w-5 h-5 text-green-600 mr-3" />
-                    <span className="text-green-800">
+                    <FiCheckCircle className="w-5 h-5 text-green-400 mr-3" />
+                    <span className="text-green-400">
                       Registration submitted successfully! We'll contact you soon.
                     </span>
                   </motion.div>
@@ -300,10 +300,10 @@ const ITRegister = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center"
+                    className="bg-red-500/20 border border-red-500 rounded-lg p-4 flex items-center"
                   >
-                    <FiAlertCircle className="w-5 h-5 text-red-600 mr-3" />
-                    <span className="text-red-800">
+                    <FiAlertCircle className="w-5 h-5 text-red-400 mr-3" />
+                    <span className="text-red-400">
                       Error submitting registration. Please try again.
                     </span>
                   </motion.div>
@@ -320,48 +320,48 @@ const ITRegister = () => {
             className="space-y-6"
           >
             {/* Course Info */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+            <div className="card-enhanced rounded-xl p-6">
+              <h3 className="text-xl font-bold text-white mb-4">
                 Course Benefits
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
+                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Industry-Relevant Skills</h4>
-                    <p className="text-sm text-gray-600">Learn current technologies and practices</p>
+                    <h4 className="font-semibold text-white">Industry-Relevant Skills</h4>
+                    <p className="text-sm text-gray-300">Learn current technologies and practices</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
+                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Hands-On Learning</h4>
-                    <p className="text-sm text-gray-600">Practical projects and real-world experience</p>
+                    <h4 className="font-semibold text-white">Hands-On Learning</h4>
+                    <p className="text-sm text-gray-300">Practical projects and real-world experience</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
+                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Certification</h4>
-                    <p className="text-sm text-gray-600">Industry-recognized certificates</p>
+                    <h4 className="font-semibold text-white">Certification</h4>
+                    <p className="text-sm text-gray-300">Industry-recognized certificates</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
+                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Career Support</h4>
-                    <p className="text-sm text-gray-600">Job placement assistance and career guidance</p>
+                    <h4 className="font-semibold text-white">Career Support</h4>
+                    <p className="text-sm text-gray-300">Job placement assistance and career guidance</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Requirements */}
-            <div className="bg-blue-50 rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+            <div className="card-enhanced rounded-xl p-6 border border-blue-500/30">
+              <h3 className="text-xl font-bold text-white mb-4">
                 Requirements
               </h3>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <ul className="space-y-2 text-sm text-gray-300">
                 <li>• Basic computer literacy</li>
                 <li>• Grade 12 certificate (preferred)</li>
                 <li>• Access to a computer</li>
@@ -371,21 +371,21 @@ const ITRegister = () => {
             </div>
 
             {/* Contact Card */}
-            <div className="bg-primary text-white rounded-xl shadow-lg p-6">
-              <h3 className="text-xl font-bold mb-4">
+            <div className="card-enhanced rounded-xl p-6 border border-green-500/30">
+              <h3 className="text-xl font-bold text-white mb-4">
                 Questions?
               </h3>
-              <p className="text-white mb-4 font-medium">
+              <p className="text-gray-200 mb-4 font-medium">
                 Our IT department is here to help you choose the right course.
               </p>
               <div className="space-y-2">
-                <p className="text-sm">
+                <p className="text-sm text-gray-300">
                   <strong>Phone:</strong> +27 21 123 4567
                 </p>
-                <p className="text-sm">
+                <p className="text-sm text-gray-300">
                   <strong>Email:</strong> it@stkeducation.co.za
                 </p>
-                <p className="text-sm">
+                <p className="text-sm text-gray-300">
                   <strong>Hours:</strong> Mon-Fri 8AM-5PM
                 </p>
               </div>

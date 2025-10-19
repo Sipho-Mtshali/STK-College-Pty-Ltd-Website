@@ -156,7 +156,7 @@ const Pricing = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -165,21 +165,21 @@ const Pricing = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Pricing & Fees
           </h1>
-          <p className="text-xl text-gray-800 max-w-3xl mx-auto mb-8 font-medium">
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8 font-medium">
             Affordable education that delivers exceptional value. Choose the plan that works best for your goals.
           </p>
           
           {/* Billing Toggle for Matric */}
-          <div className="flex items-center justify-center space-x-4 bg-white rounded-lg p-1 shadow-lg inline-flex">
+          <div className="card-enhanced inline-flex p-1 rounded-lg">
             <button
               onClick={() => setBillingCycle('monthly')}
               className={`px-6 py-2 rounded-md font-medium transition-colors duration-200 ${
                 billingCycle === 'monthly'
-                  ? 'bg-primary text-white'
-                  : 'text-gray-600 hover:text-primary'
+                  ? 'bg-green-500 text-white'
+                  : 'text-gray-300 hover:text-green-400'
               }`}
             >
               Monthly
@@ -188,12 +188,12 @@ const Pricing = () => {
               onClick={() => setBillingCycle('yearly')}
               className={`px-6 py-2 rounded-md font-medium transition-colors duration-200 ${
                 billingCycle === 'yearly'
-                  ? 'bg-primary text-white'
-                  : 'text-gray-600 hover:text-primary'
+                  ? 'bg-green-500 text-white'
+                  : 'text-gray-300 hover:text-green-400'
               }`}
             >
               Yearly
-              <span className="ml-2 bg-secondary text-primary text-xs px-2 py-1 rounded-full">
+              <span className="ml-2 bg-yellow-500 text-gray-900 text-xs px-2 py-1 rounded-full">
                 Save 20%
               </span>
             </button>
@@ -211,13 +211,13 @@ const Pricing = () => {
             const Icon = feature.icon;
             return (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-8 h-8 text-primary" />
+                <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon className="w-8 h-8 text-green-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-300 text-sm">
                   {feature.description}
                 </p>
               </div>
@@ -233,10 +233,10 @@ const Pricing = () => {
           className="mb-16"
         >
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-white mb-4">
               Matric Upgrade Courses
             </h2>
-            <p className="text-gray-800 max-w-2xl mx-auto font-medium">
+            <p className="text-gray-200 max-w-2xl mx-auto font-medium">
               Flexible payment options for matric subject upgrades. All prices include study materials and support.
             </p>
           </div>
@@ -248,30 +248,30 @@ const Pricing = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`relative bg-white rounded-xl shadow-lg p-8 ${
-                  plan.popular ? 'ring-2 ring-primary transform scale-105' : ''
+                className={`relative card-enhanced rounded-xl p-8 hover-lift ${
+                  plan.popular ? 'ring-2 ring-green-500 transform scale-105' : ''
                 }`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold">
+                    <span className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
                       Most Popular
                     </span>
                   </div>
                 )}
 
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-2xl font-bold text-white mb-2">
                     {plan.name}
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-300 mb-4">
                     {plan.description}
                   </p>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-primary">
+                    <span className="text-4xl font-bold text-green-400">
                       R{plan.price[billingCycle]}
                     </span>
-                    <span className="text-gray-600 ml-2">
+                    <span className="text-gray-400 ml-2">
                       /{billingCycle === 'monthly' ? 'month' : 'year'}
                     </span>
                   </div>
@@ -283,8 +283,8 @@ const Pricing = () => {
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center">
-                      <FiCheck className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+                      <FiCheck className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                      <span className="text-gray-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -293,8 +293,8 @@ const Pricing = () => {
                   to="/matric-register"
                   className={`w-full block text-center py-3 px-6 rounded-lg font-semibold transition-colors duration-200 ${
                     plan.popular
-                      ? 'bg-primary text-white hover:bg-blue-700'
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                      ? 'btn-primary-high-contrast'
+                      : 'btn-blue-high-contrast'
                   }`}
                 >
                   Choose Plan
@@ -313,10 +313,10 @@ const Pricing = () => {
           className="mb-16"
         >
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-white mb-4">
               IT Professional Courses
             </h2>
-            <p className="text-gray-800 max-w-2xl mx-auto font-medium">
+            <p className="text-gray-200 max-w-2xl mx-auto font-medium">
               Comprehensive IT courses designed to launch your career in technology. 
               One-time payment with lifetime access to course materials.
             </p>
@@ -329,30 +329,30 @@ const Pricing = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`relative bg-white rounded-xl shadow-lg p-6 ${
-                  course.popular ? 'ring-2 ring-primary transform scale-105' : ''
+                className={`relative card-enhanced rounded-xl p-6 hover-lift ${
+                  course.popular ? 'ring-2 ring-green-500 transform scale-105' : ''
                 }`}
               >
                 {course.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-primary text-white px-3 py-1 rounded-full text-xs font-semibold">
+                    <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
                       Popular
                     </span>
                   </div>
                 )}
 
                 <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-xl font-bold text-white mb-2">
                     {course.name}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-2">
+                  <p className="text-sm text-gray-300 mb-2">
                     {course.description}
                   </p>
-                  <div className="text-sm text-gray-500 mb-4">
+                  <div className="text-sm text-gray-400 mb-4">
                     Duration: {course.duration}
                   </div>
                   <div className="mb-2">
-                    <span className="text-3xl font-bold text-primary">
+                    <span className="text-3xl font-bold text-green-400">
                       R{course.price}
                     </span>
                   </div>
@@ -364,8 +364,8 @@ const Pricing = () => {
                 <ul className="space-y-2 mb-6 text-sm">
                   {course.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center">
-                      <FiCheck className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+                      <FiCheck className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />
+                      <span className="text-gray-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -374,8 +374,8 @@ const Pricing = () => {
                   to="/it-register"
                   className={`w-full block text-center py-3 px-4 rounded-lg font-semibold text-sm transition-colors duration-200 ${
                     course.popular
-                      ? 'bg-primary text-white hover:bg-blue-700'
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                      ? 'btn-primary-high-contrast'
+                      : 'btn-blue-high-contrast'
                   }`}
                 >
                   Enroll Now
@@ -391,42 +391,42 @@ const Pricing = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="bg-white rounded-xl shadow-lg p-8 mb-12"
+          className="card-enhanced rounded-xl p-8 mb-12"
         >
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">
             Payment Information
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FiDollarSign className="w-8 h-8 text-green-600" />
+              <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <FiDollarSign className="w-8 h-8 text-green-400" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg font-semibold text-white mb-2">
                 Flexible Payment
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-300 text-sm">
                 Pay monthly or yearly for matric courses. IT courses offer one-time payment with installment options.
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FiInfo className="w-8 h-8 text-blue-600" />
+              <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <FiInfo className="w-8 h-8 text-blue-400" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg font-semibold text-white mb-2">
                 No Hidden Fees
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-300 text-sm">
                 All prices include study materials, resources, and support. No additional charges or surprise fees.
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FiAward className="w-8 h-8 text-purple-600" />
+              <div className="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <FiAward className="w-8 h-8 text-yellow-400" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg font-semibold text-white mb-2">
                 Money-Back Guarantee
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-300 text-sm">
                 30-day money-back guarantee if you're not satisfied with the quality of education.
               </p>
             </div>
@@ -438,23 +438,23 @@ const Pricing = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="bg-primary text-white rounded-xl p-8 text-center"
+          className="card-enhanced rounded-xl p-8 text-center"
         >
-          <h2 className="text-2xl font-bold mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             Questions About Pricing?
           </h2>
-          <p className="text-white mb-6 max-w-2xl mx-auto font-medium">
+          <p className="text-gray-200 mb-6 max-w-2xl mx-auto font-medium">
             Our team is here to help you choose the right course and payment plan for your needs. 
             Contact us for personalized assistance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="bg-secondary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-200"
+              className="btn-secondary-high-contrast px-6 py-3 rounded-lg font-semibold transition-colors duration-200"
             >
               Contact Us
             </Link>
-            <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors duration-200">
+            <button className="btn-blue-high-contrast px-6 py-3 rounded-lg font-semibold transition-colors duration-200">
               Schedule Consultation
             </button>
           </div>

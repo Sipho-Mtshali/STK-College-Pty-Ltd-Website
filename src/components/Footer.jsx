@@ -1,68 +1,88 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
+  FiMail, 
+  FiPhone, 
+  FiMapPin, 
   FiFacebook, 
   FiTwitter, 
   FiInstagram, 
-  FiLinkedin, 
-  FiMail, 
-  FiPhone, 
-  FiMapPin,
-  FiBookOpen,
-  FiUsers,
-  FiFileText,
-  FiDollarSign,
-  FiInfo
+  FiLinkedin,
+  FiArrowUp
 } from 'react-icons/fi';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const quickLinks = [
-    { name: 'Home', href: '/', icon: FiBookOpen },
-    { name: 'About Us', href: '/about', icon: FiInfo },
-    { name: 'Matric Registration', href: '/matric-register', icon: FiFileText },
-    { name: 'IT Registration', href: '/it-register', icon: FiUsers },
-    { name: 'Staff', href: '/staff', icon: FiUsers },
-    { name: 'Results', href: '/results', icon: FiFileText },
-    { name: 'Pricing', href: '/pricing', icon: FiDollarSign },
-    { name: 'Contact', href: '/contact', icon: FiFileText },
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Matric Registration', path: '/matric-register' },
+    { name: 'IT Registration', path: '/it-register' },
+    { name: 'Contact', path: '/contact' }
+  ];
+
+  const programs = [
+    { name: 'Matric Upgrades', path: '/matric-register' },
+    { name: 'IT Training', path: '/it-register' },
+    { name: 'Internships', path: '/it-register' },
+    { name: 'In-Service Training', path: '/it-register' }
+  ];
+
+  const contactInfo = [
+    { icon: FiPhone, text: '+27 76 362 7488' },
+    { icon: FiPhone, text: '+27 71 578 7280' },
+    { icon: FiMail, text: 'STKCollege@gmail.com' },
+    { icon: FiMapPin, text: '511 Griffiths Mxenge Hwy, Durban, 4031' }
   ];
 
   const socialLinks = [
-    { name: 'Facebook', href: '#', icon: FiFacebook },
-    { name: 'Twitter', href: '#', icon: FiTwitter },
-    { name: 'Instagram', href: '#', icon: FiInstagram },
-    { name: 'LinkedIn', href: '#', icon: FiLinkedin },
+    { icon: FiFacebook, href: '#', name: 'Facebook' },
+    { icon: FiTwitter, href: '#', name: 'Twitter' },
+    { icon: FiInstagram, href: '#', name: 'Instagram' },
+    { icon: FiLinkedin, href: '#', name: 'LinkedIn' }
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="bg-gradient-to-br from-blue-900 to-blue-800 text-white relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-72 h-72 bg-green-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">STK</span>
+          {/* Brand Section */}
+          <div className="lg:col-span-1">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-xl flex items-center justify-center">
+                <img src="/images/campus/STKLogo2.png" alt="STK Logo" className="w-10 h-10" />
               </div>
-              <span className="text-xl font-bold text-white">Education</span>
+              <div>
+                <h3 className="text-xl font-bold">STK College</h3>
+                <p className="text-green-400 text-sm font-medium">Shape the Future With Us</p>
+              </div>
             </div>
-            <p className="text-white text-sm leading-relaxed">
-              Empowering students through quality education and innovative learning approaches. 
+            <p className="text-gray-200 mb-6 leading-relaxed">
+              Empowering students through quality education, matric upgrades, and IT training opportunities. 
               Your success is our mission.
             </p>
             <div className="flex space-x-4">
-              {socialLinks.map((social) => {
+              {socialLinks.map((social, index) => {
                 const Icon = social.icon;
                 return (
                   <a
-                    key={social.name}
+                    key={index}
                     href={social.href}
-                    className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-200"
+                    className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-white hover:bg-green-500 hover:text-white transition-all duration-200 transform hover:scale-110"
                     aria-label={social.name}
                   >
-                    <Icon className="w-4 h-4 text-white" />
+                    <Icon className="w-5 h-5" />
                   </a>
                 );
               })}
@@ -70,90 +90,78 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Quick Links</h3>
-            <ul className="space-y-2">
-              {quickLinks.slice(0, 4).map((link) => {
-                const Icon = link.icon;
-                return (
-                  <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      className="flex items-center space-x-2 text-white hover:text-blue-300 transition-colors duration-200 text-sm"
-                    >
-                      <Icon className="w-4 h-4 text-white" />
-                      <span>{link.name}</span>
-                    </Link>
-                  </li>
-                );
-              })}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-white">Quick Links</h3>
+            <ul className="space-y-3">
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={link.path}
+                    className="text-gray-200 hover:text-green-400 transition-colors duration-200 flex items-center group"
+                  >
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* More Links */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">More Links</h3>
-            <ul className="space-y-2">
-              {quickLinks.slice(4).map((link) => {
-                const Icon = link.icon;
-                return (
-                  <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      className="flex items-center space-x-2 text-white hover:text-blue-300 transition-colors duration-200 text-sm"
-                    >
-                      <Icon className="w-4 h-4 text-white" />
-                      <span>{link.name}</span>
-                    </Link>
-                  </li>
-                );
-              })}
+          {/* Programs */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-white">Programs</h3>
+            <ul className="space-y-3">
+              {programs.map((program, index) => (
+                <li key={index}>
+                  <Link
+                    to={program.path}
+                    className="text-gray-200 hover:text-green-400 transition-colors duration-200 flex items-center group"
+                  >
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+                    {program.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Contact Info</h3>
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <FiMapPin className="w-5 h-5 text-blue-300 mt-0.5" />
-                <div>
-                  <p className="text-white text-sm">
-                    511 Griffiths Mxenge Hwy<br />
-                    Durban, KwaZulu-Natal<br />
-                    South Africa, 4031
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <FiPhone className="w-5 h-5 text-blue-300" />
-                <span className="text-white text-sm">+27 76 362 7488</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <FiMail className="w-5 h-5 text-blue-300" />
-                <span className="text-white text-sm">STKCollege@gmail.com</span>
-              </div>
-            </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-white">Contact Info</h3>
+            <ul className="space-y-4">
+              {contactInfo.map((contact, index) => {
+                const Icon = contact.icon;
+                return (
+                  <li key={index} className="flex items-start space-x-3">
+                    <Icon className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+                    <span className="text-gray-200">{contact.text}</span>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-gray-700 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-white text-sm">
-              © {currentYear} STK College. All rights reserved.
-            </div>
-            <div className="flex space-x-6 text-sm">
-              <Link to="/privacy" className="text-white hover:text-blue-300 transition-colors duration-200">
-                Privacy Policy
-              </Link>
-              <Link to="/terms" className="text-white hover:text-blue-300 transition-colors duration-200">
-                Terms of Service
-              </Link>
-              <Link to="/sitemap" className="text-white hover:text-blue-300 transition-colors duration-200">
-                Sitemap
-              </Link>
-            </div>
+        {/* Bottom Bar */}
+        <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="text-gray-200 mb-4 md:mb-0">
+            <p>&copy; {currentYear} STK College. All rights reserved.</p>
+          </div>
+          
+          <div className="flex items-center space-x-6">
+            <Link to="/privacy" className="text-gray-200 hover:text-green-400 transition-colors duration-200 text-sm">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="text-gray-200 hover:text-green-400 transition-colors duration-200 text-sm">
+              Terms of Service
+            </Link>
+            <button
+              onClick={scrollToTop}
+              className="btn-primary-high-contrast w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:shadow-lg"
+              aria-label="Scroll to top"
+            >
+              <FiArrowUp className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </div>
