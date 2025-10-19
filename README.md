@@ -1,6 +1,6 @@
-# STK Education Website
+# STK College Website
 
-A modern, responsive educational website for STK Education built with React, Tailwind CSS, and Firebase.
+A modern, responsive educational website for STK College built with React, Tailwind CSS, and Firebase.
 
 ## Features
 
@@ -212,5 +212,5 @@ For support, email info@stkeducation.co.za or visit our website.
 
 ---
 
-**STK Education** - Empowering students through quality education and innovative learning approaches."# STK-College-Pty-Ltd-Website" 
+**STK College** - Empowering students through quality education and innovative learning approaches."# STK-College-Pty-Ltd-Website" 
 "# STK-College-Pty-Ltd-Website" 

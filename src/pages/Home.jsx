@@ -271,7 +271,7 @@ const Home = () => {
             </h2>
             <p className="text-xl text-white max-w-2xl mx-auto font-medium">
               Join hundreds of successful students who have achieved their goals 
-              with STK Education. Your future starts today.
+              with STK College. Your future starts today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

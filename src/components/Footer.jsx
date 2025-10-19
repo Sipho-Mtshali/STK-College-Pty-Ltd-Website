@@ -141,7 +141,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white text-sm">
-              © {currentYear} STK Education. All rights reserved.
+              © {currentYear} STK College. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
               <Link to="/privacy" className="text-white hover:text-secondary transition-colors duration-200">

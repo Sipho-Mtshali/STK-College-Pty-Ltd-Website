@@ -70,7 +70,7 @@ const About = () => {
             className="text-center space-y-6"
           >
             <h1 className="text-4xl md:text-6xl font-bold">
-              About STK Education
+              About STK College
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
               Empowering students through quality education and innovative learning approaches

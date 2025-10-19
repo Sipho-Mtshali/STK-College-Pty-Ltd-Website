@@ -32,7 +32,7 @@ const Results = () => {
       percentage: 87,
       improvement: '+12%',
       teacher: 'Dr. Sarah Johnson',
-      testimonial: 'STK Education helped me improve my mathematics grade significantly. The teachers are excellent!',
+      testimonial: 'STK College helped me improve my mathematics grade significantly. The teachers are excellent!',
       timestamp: '2023-12-15'
     },
     {
@@ -341,7 +341,7 @@ const Results = () => {
         >
           <h2 className="text-2xl font-bold mb-4">Be Our Next Success Story</h2>
           <p className="text-white mb-6 max-w-2xl mx-auto font-medium">
-            Join hundreds of students who have achieved their academic goals with STK Education. 
+            Join hundreds of students who have achieved their academic goals with STK College. 
             Your success story could be next!
           </p>
           <button className="bg-secondary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-200">
