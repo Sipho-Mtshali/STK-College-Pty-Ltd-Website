@@ -75,17 +75,28 @@ const Home = () => {
               className="space-y-8"
             >
               <h1 className="text-4xl md:text-7xl font-bold leading-tight">
-                <span className="flex items-center mb-6">
-                  <div className="w-20 h-20 bg-button-gradient rounded-2xl flex items-center justify-center mr-6 shadow-glow">
-                    <span className="text-2xl font-bold text-primary-900">STK</span>
+                <span className="flex items-center mb-4">
+                  <div className="w-[95px] h-[95px] bg-button-gradient rounded-2xl flex items-center justify-center mr-6 shadow-glow overflow-hidden">
+                    <img src="/images/campus/STKLogo2.png" alt="STK Logo" className="w-full h-full object-cover"/>
                   </div>
-                  <span className="bg-gradient-to-r from-secondary-400 to-white bg-clip-text text-transparent">STK College</span>
+                  <span className="bg-gradient-to-r from-secondary-400 to-white bg-clip-text text-transparent">
+                    STK College
+                  </span>
                 </span>
-                <span className="block text-3xl md:text-5xl mt-4 text-gray-100">
+
+                {/* Centered red slogan */}
+                <span className="block text-lg md:text-2xl text-red-500 text-center mb-6">
+                  Shape the Future With Us
+                </span>
+
+                {/* Slightly smaller main tagline */}
+                <span className="block text-2xl md:text-4xl mt-4 text-gray-100">
                   Upgrade Your High School Subjects & IT Opportunities
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-white leading-relaxed mt-8 max-w-3xl font-medium">
+
+              {/* Smaller descriptive paragraph */}
+              <p className="text-base md:text-lg text-gray-300 leading-relaxed mt-6 max-w-3xl font-medium">
                 Get a second chance to improve your high school results and unlock better opportunities for your future. 
                 We also welcome IT students seeking practical experience.
               </p>

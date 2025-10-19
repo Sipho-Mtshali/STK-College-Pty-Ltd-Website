@@ -120,3 +120,15 @@ p, span, div {
   color: #1a1a1a !important;
   border: 2px solid #2563eb !important;
 }
+/* Footer specific styles to ensure white text */
+footer * {
+  color: white !important;
+}
+
+footer a:hover {
+  color: #93c5fd !important; /* light blue for hover */
+}
+
+footer .text-secondary {
+  color: #93c5fd !important; /* light blue for secondary elements */
+}

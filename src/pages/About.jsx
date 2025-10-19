@@ -147,7 +147,7 @@ const About = () => {
               className="prose prose-lg mx-auto text-gray-600"
             >
               <div className="text-center mb-8">
-                <img src="/Images/STKLogo.png" alt="STK College Logo" className="w-24 h-24 mx-auto mb-4" />
+                <img src="/Images/campus/STKLogo.png" alt="STK College Logo" className="w-30 h-40 mx-auto mb-4" />
               </div>
               
               <p className="text-lg leading-relaxed mb-6">

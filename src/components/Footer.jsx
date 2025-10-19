@@ -46,7 +46,7 @@ const Footer = () => {
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">STK</span>
               </div>
-              <span className="text-xl font-bold">Education</span>
+              <span className="text-xl font-bold text-white">Education</span>
             </div>
             <p className="text-white text-sm leading-relaxed">
               Empowering students through quality education and innovative learning approaches. 
@@ -62,7 +62,7 @@ const Footer = () => {
                     className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-200"
                     aria-label={social.name}
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-4 h-4 text-white" />
                   </a>
                 );
               })}
@@ -71,7 +71,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-white">Quick Links</h3>
             <ul className="space-y-2">
               {quickLinks.slice(0, 4).map((link) => {
                 const Icon = link.icon;
@@ -79,9 +79,9 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="flex items-center space-x-2 text-white hover:text-secondary transition-colors duration-200 text-sm"
+                      className="flex items-center space-x-2 text-white hover:text-blue-300 transition-colors duration-200 text-sm"
                     >
-                      <Icon className="w-4 h-4" />
+                      <Icon className="w-4 h-4 text-white" />
                       <span>{link.name}</span>
                     </Link>
                   </li>
@@ -92,7 +92,7 @@ const Footer = () => {
 
           {/* More Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">More Links</h3>
+            <h3 className="text-lg font-semibold text-white">More Links</h3>
             <ul className="space-y-2">
               {quickLinks.slice(4).map((link) => {
                 const Icon = link.icon;
@@ -100,9 +100,9 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="flex items-center space-x-2 text-white hover:text-secondary transition-colors duration-200 text-sm"
+                      className="flex items-center space-x-2 text-white hover:text-blue-300 transition-colors duration-200 text-sm"
                     >
-                      <Icon className="w-4 h-4" />
+                      <Icon className="w-4 h-4 text-white" />
                       <span>{link.name}</span>
                     </Link>
                   </li>
@@ -113,10 +113,10 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Contact Info</h3>
+            <h3 className="text-lg font-semibold text-white">Contact Info</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
-                <FiMapPin className="w-5 h-5 text-secondary mt-0.5" />
+                <FiMapPin className="w-5 h-5 text-blue-300 mt-0.5" />
                 <div>
                   <p className="text-white text-sm">
                     511 Griffiths Mxenge Hwy<br />
@@ -126,11 +126,11 @@ const Footer = () => {
                 </div>
               </div>
               <div className="flex items-center space-x-3">
-                <FiPhone className="w-5 h-5 text-secondary" />
+                <FiPhone className="w-5 h-5 text-blue-300" />
                 <span className="text-white text-sm">+27 76 362 7488</span>
               </div>
               <div className="flex items-center space-x-3">
-                <FiMail className="w-5 h-5 text-secondary" />
+                <FiMail className="w-5 h-5 text-blue-300" />
                 <span className="text-white text-sm">STKCollege@gmail.com</span>
               </div>
             </div>
@@ -138,19 +138,19 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-800 mt-8 pt-8">
+        <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white text-sm">
               © {currentYear} STK College. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
-              <Link to="/privacy" className="text-white hover:text-secondary transition-colors duration-200">
+              <Link to="/privacy" className="text-white hover:text-blue-300 transition-colors duration-200">
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-white hover:text-secondary transition-colors duration-200">
+              <Link to="/terms" className="text-white hover:text-blue-300 transition-colors duration-200">
                 Terms of Service
               </Link>
-              <Link to="/sitemap" className="text-white hover:text-secondary transition-colors duration-200">
+              <Link to="/sitemap" className="text-white hover:text-blue-300 transition-colors duration-200">
                 Sitemap
               </Link>
             </div>
