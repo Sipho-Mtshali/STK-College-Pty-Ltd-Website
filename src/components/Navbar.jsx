@@ -30,12 +30,13 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
           >
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">STK</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-500 rounded-lg flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/images/campus/STKLogo.png" 
+                  alt="STK College Logo" 
+                  className="w-8 h-8 object-contain"
+                />
               </div>
-              <span className="text-xl font-bold text-white hidden sm:block">
-                Education
-              </span>
             </Link>
           </motion.div>
 

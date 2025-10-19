@@ -127,8 +127,8 @@ const ITRegister = () => {
                     placeholder="Enter your full name"
                   />
                   {errors.fullName && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1" />
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
                       {errors.fullName.message}
                     </p>
                   )}
@@ -167,8 +167,8 @@ const ITRegister = () => {
                     placeholder="Enter your email address"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1" />
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
                       {errors.email.message}
                     </p>
                   )}
@@ -193,8 +193,8 @@ const ITRegister = () => {
                     placeholder="Enter your phone number"
                   />
                   {errors.phone && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1" />
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
                       {errors.phone.message}
                     </p>
                   )}
@@ -230,8 +230,8 @@ const ITRegister = () => {
                     })}
                   </div>
                   {errors.course && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1" />
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
                       {errors.course.message}
                     </p>
                   )}

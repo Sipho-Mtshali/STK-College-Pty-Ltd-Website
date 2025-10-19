@@ -146,8 +146,8 @@ const Contact = () => {
                     placeholder="Enter your full name"
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1" />
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
                       {errors.name.message}
                     </p>
                   )}
@@ -172,8 +172,8 @@ const Contact = () => {
                     placeholder="Enter your email address"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1" />
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
                       {errors.email.message}
                     </p>
                   )}
@@ -198,8 +198,8 @@ const Contact = () => {
                     <option value="other">Other</option>
                   </select>
                   {errors.subject && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1" />
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
                       {errors.subject.message}
                     </p>
                   )}
@@ -221,8 +221,8 @@ const Contact = () => {
                     placeholder="Tell us how we can help you..."
                   ></textarea>
                   {errors.message && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1" />
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
                       {errors.message.message}
                     </p>
                   )}

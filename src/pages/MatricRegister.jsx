@@ -114,8 +114,8 @@ const MatricRegister = () => {
                     placeholder="Enter your full name"
                   />
                   {errors.fullName && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1" />
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
                       {errors.fullName.message}
                     </p>
                   )}
@@ -140,8 +140,8 @@ const MatricRegister = () => {
                     placeholder="Enter your 13-digit ID number"
                   />
                   {errors.idNumber && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1" />
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
                       {errors.idNumber.message}
                     </p>
                   )}
@@ -166,8 +166,8 @@ const MatricRegister = () => {
                     placeholder="Enter your email address"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1" />
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
                       {errors.email.message}
                     </p>
                   )}
@@ -192,8 +192,8 @@ const MatricRegister = () => {
                     placeholder="Enter your phone number"
                   />
                   {errors.phone && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1" />
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
                       {errors.phone.message}
                     </p>
                   )}
@@ -219,8 +219,8 @@ const MatricRegister = () => {
                     ))}
                   </div>
                   {errors.subjects && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1" />
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
                       {errors.subjects.message}
                     </p>
                   )}
