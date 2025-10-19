@@ -337,7 +337,7 @@ const MatricRegister = () => {
               <h3 className="text-xl font-bold mb-4">
                 Need Help?
               </h3>
-              <p className="text-gray-200 mb-4">
+              <p className="text-white mb-4 font-medium">
                 Our team is here to assist you with the registration process.
               </p>
               <div className="space-y-2">

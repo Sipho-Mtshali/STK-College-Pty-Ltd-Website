@@ -168,7 +168,7 @@ const Pricing = () => {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Pricing & Fees
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-800 max-w-3xl mx-auto mb-8 font-medium">
             Affordable education that delivers exceptional value. Choose the plan that works best for your goals.
           </p>
           
@@ -236,7 +236,7 @@ const Pricing = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Matric Upgrade Courses
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-800 max-w-2xl mx-auto font-medium">
               Flexible payment options for matric subject upgrades. All prices include study materials and support.
             </p>
           </div>
@@ -316,7 +316,7 @@ const Pricing = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               IT Professional Courses
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-800 max-w-2xl mx-auto font-medium">
               Comprehensive IT courses designed to launch your career in technology. 
               One-time payment with lifetime access to course materials.
             </p>
@@ -443,7 +443,7 @@ const Pricing = () => {
           <h2 className="text-2xl font-bold mb-4">
             Questions About Pricing?
           </h2>
-          <p className="text-gray-200 mb-6 max-w-2xl mx-auto">
+          <p className="text-white mb-6 max-w-2xl mx-auto font-medium">
             Our team is here to help you choose the right course and payment plan for your needs. 
             Contact us for personalized assistance.
           </p>

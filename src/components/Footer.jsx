@@ -48,7 +48,7 @@ const Footer = () => {
               </div>
               <span className="text-xl font-bold">Education</span>
             </div>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p className="text-white text-sm leading-relaxed">
               Empowering students through quality education and innovative learning approaches. 
               Your success is our mission.
             </p>
@@ -79,7 +79,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="flex items-center space-x-2 text-gray-300 hover:text-secondary transition-colors duration-200 text-sm"
+                      className="flex items-center space-x-2 text-white hover:text-secondary transition-colors duration-200 text-sm"
                     >
                       <Icon className="w-4 h-4" />
                       <span>{link.name}</span>
@@ -100,7 +100,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="flex items-center space-x-2 text-gray-300 hover:text-secondary transition-colors duration-200 text-sm"
+                      className="flex items-center space-x-2 text-white hover:text-secondary transition-colors duration-200 text-sm"
                     >
                       <Icon className="w-4 h-4" />
                       <span>{link.name}</span>
@@ -118,7 +118,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <FiMapPin className="w-5 h-5 text-secondary mt-0.5" />
                 <div>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-white text-sm">
                     511 Griffiths Mxenge Hwy<br />
                     Durban, KwaZulu-Natal<br />
                     South Africa, 4031
@@ -127,11 +127,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <FiPhone className="w-5 h-5 text-secondary" />
-                <span className="text-gray-300 text-sm">+27 76 362 7488</span>
+                <span className="text-white text-sm">+27 76 362 7488</span>
               </div>
               <div className="flex items-center space-x-3">
                 <FiMail className="w-5 h-5 text-secondary" />
-                <span className="text-gray-300 text-sm">STKCollege@gmail.com</span>
+                <span className="text-white text-sm">STKCollege@gmail.com</span>
               </div>
             </div>
           </div>
@@ -140,17 +140,17 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm">
+            <div className="text-white text-sm">
               © {currentYear} STK Education. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
-              <Link to="/privacy" className="text-gray-400 hover:text-secondary transition-colors duration-200">
+              <Link to="/privacy" className="text-white hover:text-secondary transition-colors duration-200">
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-gray-400 hover:text-secondary transition-colors duration-200">
+              <Link to="/terms" className="text-white hover:text-secondary transition-colors duration-200">
                 Terms of Service
               </Link>
-              <Link to="/sitemap" className="text-gray-400 hover:text-secondary transition-colors duration-200">
+              <Link to="/sitemap" className="text-white hover:text-secondary transition-colors duration-200">
                 Sitemap
               </Link>
             </div>

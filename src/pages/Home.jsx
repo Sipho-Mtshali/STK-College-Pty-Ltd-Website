@@ -85,7 +85,7 @@ const Home = () => {
                   Upgrade Your High School Subjects & IT Opportunities
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-100 leading-relaxed mt-8 max-w-3xl">
+              <p className="text-xl md:text-2xl text-white leading-relaxed mt-8 max-w-3xl font-medium">
                 Get a second chance to improve your high school results and unlock better opportunities for your future. 
                 We also welcome IT students seeking practical experience.
               </p>
@@ -178,7 +178,7 @@ const Home = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-primary-800 mb-6">
               Why Choose STK College?
             </h2>
-            <p className="text-xl text-ultra-dark max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-800 max-w-3xl mx-auto leading-relaxed font-medium">
               Our proven process helps students upgrade their results and achieve their academic goals.
             </p>
           </motion.div>
@@ -200,7 +200,7 @@ const Home = () => {
                   <h3 className="text-2xl font-bold text-primary-800 mb-4 group-hover:text-primary-600 transition-colors duration-300">
                     {feature.title}
                   </h3>
-                  <p className="text-ultra-dark leading-relaxed text-lg">
+                  <p className="text-gray-800 leading-relaxed text-lg font-medium">
                     {feature.description}
                   </p>
                 </motion.div>
@@ -222,7 +222,7 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Opportunities for IT Students
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-800 max-w-3xl mx-auto font-medium">
               Join our comprehensive IT training program with hands-on experience and internship opportunities.
             </p>
           </motion.div>
@@ -269,7 +269,7 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold">
               Ready to Start Your Journey?
             </h2>
-            <p className="text-xl text-gray-200 max-w-2xl mx-auto">
+            <p className="text-xl text-white max-w-2xl mx-auto font-medium">
               Join hundreds of successful students who have achieved their goals 
               with STK Education. Your future starts today.
             </p>

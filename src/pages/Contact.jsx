@@ -111,7 +111,7 @@ const Contact = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-primary-800 mb-6">
             Contact Us
           </h1>
-          <p className="text-xl text-ultra-dark max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-800 max-w-3xl mx-auto leading-relaxed font-medium">
             Get in touch with us. We're here to help you with any questions about our courses, 
             admissions, or support services.
           </p>

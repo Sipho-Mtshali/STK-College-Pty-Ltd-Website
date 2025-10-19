@@ -340,7 +340,7 @@ const Results = () => {
           className="mt-16 bg-primary text-white rounded-xl p-8 text-center"
         >
           <h2 className="text-2xl font-bold mb-4">Be Our Next Success Story</h2>
-          <p className="text-gray-200 mb-6 max-w-2xl mx-auto">
+          <p className="text-white mb-6 max-w-2xl mx-auto font-medium">
             Join hundreds of students who have achieved their academic goals with STK Education. 
             Your success story could be next!
           </p>
