@@ -22,8 +22,8 @@ const Navbar = () => {
     { name: 'Home', href: '/', icon: FiBookOpen },
     { name: 'About', href: '/about', icon: FiInfo },
     { name: 'Subjects', href: '/subjects', icon: FiBook }, // New Subjects link
-    { name: 'Matric Registration', href: '/matric-register', icon: FiFileText },
-    { name: 'IT Registration', href: '/it-register', icon: FiUsers },
+    { name: 'Matric Reg', href: '/matric-register', icon: FiFileText },
+    { name: 'IT Reg', href: '/it-register', icon: FiUsers },
     { name: 'Staff', href: '/staff', icon: FiUsers },
     { name: 'Results', href: '/results', icon: FiFileText },
     { name: 'Pricing', href: '/pricing', icon: FiDollarSign },
