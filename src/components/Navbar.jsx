@@ -1,17 +1,10 @@
-// Updated Navbar.jsx
+// Updated Navbar.jsx - Words Only
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   FiMenu, 
   FiX, 
-  FiBookOpen, 
-  FiUsers, 
-  FiFileText, 
-  FiDollarSign, 
-  FiInfo, 
-  FiPhone,
-  FiBook,
   FiChevronDown
 } from 'react-icons/fi';
 
@@ -21,22 +14,21 @@ const Navbar = () => {
   const location = useLocation();
 
   const navigation = [
-    { name: 'Home', href: '/', icon: FiBookOpen },
+    { name: 'Home', href: '/' },
     { 
       name: 'About', 
-      href: '/about', 
-      icon: FiInfo,
+      href: '/about',
       children: [
         { name: 'About Us', href: '/about' },
         { name: 'Our Staff', href: '/staff' }
       ]
     },
-    { name: 'Subjects', href: '/subjects', icon: FiBook },
-    { name: 'Matric Reg', href: '/matric-register', icon: FiFileText },
-    { name: 'IT Reg', href: '/it-register', icon: FiUsers },
-    { name: 'Results', href: '/results', icon: FiFileText },
-    { name: 'Pricing', href: '/pricing', icon: FiDollarSign },
-    { name: 'Contact', href: '/contact', icon: FiPhone },
+    { name: 'Subjects', href: '/subjects' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'Results', href: '/results' },
+    { name: 'Matric Registration', href: '/matric-register' },
+    { name: 'IT Registration', href: '/it-register' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const isAboutActive = location.pathname === '/about' || location.pathname === '/staff';
@@ -53,20 +45,22 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
           >
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-blue-500 rounded-lg flex items-center justify-center overflow-hidden">
+              <div className="flex items-center justify-center overflow-hidden">
                 <img 
-                  src="/images/campus/STKLogo.png" 
+                  src="/images/campus/STKLogo2.png" 
                   alt="STK College Logo" 
-                  className="w-8 h-8 object-contain"
+                  className="w-10 h-10 object-contain"
                 />
+              </div>
+              <div className="text-white font-bold text-lg hidden sm:block">
+                STK College
               </div>
             </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
             {navigation.map((item) => {
-              const Icon = item.icon;
               const isActive = location.pathname === item.href;
               
               if (item.children) {
@@ -74,13 +68,12 @@ const Navbar = () => {
                   <div key={item.name} className="relative">
                     <button
                       onClick={() => setIsAboutOpen(!isAboutOpen)}
-                      className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                      className={`flex items-center space-x-1 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                         isAboutActive
                           ? 'bg-blue-600 text-white shadow-lg'
                           : 'text-gray-300 hover:text-green-400 hover:bg-gray-800'
                       }`}
                     >
-                      <Icon className="w-4 h-4" />
                       <span>{item.name}</span>
                       <FiChevronDown className={`w-4 h-4 transition-transform duration-200 ${isAboutOpen ? 'rotate-180' : ''}`} />
                     </button>
@@ -117,14 +110,13 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                  className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? 'bg-blue-600 text-white shadow-lg'
                       : 'text-gray-300 hover:text-green-400 hover:bg-gray-800'
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
-                  <span>{item.name}</span>
+                  {item.name}
                 </Link>
               );
             })}
@@ -157,15 +149,13 @@ const Navbar = () => {
         >
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navigation.map((item) => {
-              const Icon = item.icon;
               const isActive = location.pathname === item.href;
               
               if (item.children) {
                 return (
                   <div key={item.name} className="space-y-1">
-                    <div className="flex items-center space-x-2 px-3 py-2 text-base font-medium text-gray-300">
-                      <Icon className="w-5 h-5" />
-                      <span>{item.name}</span>
+                    <div className="px-3 py-2 text-base font-medium text-gray-300">
+                      {item.name}
                     </div>
                     <div className="ml-4 space-y-1">
                       {item.children.map((child) => (
@@ -173,13 +163,13 @@ const Navbar = () => {
                           key={child.name}
                           to={child.href}
                           onClick={() => setIsOpen(false)}
-                          className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm transition-all duration-200 ${
+                          className={`block px-3 py-2 rounded-md text-sm transition-all duration-200 ${
                             location.pathname === child.href
                               ? 'bg-blue-600 text-white'
                               : 'text-gray-300 hover:text-green-400 hover:bg-gray-800'
                           }`}
                         >
-                          <span>{child.name}</span>
+                          {child.name}
                         </Link>
                       ))}
                     </div>
@@ -192,14 +182,13 @@ const Navbar = () => {
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
                     isActive
                       ? 'bg-blue-600 text-white shadow-lg'
                       : 'text-gray-300 hover:text-green-400 hover:bg-gray-800'
                   }`}
                 >
-                  <Icon className="w-5 h-5" />
-                  <span>{item.name}</span>
+                  {item.name}
                 </Link>
               );
             })}

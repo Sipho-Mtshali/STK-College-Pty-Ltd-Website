@@ -148,9 +148,7 @@ const About = () => {
               className="text-gray-200 text-lg leading-relaxed space-y-6"
             >
               <div className="text-center mb-8">
-                <div className="card-enhanced inline-block p-6 rounded-2xl">
-                  <img src="/images/campus/STKLogo.png" alt="STK College Logo" className="w-40 h-50 mx-auto" />
-                </div>
+                <img src="/images/campus/STKLogo2.png" alt="STK College Logo" className="w-40 h-40 mx-auto" />
               </div>
               
               <p>

@@ -60,8 +60,8 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-xl flex items-center justify-center">
-                <img src="/images/campus/STKLogo2.png" alt="STK Logo" className="w-10 h-10" />
+              <div className="flex items-center justify-center">
+                <img src="/images/campus/STKLogo2.png" alt="STK Logo" className="w-12 h-12" />
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">STK College</h3>
@@ -145,7 +145,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-300 mb-4 md:mb-0">
-            <p>&copy; {currentYear} STK College. All rights reserved.</p>
+            <p>&copy; {currentYear} STK College (Pty) Ltd. All rights reserved.</p>
           </div>
           
           <div className="flex items-center space-x-6">
