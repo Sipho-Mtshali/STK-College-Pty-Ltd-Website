@@ -65,13 +65,13 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />
+                  <Route path="/staff" element={<Staff />} /> {/* Keep this route */}
                   <Route path="/matric-register" element={<MatricRegister />} />
                   <Route path="/it-register" element={<ITRegister />} />
-                  <Route path="/staff" element={<Staff />} />
                   <Route path="/results" element={<Results />} />
                   <Route path="/pricing" element={<Pricing />} />
                   <Route path="/contact" element={<Contact />} />
-                  <Route path="/subjects" element={<Subjects />} /> {/* Add this route */}
+                  <Route path="/subjects" element={<Subjects />} />
                 </Routes>
               </main>
               
