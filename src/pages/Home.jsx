@@ -76,9 +76,12 @@ const Home = () => {
             >
               <h1 className="text-4xl md:text-7xl font-bold leading-tight">
                 <span className="flex items-center mb-4">
-                  <div className="w-[95px] h-[95px] bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl flex items-center justify-center mr-6 shadow-lg overflow-hidden">
-                    <img src="/images/campus/STKLogo2.png" alt="STK Logo" className="w-full h-full object-cover"/>
-                  </div>
+                  {/* Logo only - no container, no gradient, no card styling */}
+                  <img 
+                    src="/images/campus/STKLogo2.png" 
+                    alt="STK Logo" 
+                    className="w-[95px] h-[95px] mr-6 object-contain"
+                  />
                   <span className="bg-gradient-to-r from-yellow-400 to-white bg-clip-text text-transparent">
                     STK College
                   </span>
@@ -128,6 +131,10 @@ const Home = () => {
                   <h3 className="text-2xl font-semibold text-white">Why Choose STK?</h3>
                   <ul className="space-y-4">
                     {[
+                      'Matric Upgrade classes designed for better results',
+                      'Supportive tutors to help you pass with confidence',
+                      'Hands-on IT training with real-world projects',
+                      'Learn the latest tech skills in demand by employers',
                       'Expert teachers with years of experience',
                       'Small class sizes for personalized attention',
                       'Modern facilities and learning resources',
