@@ -129,7 +129,7 @@ const Staff = () => {
       image: '/images/staff/S.Mtshali.jpeg',
       social: {}
     },
-    {
+        {
       id: '8',
       name: 'STK College AI',
       position: 'Virtual Assistant & IT Tutor',
@@ -141,22 +141,7 @@ const Staff = () => {
       bio: 'STK College AI is an intelligent virtual assistant designed to support students in Matric upgrades, programming, and web development. Available 24/7, it helps learners with Java, HTML, CSS, and JavaScript, while also guiding parents through college services.',
       subjects: ['Matric subject Support', 'Java & Web Tutoring', '24/7 Availability'],
       rating: 4.9,
-      image: '/images/staff/LS Teahcer.jpeg',
-      social: {}
-    },
-        {
-      id: '9',
-      name: 'Mr G Mtshali',
-      position: 'Administrator',
-      department: 'Administration',
-      experience: '5 years',
-      qualifications: 'Business Administration',
-      email: 'gmtshali@stkcollege.com',
-      phone: '+27123456789',
-      bio: 'Keeps everything running smoothly to support school upgrades and academic progress. Dedicated to ensuring students and staff have the resources they need.',
-      subjects: ['School Coordination', 'Administrative Support', 'Educational Management'],
-      rating: 4.7,
-      image: '/images/staff/S.Mtshali.jpeg',
+      image: '/images/staff/AI image.jpeg',
       social: {}
     }
   ];
