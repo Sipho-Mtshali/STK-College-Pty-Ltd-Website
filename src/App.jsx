@@ -19,6 +19,7 @@ import Results from './pages/Results';
 import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
 import Subjects from './pages/Subjects';
+import Testimonials from './pages/Testimonials';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -63,15 +64,16 @@ function App() {
               
               <main className="flex-grow">
                 <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/staff" element={<Staff />} />
-                  <Route path="/matric-register" element={<MatricRegister />} />
-                  <Route path="/it-register" element={<ITRegister />} />
-                  <Route path="/results" element={<Results />} />
-                  <Route path="/pricing" element={<Pricing />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/subjects" element={<Subjects />} />
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<About />} />
+  <Route path="/staff" element={<Staff />} />
+  <Route path="/testimonials" element={<Testimonials />} />
+  <Route path="/matric-register" element={<MatricRegister />} />
+  <Route path="/it-register" element={<ITRegister />} />
+  <Route path="/results" element={<Results />} />
+  <Route path="/pricing" element={<Pricing />} />
+  <Route path="/contact" element={<Contact />} />
+  <Route path="/subjects" element={<Subjects />} />
                 </Routes>
               </main>
               

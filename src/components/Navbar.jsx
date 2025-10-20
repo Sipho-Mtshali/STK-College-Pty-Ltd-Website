@@ -20,7 +20,8 @@ const Navbar = () => {
       href: '/about',
       children: [
         { name: 'About Us', href: '/about' },
-        { name: 'Our Staff', href: '/staff' }
+        { name: 'Our Staff', href: '/staff' },
+        { name: 'Testimonials', href: '/testimonials' }
       ]
     },
     { name: 'Subjects', href: '/subjects' },
@@ -31,7 +32,7 @@ const Navbar = () => {
     { name: 'Contact', href: '/contact' },
   ];
 
-  const isAboutActive = location.pathname === '/about' || location.pathname === '/staff';
+  const isAboutActive = location.pathname === '/about' || location.pathname === '/staff' || location.pathname === '/testimonials';
 
   return (
     <nav className="bg-gray-900 shadow-lg sticky top-0 z-40 border-b border-gray-700">
