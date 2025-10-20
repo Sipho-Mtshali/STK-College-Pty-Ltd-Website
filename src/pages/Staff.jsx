@@ -143,6 +143,21 @@ const Staff = () => {
       rating: 4.9,
       image: '/images/staff/LS Teahcer.jpeg',
       social: {}
+    },
+        {
+      id: '9',
+      name: 'Mr G Mtshali',
+      position: 'Administrator',
+      department: 'Administration',
+      experience: '5 years',
+      qualifications: 'Business Administration',
+      email: 'gmtshali@stkcollege.com',
+      phone: '+27123456789',
+      bio: 'Keeps everything running smoothly to support school upgrades and academic progress. Dedicated to ensuring students and staff have the resources they need.',
+      subjects: ['School Coordination', 'Administrative Support', 'Educational Management'],
+      rating: 4.7,
+      image: '/images/staff/S.Mtshali.jpeg',
+      social: {}
     }
   ];
 
