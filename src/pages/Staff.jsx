@@ -141,7 +141,7 @@ const Staff = () => {
       bio: 'STK College AI is an intelligent virtual assistant designed to support students in Matric upgrades, programming, and web development. Available 24/7, it helps learners with Java, HTML, CSS, and JavaScript, while also guiding parents through college services.',
       subjects: ['Matric subject Support', 'Java & Web Tutoring', '24/7 Availability'],
       rating: 4.9,
-      image: '/images/staff/AI image.jpeg',
+      image: '/images/staff/LS Teahcer.jpeg',
       social: {}
     }
   ];
