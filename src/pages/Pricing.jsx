@@ -305,6 +305,64 @@ const Pricing = () => {
           </div>
         </motion.div>
 
+        {/* Matric Payment Information */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="card-enhanced rounded-xl p-8 mb-12"
+        >
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">
+            How Matric Payment Works
+          </h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-green-400">1</span>
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Step 1: Registration
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  Pay <span className="font-bold text-green-400">R2,000</span> registration fee to secure your spot
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-blue-400">2</span>
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Step 2: Choose Payment
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  Pay remaining <span className="font-bold text-blue-400">R4,700</span> upfront or in monthly installments
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-yellow-400">3</span>
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Step 3: Monthly Payments
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  Pay <span className="font-bold text-yellow-400">R700</span> per month for approximately 7 months
+                </p>
+              </div>
+            </div>
+            
+            <div className="text-center border-t border-gray-700 pt-6">
+              <h3 className="text-xl font-bold text-white mb-2">
+                Total Cost: <span className="text-green-400">R6,700</span>
+              </h3>
+              <p className="text-gray-300">
+                Complete programme with all materials and support included
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
         {/* IT Course Pricing */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -386,48 +444,59 @@ const Pricing = () => {
           </div>
         </motion.div>
 
-        {/* Payment Information */}
+        {/* IT Payment Information */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
           className="card-enhanced rounded-xl p-8 mb-12"
         >
           <h2 className="text-2xl font-bold text-white mb-6 text-center">
-            Payment Information
+            How IT Course Payment Works
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FiDollarSign className="w-8 h-8 text-green-400" />
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-green-400">1</span>
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Step 1: Registration
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  Pay <span className="font-bold text-green-400">R3,000</span> registration fee to secure your spot
+                </p>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">
-                Flexible Payment
-              </h3>
-              <p className="text-gray-300 text-sm">
-                Pay monthly or yearly for matric courses. IT courses offer one-time payment with installment options.
-              </p>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-blue-400">2</span>
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Step 2: Choose Payment Plan
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  Pay full amount upfront or choose monthly installment plan
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-yellow-400">3</span>
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Step 3: Monthly Installments
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  Pay <span className="font-bold text-yellow-400">R1,500-2,500</span> per month based on course duration
+                </p>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FiInfo className="w-8 h-8 text-blue-400" />
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">
-                No Hidden Fees
+            
+            <div className="text-center border-t border-gray-700 pt-6">
+              <h3 className="text-xl font-bold text-white mb-2">
+                Flexible Payment Options Available
               </h3>
-              <p className="text-gray-300 text-sm">
-                All prices include study materials, resources, and support. No additional charges or surprise fees.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FiAward className="w-8 h-8 text-yellow-400" />
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">
-                Money-Back Guarantee
-              </h3>
-              <p className="text-gray-300 text-sm">
-                30-day money-back guarantee if you're not satisfied with the quality of education.
+              <p className="text-gray-300">
+                All IT courses include job placement support and industry certification
               </p>
             </div>
           </div>
@@ -437,7 +506,7 @@ const Pricing = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
           className="card-enhanced rounded-xl p-8 text-center"
         >
           <h2 className="text-2xl font-bold text-white mb-4">

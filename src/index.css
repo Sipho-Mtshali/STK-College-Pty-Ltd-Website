@@ -320,3 +320,12 @@ nav * {
   transform: translateY(-5px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
+/* chatbot */
+.chatbot-container {
+  z-index: 10000 !important;
+}
+
+/* Ensure the chatbot appears above everything */
+.fixed.z-50 {
+  z-index: 10000;
+}

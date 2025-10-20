@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SplashScreen from './components/SplashScreen';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import WhatsAppButton from './components/WhatsAppButton';
+import ChatBot from './components/ChatBot'; // Only ChatBot remains
 
 // Pages
 import Home from './pages/Home';
@@ -18,7 +18,7 @@ import Staff from './pages/Staff';
 import Results from './pages/Results';
 import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
-import Subjects from './pages/Subjects'; // Add this import
+import Subjects from './pages/Subjects';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -65,7 +65,7 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />
-                  <Route path="/staff" element={<Staff />} /> {/* Keep this route */}
+                  <Route path="/staff" element={<Staff />} />
                   <Route path="/matric-register" element={<MatricRegister />} />
                   <Route path="/it-register" element={<ITRegister />} />
                   <Route path="/results" element={<Results />} />
@@ -76,7 +76,7 @@ function App() {
               </main>
               
               <Footer />
-              <WhatsAppButton />
+              <ChatBot /> {/* Only ChatBot remains - no WhatsAppButton */}
             </motion.div>
           )}
         </AnimatePresence>
