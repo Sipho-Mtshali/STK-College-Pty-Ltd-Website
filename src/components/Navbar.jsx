@@ -1,7 +1,18 @@
+// Updated Navbar.jsx
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiMenu, FiX, FiBookOpen, FiUsers, FiFileText, FiDollarSign, FiInfo, FiPhone } from 'react-icons/fi';
+import { 
+  FiMenu, 
+  FiX, 
+  FiBookOpen, 
+  FiUsers, 
+  FiFileText, 
+  FiDollarSign, 
+  FiInfo, 
+  FiPhone,
+  FiBook 
+} from 'react-icons/fi';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +21,7 @@ const Navbar = () => {
   const navigation = [
     { name: 'Home', href: '/', icon: FiBookOpen },
     { name: 'About', href: '/about', icon: FiInfo },
+    { name: 'Subjects', href: '/subjects', icon: FiBook }, // New Subjects link
     { name: 'Matric Registration', href: '/matric-register', icon: FiFileText },
     { name: 'IT Registration', href: '/it-register', icon: FiUsers },
     { name: 'Staff', href: '/staff', icon: FiUsers },

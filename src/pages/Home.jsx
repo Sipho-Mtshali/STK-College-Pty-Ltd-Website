@@ -50,10 +50,10 @@ const Home = () => {
   ];
 
   const stats = [
-    { number: '95%', label: 'Pass Rate' },
-    { number: '500+', label: 'Students' },
-    { number: '15+', label: 'Years Experience' },
-    { number: '50+', label: 'Subjects Offered' }
+    { number: '90%', label: 'Pass Rate' },
+    { number: '400+', label: 'Students' },
+    { number: '2', label: 'Years Experience' },
+    { number: '10+', label: 'Subjects Offered' }
   ];
 
   return (

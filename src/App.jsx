@@ -1,3 +1,4 @@
+// App.jsx
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -17,6 +18,7 @@ import Staff from './pages/Staff';
 import Results from './pages/Results';
 import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
+import Subjects from './pages/Subjects'; // Add this import
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -69,6 +71,7 @@ function App() {
                   <Route path="/results" element={<Results />} />
                   <Route path="/pricing" element={<Pricing />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/subjects" element={<Subjects />} /> {/* Add this route */}
                 </Routes>
               </main>
               

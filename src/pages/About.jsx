@@ -38,17 +38,17 @@ const About = () => {
   const achievements = [
     {
       icon: FiCheckCircle,
-      title: '95% Pass Rate',
-      description: 'Consistently high matric pass rates over the past 5 years'
+      title: '90% Pass Rate',
+      description: 'Consistently high matric pass rates in the past 2 years'
     },
     {
       icon: FiUsers,
-      title: '500+ Students',
+      title: '400+ Students',
       description: 'Successfully graduated students across various programs'
     },
     {
       icon: FiAward,
-      title: '15+ Years',
+      title: '2 Years',
       description: 'Decades of experience in quality education delivery'
     },
     {
