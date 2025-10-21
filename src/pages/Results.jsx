@@ -11,7 +11,8 @@ import {
   FiUser,
   FiBookOpen,
   FiStar,
-  FiDownload
+  FiDownload,
+  FiImage
 } from 'react-icons/fi';
 
 const Results = () => {
@@ -21,79 +22,123 @@ const Results = () => {
   const [selectedYear, setSelectedYear] = useState('all');
   const [selectedSubject, setSelectedSubject] = useState('all');
 
-  // Mock results data
+  // Teacher information mapped to subjects
+  const teachers = {
+    'Mathematics': 'Mr S Mbatha',
+    'Technical Maths': 'Mr S Mbatha',
+    'English Home Language': 'Ms T Nkosi',
+    'Physical Sciences': 'Ms N Ntuli',
+    'Life Sciences': 'Ms N Dlamini',
+    'Computer': 'Mr S Mtshali',
+    'Computer Applications': 'Mr S Mtshali',
+    'Business Studies': 'Ms T Nkosi',
+    'Accounting': 'Ms T Nkosi',
+    'Geography': 'Ms KK Mtshali',
+    'History': 'Ms KK Mtshali',
+    'Agriculture': 'Ms KK Mtshali',
+    'Mathematical Literacy': 'Mr S Mbatha'
+  };
+
+  // Mock results data with actual student names and teacher assignments
   const mockResults = [
     {
       id: '1',
-      studentName: 'John Smith',
+      studentName: 'Thobani Mbatha',
       year: '2023',
       subject: 'Mathematics',
-      grade: 'A',
       percentage: 87,
-      improvement: '+12%',
-      teacher: 'Dr. Sarah Johnson',
-      testimonial: 'STK College helped me improve my mathematics grade significantly. The teachers are excellent!',
-      timestamp: '2023-12-15'
+      teacher: teachers['Mathematics'],
+      testimonial: 'STK College helped me improve my mathematics grade significantly. Mr Mbatha\'s teaching methods made complex concepts easy to understand!',
+      timestamp: '2023-12-15',
+      image: '/images/result/statement2.jpg'
     },
     {
       id: '2',
-      studentName: 'Emily Johnson',
+      studentName: 'Lindokuhle Buthelezi',
       year: '2023',
       subject: 'Physical Sciences',
-      grade: 'A',
       percentage: 92,
-      improvement: '+18%',
-      teacher: 'Ms. Amanda Williams',
-      testimonial: 'The science program at STK is outstanding. I achieved my best results ever!',
-      timestamp: '2023-12-10'
+      teacher: teachers['Physical Sciences'],
+      testimonial: 'The science program at STK is outstanding. Ms Ntuli\'s practical approach helped me achieve my best results ever in physics and chemistry!',
+      timestamp: '2023-12-10',
+      image: '/images/result/statement3.webp'
     },
     {
       id: '3',
-      studentName: 'Michael Brown',
+      studentName: 'Simphiwe Mhembu',
       year: '2023',
       subject: 'English',
-      grade: 'B',
       percentage: 78,
-      improvement: '+8%',
-      teacher: 'Mr. Michael Brown',
-      testimonial: 'Great improvement in my English skills. The personalized approach really helped.',
-      timestamp: '2023-12-08'
+      teacher: teachers['English Home Language'],
+      testimonial: 'Great improvement in my English skills. Ms Nkosi\'s personalized approach really helped me with writing and communication.',
+      timestamp: '2023-12-08',
+      image: '/images/result/statement4.jfif'
     },
     {
       id: '4',
-      studentName: 'Sarah Davis',
+      studentName: 'Mxolisi Mbatha',
       year: '2022',
       subject: 'Business Studies',
-      grade: 'A',
       percentage: 89,
-      improvement: '+15%',
-      teacher: 'Ms. Lisa Garcia',
-      testimonial: 'The business studies course prepared me well for university. Highly recommended!',
-      timestamp: '2022-12-20'
+      teacher: teachers['Business Studies'],
+      testimonial: 'The business studies course prepared me well for university. Ms Nkosi\'s real-world examples made the subject come alive. Highly recommended!',
+      timestamp: '2022-12-20',
+      image: '/images/result/statement5.jfif'
     },
     {
       id: '5',
-      studentName: 'David Wilson',
+      studentName: 'Mzwakhe Mtshali',
       year: '2023',
       subject: 'Computer Applications',
-      grade: 'A',
       percentage: 94,
-      improvement: '+22%',
-      teacher: 'Mr. David Chen',
-      testimonial: 'Excellent IT program. I learned practical skills that are valuable in the workplace.',
-      timestamp: '2023-12-05'
+      teacher: teachers['Computer Applications'],
+      testimonial: 'Excellent IT program. I learned practical programming skills from Mr Mtshali that are valuable in the workplace. The hands-on projects were amazing!',
+      timestamp: '2023-12-05',
+      image: '/images/result/statement6.png'
     },
     {
       id: '6',
-      studentName: 'Lisa Anderson',
+      studentName: 'Ayanda Zulu',
       year: '2022',
       subject: 'Life Sciences',
-      grade: 'B',
       percentage: 81,
-      improvement: '+10%',
-      teacher: 'Ms. Amanda Williams',
-      testimonial: 'The biology course was challenging but very rewarding. Great teaching methods.',
-      timestamp: '2022-12-18'
+      teacher: teachers['Life Sciences'],
+      testimonial: 'The biology course was challenging but very rewarding. Ms Dlamini\'s teaching methods and lab demonstrations made learning enjoyable.',
+      timestamp: '2022-12-18',
+      image: '/images/result/statement7.jfif'
+    },
+    {
+      id: '7',
+      studentName: 'Ntokozo Zuma',
+      year: '2023',
+      subject: 'Technical Maths',
+      percentage: 85,
+      teacher: teachers['Technical Maths'],
+      testimonial: 'Mr Mbatha\'s approach to technical mathematics helped me understand practical applications. The improvement in my problem-solving skills was remarkable!',
+      timestamp: '2023-11-28',
+      image: '/images/result/statement8.jfif'
+    },
+    {
+      id: '8',
+      studentName: 'Sipho Ndlovu',
+      year: '2023',
+      subject: 'Accounting',
+      percentage: 79,
+      teacher: teachers['Accounting'],
+      testimonial: 'Ms Nkosi made accounting principles clear and understandable. The step-by-step guidance helped me master complex financial concepts.',
+      timestamp: '2023-12-12',
+      image: '/images/result/statement9.jfif'
+    },
+    {
+      id: '9',
+      studentName: 'Nomvula Khumalo',
+      year: '2022',
+      subject: 'Geography',
+      percentage: 88,
+      teacher: teachers['Geography'],
+      testimonial: 'Ms Mtshali\'s geography lessons were engaging and informative. The field trips and practical assignments made the subject come alive for me.',
+      timestamp: '2022-11-30',
+      image: '/images/result/statement1.avif'
     }
   ];
 
@@ -128,8 +173,8 @@ const Results = () => {
 
   const stats = {
     totalStudents: results.length,
-    averageImprovement: results.reduce((acc, result) => acc + parseInt(result.improvement), 0) / results.length,
-    topGrade: results.filter(result => result.grade === 'A').length,
+    averagePercentage: results.reduce((acc, result) => acc + result.percentage, 0) / results.length,
+    topPerformers: results.filter(result => result.percentage >= 85).length,
     passRate: 100 // Mock data shows all students passed
   };
 
@@ -180,15 +225,15 @@ const Results = () => {
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
               <FiArrowUp className="w-6 h-6 text-primary" />
             </div>
-            <div className="text-2xl font-bold text-gray-900 mb-2">+{Math.round(stats.averageImprovement)}%</div>
-            <div className="text-gray-600">Average Improvement</div>
+            <div className="text-2xl font-bold text-gray-900 mb-2">{Math.round(stats.averagePercentage)}%</div>
+            <div className="text-gray-600">Average Score</div>
           </div>
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
               <FiAward className="w-6 h-6 text-primary" />
             </div>
-            <div className="text-2xl font-bold text-gray-900 mb-2">{stats.topGrade}</div>
-            <div className="text-gray-600">Grade A Students</div>
+            <div className="text-2xl font-bold text-gray-900 mb-2">{stats.topPerformers}</div>
+            <div className="text-gray-600">Top Performers</div>
           </div>
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
@@ -267,28 +312,38 @@ const Results = () => {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200"
             >
-              {/* Header */}
-              <div className="bg-gradient-to-r from-primary to-blue-600 text-white p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold">{result.studentName}</h3>
-                    <p className="text-blue-200">{result.subject}</p>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold">{result.grade}</div>
-                    <div className="text-sm text-blue-200">{result.percentage}%</div>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-blue-200">Year: {result.year}</span>
-                  <span className="bg-secondary text-primary px-3 py-1 rounded-full text-sm font-semibold">
-                    {result.improvement}
-                  </span>
+              {/* Result Image */}
+              <div className="relative h-48 bg-gray-200 overflow-hidden">
+                {result.image ? (
+                  <img 
+                    src={result.image} 
+                    alt={`${result.studentName}'s result`}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                ) : null}
+                <div 
+                  className={`w-full h-full flex items-center justify-center bg-gray-100 ${result.image ? 'hidden' : 'flex'}`}
+                >
+                  <FiImage className="w-12 h-12 text-gray-400" />
+                  <span className="sr-only">No image available</span>
                 </div>
               </div>
 
               {/* Content */}
               <div className="p-6">
+                <div className="mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{result.studentName}</h3>
+                  <p className="text-primary font-semibold">{result.subject}</p>
+                  <div className="flex items-center justify-between mt-2">
+                    <span className="text-sm text-gray-600">Year: {result.year}</span>
+                    <span className="text-lg font-bold text-gray-900">{result.percentage}%</span>
+                  </div>
+                </div>
+
                 <div className="mb-4">
                   <h4 className="font-semibold text-gray-900 mb-2">Teacher:</h4>
                   <p className="text-gray-600">{result.teacher}</p>
@@ -306,10 +361,16 @@ const Results = () => {
                     Completed: {new Date(result.timestamp).toLocaleDateString()}
                   </span>
                   <div className="flex space-x-2">
-                    <button className="text-primary hover:text-blue-700 transition-colors duration-200">
+                    <button 
+                      className="text-primary hover:text-blue-700 transition-colors duration-200"
+                      title="View Certificate"
+                    >
                       <FiAward className="w-5 h-5" />
                     </button>
-                    <button className="text-primary hover:text-blue-700 transition-colors duration-200">
+                    <button 
+                      className="text-primary hover:text-blue-700 transition-colors duration-200"
+                      title="Download Result"
+                    >
                       <FiDownload className="w-5 h-5" />
                     </button>
                   </div>
