@@ -1,13 +1,13 @@
 // App.jsx
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Components
 import SplashScreen from './components/SplashScreen';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import ChatBot from './components/ChatBot'; // Only ChatBot remains
+import ChatBot from './components/ChatBot';
 
 // Pages
 import Home from './pages/Home';
@@ -20,6 +20,17 @@ import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
 import Subjects from './pages/Subjects';
 import Testimonials from './pages/Testimonials';
+
+// Scroll to top component
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -60,25 +71,26 @@ function App() {
               transition={{ duration: 0.5 }}
               className="flex flex-col min-h-screen"
             >
+              <ScrollToTop />
               <Navbar />
               
               <main className="flex-grow">
                 <Routes>
-  <Route path="/" element={<Home />} />
-  <Route path="/about" element={<About />} />
-  <Route path="/staff" element={<Staff />} />
-  <Route path="/testimonials" element={<Testimonials />} />
-  <Route path="/matric-register" element={<MatricRegister />} />
-  <Route path="/it-register" element={<ITRegister />} />
-  <Route path="/results" element={<Results />} />
-  <Route path="/pricing" element={<Pricing />} />
-  <Route path="/contact" element={<Contact />} />
-  <Route path="/subjects" element={<Subjects />} />
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/staff" element={<Staff />} />
+                  <Route path="/testimonials" element={<Testimonials />} />
+                  <Route path="/matric-register" element={<MatricRegister />} />
+                  <Route path="/it-register" element={<ITRegister />} />
+                  <Route path="/results" element={<Results />} />
+                  <Route path="/pricing" element={<Pricing />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/subjects" element={<Subjects />} />
                 </Routes>
               </main>
               
               <Footer />
-              <ChatBot /> {/* Only ChatBot remains - no WhatsAppButton */}
+              <ChatBot />
             </motion.div>
           )}
         </AnimatePresence>
