@@ -165,7 +165,7 @@ const Subjects = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Our Subjects & Courses
+            Our Subjects & Languages
           </h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
             Comprehensive learning opportunities in both academic subjects and professional IT skills
@@ -211,7 +211,7 @@ const Subjects = () => {
           </div>
         </motion.div>
 
-        {/* Programming Courses Section */}
+        {/* Programming Languages Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -221,7 +221,7 @@ const Subjects = () => {
             <div className="flex items-center justify-center mb-4">
               <FiCode className="w-8 h-8 text-blue-400 mr-3" />
               <h2 className="text-3xl md:text-4xl font-bold text-white">
-                Programming & Development Courses
+                Programming & Development Languages
               </h2>
             </div>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto">

@@ -11,46 +11,92 @@ import {
   FiBookOpen, 
   FiCheckCircle,
   FiAlertCircle,
-  FiSend
+  FiSend,
+  FiHome,
+  FiMapPin,
+  FiUpload,
+  FiDollarSign
 } from 'react-icons/fi';
 
 const MatricRegister = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
   
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
   const subjects = [
+    'English Home Language',
+    'Technical Maths',
+    'Computer',
+    'Agriculture',
+    'Geography',
     'Mathematics',
+    'Mathematical Literacy',
     'Physical Sciences',
     'Life Sciences',
-    'Geography',
     'History',
-    'English',
-    'Afrikaans',
-    'Business Studies',
-    'Economics',
     'Accounting',
-    'Computer Applications Technology',
-    'Engineering Graphics and Design',
-    'Visual Arts',
-    'Music',
-    'Drama',
-    'Tourism',
-    'Hospitality Studies'
+    'Business Studies'
   ];
+
+  const paymentPlans = [
+    {
+      value: 'registration-only',
+      label: 'Registration Fee Only (R2,000)',
+      amount: 2000
+    },
+    {
+      value: 'full-payment',
+      label: 'Full Payment (R6,700)',
+      amount: 6700
+    },
+    {
+      value: 'monthly-installments',
+      label: 'Monthly Installments (R4,700)',
+      amount: 4700
+    }
+  ];
+
+  const currentYear = new Date().getFullYear();
+  const matricYears = Array.from({ length: 20 }, (_, i) => currentYear - i);
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      // Check file type
+      const validTypes = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'];
+      if (!validTypes.includes(file.type)) {
+        alert('Please upload a PDF or image file (JPEG, JPG, PNG)');
+        event.target.value = '';
+        return;
+      }
+      
+      // Check file size (5MB max)
+      if (file.size > 5 * 1024 * 1024) {
+        alert('File size must be less than 5MB');
+        event.target.value = '';
+        return;
+      }
+      
+      setSelectedFile(file);
+    }
+  };
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
-      // Add timestamp
+      // Add timestamp and file info
       const registrationData = {
         ...data,
         registrationType: 'matric',
         timestamp: new Date().toISOString(),
-        status: 'pending'
+        status: 'pending',
+        fileName: selectedFile ? selectedFile.name : null,
+        fileType: selectedFile ? selectedFile.type : null,
+        fileSize: selectedFile ? selectedFile.size : null
       };
 
       // Save to Firebase
@@ -58,6 +104,10 @@ const MatricRegister = () => {
       
       setSubmitStatus('success');
       reset();
+      setSelectedFile(null);
+      // Reset file input
+      const fileInput = document.querySelector('input[type="file"]');
+      if (fileInput) fileInput.value = '';
     } catch (error) {
       console.error('Error submitting registration:', error);
       setSubmitStatus('error');
@@ -199,6 +249,129 @@ const MatricRegister = () => {
                   )}
                 </div>
 
+                {/* Home Address */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                    <FiHome className="inline w-4 h-4 mr-2" />
+                    Home Address *
+                  </label>
+                  <textarea
+                    {...register('homeAddress', { 
+                      required: 'Home address is required',
+                      minLength: { value: 10, message: 'Address must be at least 10 characters' }
+                    })}
+                    rows={3}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                    placeholder="Enter your complete home address"
+                  />
+                  {errors.homeAddress && (
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
+                      {errors.homeAddress.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* Previous School */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                    <FiMapPin className="inline w-4 h-4 mr-2" />
+                    Previous School *
+                  </label>
+                  <input
+                    type="text"
+                    {...register('previousSchool', { 
+                      required: 'Previous school is required'
+                    })}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                    placeholder="Enter the name of your previous school"
+                  />
+                  {errors.previousSchool && (
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
+                      {errors.previousSchool.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* Year Completed Matric */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                    <FiBookOpen className="inline w-4 h-4 mr-2" />
+                    Year Completed Matric *
+                  </label>
+                  <select
+                    {...register('matricYear', { required: 'Please select the year you completed matric' })}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                  >
+                    <option value="">Select Year</option>
+                    {matricYears.map(year => (
+                      <option key={year} value={year}>{year}</option>
+                    ))}
+                  </select>
+                  {errors.matricYear && (
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
+                      {errors.matricYear.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* Payment Plan */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                    <span className="inline-flex items-center">
+                      <span className="mr-1">R</span>
+                    
+                    </span>
+                    Payment Plan *
+                  </label>
+                  <select
+                    {...register('paymentPlan', { required: 'Please select a payment plan' })}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                  >
+                    <option value="">Select Payment Plan</option>
+                    {paymentPlans.map(plan => (
+                      <option key={plan.value} value={plan.value}>
+                        {plan.label}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.paymentPlan && (
+                    <p className="mt-1 text-sm text-red-500 flex items-center">
+                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
+                      {errors.paymentPlan.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* Upload Proof of Payment */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                    <FiUpload className="inline w-4 h-4 mr-2" />
+                    Upload Proof of Payment (PDF/Image) *
+                  </label>
+                  <div className="space-y-3">
+                    <input
+                      type="file"
+                      accept=".pdf,.jpg,.jpeg,.png"
+                      onChange={handleFileChange}
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-green-500 file:text-white hover:file:bg-green-600 transition-all duration-200"
+                    />
+                    {selectedFile && (
+                      <div className="bg-green-500/20 border border-green-500 rounded-lg p-3">
+                        <p className="text-green-400 text-sm">
+                          <strong>Selected file:</strong> {selectedFile.name} 
+                          ({Math.round(selectedFile.size / 1024)} KB)
+                        </p>
+                      </div>
+                    )}
+                    <p className="text-sm text-gray-400">
+                      <strong>Note:</strong> Details only stored. Please share your payslip or proof of payment via WhatsApp or bring it to the office.
+                    </p>
+                  </div>
+                </div>
+
                 {/* Subjects */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
@@ -242,7 +415,7 @@ const MatricRegister = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !selectedFile}
                   className="w-full btn-primary-high-contrast py-4 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
@@ -304,29 +477,29 @@ const MatricRegister = () => {
                 <div className="flex items-start space-x-3">
                   <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-white">Free Registration</h4>
-                    <p className="text-sm text-gray-300">No registration fees required</p>
+                    <h4 className="font-semibold text-white">Registration Fee: R2,000</h4>
+                    <p className="text-sm text-gray-300">One-time payment to secure your spot</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-white">Flexible Schedule</h4>
-                    <p className="text-sm text-gray-300">Choose from various time slots</p>
+                    <h4 className="font-semibold text-white">Full Payment: R6,700</h4>
+                    <p className="text-sm text-gray-300">Complete programme cost</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-white">Expert Teachers</h4>
-                    <p className="text-sm text-gray-300">Experienced educators</p>
+                    <h4 className="font-semibold text-white">Monthly Installments: R4,700</h4>
+                    <p className="text-sm text-gray-300">Flexible payment plan</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
                   <div>
                     <h4 className="font-semibold text-white">Study Materials</h4>
-                    <p className="text-sm text-gray-300">Comprehensive resources provided</p>
+                    <p className="text-sm text-gray-300">All resources included</p>
                   </div>
                 </div>
               </div>
@@ -342,13 +515,19 @@ const MatricRegister = () => {
               </p>
               <div className="space-y-2">
                 <p className="text-sm text-gray-300">
-                  <strong>Phone:</strong> +27 21 123 4567
+                  <strong>Phone:</strong> +27 76 362 7488
                 </p>
                 <p className="text-sm text-gray-300">
-                  <strong>Email:</strong> info@stkeducation.co.za
+                  <strong>Alt Phone:</strong> +27 73 578 7190
+                </p>
+                <p className="text-sm text-gray-300">
+                  <strong>Email:</strong> STKCollege@gmail.com
                 </p>
                 <p className="text-sm text-gray-300">
                   <strong>Hours:</strong> Mon-Fri 8AM-5PM
+                </p>
+                <p className="text-sm text-gray-300">
+                  <strong>Hours:</strong> Sat-Sun 9AM-12PM
                 </p>
               </div>
             </div>

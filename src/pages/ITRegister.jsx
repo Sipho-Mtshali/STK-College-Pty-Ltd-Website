@@ -13,57 +13,191 @@ import {
   FiSend,
   FiCode,
   FiMonitor,
-  FiDatabase
+  FiDatabase,
+  FiAward,
+  FiBriefcase,
+  FiFileText,
+  FiUpload,
+  FiClock,
+  FiPlay,
+  FiTarget,
+  FiAward as FiCertificate
 } from 'react-icons/fi';
 
 const ITRegister = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [selectedFiles, setSelectedFiles] = useState({
+    cv: null,
+    transcript: null,
+    idCopy: null
+  });
   
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
 
-  const courses = [
+  const programType = watch('programType');
+  const isInternship = programType === 'training-internship' || programType === 'internship-only';
+  const isShortCourse = programType === 'short-course';
+
+  const educationLevels = [
+    'Select Education Level',
+    'Matric Certificate',
+    'Diploma',
+    'Bachelor\'s Degree',
+    'Post Graduate',
+    'Other',
+    'No Formal Qualification'
+  ];
+
+  const experienceLevels = [
+    'Select Experience Level',
+    'Beginner (No experience)',
+    'Intermediate (Some programming knowledge)',
+    'Advanced (Experienced programmer)'
+  ];
+
+  const programTypes = [
     {
-      id: 'software-dev',
-      name: 'Software Development',
-      description: 'Full-stack web and mobile application development',
-      icon: FiCode,
-      duration: '12 months'
+      value: 'short-course',
+      label: 'Short Course Only',
+      description: 'Individual IT modules and programming courses'
     },
     {
-      id: 'networking',
-      name: 'Computer Networking',
-      description: 'Network administration and security fundamentals',
-      icon: FiMonitor,
-      duration: '10 months'
+      value: 'in-service training-only',
+      label: 'In-Service Training Program',
+      description: 'Comprehensive IT training without internship'
     },
     {
-      id: 'database',
-      name: 'Database Management',
-      description: 'Database design, administration, and optimization',
-      icon: FiDatabase,
-      duration: '8 months'
+      value: 'in-service training-internship',
+      label: 'In-Service + Internship',
+      description: 'Training followed by internship opportunity'
     },
     {
-      id: 'cybersecurity',
-      name: 'Cybersecurity',
-      description: 'Information security and ethical hacking',
-      icon: FiMonitor,
-      duration: '14 months'
+      value: 'internship-only',
+      label: 'Internship Only',
+      description: 'In-service training for current IT students'
     }
   ];
+
+  const itModules = [
+    {
+      id: 'java',
+      name: 'Java Programming',
+      category: 'Programming'
+    },
+    {
+      id: 'html5',
+      name: 'HTML5',
+      category: 'Web Development'
+    },
+    {
+      id: 'css3',
+      name: 'CSS3 & Styling',
+      category: 'Web Development'
+    },
+    {
+      id: 'javascript',
+      name: 'JavaScript',
+      category: 'Web Development'
+    },
+    {
+      id: 'firebase',
+      name: 'Firebase',
+      category: 'Backend'
+    },
+    {
+      id: 'mysql',
+      name: 'MySQL Database',
+      category: 'Database'
+    },
+    {
+      id: 'python',
+      name: 'Python Programming',
+      category: 'Programming'
+    },
+    {
+      id: 'csharp',
+      name: 'C# Programming',
+      category: 'Programming'
+    },
+    {
+      id: 'aspnet',
+      name: 'ASP.NET MVC',
+      category: 'Web Development'
+    },
+    {
+      id: 'react',
+      name: 'React.js',
+      category: 'Frontend'
+    },
+    {
+      id: 'postgresql',
+      name: 'PostgreSQL Database',
+      category: 'Database'
+    },
+    {
+      id: 'api',
+      name: 'API Development',
+      category: 'Backend'
+    }
+  ];
+
+  const handleFileChange = (field, event) => {
+    const file = event.target.files[0];
+    if (file) {
+      // Check file type
+      const validTypes = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'];
+      if (!validTypes.includes(file.type)) {
+        alert('Please upload a PDF or image file (JPEG, JPG, PNG)');
+        event.target.value = '';
+        return;
+      }
+      
+      // Check file size (5MB max)
+      if (file.size > 5 * 1024 * 1024) {
+        alert('File size must be less than 5MB');
+        event.target.value = '';
+        return;
+      }
+      
+      setSelectedFiles(prev => ({
+        ...prev,
+        [field]: file
+      }));
+    }
+  };
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
-      // Add timestamp
+      // Add timestamp and file info
       const registrationData = {
         ...data,
         registrationType: 'it',
+        programType: data.programType || 'short-course',
+        isInternshipApplication: isInternship,
+        isShortCourse: isShortCourse || !data.programType,
         timestamp: new Date().toISOString(),
-        status: 'pending'
+        status: 'pending',
+        files: {
+          cv: selectedFiles.cv ? {
+            name: selectedFiles.cv.name,
+            type: selectedFiles.cv.type,
+            size: selectedFiles.cv.size
+          } : null,
+          transcript: selectedFiles.transcript ? {
+            name: selectedFiles.transcript.name,
+            type: selectedFiles.transcript.type,
+            size: selectedFiles.transcript.size
+          } : null,
+          idCopy: selectedFiles.idCopy ? {
+            name: selectedFiles.idCopy.name,
+            type: selectedFiles.idCopy.type,
+            size: selectedFiles.idCopy.size
+          } : null
+        }
       };
 
       // Save to Firebase
@@ -71,6 +205,9 @@ const ITRegister = () => {
       
       setSubmitStatus('success');
       reset();
+      setSelectedFiles({ cv: null, transcript: null, idCopy: null });
+      // Reset file inputs
+      document.querySelectorAll('input[type="file"]').forEach(input => input.value = '');
     } catch (error) {
       console.error('Error submitting registration:', error);
       setSubmitStatus('error');
@@ -78,6 +215,10 @@ const ITRegister = () => {
       setIsSubmitting(false);
     }
   };
+
+  const allRequiredFilesUploaded = isInternship 
+    ? selectedFiles.cv && selectedFiles.transcript && selectedFiles.idCopy
+    : true;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 py-12">
@@ -93,7 +234,7 @@ const ITRegister = () => {
             IT Student Registration
           </h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
-            Launch your career in technology with our comprehensive IT courses
+            Choose from individual courses, comprehensive training, or internship programs
           </p>
         </motion.div>
 
@@ -200,42 +341,178 @@ const ITRegister = () => {
                   )}
                 </div>
 
-                {/* Course Selection */}
+                {/* Highest Education Level */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiBookOpen className="inline w-4 h-4 mr-2" />
-                    Select Course *
+                    <FiAward className="inline w-4 h-4 mr-2" />
+                    Highest Education Level
                   </label>
+                  <select
+                    {...register('educationLevel')}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                  >
+                    {educationLevels.map(level => (
+                      <option key={level} value={level}>{level}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Programming Experience Level */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                    <FiCode className="inline w-4 h-4 mr-2" />
+                    Programming Experience Level
+                  </label>
+                  <select
+                    {...register('experienceLevel')}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                  >
+                    {experienceLevels.map(level => (
+                      <option key={level} value={level}>{level}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                    <FiBriefcase className="inline w-4 h-4 mr-2" />
+                    Program Type *
+                  </label>
+                  <p className="text-sm text-gray-400 mb-3">
+                    Select one of the options you want to apply for.
+                  </p>
                   <div className="space-y-3">
-                    {courses.map((course) => {
-                      const Icon = course.icon;
-                      return (
-                        <label key={course.id} className="flex items-start space-x-3 p-4 bg-gray-800 border border-gray-600 rounded-lg hover:bg-gray-700 cursor-pointer transition-all duration-200">
-                          <input
-                            type="radio"
-                            value={course.id}
-                            {...register('course', { required: 'Please select a course' })}
-                            className="w-4 h-4 text-green-500 border-gray-600 bg-gray-700 focus:ring-green-500 mt-1"
-                          />
-                          <div className="flex-1">
-                            <div className="flex items-center space-x-2 mb-1">
-                              <Icon className="w-5 h-5 text-green-400" />
-                              <span className="font-semibold text-white">{course.name}</span>
-                              <span className="text-sm text-gray-400">({course.duration})</span>
-                            </div>
-                            <p className="text-sm text-gray-300">{course.description}</p>
+                    {programTypes.map((program) => (
+                      <label key={program.value} className="flex items-start space-x-3 p-4 bg-gray-800 border border-gray-600 rounded-lg hover:bg-gray-700 cursor-pointer transition-all duration-200">
+                        <input
+                          type="radio"
+                          value={program.value}
+                          {...register('programType')}
+                          className="w-4 h-4 text-green-500 border-gray-600 bg-gray-700 focus:ring-green-500 mt-1"
+                        />
+                        <div className="flex-1">
+                          <div className="flex items-center space-x-2 mb-1">
+                            <span className="font-semibold text-white">{program.label}</span>
                           </div>
-                        </label>
-                      );
-                    })}
+                          <p className="text-sm text-gray-300">{program.description}</p>
+                        </div>
+                      </label>
+                    ))}
                   </div>
-                  {errors.course && (
+                </div>
+
+                {/* IT Modules Selection - Required */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                    <FiCode className="inline w-4 h-4 mr-2" />
+                    Select IT Modules/Courses *
+                  </label>
+                  <p className="text-sm text-gray-400 mb-3">
+                    Choose the programming languages and technologies you want to learn (select at least one)
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-64 overflow-y-auto bg-gray-800 border border-gray-600 rounded-lg p-4">
+                    {itModules.map((module) => (
+                      <label key={module.id} className="flex items-center space-x-3">
+                        <input
+                          type="checkbox"
+                          value={module.id}
+                          {...register('itModules', { required: 'Please select at least one IT module/course' })}
+                          className="w-4 h-4 text-green-500 border-gray-600 bg-gray-700 rounded focus:ring-green-500"
+                        />
+                        <span className="text-sm text-gray-300">{module.name}</span>
+                      </label>
+                    ))}
+                  </div>
+                  {errors.itModules && (
                     <p className="mt-1 text-sm text-red-500 flex items-center">
                       <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
-                      {errors.course.message}
+                      {errors.itModules.message}
                     </p>
                   )}
                 </div>
+
+                {/* Required Documents - Only for Internship */}
+                {isInternship && (
+                  <div>
+                    <label className="block text-sm font-medium text-gray-200 mb-4">
+                      <FiFileText className="inline w-4 h-4 mr-2" />
+                      Required Documents for Internship (PDF or image format) *
+                    </label>
+                    <div className="space-y-4">
+                      {/* CV Upload */}
+                      <div className="space-y-2">
+                        <label className="block text-sm font-medium text-gray-200">
+                          Curriculum Vitae (CV) *
+                        </label>
+                        <input
+                          type="file"
+                          accept=".pdf,.jpg,.jpeg,.png"
+                          onChange={(e) => handleFileChange('cv', e)}
+                          className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-green-500 file:text-white hover:file:bg-green-600 transition-all duration-200"
+                        />
+                        {selectedFiles.cv && (
+                          <div className="bg-green-500/20 border border-green-500 rounded-lg p-3">
+                            <p className="text-green-400 text-sm">
+                              <strong>Selected:</strong> {selectedFiles.cv.name} 
+                              ({Math.round(selectedFiles.cv.size / 1024)} KB)
+                            </p>
+                          </div>
+                        )}
+                        <p className="text-sm text-gray-400">Upload your updated CV/Resume</p>
+                      </div>
+
+                      {/* Academic Transcript Upload */}
+                      <div className="space-y-2">
+                        <label className="block text-sm font-medium text-gray-200">
+                          Academic Transcript *
+                        </label>
+                        <input
+                          type="file"
+                          accept=".pdf,.jpg,.jpeg,.png"
+                          onChange={(e) => handleFileChange('transcript', e)}
+                          className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-green-500 file:text-white hover:file:bg-green-600 transition-all duration-200"
+                        />
+                        {selectedFiles.transcript && (
+                          <div className="bg-green-500/20 border border-green-500 rounded-lg p-3">
+                            <p className="text-green-400 text-sm">
+                              <strong>Selected:</strong> {selectedFiles.transcript.name} 
+                              ({Math.round(selectedFiles.transcript.size / 1024)} KB)
+                            </p>
+                          </div>
+                        )}
+                        <p className="text-sm text-gray-400">Latest academic records/transcript</p>
+                      </div>
+
+                      {/* ID Copy Upload */}
+                      <div className="space-y-2">
+                        <label className="block text-sm font-medium text-gray-200">
+                          ID Copy *
+                        </label>
+                        <input
+                          type="file"
+                          accept=".pdf,.jpg,.jpeg,.png"
+                          onChange={(e) => handleFileChange('idCopy', e)}
+                          className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-green-500 file:text-white hover:file:bg-green-600 transition-all duration-200"
+                        />
+                        {selectedFiles.idCopy && (
+                          <div className="bg-green-500/20 border border-green-500 rounded-lg p-3">
+                            <p className="text-green-400 text-sm">
+                              <strong>Selected:</strong> {selectedFiles.idCopy.name} 
+                              ({Math.round(selectedFiles.idCopy.size / 1024)} KB)
+                            </p>
+                          </div>
+                        )}
+                        <p className="text-sm text-gray-400">Clear copy of your ID document</p>
+                      </div>
+
+                      <div className="bg-blue-500/20 border border-blue-500 rounded-lg p-4">
+                        <p className="text-blue-400 text-sm">
+                          <strong>Important:</strong> Documents can be previewed but will not be uploaded to our servers. 
+                          Please bring physical copies or email them to STKCollege@gmail.com after registration.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 {/* Previous Experience */}
                 <div>
@@ -266,7 +543,7 @@ const ITRegister = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !allRequiredFilesUploaded}
                   className="w-full btn-primary-high-contrast py-4 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
@@ -319,38 +596,91 @@ const ITRegister = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-6"
           >
-            {/* Course Info */}
-            <div className="card-enhanced rounded-xl p-6">
-              <h3 className="text-xl font-bold text-white mb-4">
-                Course Benefits
+            {/* Enhanced Short Course Card */}
+            <div className="card-enhanced rounded-xl p-6 border border-yellow-500/30">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                <FiPlay className="w-5 h-5 text-yellow-400 mr-2" />
+                Short Courses - How It Works
               </h3>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-white">Industry-Relevant Skills</h4>
-                    <p className="text-sm text-gray-300">Learn current technologies and practices</p>
+              
+              {/* Procedure */}
+              <div className="mb-6">
+                <h4 className="font-semibold text-yellow-400 mb-3 flex items-center">
+                  <FiTarget className="w-4 h-4 mr-2" />
+                  Simple 3-Step Process:
+                </h4>
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-black text-sm font-bold">1</span>
+                    </div>
+                    <div>
+                      <p className="text-white font-medium">Select Your Courses</p>
+                      <p className="text-gray-300 text-sm">Choose from 12+ programming languages and technologies</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-black text-sm font-bold">2</span>
+                    </div>
+                    <div>
+                      <p className="text-white font-medium">Register & Start Learning</p>
+                      <p className="text-gray-300 text-sm">Complete this form and begin your training immediately</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-black text-sm font-bold">3</span>
+                    </div>
+                    <div>
+                      <p className="text-white font-medium">Get Certified</p>
+                      <p className="text-gray-300 text-sm">Receive industry-recognized certificates upon completion</p>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-white">Hands-On Learning</h4>
-                    <p className="text-sm text-gray-300">Practical projects and real-world experience</p>
+              </div>
+
+              {/* Benefits */}
+              <div>
+                <h4 className="font-semibold text-yellow-400 mb-3 flex items-center">
+                  <FiCertificate className="w-4 h-4 mr-2" />
+                  Key Benefits:
+                </h4>
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3">
+                    <FiCheckCircle className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-white font-medium">Learn Specific Skills</p>
+                      <p className="text-gray-300 text-sm">Focus only on technologies you need for your career goals</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-white">Certification</h4>
-                    <p className="text-sm text-gray-300">Industry-recognized certificates</p>
+                  <div className="flex items-start space-x-3">
+                    <FiCheckCircle className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-white font-medium">Flexible Schedule</p>
+                      <p className="text-gray-300 text-sm">Study at your own pace with 24/7 access to materials</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-white">Career Support</h4>
-                    <p className="text-sm text-gray-300">Job placement assistance and career guidance</p>
+                  <div className="flex items-start space-x-3">
+                    <FiCheckCircle className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-white font-medium">No Prerequisites</p>
+                      <p className="text-gray-300 text-sm">Start learning immediately without formal qualifications</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <FiCheckCircle className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-white font-medium">Practical Projects</p>
+                      <p className="text-gray-300 text-sm">Build real-world applications and portfolio projects</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <FiCheckCircle className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-white font-medium">Expert Support</p>
+                      <p className="text-gray-300 text-sm">Get guidance from experienced IT professionals</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -362,11 +692,16 @@ const ITRegister = () => {
                 Requirements
               </h3>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li>• Basic computer literacy</li>
-                <li>• Grade 12 certificate (preferred)</li>
                 <li>• Access to a computer</li>
                 <li>• Internet connection</li>
                 <li>• Motivation to learn</li>
+                {isInternship && (
+                  <>
+                    <li>• Updated CV/Resume</li>
+                    <li>• Academic transcripts</li>
+                    <li>• ID document copy</li>
+                  </>
+                )}
               </ul>
             </div>
 
@@ -376,17 +711,23 @@ const ITRegister = () => {
                 Questions?
               </h3>
               <p className="text-gray-200 mb-4 font-medium">
-                Our IT department is here to help you choose the right course.
+                Our IT department is here to help you choose the right program.
               </p>
               <div className="space-y-2">
                 <p className="text-sm text-gray-300">
-                  <strong>Phone:</strong> +27 21 123 4567
+                  <strong>Phone:</strong> +27 76 362 7488
                 </p>
                 <p className="text-sm text-gray-300">
-                  <strong>Email:</strong> it@stkeducation.co.za
+                  <strong>Alt Phone:</strong> +27 73 578 7190
+                </p>
+                <p className="text-sm text-gray-300">
+                  <strong>Email:</strong> STKCollege@gmail.com
                 </p>
                 <p className="text-sm text-gray-300">
                   <strong>Hours:</strong> Mon-Fri 8AM-5PM
+                </p>
+                <p className="text-sm text-gray-300">
+                  <strong>Hours:</strong> Sat-Sun 9AM-12PM
                 </p>
               </div>
             </div>

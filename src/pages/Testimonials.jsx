@@ -111,7 +111,7 @@ const Testimonials = () => {
       color: 'text-yellow-400'
     },
     {
-      number: '200+',
+      number: '105+',
       label: 'Successful Students',
       icon: FiUser,
       color: 'text-blue-400'

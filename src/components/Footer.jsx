@@ -28,14 +28,14 @@ const Footer = () => {
 
   const programs = [
     { name: 'Matric Upgrades', path: '/matric-register' },
-    { name: 'IT Training', path: '/it-register' },
+    { name: 'IT Short course', path: '/it-register' },
     { name: 'Internships', path: '/it-register' },
     { name: 'In-Service Training', path: '/it-register' }
   ];
 
   const contactInfo = [
     { icon: FiPhone, text: '+27 76 362 7488' },
-    { icon: FiPhone, text: '+27 71 578 7280' },
+    { icon: FiPhone, text: '+27 73 578 7190' },
     { icon: FiMail, text: 'STKCollege@gmail.com' },
     { icon: FiMapPin, text: '511 Griffiths Mxenge Hwy, Durban, 4031' }
   ];

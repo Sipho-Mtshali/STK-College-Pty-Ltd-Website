@@ -43,7 +43,7 @@ const About = () => {
     },
     {
       icon: FiUsers,
-      title: '400+ Students',
+      title: '60+ Students',
       description: 'Successfully graduated students across various programs'
     },
     {

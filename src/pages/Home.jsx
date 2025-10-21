@@ -51,8 +51,8 @@ const Home = () => {
 
   const stats = [
     { number: '90%', label: 'Pass Rate' },
-    { number: '400+', label: 'Students' },
-    { number: '2', label: 'Years Experience' },
+    { number: '150+', label: 'Students' },
+    { number: '2', label: 'Year Experience' },
     { number: '10+', label: 'Subjects Offered' }
   ];
 
