@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../firebase/config';
+import { registrationService } from '../firebase/firestoreService';
 import { 
   FiUser, 
   FiMail, 
@@ -12,13 +11,10 @@ import {
   FiAlertCircle,
   FiSend,
   FiCode,
-  FiMonitor,
-  FiDatabase,
   FiAward,
   FiBriefcase,
   FiFileText,
   FiUpload,
-  FiClock,
   FiPlay,
   FiTarget,
   FiAward as FiCertificate
@@ -36,7 +32,7 @@ const ITRegister = () => {
   const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
 
   const programType = watch('programType');
-  const isInternship = programType === 'training-internship' || programType === 'internship-only';
+  const isInternship = programType === 'in-service training-internship' || programType === 'internship-only';
   const isShortCourse = programType === 'short-course';
 
   const educationLevels = [
@@ -172,7 +168,7 @@ const ITRegister = () => {
     setSubmitStatus(null);
 
     try {
-      // Add timestamp and file info
+      // Prepare registration data
       const registrationData = {
         ...data,
         registrationType: 'it',
@@ -181,6 +177,8 @@ const ITRegister = () => {
         isShortCourse: isShortCourse || !data.programType,
         timestamp: new Date().toISOString(),
         status: 'pending',
+        // Convert modules array to string for better querying
+        selectedModules: Array.isArray(data.itModules) ? data.itModules : [data.itModules],
         files: {
           cv: selectedFiles.cv ? {
             name: selectedFiles.cv.name,
@@ -200,14 +198,18 @@ const ITRegister = () => {
         }
       };
 
-      // Save to Firebase
-      await addDoc(collection(db, 'registrations'), registrationData);
+      // Save to Firebase using the service
+      const result = await registrationService.createRegistration(registrationData);
       
-      setSubmitStatus('success');
-      reset();
-      setSelectedFiles({ cv: null, transcript: null, idCopy: null });
-      // Reset file inputs
-      document.querySelectorAll('input[type="file"]').forEach(input => input.value = '');
+      if (result.success) {
+        setSubmitStatus('success');
+        reset();
+        setSelectedFiles({ cv: null, transcript: null, idCopy: null });
+        // Reset file inputs
+        document.querySelectorAll('input[type="file"]').forEach(input => input.value = '');
+      } else {
+        throw new Error(result.error);
+      }
     } catch (error) {
       console.error('Error submitting registration:', error);
       setSubmitStatus('error');
@@ -372,6 +374,8 @@ const ITRegister = () => {
                     ))}
                   </select>
                 </div>
+
+                {/* Program Type */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
                     <FiBriefcase className="inline w-4 h-4 mr-2" />
@@ -543,7 +547,7 @@ const ITRegister = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting || !allRequiredFilesUploaded}
+                  disabled={isSubmitting || (isInternship && !allRequiredFilesUploaded)}
                   className="w-full btn-primary-high-contrast py-4 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (

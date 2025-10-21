@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../firebase/config';
+import { registrationService } from '../firebase/firestoreService';
 import { 
   FiUser, 
   FiMail, 
-  FiPhone, 
-  FiCreditCard, 
+  FiPhone,  
   FiBookOpen, 
   FiCheckCircle,
   FiAlertCircle,
@@ -88,26 +86,34 @@ const MatricRegister = () => {
     setSubmitStatus(null);
 
     try {
-      // Add timestamp and file info
+      // Prepare registration data
       const registrationData = {
         ...data,
         registrationType: 'matric',
+        programType: 'matric-upgrade',
         timestamp: new Date().toISOString(),
         status: 'pending',
         fileName: selectedFile ? selectedFile.name : null,
         fileType: selectedFile ? selectedFile.type : null,
-        fileSize: selectedFile ? selectedFile.size : null
+        fileSize: selectedFile ? selectedFile.size : null,
+        // Convert subjects array to string for better querying
+        selectedSubjects: Array.isArray(data.subjects) ? data.subjects : [data.subjects],
+        paymentAmount: paymentPlans.find(plan => plan.value === data.paymentPlan)?.amount || 0
       };
 
-      // Save to Firebase
-      await addDoc(collection(db, 'registrations'), registrationData);
+      // Save to Firebase using the service
+      const result = await registrationService.createRegistration(registrationData);
       
-      setSubmitStatus('success');
-      reset();
-      setSelectedFile(null);
-      // Reset file input
-      const fileInput = document.querySelector('input[type="file"]');
-      if (fileInput) fileInput.value = '';
+      if (result.success) {
+        setSubmitStatus('success');
+        reset();
+        setSelectedFile(null);
+        // Reset file input
+        const fileInput = document.querySelector('input[type="file"]');
+        if (fileInput) fileInput.value = '';
+      } else {
+        throw new Error(result.error);
+      }
     } catch (error) {
       console.error('Error submitting registration:', error);
       setSubmitStatus('error');
@@ -174,7 +180,7 @@ const MatricRegister = () => {
                 {/* ID Number */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiCreditCard className="inline w-4 h-4 mr-2" />
+                    <FiUser className="inline w-4 h-4 mr-2" />
                     ID Number *
                   </label>
                   <input
@@ -320,10 +326,7 @@ const MatricRegister = () => {
                 {/* Payment Plan */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <span className="inline-flex items-center">
-                      <span className="mr-1">R</span>
-                    
-                    </span>
+                    <FiDollarSign className="inline w-4 h-4 mr-2" />
                     Payment Plan *
                   </label>
                   <select

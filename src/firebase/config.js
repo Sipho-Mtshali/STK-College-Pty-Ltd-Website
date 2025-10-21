@@ -1,15 +1,15 @@
+// src/firebase/config.js
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  // You'll need to add your Firebase configuration here
-  // This is a placeholder - replace with your actual Firebase config
-  apiKey: "your-api-key",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project-id",
-  storageBucket: "your-project.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "your-app-id"
+  apiKey: "AIzaSyDXnoAm-oeWjJXh53s1FIzDwieUGmENrn8",
+  authDomain: "stkcollegewebsite.firebaseapp.com",
+  projectId: "stkcollegewebsite",
+  storageBucket: "stkcollegewebsite.firebasestorage.app",
+  messagingSenderId: "380223302555",
+  appId: "1:380223302555:web:488699e877bc9e8fcf0f3e",
+  measurementId: "G-Q046V9TX39"
 };
 
 // Initialize Firebase

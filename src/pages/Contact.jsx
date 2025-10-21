@@ -1,8 +1,8 @@
+// src/pages/Contact.jsx
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../firebase/config';
+import { contactService } from '../firebase/firestoreService';
 import { 
   FiMapPin, 
   FiPhone, 
@@ -31,18 +31,18 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      // Add timestamp
-      const contactData = {
+      // Save to Firebase using the service
+      const result = await contactService.createContact({
         ...data,
         timestamp: new Date().toISOString(),
-        status: 'unread'
-      };
-
-      // Save to Firebase
-      await addDoc(collection(db, 'contacts'), contactData);
+      });
       
-      setSubmitStatus('success');
-      reset();
+      if (result.success) {
+        setSubmitStatus('success');
+        reset();
+      } else {
+        throw new Error(result.error);
+      }
     } catch (error) {
       console.error('Error submitting contact form:', error);
       setSubmitStatus('error');
@@ -58,7 +58,7 @@ const Contact = () => {
       details: [
         'Call us for immediate assistance',
         '+27 76 362 7488',
-        '+27 71 578 7280'
+        '+27 73 578 7190'
       ]
     },
     {
@@ -179,6 +179,20 @@ const Contact = () => {
                   )}
                 </div>
 
+                {/* Phone */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-200 mb-2">
+                    <FiPhone className="inline w-4 h-4 mr-2" />
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    {...register('phone')}
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                    placeholder="Enter your phone number (optional)"
+                  />
+                </div>
+
                 {/* Subject */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
@@ -255,7 +269,7 @@ const Contact = () => {
                     className="flex items-center p-4 bg-green-500/20 border border-green-500 rounded-lg text-green-400"
                   >
                     <FiCheckCircle className="w-5 h-5 mr-2" />
-                    Thank you! Your message has been sent successfully.
+                    Thank you! Your message has been sent successfully. We'll get back to you soon.
                   </motion.div>
                 )}
 
@@ -266,7 +280,7 @@ const Contact = () => {
                     className="flex items-center p-4 bg-red-500/20 border border-red-500 rounded-lg text-red-400"
                   >
                     <FiAlertCircle className="w-5 h-5 mr-2" />
-                    Sorry, there was an error sending your message. Please try again.
+                    Sorry, there was an error sending your message. Please try again or contact us directly.
                   </motion.div>
                 )}
               </form>
@@ -290,7 +304,7 @@ const Contact = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 + index * 0.1 }}
-                    className="card-enhanced p-6 rounded-xl"
+                    className="card-enhanced p-6 rounded-xl hover-lift"
                   >
                     <div className="flex items-start space-x-4">
                       <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -303,7 +317,7 @@ const Contact = () => {
                         {item.details.map((detail, idx) => (
                           <p
                             key={idx}
-                            className={`text-gray-200 ${idx === 0 ? 'text-sm opacity-75' : ''}`}
+                            className={`text-gray-200 ${idx === 0 ? 'text-sm opacity-75 mb-1' : ''} ${idx > 0 ? 'font-medium' : ''}`}
                           >
                             {detail}
                           </p>
@@ -320,11 +334,14 @@ const Contact = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
-              className="card-enhanced p-6 rounded-xl"
+              className="card-enhanced p-6 rounded-xl hover-lift"
             >
               <h3 className="text-lg font-semibold text-white mb-4">
                 Follow Us
               </h3>
+              <p className="text-gray-200 mb-4">
+                Stay connected with STK College for the latest updates, news, and announcements.
+              </p>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => {
                   const Icon = social.icon;
@@ -332,8 +349,10 @@ const Contact = () => {
                     <a
                       key={index}
                       href={social.href}
-                      className={`w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 transition-all duration-200 hover:bg-gray-700 ${social.color} transform hover:scale-110`}
+                      className={`w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 transition-all duration-200 hover:bg-gray-700 ${social.color} transform hover:scale-110 border border-gray-700`}
                       aria-label={social.name}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <Icon className="w-5 h-5" />
                     </a>
@@ -342,17 +361,56 @@ const Contact = () => {
               </div>
             </motion.div>
 
+            {/* Quick Response Info */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.1 }}
+              className="card-enhanced p-6 rounded-xl border border-blue-500/30 hover-lift"
+            >
+              <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
+                <FiClock className="w-5 h-5 text-blue-400 mr-2" />
+                Quick Response Guarantee
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-start space-x-3">
+                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-white font-medium">Response within 24 hours</p>
+                    <p className="text-gray-300 text-sm">We guarantee to respond to all inquiries within one business day</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-white font-medium">Expert Assistance</p>
+                    <p className="text-gray-300 text-sm">Get answers from our experienced academic advisors</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-white font-medium">Multiple Contact Options</p>
+                    <p className="text-gray-300 text-sm">Choose your preferred method of communication</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
             {/* Map */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2 }}
-              className="card-enhanced p-6 rounded-xl"
+              className="card-enhanced p-6 rounded-xl hover-lift"
             >
               <h3 className="text-lg font-semibold text-white mb-4">
                 Visit Our Campus
               </h3>
-              <div className="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg overflow-hidden">
+              <p className="text-gray-200 mb-4">
+                Come visit us at our campus in Durban. We'd love to show you around and discuss your educational goals.
+              </p>
+              <div className="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg overflow-hidden border border-gray-600">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.789012345678!2d31.000000000000004!3d-29.000000000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDAwJzAwLjAiUyAzMcKwMDAnMDAuMCJF!5e0!3m2!1sen!2sza!4v1234567890123!5m2!1sen!2sza"
                   width="100%"
@@ -362,11 +420,56 @@ const Contact = () => {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="STK College Location"
+                  className="w-full h-64"
                 ></iframe>
+              </div>
+              <div className="mt-4 p-4 bg-gray-800 rounded-lg border border-gray-700">
+                <h4 className="text-white font-semibold mb-2">Campus Visit Hours</h4>
+                <div className="text-sm text-gray-300 space-y-1">
+                  <p><strong>Weekdays:</strong> 8:00 AM - 5:00 PM</p>
+                  <p><strong>Weekends:</strong> 9:00 AM - 12:00 PM</p>
+                  <p><strong>Holidays:</strong> Please call ahead to confirm</p>
+                </div>
               </div>
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Emergency Contact Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4 }}
+          className="mt-16 card-enhanced rounded-2xl p-8 border border-yellow-500/30"
+        >
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-white mb-4 flex items-center justify-center">
+              <FiPhone className="w-6 h-6 text-yellow-400 mr-2" />
+              Need Immediate Assistance?
+            </h2>
+            <p className="text-gray-200 mb-6 max-w-2xl mx-auto">
+              For urgent inquiries or immediate support, call our direct line. We're here to help you with any pressing questions about admissions, courses, or support.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="tel:+27763627488"
+                className="btn-secondary-high-contrast px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 flex items-center hover:scale-105"
+              >
+                <FiPhone className="w-5 h-5 mr-2" />
+                Call Now: +27 76 362 7488
+              </a>
+              <a
+                href="https://wa.me/27763627488"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 flex items-center hover:scale-105"
+              >
+                <FiMessageCircle className="w-5 h-5 mr-2" />
+                WhatsApp Us
+              </a>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
