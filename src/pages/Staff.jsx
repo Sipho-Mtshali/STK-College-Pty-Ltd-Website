@@ -62,7 +62,6 @@ const Staff = () => {
       experience: '1.5 years',
       qualifications: 'Administrative Support, Educational Management',
       email: 'sanele.mtshali@STKCollege.com',
-      phone: '+27823453050',
       bio: 'Keeps everything running smoothly to support school upgrades and academic progress.',
       subjects: ['School Coordination', 'Administrative Support', 'Educational Management'],
       rating: 4.7,
@@ -77,7 +76,6 @@ const Staff = () => {
       experience: '5+ years',
       qualifications: 'Biology Education, Classroom Management',
       email: 'sanele.mtshali@STKCollege.com',
-      phone: '+27673059721',
       bio: 'Passionate Life Science educator dedicated to inspiring learners through engaging lessons on biology, the environment, and the human body. Committed to academic excellence and learner growth.',
       subjects: ['Biology Education', 'Classroom Management', 'Student Mentoring', 'Science Communication'],
       rating: 4.8,
@@ -92,7 +90,6 @@ const Staff = () => {
       experience: '2+ years',
       qualifications: 'Mathematics Education, Community Engagement',
       email: 'smbatha@STKCollege.com',
-      phone: '+27823056289',
       bio: 'Eager to contribute fresh ideas to enhance school facilities and student experiences.',
       subjects: ['Community Engagement', 'Project Assistance', 'School Support'],
       rating: 4.6,
@@ -107,7 +104,6 @@ const Staff = () => {
       experience: '4+ years',
       qualifications: 'Physics & Chemistry Instruction, Laboratory Experimentation',
       email: 'sanele.ntuli@STKCollege.com',
-      phone: '+27723556788',
       bio: 'Dedicated Physical Science teacher passionate about helping students understand the principles of physics and chemistry. Focused on creating hands-on experiments, fostering analytical thinking, and promoting scientific curiosity in the classroom.',
       subjects: ['Physics & Chemistry Instruction', 'Laboratory Experimentation', 'Problem-Solving Skills'],
       rating: 4.7,
@@ -122,7 +118,6 @@ const Staff = () => {
       experience: '2 years',
       qualifications: 'Office Technology, Educational Support',
       email: 'smmkhwanazi@stkcollege.com',
-      phone: '+27611344045',
       bio: 'Keeps everything running smoothly to support school upgrades and academic progress. Dedicated to ensuring students and staff have the resources they need.',
       subjects: ['School Coordination', 'Administrative Support', 'Educational Management'],
       rating: 4.7,
@@ -314,10 +309,12 @@ const Staff = () => {
                     ))}
                   </div>
                 </div>
-
-                <button className="w-full btn-primary-high-contrast py-3 px-4 rounded-lg font-semibold transition-all duration-200">
+                <a 
+                  href={`mailto:${member.email}`}
+                  className="w-full btn-primary-high-contrast py-3 px-4 rounded-lg font-semibold transition-all duration-200 block text-center hover:no-underline"
+                >
                   Contact {member.name.split(' ')[0]}
-                </button>
+                </a>
               </div>
             </motion.div>
           ))}

@@ -2,8 +2,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiAward, FiCode } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 
 const Subjects = () => {
+  const navigate = useNavigate();
+
+  const handleMatricRegistration = () => {
+    navigate('/matric-register');
+  };
+
+  const handleITRegistration = () => {
+    navigate('/it-register');
+  };
+
+  const handleEnrollNow = () => {
+    navigate('/it-register');
+  };
+
   const matricSubjects = [
     {
       icon: 'fas fa-language',
@@ -264,7 +279,10 @@ const Subjects = () => {
                   ))}
                 </div>
                 
-                <button className="w-full mt-4 btn-primary-high-contrast py-3 px-4 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105">
+                <button 
+                  onClick={handleEnrollNow}
+                  className="w-full mt-4 btn-primary-high-contrast py-3 px-4 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105"
+                >
                   Enroll Now
                 </button>
               </motion.div>
@@ -287,10 +305,16 @@ const Subjects = () => {
             we have the perfect learning path for you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-secondary-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105">
+            <button 
+              onClick={handleMatricRegistration}
+              className="btn-secondary-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105"
+            >
               Matric Registration
             </button>
-            <button className="btn-blue-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105">
+            <button 
+              onClick={handleITRegistration}
+              className="btn-blue-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105"
+            >
               IT Course Registration
             </button>
           </div>
