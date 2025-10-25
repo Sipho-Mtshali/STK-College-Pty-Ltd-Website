@@ -92,7 +92,7 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { name: 'Facebook', href: '#', icon: FiFacebook, color: 'hover:text-blue-400' },
+    { name: 'Facebook', href: 'https://www.facebook.com/share/1CCmHaTpaj/?mibextid=wwXIfr', icon: FiFacebook, color: 'hover:text-blue-400' },
     { name: 'Twitter', href: '#', icon: FiTwitter, color: 'hover:text-blue-300' },
     { name: 'Instagram', href: '#', icon: FiInstagram, color: 'hover:text-pink-400' },
     { name: 'LinkedIn', href: '#', icon: FiLinkedin, color: 'hover:text-blue-400' }
@@ -349,7 +349,7 @@ const Contact = () => {
                     <a
                       key={index}
                       href={social.href}
-                      className={`w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 transition-all duration-200 hover:bg-gray-700 ${social.color} transform hover:scale-110 border border-gray-700`}
+                      className={`w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 transition-all duration-200 hover:bg-gray-700 ${social.color} transform hover:scale-110 border border-gray-700 ${social.name !== 'Facebook' ? 'pointer-events-none opacity-50' : ''}`}
                       aria-label={social.name}
                       target="_blank"
                       rel="noopener noreferrer"

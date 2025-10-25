@@ -41,7 +41,7 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: FiFacebook, href: '#', name: 'Facebook' },
+    { icon: FiFacebook, href: 'https://www.facebook.com/share/1CCmHaTpaj/?mibextid=wwXIfr', name: 'Facebook' },
     { icon: FiTwitter, href: '#', name: 'Twitter' },
     { icon: FiInstagram, href: '#', name: 'Instagram' },
     { icon: FiLinkedin, href: '#', name: 'LinkedIn' }
@@ -79,8 +79,10 @@ const Footer = () => {
                   <a
                     key={index}
                     href={social.href}
-                    className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 hover:bg-green-500 hover:text-white transition-all duration-200 transform hover:scale-110 border border-gray-700"
+                    className={`w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 hover:bg-green-500 hover:text-white transition-all duration-200 transform hover:scale-110 border border-gray-700 ${social.name !== 'Facebook' ? 'pointer-events-none opacity-50' : ''}`}
                     aria-label={social.name}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Icon className="w-5 h-5" />
                   </a>
