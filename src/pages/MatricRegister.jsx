@@ -524,7 +524,7 @@ const MatricRegister = () => {
                   <strong>Alt Phone:</strong> +27 73 578 7190
                 </p>
                 <p className="text-sm text-gray-300">
-                  <strong>Email:</strong> STKCollege@gmail.com
+                  <strong>Email:</strong> stkcollege@gmail.com
                 </p>
                 <p className="text-sm text-gray-300">
                   <strong>Hours:</strong> Mon-Fri 8AM-5PM

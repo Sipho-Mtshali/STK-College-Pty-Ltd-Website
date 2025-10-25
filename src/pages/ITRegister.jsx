@@ -511,7 +511,7 @@ const ITRegister = () => {
                       <div className="bg-blue-500/20 border border-blue-500 rounded-lg p-4">
                         <p className="text-blue-400 text-sm">
                           <strong>Important:</strong> Documents can be previewed but will not be uploaded to our servers. 
-                          Please bring physical copies or email them to STKCollege@gmail.com after registration.
+                          Please bring physical copies or email them to stkcollege@gmail.com after registration.
                         </p>
                       </div>
                     </div>
@@ -725,7 +725,7 @@ const ITRegister = () => {
                   <strong>Alt Phone:</strong> +27 73 578 7190
                 </p>
                 <p className="text-sm text-gray-300">
-                  <strong>Email:</strong> STKCollege@gmail.com
+                  <strong>Email:</strong> stkcollege@gmail.com
                 </p>
                 <p className="text-sm text-gray-300">
                   <strong>Hours:</strong> Mon-Fri 8AM-5PM

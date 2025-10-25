@@ -72,7 +72,7 @@ Contact finance for options.`,
     'contact': `📞 Contact STK College
 
 Phone: +27 76 362 7488
-Email: STKCollege@gmail.com
+Email: stkcollege@gmail.com
 Location: Durban, 4031
 
 Visit campus for a tour!`,

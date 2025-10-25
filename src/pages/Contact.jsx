@@ -66,7 +66,7 @@ const Contact = () => {
       title: 'Email',
       details: [
         'Send us your questions',
-        'STKCollege@gmail.com'
+        'stkcollege@gmail.com'
       ]
     },
     {

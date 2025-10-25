@@ -36,7 +36,7 @@ const Footer = () => {
   const contactInfo = [
     { icon: FiPhone, text: '+27 76 362 7488' },
     { icon: FiPhone, text: '+27 73 578 7190' },
-    { icon: FiMail, text: 'STKCollege@gmail.com' },
+    { icon: FiMail, text: 'stkcollege@gmail.com' },
     { icon: FiMapPin, text: '511 Griffiths Mxenge Hwy, Durban, 4031' }
   ];
 
