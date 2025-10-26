@@ -35,28 +35,13 @@ const About = () => {
     }
   ];
 
-  const achievements = [
-    {
-      icon: FiCheckCircle,
-      title: '90% Pass Rate',
-      description: 'Consistently high matric pass rates in the past 2 years'
-    },
-    {
-      icon: FiUsers,
-      title: '60+ Students',
-      description: 'Successfully graduated students across various programs'
-    },
-    {
-      icon: FiAward,
-      title: '2 Years',
-      description: 'Decades of experience in quality education delivery'
-    },
-    {
-      icon: FiArrowUp,
-      title: 'Growing Impact',
-      description: 'Expanding our reach and improving student outcomes yearly'
-    }
-  ];
+const achievements = [
+  { icon: FiCheckCircle, title: '- Pass Rate', description: 'Our programs are designed to help students achieve high pass rates.' },
+  { icon: FiUsers, title: '- Students', description: 'We aim to guide students toward better results and skills.' },
+  { icon: FiAward, title: '- Years', description: 'Founded recently with a strong focus on quality education.' },
+  { icon: FiArrowUp, title: 'Growing Impact', description: 'We are expanding our reach and preparing to positively impact more students.' }
+];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900">
@@ -122,7 +107,7 @@ const About = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Our Story */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -136,7 +121,9 @@ const About = () => {
               Our Story
             </h2>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
-              Founded with a passion for education and a commitment to student success
+              Founded with a passion for education and a commitment to student success, STK College is preparing to officially launch. 
+              Our focus is on providing mentorship, guidance, and practical opportunities to help students upgrade their high school results 
+              and gain valuable IT experience.
             </p>
           </motion.div>
 
@@ -152,15 +139,15 @@ const About = () => {
               </div>
               
               <p>
-                STK College is a specialized educational institution dedicated to helping students upgrade their high school subjects while also providing valuable opportunities for IT students seeking practical experience.
+                STK College is a specialized educational initiative dedicated to helping students improve their high school subjects while also providing practical experience for IT students.
               </p>
               
               <p>
-                Our experienced educators work with students to improve their understanding and performance in key subjects like English, Technical Maths, Mathematics, Physics, Life Sciences, Computer, Agriculture, Geography, History, Accounting, Business Studies, and Mathematical Literacy.
+                Our educators and mentors work closely with students to enhance their understanding and performance in key subjects such as English, Technical Maths, Mathematics, Physics, Life Sciences, Computer, Agriculture, Geography, History, Accounting, Business Studies, and Mathematical Literacy.
               </p>
               
               <p>
-                We also offer in-service training and internship opportunities for IT students, providing real-world experience in educational technology, web development, and systems administration.
+                We are currently preparing programs for in-service training and internships for IT students, providing hands-on experience in educational technology, web development, and systems administration.
               </p>
             </motion.div>
           </div>

@@ -185,6 +185,9 @@ const Subjects = () => {
           <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
             Comprehensive learning opportunities in both academic subjects and professional IT skills
           </p>
+          <p className="text-gray-300 max-w-3xl mx-auto mb-8 font-medium italic">
+            The following subjects and courses are for demonstration purposes only.
+          </p>
         </motion.div>
 
         {/* Matric Subjects Section */}

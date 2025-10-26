@@ -147,16 +147,17 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-300 mb-4 md:mb-0">
-            <p>&copy; {currentYear} STK College (Pty) Ltd. All rights reserved.</p>
+            <p>STK College is a registered CIPC and NPO initiative, preparing for DHET accreditation. Some info is for planning purposes only.
+            <br></br>&copy; {currentYear} STK College (Pty) Ltd. All rights reserved.</p>
           </div>
           
           <div className="flex items-center space-x-6">
-            <Link to="/privacy" className="text-gray-300 hover:text-green-400 transition-colors duration-200 text-sm">
+            {/*<Link to="/privacy" className="text-gray-300 hover:text-green-400 transition-colors duration-200 text-sm">
               Privacy Policy
             </Link>
             <Link to="/terms" className="text-gray-300 hover:text-green-400 transition-colors duration-200 text-sm">
               Terms of Service
-            </Link>
+            </Link>*/}
             <button
               onClick={scrollToTop}
               className="btn-primary-high-contrast w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:shadow-lg"

@@ -203,7 +203,7 @@ const Results = () => {
             Student Results
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            See the outstanding achievements of our students and their success stories
+            The following student results are sample data for demonstration purposes only.
           </p>
         </motion.div>
 

@@ -171,7 +171,10 @@ const Pricing = () => {
           <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8 font-medium">
             Affordable education that delivers exceptional value. Choose the plan that works best for your goals.
           </p>
-          
+          <p className="text-gray-300 max-w-3xl mx-auto mb-8 font-medium italic">
+            The following pricing is for demonstration purposes only.
+          </p>
+
           {/* Billing Toggle for Matric */}
           <div className="card-enhanced inline-flex p-1 rounded-lg">
             <button

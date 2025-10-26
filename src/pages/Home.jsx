@@ -40,7 +40,7 @@ const Home = () => {
     {
       icon: FiTarget,
       title: 'Internships',
-      description: 'Gain hands-on experience by joining our internship program where you can apply your knowledge in real educational projects.'
+      description: 'Gain hands-on guidance through mentorship and project-based learning opportunities as part of our IT training program.'
     },
     {
       icon: FiMail,
@@ -50,10 +50,10 @@ const Home = () => {
   ];
 
   const stats = [
-    { number: '90%', label: 'Pass Rate' },
-    { number: '150+', label: 'Students' },
-    { number: '2', label: 'Year Experience' },
-    { number: '10+', label: 'Subjects Offered' }
+    { number: '-', label: 'Pass Rate' },
+    { number: '-', label: 'Students' },
+    { number: '-', label: 'Year Experience' },
+    { number: '-', label: 'Subjects Offered' }
   ];
 
   return (
@@ -97,7 +97,9 @@ const Home = () => {
                   Upgrade Your High School Subjects & IT Opportunities
                 </span>
               </h1>
-
+              <p className="text-base md:text-lg text-gray-300 leading-relaxed mt-4 max-w-3xl font-medium">
+                STK College is a registered initiative preparing to launch official operations.
+              </p>
               {/* Smaller descriptive paragraph */}
               <p className="text-base md:text-lg text-gray-300 leading-relaxed mt-6 max-w-3xl font-medium">
                 Get a second chance to improve your high school results and unlock better opportunities for your future. 
@@ -131,15 +133,16 @@ const Home = () => {
                   <h3 className="text-2xl font-semibold text-white">Why Choose STK?</h3>
                   <ul className="space-y-4">
                     {[
-                      'Matric Upgrade classes designed for better results',
-                      'Supportive tutors to help you pass with confidence',
-                      'Hands-on IT training with real-world projects',
-                      'Learn the latest tech skills in demand by employers',
-                      'Expert teachers with years of experience',
-                      'Small class sizes for personalized attention',
-                      'Modern facilities and learning resources',
-                      'Flexible scheduling options',
-                      'Proven track record of success'
+                     'Matric Upgrade classes designed for better results',
+                     'Supportive tutors to help you pass with confidence',
+                     'Hands-on IT training with real-world projects',
+                     'Learn the latest tech skills in demand by employers',
+                     'Expert teachers with experience supporting learners',
+                     'Small class sizes for personalized attention',
+                     'Modern facilities and learning resources',
+                     'Flexible scheduling options',
+                     'Preparing learners for academic and career opportunities'
+
                     ].map((item, index) => (
                       <motion.li
                         key={index}
@@ -288,8 +291,9 @@ const Home = () => {
               Ready to Start Your Journey?
             </h2>
             <p className="text-xl text-gray-200 max-w-2xl mx-auto font-medium">
-              Join hundreds of successful students who have achieved their goals 
-              with STK College. Your future starts today.
+              Join learners who are preparing to achieve their goals with STK College. 
+              Your future starts today.
+
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
