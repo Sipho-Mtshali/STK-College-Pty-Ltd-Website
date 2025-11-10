@@ -17,7 +17,10 @@ import {
   FiUpload,
   FiPlay,
   FiTarget,
-  FiAward as FiCertificate
+  FiAward as FiCertificate,
+  FiDollarSign,
+  FiClock,
+  FiUsers
 } from 'react-icons/fi';
 
 const ITRegister = () => {
@@ -34,6 +37,7 @@ const ITRegister = () => {
   const programType = watch('programType');
   const isInternship = programType === 'in-service training-internship' || programType === 'internship-only';
   const isShortCourse = programType === 'short-course';
+  const isLearnership = programType === 'learnership';
 
   const educationLevels = [
     'Select Education Level',
@@ -56,85 +60,127 @@ const ITRegister = () => {
     {
       value: 'short-course',
       label: 'Short Course Only',
-      description: 'Individual IT modules and programming courses'
+      description: 'Individual IT modules and programming courses',
+      icon: '📚',
+      color: 'yellow'
     },
     {
-      value: 'in-service training-only',
-      label: 'In-Service Training Program',
-      description: 'Comprehensive IT training without internship'
+      value: 'learnership',
+      label: 'AI & Tech Learnership',
+      description: 'Comprehensive learnership program with MICT SETA funding opportunities',
+      icon: '🤖',
+      color: 'purple'
     },
     {
       value: 'in-service training-internship',
       label: 'In-Service + Internship',
-      description: 'Training followed by internship opportunity'
-    },
-    {
-      value: 'internship-only',
-      label: 'Internship Only',
-      description: 'In-service training for current IT students'
+      description: 'Training followed by internship opportunity',
+      icon: '💼',
+      color: 'blue'
     }
   ];
 
-  const itModules = [
-    {
-      id: 'java',
-      name: 'Java Programming',
-      category: 'Programming'
-    },
-    {
-      id: 'html5',
-      name: 'HTML5',
-      category: 'Web Development'
-    },
-    {
-      id: 'css3',
-      name: 'CSS3 & Styling',
-      category: 'Web Development'
-    },
-    {
-      id: 'javascript',
-      name: 'JavaScript',
-      category: 'Web Development'
-    },
-    {
-      id: 'firebase',
-      name: 'Firebase',
-      category: 'Backend'
-    },
-    {
-      id: 'mysql',
-      name: 'MySQL Database',
-      category: 'Database'
-    },
+  // Updated courses to match the new courses data
+  const itCourses = [
     {
       id: 'python',
       name: 'Python Programming',
-      category: 'Programming'
+      category: 'Programming',
+      price: 'R10,500',
+      duration: '10 Weeks',
+      level: 'Beginner to Intermediate',
+      funding: true,
+      popular: true
     },
     {
-      id: 'csharp',
-      name: 'C# Programming',
-      category: 'Programming'
+      id: 'java',
+      name: 'Java Development',
+      category: 'Programming',
+      price: 'R12,000',
+      duration: '12 Weeks',
+      level: 'Intermediate',
+      funding: false,
+      popular: false
     },
     {
-      id: 'aspnet',
-      name: 'ASP.NET MVC',
-      category: 'Web Development'
+      id: 'word',
+      name: 'Microsoft Word (Beginner - Intermediate)',
+      category: 'Microsoft Office',
+      price: 'R4,500',
+      duration: '6 Weeks',
+      level: 'Beginner to Intermediate',
+      funding: false,
+      popular: true
     },
     {
-      id: 'react',
-      name: 'React.js',
-      category: 'Frontend'
+      id: 'excel',
+      name: 'Microsoft Excel (Beginner - Intermediate)',
+      category: 'Microsoft Office',
+      price: 'R6,500',
+      duration: '8 Weeks',
+      level: 'Beginner to Intermediate',
+      funding: false,
+      popular: true
     },
     {
-      id: 'postgresql',
-      name: 'PostgreSQL Database',
-      category: 'Database'
+      id: 'powerpoint',
+      name: 'Microsoft PowerPoint (Beginner - Intermediate)',
+      category: 'Microsoft Office',
+      price: 'R3,000',
+      duration: '5 Weeks',
+      level: 'Beginner to Intermediate',
+      funding: false,
+      popular: false
     },
     {
-      id: 'api',
-      name: 'API Development',
-      category: 'Backend'
+      id: 'teams',
+      name: 'Microsoft Teams',
+      category: 'Microsoft Office',
+      price: 'R1,000',
+      duration: '2 Weeks',
+      level: 'Beginner',
+      funding: false,
+      popular: true
+    },
+    {
+      id: 'sql',
+      name: 'SQL Database Management',
+      category: 'Database',
+      price: 'R20,500',
+      duration: '10 Weeks',
+      level: 'Intermediate',
+      funding: false,
+      popular: true
+    },
+    {
+      id: 'webdev',
+      name: 'Website Development',
+      category: 'Web Development',
+      price: 'R10,500',
+      duration: '8 Weeks',
+      level: 'Intermediate',
+      funding: false,
+      popular: true
+    },
+    {
+      id: 'ai',
+      name: 'AI & Machine Learning',
+      category: 'AI & Machine Learning',
+      price: 'R25,000',
+      duration: '12 Weeks',
+      level: 'Advanced',
+      funding: false,
+      popular: false
+    },
+    {
+      id: 'office-suite',
+      name: 'Microsoft Office Complete Suite',
+      category: 'Microsoft Office',
+      price: 'R20,000',
+      duration: '10 Weeks',
+      level: 'Beginner to Advanced',
+      funding: false,
+      popular: true
     }
   ];
 
@@ -174,11 +220,12 @@ const ITRegister = () => {
         registrationType: 'it',
         programType: data.programType || 'short-course',
         isInternshipApplication: isInternship,
+        isLearnershipApplication: isLearnership,
         isShortCourse: isShortCourse || !data.programType,
         timestamp: new Date().toISOString(),
         status: 'pending',
-        // Convert modules array to string for better querying
-        selectedModules: Array.isArray(data.itModules) ? data.itModules : [data.itModules],
+        // Convert courses array to string for better querying
+        selectedCourses: Array.isArray(data.itCourses) ? data.itCourses : [data.itCourses],
         files: {
           cv: selectedFiles.cv ? {
             name: selectedFiles.cv.name,
@@ -218,13 +265,13 @@ const ITRegister = () => {
     }
   };
 
-  const allRequiredFilesUploaded = isInternship 
+  const allRequiredFilesUploaded = isInternship || isLearnership
     ? selectedFiles.cv && selectedFiles.transcript && selectedFiles.idCopy
     : true;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 py-12">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -233,10 +280,10 @@ const ITRegister = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            IT Student Registration
+            IT & AI Programs Registration
           </h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
-            Choose from individual courses, comprehensive training, or internship programs
+            Choose from short courses, AI learnerships, or comprehensive internship programs
           </p>
         </motion.div>
 
@@ -386,7 +433,7 @@ const ITRegister = () => {
                   </p>
                   <div className="space-y-3">
                     {programTypes.map((program) => (
-                      <label key={program.value} className="flex items-start space-x-3 p-4 bg-gray-800 border border-gray-600 rounded-lg hover:bg-gray-700 cursor-pointer transition-all duration-200">
+                      <label key={program.value} className={`flex items-start space-x-3 p-4 bg-gray-800 border border-gray-600 rounded-lg hover:bg-gray-700 cursor-pointer transition-all duration-200 border-l-4 border-l-${program.color}-500`}>
                         <input
                           type="radio"
                           value={program.value}
@@ -395,6 +442,7 @@ const ITRegister = () => {
                         />
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-1">
+                            <span className="text-xl">{program.icon}</span>
                             <span className="font-semibold text-white">{program.label}</span>
                           </div>
                           <p className="text-sm text-gray-300">{program.description}</p>
@@ -404,42 +452,72 @@ const ITRegister = () => {
                   </div>
                 </div>
 
-                {/* IT Modules Selection - Required */}
+                {/* IT Courses Selection - Required */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
                     <FiCode className="inline w-4 h-4 mr-2" />
-                    Select IT Modules/Courses *
+                    Select Courses/Modules *
                   </label>
                   <p className="text-sm text-gray-400 mb-3">
-                    Choose the programming languages and technologies you want to learn (select at least one)
+                    Choose the courses you want to enroll in (select at least one)
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-64 overflow-y-auto bg-gray-800 border border-gray-600 rounded-lg p-4">
-                    {itModules.map((module) => (
-                      <label key={module.id} className="flex items-center space-x-3">
+                  <div className="grid grid-cols-1 gap-3 max-h-96 overflow-y-auto bg-gray-800 border border-gray-600 rounded-lg p-4">
+                    {itCourses.map((course) => (
+                      <label key={course.id} className="flex items-start space-x-3 p-3 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-all duration-200">
                         <input
                           type="checkbox"
-                          value={module.id}
-                          {...register('itModules', { required: 'Please select at least one IT module/course' })}
-                          className="w-4 h-4 text-green-500 border-gray-600 bg-gray-700 rounded focus:ring-green-500"
+                          value={course.id}
+                          {...register('itCourses', { required: 'Please select at least one course' })}
+                          className="w-4 h-4 text-green-500 border-gray-600 bg-gray-700 rounded focus:ring-green-500 mt-1"
                         />
-                        <span className="text-sm text-gray-300">{module.name}</span>
+                        <div className="flex-1">
+                          <div className="flex items-start justify-between mb-1">
+                            <span className="text-sm font-medium text-white">{course.name}</span>
+                            <div className="flex items-center space-x-2">
+                              {course.funding && (
+                                <span className="bg-blue-500 text-white px-2 py-1 rounded text-xs font-bold">
+                                  MICT SETA
+                                </span>
+                              )}
+                              {course.popular && (
+                                <span className="bg-yellow-500 text-gray-900 px-2 py-1 rounded text-xs font-bold">
+                                  Popular
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                          <div className="flex items-center space-x-4 text-xs text-gray-300">
+                            <div className="flex items-center">
+                              <FiClock className="w-3 h-3 mr-1" />
+                              {course.duration}
+                            </div>
+                            <div className="flex items-center">
+                              <FiAward className="w-3 h-3 mr-1" />
+                              {course.level}
+                            </div>
+                            <div className="flex items-center">
+                              <FiDollarSign className="w-3 h-3 mr-1" />
+                              {course.price}
+                            </div>
+                          </div>
+                        </div>
                       </label>
                     ))}
                   </div>
-                  {errors.itModules && (
+                  {errors.itCourses && (
                     <p className="mt-1 text-sm text-red-500 flex items-center">
                       <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
-                      {errors.itModules.message}
+                      {errors.itCourses.message}
                     </p>
                   )}
                 </div>
 
-                {/* Required Documents - Only for Internship */}
-                {isInternship && (
+                {/* Required Documents - For Internship & Learnership */}
+                {(isInternship || isLearnership) && (
                   <div>
                     <label className="block text-sm font-medium text-gray-200 mb-4">
                       <FiFileText className="inline w-4 h-4 mr-2" />
-                      Required Documents for Internship (PDF or image format) *
+                      Required Documents (PDF or image format) *
                     </label>
                     <div className="space-y-4">
                       {/* CV Upload */}
@@ -547,7 +625,7 @@ const ITRegister = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting || (isInternship && !allRequiredFilesUploaded)}
+                  disabled={isSubmitting || ((isInternship || isLearnership) && !allRequiredFilesUploaded)}
                   className="w-full btn-primary-high-contrast py-4 px-6 rounded-xl font-bold transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
@@ -620,7 +698,7 @@ const ITRegister = () => {
                     </div>
                     <div>
                       <p className="text-white font-medium">Select Your Courses</p>
-                      <p className="text-gray-300 text-sm">Choose from 12+ programming languages and technologies</p>
+                      <p className="text-gray-300 text-sm">Choose from 10+ IT courses and programming languages</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
@@ -672,19 +750,62 @@ const ITRegister = () => {
                       <p className="text-gray-300 text-sm">Start learning immediately without formal qualifications</p>
                     </div>
                   </div>
-                  <div className="flex items-start space-x-3">
-                    <FiCheckCircle className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="text-white font-medium">Practical Projects</p>
-                      <p className="text-gray-300 text-sm">Build real-world applications and portfolio projects</p>
-                    </div>
+                </div>
+              </div>
+            </div>
+
+            {/* AI Learnership Card */}
+            <div className="card-enhanced rounded-xl p-6 border border-purple-500/30">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                <span className="text-2xl mr-2">🤖</span>
+                AI & Tech Learnership
+              </h3>
+              
+              <div className="mb-4">
+                <div className="bg-purple-500/20 border border-purple-500 rounded-lg p-3 mb-4">
+                  <p className="text-purple-400 text-sm font-semibold">
+                    🎓 MICT SETA Funding Available
+                  </p>
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-300">Duration:</span>
+                    <span className="text-white font-semibold">12-24 Months</span>
                   </div>
-                  <div className="flex items-start space-x-3">
-                    <FiCheckCircle className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="text-white font-medium">Expert Support</p>
-                      <p className="text-gray-300 text-sm">Get guidance from experienced IT professionals</p>
-                    </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-300">Stipend:</span>
+                    <span className="text-white font-semibold">Available</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-300">Certification:</span>
+                    <span className="text-white font-semibold">NQF Level 5</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-purple-400 mb-3">Program Includes:</h4>
+                <div className="space-y-2 text-sm text-gray-300">
+                  <div className="flex items-center">
+                    <FiCheckCircle className="w-4 h-4 text-purple-400 mr-2" />
+                    <span>Python Programming & AI Fundamentals</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FiCheckCircle className="w-4 h-4 text-purple-400 mr-2" />
+                    <span>Machine Learning & Data Science</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FiCheckCircle className="w-4 h-4 text-purple-400 mr-2" />
+                    <span>Industry Projects & Portfolio Building</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FiCheckCircle className="w-4 h-4 text-purple-400 mr-2" />
+                    <span>Workplace Experience</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FiCheckCircle className="w-4 h-4 text-purple-400 mr-2" />
+                    <span>Career Placement Support</span>
                   </div>
                 </div>
               </div>
@@ -696,14 +817,32 @@ const ITRegister = () => {
                 Requirements
               </h3>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li>• Access to a computer</li>
-                <li>• Internet connection</li>
-                <li>• Motivation to learn</li>
-                {isInternship && (
+                <li className="flex items-center">
+                  <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
+                  Access to a computer
+                </li>
+                <li className="flex items-center">
+                  <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
+                  Internet connection
+                </li>
+                <li className="flex items-center">
+                  <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
+                  Motivation to learn
+                </li>
+                {(isInternship || isLearnership) && (
                   <>
-                    <li>• Updated CV/Resume</li>
-                    <li>• Academic transcripts</li>
-                    <li>• ID document copy</li>
+                    <li className="flex items-center">
+                      <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
+                      Updated CV/Resume
+                    </li>
+                    <li className="flex items-center">
+                      <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
+                      Academic transcripts
+                    </li>
+                    <li className="flex items-center">
+                      <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
+                      ID document copy
+                    </li>
                   </>
                 )}
               </ul>
