@@ -1,137 +1,152 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiSearch, FiAward, FiArrowUp, FiCalendar,
-  FiUser, FiBookOpen, FiStar, FiDownload, FiImage } from 'react-icons/fi';
+  FiUser, FiBookOpen, FiStar, FiDownload, FiImage, 
+  FiCode, FiDatabase, FiMonitor, FiCpu } from 'react-icons/fi';
 
 const Results = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedYear, setSelectedYear] = useState('all');
-  const [selectedSubject, setSelectedSubject] = useState('all');
+  const [selectedProgram, setSelectedProgram] = useState('all');
 
-  // Teacher information mapped to subjects
-  const teachers = {
-    'Mathematics': 'Mr S Mbatha',
-    'Technical Maths': 'Mr S Mbatha',
-    'English Home Language': 'Ms T Nkosi',
-    'Physical Sciences': 'Ms N Ntuli',
-    'Life Sciences': 'Ms N Dlamini',
-    'Computer': 'Mr S Mtshali',
-    'Computer Applications': 'Mr S Mtshali',
-    'Business Studies': 'Ms T Nkosi',
-    'Accounting': 'Ms T Nkosi',
-    'Geography': 'Ms KK Mtshali',
-    'History': 'Ms KK Mtshali',
-    'Agriculture': 'Ms KK Mtshali',
-    'Mathematical Literacy': 'Mr S Mbatha'
+  // Instructor information mapped to programs
+  const instructors = {
+    'Python Programming': 'Sipho Mtshali',
+    'Java Development': 'Sipho Mtshali',
+    'Web Development': 'Sipho Mtshali',
+    'AI & Machine Learning': 'STK College AI Team',
+    'SQL Database Management': 'Sipho Mtshali',
+    'Microsoft Office Suite': 'Sipho Mtshali',
+    'Software Development Internship': 'Industry Experts',
+    'IT In-Service Training': 'Industry Professionals'
   };
 
-  // Mock results data with actual student names and teacher assignments
+  // Mock results data with IT program focus
   const mockResults = [
     {
       id: '1',
-      studentName: 'Thobani Mbatha',
-      year: '2023',
-      subject: 'Mathematics',
-      percentage: 87,
-      teacher: teachers['Mathematics'],
-      testimonial: 'STK College helped me improve my mathematics grade significantly. Mr Mbatha\'s teaching methods made complex concepts easy to understand!',
-      timestamp: '2023-12-15',
-      image: '/images/result/statement2.jpg'
+      studentName: 'General Mtshali',
+      year: '2024',
+      program: 'Python Programming',
+      percentage: 92,
+      instructor: instructors['Python Programming'],
+      testimonial: 'The Python course transformed my career! Mr Mtshali\'s practical approach helped me land a job as a junior developer within 2 months of completing the course.',
+      timestamp: '2024-01-15',
+      image: '/images/result/python1.jpeg',
+      programType: 'Short Course',
+      employment: 'Junior Python Developer at Tech Solutions SA'
     },
     {
       id: '2',
-      studentName: 'Lindokuhle Buthelezi',
-      year: '2023',
-      subject: 'Physical Sciences',
-      percentage: 92,
-      teacher: teachers['Physical Sciences'],
-      testimonial: 'The science program at STK is outstanding. Ms Ntuli\'s practical approach helped me achieve my best results ever in physics and chemistry!',
-      timestamp: '2023-12-10',
-      image: '/images/result/statement3.webp'
+      studentName: 'Lerato Smith',
+      year: '2024',
+      program: 'Java Development',
+      percentage: 88,
+      instructor: instructors['Java Development'],
+      testimonial: 'Excellent Java course with real-world projects. The Spring Framework training was particularly valuable for enterprise development.',
+      timestamp: '2024-01-10',
+      image: '/images/results/java-certificate.jpg',
+      programType: 'Short Course',
+      employment: 'Software Developer at Banking Corp'
     },
     {
       id: '3',
-      studentName: 'Simphiwe Mhembu',
+      studentName: 'David Brown',
       year: '2023',
-      subject: 'English',
-      percentage: 78,
-      teacher: teachers['English Home Language'],
-      testimonial: 'Great improvement in my English skills. Ms Nkosi\'s personalized approach really helped me with writing and communication.',
+      program: 'Web Development',
+      percentage: 95,
+      instructor: instructors['Web Development'],
+      testimonial: 'The React.js and modern web development skills I learned helped me build a portfolio that impressed employers. Got multiple job offers!',
       timestamp: '2023-12-08',
-      image: '/images/result/statement4.jfif'
+      image: '/images/results/webdev-certificate.jpg',
+      programType: 'Short Course',
+      employment: 'Frontend Developer at Digital Agency'
     },
     {
       id: '4',
-      studentName: 'Mxolisi Mbatha',
-      year: '2022',
-      subject: 'Business Studies',
-      percentage: 89,
-      teacher: teachers['Business Studies'],
-      testimonial: 'The business studies course prepared me well for university. Ms Nkosi\'s real-world examples made the subject come alive. Highly recommended!',
-      timestamp: '2022-12-20',
-      image: '/images/result/statement5.jfif'
+      studentName: 'Nadia Peters',
+      year: '2024',
+      program: 'AI & Machine Learning',
+      percentage: 90,
+      instructor: instructors['AI & Machine Learning'],
+      testimonial: 'The AI learnership program was intensive but rewarding. Working on real ML projects gave me the confidence to pursue a career in data science.',
+      timestamp: '2024-01-20',
+      image: '/images/results/ai-certificate.jpg',
+      programType: 'Learnership',
+      employment: 'AI Research Assistant at University'
     },
     {
       id: '5',
-      studentName: 'Mzwakhe Mtshali',
+      studentName: 'Mike Johnson',
       year: '2023',
-      subject: 'Computer Applications',
-      percentage: 94,
-      teacher: teachers['Computer Applications'],
-      testimonial: 'Excellent IT program. I learned practical programming skills from Mr Mtshali that are valuable in the workplace. The hands-on projects were amazing!',
-      timestamp: '2023-12-05',
-      image: '/images/result/statement6.png'
+      program: 'SQL Database Management',
+      percentage: 87,
+      instructor: instructors['SQL Database Management'],
+      testimonial: 'Comprehensive database course that covered everything from basic queries to advanced optimization. Essential skills for any backend developer.',
+      timestamp: '2023-11-28',
+      image: '/images/results/sql-certificate.jpg',
+      programType: 'Short Course',
+      employment: 'Database Administrator at Retail Chain'
     },
     {
       id: '6',
-      studentName: 'Ayanda Zulu',
-      year: '2022',
-      subject: 'Life Sciences',
-      percentage: 81,
-      teacher: teachers['Life Sciences'],
-      testimonial: 'The biology course was challenging but very rewarding. Ms Dlamini\'s teaching methods and lab demonstrations made learning enjoyable.',
-      timestamp: '2022-12-18',
-      image: '/images/result/statement7.jfif'
+      studentName: 'Sarah Williams',
+      year: '2024',
+      program: 'Software Development Internship',
+      percentage: 94,
+      instructor: instructors['Software Development Internship'],
+      testimonial: 'The internship provided hands-on experience with real clients. The mentorship and project work were invaluable for my professional growth.',
+      timestamp: '2024-01-18',
+      image: '/images/results/internship-certificate.jpg',
+      programType: 'Internship',
+      employment: 'Full-stack Developer at Startup (Hired after internship)'
     },
     {
       id: '7',
-      studentName: 'Ntokozo Zuma',
+      studentName: 'James Wilson',
       year: '2023',
-      subject: 'Technical Maths',
+      program: 'IT In-Service Training',
       percentage: 85,
-      teacher: teachers['Technical Maths'],
-      testimonial: 'Mr Mbatha\'s approach to technical mathematics helped me understand practical applications. The improvement in my problem-solving skills was remarkable!',
-      timestamp: '2023-11-28',
-      image: '/images/result/statement8.jfif'
+      instructor: instructors['IT In-Service Training'],
+      testimonial: 'The in-service training bridged the gap between theory and practice. Working in a real IT department prepared me for corporate environment.',
+      timestamp: '2023-12-12',
+      image: '/images/results/training-certificate.jpg',
+      programType: 'In-Service Training',
+      employment: 'IT Support Specialist at Manufacturing Company'
     },
     {
       id: '8',
-      studentName: 'Sipho Ndlovu',
-      year: '2023',
-      subject: 'Accounting',
-      percentage: 79,
-      teacher: teachers['Accounting'],
-      testimonial: 'Ms Nkosi made accounting principles clear and understandable. The step-by-step guidance helped me master complex financial concepts.',
-      timestamp: '2023-12-12',
-      image: '/images/result/statement9.jfif'
+      studentName: 'Emma Davis',
+      year: '2024',
+      program: 'Microsoft Office Suite',
+      percentage: 96,
+      instructor: instructors['Microsoft Office Suite'],
+      testimonial: 'Mastering Office applications boosted my productivity and made me more valuable in the workplace. Highly recommended for office professionals.',
+      timestamp: '2024-01-08',
+      image: '/images/results/office-certificate.jpg',
+      programType: 'Short Course',
+      employment: 'Office Administrator at Law Firm'
     },
     {
       id: '9',
-      studentName: 'Nomvula Khumalo',
-      year: '2022',
-      subject: 'Geography',
-      percentage: 88,
-      teacher: teachers['Geography'],
-      testimonial: 'Ms Mtshali\'s geography lessons were engaging and informative. The field trips and practical assignments made the subject come alive for me.',
-      timestamp: '2022-11-30',
-      image: '/images/result/statement1.avif'
+      studentName: 'Thomas Miller',
+      year: '2023',
+      program: 'Python Programming',
+      percentage: 89,
+      instructor: instructors['Python Programming'],
+      testimonial: 'From zero programming knowledge to building web applications in 10 weeks. The project-based learning approach really works!',
+      timestamp: '2023-11-30',
+      image: '/images/results/python-certificate-2.jpg',
+      programType: 'Short Course',
+      employment: 'Python Developer at E-commerce Company'
     }
   ];
 
-  const subjects = [...new Set(mockResults.map(result => result.subject))];
+  const programs = [...new Set(mockResults.map(result => result.program))];
   const years = [...new Set(mockResults.map(result => result.year))];
+  const programTypes = [...new Set(mockResults.map(result => result.programType))];
 
   useEffect(() => {
     const fetchResults = async () => {
@@ -152,33 +167,63 @@ const Results = () => {
 
   const filteredResults = results.filter(result => {
     const matchesSearch = result.studentName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         result.subject.toLowerCase().includes(searchTerm.toLowerCase());
+                         result.program.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesYear = selectedYear === 'all' || result.year === selectedYear;
-    const matchesSubject = selectedSubject === 'all' || result.subject === selectedSubject;
+    const matchesProgram = selectedProgram === 'all' || result.program === selectedProgram;
     
-    return matchesSearch && matchesYear && matchesSubject;
+    return matchesSearch && matchesYear && matchesProgram;
   });
 
   const stats = {
     totalStudents: results.length,
     averagePercentage: results.reduce((acc, result) => acc + result.percentage, 0) / results.length,
-    topPerformers: results.filter(result => result.percentage >= 85).length,
-    passRate: 100 // Mock data shows all students passed
+    employmentRate: 100, // All students in mock data got employment
+    distinctionRate: results.filter(result => result.percentage >= 85).length
+  };
+
+  const getProgramIcon = (programType) => {
+    switch (programType) {
+      case 'Short Course':
+        return FiBookOpen;
+      case 'Learnership':
+        return FiAward;
+      case 'Internship':
+        return FiCode;
+      case 'In-Service Training':
+        return FiMonitor;
+      default:
+        return FiBookOpen;
+    }
+  };
+
+  const getProgramColor = (programType) => {
+    switch (programType) {
+      case 'Short Course':
+        return 'bg-green-500';
+      case 'Learnership':
+        return 'bg-purple-500';
+      case 'Internship':
+        return 'bg-blue-500';
+      case 'In-Service Training':
+        return 'bg-orange-500';
+      default:
+        return 'bg-gray-500';
+    }
   };
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading results...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto mb-4"></div>
+          <p className="text-gray-300">Loading results...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -187,11 +232,11 @@ const Results = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Student Results
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            IT Program Results
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            The following student results are sample data for demonstration purposes only.
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            Celebrating the success of our students in IT short courses, learnerships, internships, and in-service training programs.
           </p>
         </motion.div>
 
@@ -202,33 +247,33 @@ const Results = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12"
         >
-          <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <FiUser className="w-6 h-6 text-primary" />
+          <div className="card-enhanced rounded-xl p-6 text-center">
+            <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <FiUser className="w-6 h-6 text-green-400" />
             </div>
-            <div className="text-2xl font-bold text-gray-900 mb-2">{stats.totalStudents}</div>
-            <div className="text-gray-600">Students Tracked</div>
+            <div className="text-2xl font-bold text-white mb-2">{stats.totalStudents}</div>
+            <div className="text-gray-300">Graduated Students</div>
           </div>
-          <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <FiArrowUp className="w-6 h-6 text-primary" />
+          <div className="card-enhanced rounded-xl p-6 text-center">
+            <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <FiArrowUp className="w-6 h-6 text-green-400" />
             </div>
-            <div className="text-2xl font-bold text-gray-900 mb-2">{Math.round(stats.averagePercentage)}%</div>
-            <div className="text-gray-600">Average Score</div>
+            <div className="text-2xl font-bold text-white mb-2">{Math.round(stats.averagePercentage)}%</div>
+            <div className="text-gray-300">Average Score</div>
           </div>
-          <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <FiAward className="w-6 h-6 text-primary" />
+          <div className="card-enhanced rounded-xl p-6 text-center">
+            <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <FiAward className="w-6 h-6 text-green-400" />
             </div>
-            <div className="text-2xl font-bold text-gray-900 mb-2">{stats.topPerformers}</div>
-            <div className="text-gray-600">Top Performers</div>
+            <div className="text-2xl font-bold text-white mb-2">{stats.distinctionRate}</div>
+            <div className="text-gray-300">Distinctions</div>
           </div>
-          <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <FiStar className="w-6 h-6 text-primary" />
+          <div className="card-enhanced rounded-xl p-6 text-center">
+            <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <FiStar className="w-6 h-6 text-green-400" />
             </div>
-            <div className="text-2xl font-bold text-gray-900 mb-2">{stats.passRate}%</div>
-            <div className="text-gray-600">Pass Rate</div>
+            <div className="text-2xl font-bold text-white mb-2">{stats.employmentRate}%</div>
+            <div className="text-gray-300">Employment Rate</div>
           </div>
         </motion.div>
 
@@ -237,7 +282,7 @@ const Results = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-white rounded-xl shadow-lg p-6 mb-8"
+          className="card-enhanced rounded-xl p-6 mb-8"
         >
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Search */}
@@ -245,10 +290,10 @@ const Results = () => {
               <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
-                placeholder="Search students or subjects..."
+                placeholder="Search students or programs..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
               />
             </div>
 
@@ -258,7 +303,7 @@ const Results = () => {
               <select
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent appearance-none bg-white"
+                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-green-500 focus:border-transparent appearance-none"
               >
                 <option value="all">All Years</option>
                 {years.map(year => (
@@ -267,23 +312,23 @@ const Results = () => {
               </select>
             </div>
 
-            {/* Subject Filter */}
+            {/* Program Filter */}
             <div className="relative">
               <FiBookOpen className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <select
-                value={selectedSubject}
-                onChange={(e) => setSelectedSubject(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent appearance-none bg-white"
+                value={selectedProgram}
+                onChange={(e) => setSelectedProgram(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-green-500 focus:border-transparent appearance-none"
               >
-                <option value="all">All Subjects</option>
-                {subjects.map(subject => (
-                  <option key={subject} value={subject}>{subject}</option>
+                <option value="all">All Programs</option>
+                {programs.map(program => (
+                  <option key={program} value={program}>{program}</option>
                 ))}
               </select>
             </div>
 
             {/* Download Button */}
-            <button className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center">
+            <button className="btn-primary-high-contrast px-6 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center">
               <FiDownload className="w-5 h-5 mr-2" />
               Export Results
             </button>
@@ -292,80 +337,99 @@ const Results = () => {
 
         {/* Results Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredResults.map((result, index) => (
-            <motion.div
-              key={result.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200"
-            >
-              {/* Result Image */}
-              <div className="relative h-48 bg-gray-200 overflow-hidden">
-                {result.image ? (
-                  <img 
-                    src={result.image} 
-                    alt={`${result.studentName}'s result`}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
-                    }}
-                  />
-                ) : null}
-                <div 
-                  className={`w-full h-full flex items-center justify-center bg-gray-100 ${result.image ? 'hidden' : 'flex'}`}
-                >
-                  <FiImage className="w-12 h-12 text-gray-400" />
-                  <span className="sr-only">No image available</span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{result.studentName}</h3>
-                  <p className="text-primary font-semibold">{result.subject}</p>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="text-sm text-gray-600">Year: {result.year}</span>
-                    <span className="text-lg font-bold text-gray-900">{result.percentage}%</span>
-                  </div>
-                </div>
-
-                <div className="mb-4">
-                  <h4 className="font-semibold text-gray-900 mb-2">Teacher:</h4>
-                  <p className="text-gray-600">{result.teacher}</p>
-                </div>
-
-                <div className="mb-4">
-                  <h4 className="font-semibold text-gray-900 mb-2">Student Testimonial:</h4>
-                  <p className="text-gray-600 text-sm italic leading-relaxed">
-                    "{result.testimonial}"
-                  </p>
-                </div>
-
-                <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                  <span className="text-sm text-gray-500">
-                    Completed: {new Date(result.timestamp).toLocaleDateString()}
+          {filteredResults.map((result, index) => {
+            const ProgramIcon = getProgramIcon(result.programType);
+            return (
+              <motion.div
+                key={result.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="card-enhanced rounded-xl overflow-hidden hover-lift border border-gray-700/50"
+              >
+                {/* Program Type Badge */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className={`px-3 py-1 rounded-full text-xs font-bold text-white ${getProgramColor(result.programType)}`}>
+                    {result.programType}
                   </span>
-                  <div className="flex space-x-2">
-                    <button 
-                      className="text-primary hover:text-blue-700 transition-colors duration-200"
-                      title="View Certificate"
-                    >
-                      <FiAward className="w-5 h-5" />
-                    </button>
-                    <button 
-                      className="text-primary hover:text-blue-700 transition-colors duration-200"
-                      title="Download Result"
-                    >
-                      <FiDownload className="w-5 h-5" />
-                    </button>
+                </div>
+
+                {/* Result Image */}
+                <div className="relative h-48 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
+                  {result.image ? (
+                    <img 
+                      src={result.image} 
+                      alt={`${result.studentName}'s certificate`}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                  ) : null}
+                  <div 
+                    className={`w-full h-full flex items-center justify-center ${result.image ? 'hidden' : 'flex'}`}
+                  >
+                    <div className="text-center">
+                      <ProgramIcon className="w-12 h-12 text-gray-400 mx-auto mb-2" />
+                      <p className="text-gray-400 text-sm">Certificate of Completion</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+
+                {/* Content */}
+                <div className="p-6">
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold text-white mb-1">{result.studentName}</h3>
+                    <p className="text-green-400 font-semibold">{result.program}</p>
+                    <div className="flex items-center justify-between mt-2">
+                      <span className="text-sm text-gray-400">Year: {result.year}</span>
+                      <span className="text-lg font-bold text-white">{result.percentage}%</span>
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-white mb-2">Instructor:</h4>
+                    <p className="text-gray-300">{result.instructor}</p>
+                  </div>
+
+                  {result.employment && (
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-white mb-2">Current Position:</h4>
+                      <p className="text-gray-300 text-sm">{result.employment}</p>
+                    </div>
+                  )}
+
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-white mb-2">Student Testimonial:</h4>
+                    <p className="text-gray-300 text-sm italic leading-relaxed">
+                      "{result.testimonial}"
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-700">
+                    <span className="text-sm text-gray-500">
+                      Completed: {new Date(result.timestamp).toLocaleDateString()}
+                    </span>
+                    <div className="flex space-x-2">
+                      <button 
+                        className="text-green-400 hover:text-green-300 transition-colors duration-200"
+                        title="View Certificate"
+                      >
+                        <FiAward className="w-5 h-5" />
+                      </button>
+                      <button 
+                        className="text-green-400 hover:text-green-300 transition-colors duration-200"
+                        title="Download Result"
+                      >
+                        <FiDownload className="w-5 h-5" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* No Results */}
@@ -376,8 +440,8 @@ const Results = () => {
             className="text-center py-12"
           >
             <FiSearch className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">No Results Found</h3>
-            <p className="text-gray-600">Try adjusting your search criteria</p>
+            <h3 className="text-xl font-semibold text-white mb-2">No Results Found</h3>
+            <p className="text-gray-400">Try adjusting your search criteria</p>
           </motion.div>
         )}
 
@@ -386,16 +450,27 @@ const Results = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 bg-primary text-white rounded-xl p-8 text-center"
+          className="mt-16 card-enhanced rounded-2xl p-8 text-center border border-green-500/20"
         >
-          <h2 className="text-2xl font-bold mb-4">Be Our Next Success Story</h2>
-          <p className="text-white mb-6 max-w-2xl mx-auto font-medium">
-            Join hundreds of students who have achieved their academic goals with STK College. 
-            Your success story could be next!
+          <h2 className="text-2xl font-bold text-white mb-4">Start Your IT Career Journey</h2>
+          <p className="text-gray-200 mb-6 max-w-2xl mx-auto font-medium">
+            Join our successful graduates in launching rewarding careers in technology. 
+            Choose from short courses, learnerships, internships, and in-service training programs.
           </p>
-          <button className="bg-secondary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-200">
-            Start Your Journey
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/courses"
+              className="btn-secondary-high-contrast px-6 py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors duration-200"
+            >
+              View Programs
+            </a>
+            <a
+              href="/contact"
+              className="btn-primary-high-contrast px-6 py-3 rounded-lg font-semibold transition-colors duration-200"
+            >
+              Get Started Today
+            </a>
+          </div>
         </motion.div>
       </div>
     </div>
