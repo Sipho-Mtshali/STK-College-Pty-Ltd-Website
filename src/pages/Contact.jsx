@@ -1,24 +1,11 @@
-// src/pages/Contact.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { contactService } from '../firebase/firestoreService';
-import { 
-  FiMapPin, 
-  FiPhone, 
-  FiMail, 
-  FiClock,
-  FiSend,
-  FiCheckCircle,
-  FiAlertCircle,
-  FiFacebook,
-  FiTwitter,
-  FiInstagram,
-  FiLinkedin,
-  FiMessageCircle,
-  FiUser,
-  FiMail as FiMailIcon
-} from 'react-icons/fi';
+import { FiMapPin, FiPhone, FiMail, FiClock, FiSend, FiCheckCircle, 
+  FiAlertCircle, FiFacebook, FiInstagram, FiLinkedin,
+  FiMessageCircle, FiBookOpen, FiBriefcase, FiTarget,
+  FiAward } from 'react-icons/fi';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -54,36 +41,51 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: FiPhone,
-      title: 'Phone',
+      title: 'Phone & WhatsApp',
       details: [
-        'Call us for immediate assistance',
-        '+27 76 362 7488',
-        '+27 73 578 7190'
-      ]
+        'Call or WhatsApp for immediate assistance',
+        '+27 76 362 7488 (Primary)',
+        '+27 73 578 7190 (Secondary)'
+      ],
+      action: {
+        type: 'whatsapp',
+        number: '+27763627488',
+        label: 'WhatsApp Now'
+      }
     },
     {
       icon: FiMail,
       title: 'Email',
       details: [
-        'Send us your questions',
-        'stkcollege@gmail.com'
-      ]
+        'Send us your questions and inquiries',
+        'stkcollege@gmail.com',
+        'Response within 24 hours'
+      ],
+      action: {
+        type: 'email',
+        address: 'stkcollege@gmail.com',
+        label: 'Send Email'
+      }
     },
     {
       icon: FiMapPin,
-      title: 'Location',
+      title: 'Campus Location',
       details: [
-        'Visit our campus',
+        'Visit our campus in Durban',
         '511 Griffiths Mxenge Hwy',
         'Durban, KwaZulu-Natal',
         'South Africa, 4031'
-      ]
+      ],
+      action: {
+        type: 'map',
+        label: 'View on Map'
+      }
     },
     {
       icon: FiClock,
       title: 'Office Hours',
       details: [
-        'We\'re here to help',
+        'We\'re here to help you',
         'Mon - Fri: 8:00 AM - 17:00 PM',
         'Sat: 9:00 AM - 12:00 PM',
         'Sun: 9:00 AM - 12:00 PM'
@@ -91,12 +93,52 @@ const Contact = () => {
     }
   ];
 
-  const socialLinks = [
-    { name: 'Facebook', href: 'https://www.facebook.com/share/1CCmHaTpaj/?mibextid=wwXIfr', icon: FiFacebook, color: 'hover:text-blue-400' },
-    { name: 'Twitter', href: '#', icon: FiTwitter, color: 'hover:text-blue-300' },
-    { name: 'Instagram', href: '#', icon: FiInstagram, color: 'hover:text-pink-400' },
-    { name: 'LinkedIn', href: '#', icon: FiLinkedin, color: 'hover:text-blue-400' }
+  const programOptions = [
+    { value: 'python-programming', label: 'Python Programming', icon: FiBookOpen },
+    { value: 'java-development', label: 'Java Development', icon: FiBookOpen },
+    { value: 'web-development', label: 'Web Development', icon: FiBookOpen },
+    { value: 'ai-ml-learnership', label: 'AI & ML Learnership', icon: FiTarget },
+    { value: 'short-courses', label: 'Short Courses', icon: FiAward },
+    { value: 'in-service-training', label: 'In-Service Training', icon: FiBriefcase },
+    { value: 'internship', label: 'Internship Programs', icon: FiBriefcase },
+    { value: 'ms-office', label: 'Microsoft Office Suite', icon: FiBookOpen },
+    { value: 'sql-database', label: 'SQL Database Management', icon: FiBookOpen }
   ];
+
+  const socialLinks = [
+    { 
+      name: 'Facebook', 
+      href: 'https://www.facebook.com/share/1CCmHaTpaj/?mibextid=wwXIfr', 
+      icon: FiFacebook, 
+      color: 'hover:bg-blue-500 hover:text-white',
+      active: true
+    },
+    { 
+      name: 'Instagram', 
+      href: '#', 
+      icon: FiInstagram, 
+      color: 'hover:bg-pink-500 hover:text-white',
+      active: false
+    },
+    { 
+      name: 'LinkedIn', 
+      href: '#', 
+      icon: FiLinkedin, 
+      color: 'hover:bg-blue-600 hover:text-white',
+      active: false
+    }
+  ];
+
+  // WhatsApp Icon Component
+  const WhatsAppIcon = () => (
+    <svg 
+      className="w-5 h-5" 
+      fill="currentColor" 
+      viewBox="0 0 24 24"
+    >
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893c0-3.18-1.24-6.169-3.495-8.424"/>
+    </svg>
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 py-12">
@@ -109,11 +151,11 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Contact Us
+            Get In Touch
           </h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed font-medium">
-            Get in touch with us. We're here to help you with any questions about our courses, 
-            admissions, or support services.
+            Ready to start your IT career journey? Contact us today for information about our 
+            short courses, learnerships, internships, and in-service training programs.
           </p>
         </motion.div>
 
@@ -125,15 +167,24 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="card-enhanced rounded-2xl p-8">
-              <h2 className="text-2xl font-bold text-white mb-6">
-                Send us a Message
-              </h2>
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mr-4">
+                  <FiMessageCircle className="w-6 h-6 text-green-400" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold text-white">
+                    Send us a Message
+                  </h2>
+                  <p className="text-gray-400 text-sm">
+                    We'll get back to you within 24 hours
+                  </p>
+                </div>
+              </div>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Name */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiUser className="inline w-4 h-4 mr-2" />
                     Full Name *
                   </label>
                   <input
@@ -156,7 +207,6 @@ const Contact = () => {
                 {/* Email */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiMailIcon className="inline w-4 h-4 mr-2" />
                     Email Address *
                   </label>
                   <input
@@ -182,7 +232,6 @@ const Contact = () => {
                 {/* Phone */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiPhone className="inline w-4 h-4 mr-2" />
                     Phone Number
                   </label>
                   <input
@@ -193,28 +242,26 @@ const Contact = () => {
                   />
                 </div>
 
-                {/* Subject */}
+                {/* Program Interest */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiMessageCircle className="inline w-4 h-4 mr-2" />
-                    Subject *
+                    Program Interest *
                   </label>
                   <select
-                    {...register('subject', { required: 'Please select a subject' })}
+                    {...register('program', { required: 'Please select a program' })}
                     className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   >
-                    <option value="">Select a subject</option>
-                    <option value="matric-registration">Matric Registration</option>
-                    <option value="it-training">IT Training & Internships</option>
-                    <option value="general-inquiry">General Inquiry</option>
-                    <option value="support">Technical Support</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="other">Other</option>
+                    <option value="">Select a program</option>
+                    {programOptions.map((program) => (
+                      <option key={program.value} value={program.value}>
+                        {program.label}
+                      </option>
+                    ))}
+                    <option value="other">Other Program</option>
                   </select>
-                  {errors.subject && (
+                  {errors.program && (
                     <p className="mt-1 text-sm text-red-500 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
-                      {errors.subject.message}
+                      {errors.program.message}
                     </p>
                   )}
                 </div>
@@ -222,7 +269,6 @@ const Contact = () => {
                 {/* Message */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiMessageCircle className="inline w-4 h-4 mr-2" />
                     Message *
                   </label>
                   <textarea
@@ -232,11 +278,10 @@ const Contact = () => {
                       minLength: { value: 10, message: 'Message must be at least 10 characters' }
                     })}
                     className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 resize-vertical"
-                    placeholder="Tell us how we can help you..."
+                    placeholder="Tell us about your goals and how we can help you..."
                   ></textarea>
                   {errors.message && (
                     <p className="mt-1 text-sm text-red-500 flex items-center">
-                      <FiAlertCircle className="w-4 h-4 mr-1 text-red-500" />
                       {errors.message.message}
                     </p>
                   )}
@@ -246,7 +291,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-primary-high-contrast w-full py-4 px-6 rounded-lg font-semibold text-lg transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn-primary-high-contrast w-full py-4 px-6 rounded-lg font-semibold text-lg transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
                 >
                   {isSubmitting ? (
                     <>
@@ -304,13 +349,10 @@ const Contact = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 + index * 0.1 }}
-                    className="card-enhanced p-6 rounded-xl hover-lift"
+                    className="card-enhanced p-6 rounded-xl hover-lift border border-gray-700/50"
                   >
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-6 h-6 text-green-400" />
-                      </div>
-                      <div>
+                      <div className="flex-1">
                         <h3 className="text-lg font-semibold text-white mb-2">
                           {item.title}
                         </h3>
@@ -329,106 +371,38 @@ const Contact = () => {
               })}
             </div>
 
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-              className="card-enhanced p-6 rounded-xl hover-lift"
-            >
-              <h3 className="text-lg font-semibold text-white mb-4">
-                Follow Us
-              </h3>
-              <p className="text-gray-200 mb-4">
-                Stay connected with STK College for the latest updates, news, and announcements.
-              </p>
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={index}
-                      href={social.href}
-                      className={`w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 transition-all duration-200 hover:bg-gray-700 ${social.color} transform hover:scale-110 border border-gray-700 ${social.name !== 'Facebook' ? 'pointer-events-none opacity-50' : ''}`}
-                      aria-label={social.name}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Icon className="w-5 h-5" />
-                    </a>
-                  );
-                })}
-              </div>
-            </motion.div>
-
-            {/* Quick Response Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1 }}
-              className="card-enhanced p-6 rounded-xl border border-blue-500/30 hover-lift"
-            >
-              <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
-                <FiClock className="w-5 h-5 text-blue-400 mr-2" />
-                Quick Response Guarantee
-              </h3>
-              <div className="space-y-3">
-                <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-white font-medium">Response within 24 hours</p>
-                    <p className="text-gray-300 text-sm">We guarantee to respond to all inquiries within one business day</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-white font-medium">Expert Assistance</p>
-                    <p className="text-gray-300 text-sm">Get answers from our experienced academic advisors</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-white font-medium">Multiple Contact Options</p>
-                    <p className="text-gray-300 text-sm">Choose your preferred method of communication</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Map */}
+            {/* Response Guarantee */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2 }}
-              className="card-enhanced p-6 rounded-xl hover-lift"
+              className="card-enhanced p-6 rounded-xl border border-green-500/30"
             >
-              <h3 className="text-lg font-semibold text-white mb-4">
-                Visit Our Campus
+              <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
+                <FiCheckCircle className="w-5 h-5 text-green-400 mr-2" />
+                Our Commitment
               </h3>
-              <p className="text-gray-200 mb-4">
-                Come visit us at our campus in Durban. We'd love to show you around and discuss your educational goals.
-              </p>
-              <div className="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg overflow-hidden border border-gray-600">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.789012345678!2d31.000000000000004!3d-29.000000000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDAwJzAwLjAiUyAzMcKwMDAnMDAuMCJF!5e0!3m2!1sen!2sza!4v1234567890123!5m2!1sen!2sza"
-                  width="100%"
-                  height="300"
-                  style={{ border: 0, borderRadius: '8px' }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="STK College Location"
-                  className="w-full h-64"
-                ></iframe>
-              </div>
-              <div className="mt-4 p-4 bg-gray-800 rounded-lg border border-gray-700">
-                <h4 className="text-white font-semibold mb-2">Campus Visit Hours</h4>
-                <div className="text-sm text-gray-300 space-y-1">
-                  <p><strong>Weekdays:</strong> 8:00 AM - 5:00 PM</p>
-                  <p><strong>Weekends:</strong> 9:00 AM - 12:00 PM</p>
-                  <p><strong>Holidays:</strong> Please call ahead to confirm</p>
+              <div className="space-y-3">
+                <div className="flex items-start space-x-3">
+                  <FiCheckCircle className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="text-white font-medium">24-Hour Response</p>
+                    <p className="text-gray-300 text-sm">We guarantee to respond to all inquiries within one business day</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <FiCheckCircle className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="text-white font-medium">Expert Guidance</p>
+                    <p className="text-gray-300 text-sm">Get personalized advice from our experienced academic team</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <FiCheckCircle className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="text-white font-medium">Flexible Communication</p>
+                    <p className="text-gray-300 text-sm">Choose your preferred contact method - call, WhatsApp, or email</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -440,15 +414,18 @@ const Contact = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4 }}
-          className="mt-16 card-enhanced rounded-2xl p-8 border border-yellow-500/30"
+          className="mt-16 card-enhanced rounded-2xl p-8 border border-yellow-500/30 bg-gradient-to-r from-yellow-500/10 to-orange-500/10"
         >
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center justify-center">
-              <FiPhone className="w-6 h-6 text-yellow-400 mr-2" />
+            <div className="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <FiPhone className="w-8 h-8 text-yellow-400" />
+            </div>
+            <h2 className="text-2xl font-bold text-white mb-4">
               Need Immediate Assistance?
             </h2>
             <p className="text-gray-200 mb-6 max-w-2xl mx-auto">
-              For urgent inquiries or immediate support, call our direct line. We're here to help you with any pressing questions about admissions, courses, or support.
+              For urgent inquiries about admissions, course availability, or immediate support, 
+              contact us directly. We're here to help you start your IT career journey.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
@@ -456,7 +433,7 @@ const Contact = () => {
                 className="btn-secondary-high-contrast px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 flex items-center hover:scale-105"
               >
                 <FiPhone className="w-5 h-5 mr-2" />
-                Call Now: +27 76 362 7488
+                Call: +27 76 362 7488
               </a>
               <a
                 href="https://wa.me/27763627488"
@@ -464,8 +441,8 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 flex items-center hover:scale-105"
               >
-                <FiMessageCircle className="w-5 h-5 mr-2" />
-                WhatsApp Us
+                <WhatsAppIcon />
+                <span className="ml-2">WhatsApp Now</span>
               </a>
             </div>
           </div>

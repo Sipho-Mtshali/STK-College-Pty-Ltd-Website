@@ -2,26 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { registrationService } from '../firebase/firestoreService';
-import { 
-  FiUser, 
-  FiMail, 
-  FiPhone,  
-  FiBookOpen, 
-  FiCheckCircle,
-  FiAlertCircle,
-  FiSend,
-  FiCode,
-  FiAward,
-  FiBriefcase,
-  FiFileText,
-  FiUpload,
-  FiPlay,
-  FiTarget,
-  FiAward as FiCertificate,
-  FiDollarSign,
-  FiClock,
-  FiUsers
-} from 'react-icons/fi';
+import { FiUser, FiMail, FiPhone, FiCheckCircle,FiAlertCircle, FiSend, 
+  FiCode, FiAward, FiBriefcase, FiFileText, FiPlay, FiTarget,
+  FiAward as FiCertificate, FiDollarSign, FiClock } from 'react-icons/fi';
 
 const ITRegister = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);

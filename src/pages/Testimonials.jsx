@@ -1,17 +1,7 @@
-// src/pages/Testimonials.jsx
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  FiStar, 
-  FiUser, 
-  FiAward,
-  FiMessageSquare,
-  FiTrendingUp,
-  FiBookOpen,
-  FiCode,
-  FiMail
-} from 'react-icons/fi';
+import { FiStar, FiUser, FiAward, FiMessageSquare,
+  FiTrendingUp, FiBookOpen, FiMail, FiUserPlus } from 'react-icons/fi';
 
 const Testimonials = () => {
   const testimonials = [
@@ -150,7 +140,7 @@ const Testimonials = () => {
             Student Testimonials
           </h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-            Hear from our successful students across IT programming and Matric upgrade programs
+            Hear from our successful students across IT programming, short courses, and professional training programs
           </p>
         </motion.div>
 
@@ -248,31 +238,31 @@ const Testimonials = () => {
             Ready to Transform Your Future?
           </h2>
           <p className="text-gray-200 mb-6 max-w-2xl mx-auto text-lg leading-relaxed">
-            Join hundreds of successful students who have achieved their academic goals through our 
-            comprehensive IT programming courses and Matric upgrade programs. Your success story starts here!
+            Join hundreds of successful students who have launched their tech careers through our 
+            comprehensive IT programs, in-service training, internships, and AI learnerships. Your success story starts here!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/matric-register"
+              to="/courses"
               className="btn-secondary-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
             >
               <FiBookOpen className="w-5 h-5 mr-2" />
-              Matric Registration
+              View Programs
             </Link>
             <Link
               to="/it-register"
               className="btn-blue-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
             >
-              <FiCode className="w-5 h-5 mr-2" />
-              IT Course Registration
+              <FiUserPlus className="w-5 h-5 mr-2" />
+              Register Now
             </Link>
-            <Link
-              to="/contact"
+            <a
+              href="mailto:stkcollege@gmail.com"
               className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 hover:bg-white/20 border border-white/20 flex items-center justify-center"
             >
               <FiMail className="w-5 h-5 mr-2" />
-              Contact Us
-            </Link>
+              Email Us
+            </a>
           </div>
         </motion.div>
       </div>

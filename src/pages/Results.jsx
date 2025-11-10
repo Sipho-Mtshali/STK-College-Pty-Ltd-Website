@@ -1,19 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { collection, getDocs, query, orderBy } from 'firebase/firestore';
-import { db } from '../firebase/config';
-import { 
-  FiSearch, 
-  FiFilter, 
-  FiAward, 
-  FiArrowUp,
-  FiCalendar,
-  FiUser,
-  FiBookOpen,
-  FiStar,
-  FiDownload,
-  FiImage
-} from 'react-icons/fi';
+import { FiSearch, FiAward, FiArrowUp, FiCalendar,
+  FiUser, FiBookOpen, FiStar, FiDownload, FiImage } from 'react-icons/fi';
 
 const Results = () => {
   const [results, setResults] = useState([]);

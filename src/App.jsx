@@ -12,11 +12,9 @@ import ChatBot from './components/ChatBot';
 // Pages
 import Home from './pages/Home';
 import About from './pages/About';
-import MatricRegister from './pages/MatricRegister';
 import ITRegister from './pages/ITRegister';
 import Staff from './pages/Staff';
 import Results from './pages/Results';
-import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
 import Courses from './pages/Courses';
 import Testimonials from './pages/Testimonials';
@@ -81,10 +79,8 @@ function App() {
                   <Route path="/about" element={<About />} />
                   <Route path="/staff" element={<Staff />} />
                   <Route path="/testimonials" element={<Testimonials />} />
-                  <Route path="/matric-register" element={<MatricRegister />} />
                   <Route path="/it-register" element={<ITRegister />} />
                   <Route path="/results" element={<Results />} />
-                  <Route path="/pricing" element={<Pricing />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/courses" element={<Courses />} />
                   <Route path="/course/:id" element={<CourseDetail />} />

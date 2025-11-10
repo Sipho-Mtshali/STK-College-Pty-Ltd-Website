@@ -1,22 +1,7 @@
-// src/pages/Courses.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  FiClock,
-  FiUsers,
-  FiAward,
-  FiCheckCircle,
-  FiBookOpen,
-  FiCode,
-  FiDatabase,
-  FiDollarSign,
-  FiFilter,
-  FiSearch,
-  FiStar,
-  FiZap,
-  FiMessageCircle
-} from 'react-icons/fi';
+import { FiUsers, FiBookOpen, FiSearch, FiStar, FiZap } from 'react-icons/fi';
 
 const Courses = () => {
   const courseCategories = [

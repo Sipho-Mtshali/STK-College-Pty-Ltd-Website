@@ -1,47 +1,90 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  FiTarget, 
-  FiEye, 
-  FiHeart, 
-  FiUsers, 
-  FiAward, 
-  FiBookOpen,
-  FiCheckCircle,
-  FiArrowUp
-} from 'react-icons/fi';
+import { FiTarget, FiEye, FiUsers, FiAward, FiBookOpen, FiCheckCircle,
+         FiCode, FiBriefcase, FiZap, FiTrendingUp } from 'react-icons/fi';
 
 const About = () => {
-  const values = [
+  const programs = [
     {
-      icon: FiTarget,
-      title: 'Excellence',
-      description: 'We strive for the highest standards in education and student outcomes.'
+      icon: FiBookOpen,
+      title: 'Short Courses',
+      description: 'Focused IT training in programming, Microsoft Office, and web development',
+      features: ['Python, Java, SQL', 'Microsoft Office Suite', 'Web Development', 'Flexible Scheduling']
     },
     {
       icon: FiUsers,
-      title: 'Community',
-      description: 'Building a supportive learning community where every student thrives.'
+      title: 'In-Service Training',
+      description: 'Comprehensive IT training programs with practical experience',
+      features: ['Hands-on Projects', 'Industry Mentors', 'Portfolio Building', 'Career Preparation']
     },
     {
-      icon: FiHeart,
-      title: 'Passion',
-      description: 'Our educators are passionate about teaching and student success.'
+      icon: FiBriefcase,
+      title: 'Internship Programs',
+      description: 'Real workplace experience for IT students and graduates',
+      features: ['Industry Placement', 'Professional Development', 'Networking', 'Work Experience']
     },
     {
-      icon: FiAward,
-      title: 'Integrity',
-      description: 'We maintain the highest ethical standards in all our interactions.'
+      icon: FiZap,
+      title: 'AI Learnership',
+      description: 'MICT SETA funded learnership in Artificial Intelligence and Machine Learning',
+      features: ['MICT SETA Funding', 'NQF Level 5', 'Industry Projects', 'Career Placement']
     }
   ];
 
-const achievements = [
-  { icon: FiCheckCircle, title: '- Pass Rate', description: 'Our programs are designed to help students achieve high pass rates.' },
-  { icon: FiUsers, title: '- Students', description: 'We aim to guide students toward better results and skills.' },
-  { icon: FiAward, title: '- Years', description: 'Founded recently with a strong focus on quality education.' },
-  { icon: FiArrowUp, title: 'Growing Impact', description: 'We are expanding our reach and preparing to positively impact more students.' }
-];
+  const achievements = [
+    { 
+      icon: FiCode, 
+      title: '10+ Courses', 
+      description: 'Comprehensive IT and AI programs available' 
+    },
+    { 
+      icon: FiUsers, 
+      title: 'MICT SETA Partner', 
+      description: 'Accredited training provider with funding opportunities' 
+    },
+    { 
+      icon: FiAward, 
+      title: 'Industry Focused', 
+      description: 'Programs designed to meet current industry demands' 
+    },
+    { 
+      icon: FiTrendingUp, 
+      title: 'Career Ready', 
+      description: 'Graduates prepared for immediate employment' 
+    }
+  ];
 
+  const features = [
+    {
+      title: "Practical Learning",
+      description: "Hands-on projects and real-world scenarios to build practical skills",
+      icon: "💻"
+    },
+    {
+      title: "Expert Instructors",
+      description: "Industry professionals with years of experience in IT and AI",
+      icon: "👨‍🏫"
+    },
+    {
+      title: "Flexible Programs",
+      description: "Full-time, part-time, and online options to suit your schedule",
+      icon: "⏰"
+    },
+    {
+      title: "Career Support",
+      description: "Job placement assistance and career guidance services",
+      icon: "🎯"
+    },
+    {
+      title: "Modern Curriculum",
+      description: "Up-to-date content reflecting current industry trends and technologies",
+      icon: "📊"
+    },
+    {
+      title: "Funding Options",
+      description: "MICT SETA funding and flexible payment plans available",
+      icon: "💰"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900">
@@ -59,7 +102,7 @@ const achievements = [
               About STK College
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
-              Empowering students through quality education and innovative learning approaches
+              Empowering Future Tech Leaders Through Innovative IT Education
             </p>
           </motion.div>
         </div>
@@ -80,10 +123,10 @@ const achievements = [
               </div>
               <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
               <p className="text-lg text-gray-200 leading-relaxed">
-                To provide accessible, high-quality education that empowers students 
-                to reach their full potential. We are committed to creating an 
-                inclusive learning environment where every student can thrive 
-                academically and personally.
+                To provide cutting-edge IT education and training that equips students with 
+                practical skills for the digital economy. We bridge the gap between academic 
+                learning and industry requirements through our comprehensive programs in 
+                programming, AI, and technology.
               </p>
             </motion.div>
 
@@ -98,10 +141,9 @@ const achievements = [
               </div>
               <h2 className="text-3xl font-bold text-white mb-4">Our Vision</h2>
               <p className="text-lg text-gray-200 leading-relaxed">
-                To be the leading educational institution that transforms lives 
-                through innovative teaching methods, personalized learning experiences, 
-                and a commitment to excellence that prepares students for success 
-                in the modern world.
+                To be the leading provider of IT education and AI training in South Africa, 
+                recognized for producing job-ready professionals who drive innovation and 
+                digital transformation across industries.
               </p>
             </motion.div>
           </div>
@@ -118,12 +160,11 @@ const achievements = [
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Our Story
+              Transforming IT Education
             </h2>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
-              Founded with a passion for education and a commitment to student success, STK College is preparing to officially launch. 
-              Our focus is on providing mentorship, guidance, and practical opportunities to help students upgrade their high school results 
-              and gain valuable IT experience.
+              Bridging the gap between academic learning and industry demands through practical, 
+              career-focused IT training programs.
             </p>
           </motion.div>
 
@@ -139,22 +180,41 @@ const achievements = [
               </div>
               
               <p>
-                STK College is a specialized educational initiative dedicated to helping students improve their high school subjects while also providing practical experience for IT students.
+                STK College is a specialized IT training institution dedicated to preparing students 
+                for successful careers in technology. Our programs are designed to meet the growing 
+                demand for skilled IT professionals in South Africa and beyond.
               </p>
               
               <p>
-                Our educators and mentors work closely with students to enhance their understanding and performance in key subjects such as English, Technical Maths, Mathematics, Physics, Life Sciences, Computer, Agriculture, Geography, History, Accounting, Business Studies, and Mathematical Literacy.
+                We offer a comprehensive range of programs from short courses in programming and 
+                Microsoft Office to advanced AI learnerships and internship opportunities. Our 
+                curriculum is constantly updated to reflect the latest industry trends and 
+                technologies.
               </p>
               
               <p>
-                We are currently preparing programs for in-service training and internships for IT students, providing hands-on experience in educational technology, web development, and systems administration.
+                As a MICT SETA accredited training provider, we offer funded learnership opportunities 
+                that make quality IT education accessible to more students. Our partnerships with 
+                industry leaders ensure that our graduates are well-prepared for the workforce.
               </p>
+
+              <div className="bg-blue-500/20 border border-blue-500 rounded-xl p-6 mt-6">
+                <h3 className="text-xl font-bold text-white mb-3">Why Choose STK College?</h3>
+                <ul className="space-y-2 text-gray-200">
+                  <li>• Industry-relevant curriculum developed with tech companies</li>
+                  <li>• Hands-on learning with real-world projects</li>
+                  <li>• Experienced instructors from the IT industry</li>
+                  <li>• Career support and job placement assistance</li>
+                  <li>• Flexible learning options to suit your schedule</li>
+                  <li>• MICT SETA funding opportunities for eligible students</li>
+                </ul>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
+      {/* Programs */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -164,36 +224,87 @@ const achievements = [
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Our Values
+              Our Programs
             </h2>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
-              The principles that guide everything we do
+              Comprehensive IT training pathways designed for career success
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => {
-              const Icon = value.icon;
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {programs.map((program, index) => {
+              const Icon = program.icon;
               return (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="card-enhanced p-6 rounded-xl text-center hover-lift"
+                  className="card-enhanced p-6 rounded-xl hover-lift border-l-4 border-l-green-500"
                 >
-                  <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-green-400" />
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-6 h-6 text-green-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-white mb-2">
+                        {program.title}
+                      </h3>
+                      <p className="text-gray-200 mb-4">
+                        {program.description}
+                      </p>
+                      <div className="grid grid-cols-2 gap-2">
+                        {program.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-center text-sm text-gray-300">
+                            <FiCheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />
+                            {feature}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-200">
-                    {value.description}
-                  </p>
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Why Learn With Us
+            </h2>
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
+              Experience the difference with our student-centered approach to IT education
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="card-enhanced p-6 rounded-xl text-center hover-lift"
+              >
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-semibold text-white mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-200">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -208,10 +319,10 @@ const achievements = [
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Our Achievements
+              Our Commitment
             </h2>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
-              Numbers that reflect our commitment to excellence
+              Building a reputation for excellence in IT education and training
             </p>
           </motion.div>
 
@@ -239,6 +350,40 @@ const achievements = [
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="card-enhanced p-12 rounded-2xl border border-green-500/30"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Ready to Start Your IT Career?
+            </h2>
+            <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+              Join STK College and gain the skills you need to succeed in the rapidly evolving tech industry. 
+              Choose from our short courses, in-service training, internships, or AI learnership programs.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/courses"
+                className="btn-primary-high-contrast px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105"
+              >
+                View All Courses
+              </a>
+              <a
+                href="/it-register"
+                className="btn-secondary-high-contrast px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105"
+              >
+                Apply Now
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>

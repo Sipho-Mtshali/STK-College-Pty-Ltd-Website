@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../firebase/config';
-import { 
-  FiBookOpen,
-  FiAward,
-  FiUsers,
-  FiClock,
-  FiStar,
-  FiUser,
-  FiMail,
-  FiPhone
-} from 'react-icons/fi';
+
+import { FiBookOpen, FiUsers, FiClock, FiStar,
+  FiUser, FiMail, FiPhone } from 'react-icons/fi';
 
 const Staff = () => {
   const [staff, setStaff] = useState([]);

@@ -2,22 +2,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { 
-  FiClock,
-  FiUsers,
-  FiAward,
-  FiCheckCircle,
-  FiBookOpen,
-  FiArrowLeft,
-  FiStar,
-  FiCalendar,
-  FiShare2,
-  FiHeart,
-  FiUser,
-  FiMail,
-  FiBriefcase,
-  FiMessageSquare
-} from 'react-icons/fi';
+import { FiClock, FiUsers, FiAward, FiCheckCircle,
+  FiBookOpen, FiArrowLeft, FiStar, FiShare2, FiHeart,
+  FiUser, FiMail } from 'react-icons/fi';
 import { coursesData, allCourses } from '../data/coursesData';
 
 const CourseDetail = () => {

@@ -1,43 +1,33 @@
-// src/pages/Home.jsx
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { 
-  FiArrowRight, 
-  FiCode, 
-  FiUsers, 
-  FiAward, 
-  FiBriefcase,
-  FiCheckCircle,
-  FiTrendingUp,
-  FiLayers,
-  FiSmartphone,
-  FiGlobe
-} from 'react-icons/fi';
+import { FiArrowRight, FiCode, FiUsers, FiAward, 
+  FiBriefcase, FiCheckCircle, FiTrendingUp,
+  FiLayers, FiSmartphone, FiGlobe } from 'react-icons/fi';
 
 const Home = () => {
-  const services = [
-    {
-      icon: FiCode,
-      title: 'Short Courses',
-      description: '3-6 month intensive programs in Python, Java, SQL, and Microsoft 365'
-    },
-    {
-      icon: FiUsers,
-      title: 'In-Service Training',
-      description: 'Hands-on C# and MVC.NET training with real-world projects'
-    },
-    {
-      icon: FiBriefcase,
-      title: 'Internships',
-      description: 'Professional internships in software development and web technologies'
-    },
-    {
-      icon: FiTrendingUp,
-      title: 'Learnerships',
-      description: 'AI learnership programs with industry certification'
-    }
-  ];
+// Update the services section to:
+const services = [
+  {
+    icon: FiCode,
+    title: 'Short Courses',
+    description: '3-6 month intensive programs in Python, Java, SQL, and Microsoft 365'
+  },
+  {
+    icon: FiUsers,
+    title: 'In-Service Training',
+    description: 'Hands-on C# and MVC.NET training with real-world projects'
+  },
+  {
+    icon: FiBriefcase,
+    title: 'Internships',
+    description: 'Professional internships in software development and web technologies'
+  },
+  {
+    icon: FiTrendingUp,
+    title: 'AI Learnerships',
+    description: 'MICT SETA funded learnership programs in Artificial Intelligence'
+  }
+];
 
   const developmentServices = [
     {
@@ -106,7 +96,7 @@ const Home = () => {
                 </span>
               </h1>
               <p className="text-base md:text-lg text-gray-300 leading-relaxed mt-4 max-w-3xl font-medium">
-                Transform your career with our comprehensive IT programs, from short courses to professional internships and custom development services.
+                Transform your career with our comprehensive IT programs, from short courses to professional internships and AI learnerships.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 mt-8">
                 <Link

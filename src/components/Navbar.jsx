@@ -1,4 +1,3 @@
-// Updated Navbar.jsx - Words Only
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -25,10 +24,8 @@ const Navbar = () => {
       ]
     },
     { name: 'Courses', href: '/courses' },
-    { name: 'Pricing', href: '/pricing' },
     { name: 'Results', href: '/results' },
-    { name: 'Matric Registration', href: '/matric-register' },
-    { name: 'IT Registration', href: '/it-register' },
+    { name: 'Registration', href: '/it-register' },
     { name: 'Contact', href: '/contact' },
   ];
 
