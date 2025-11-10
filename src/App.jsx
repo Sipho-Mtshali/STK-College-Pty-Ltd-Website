@@ -20,6 +20,7 @@ import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
 import Courses from './pages/Courses';
 import Testimonials from './pages/Testimonials';
+import CourseDetail from './pages/CourseDetail';
 
 // Scroll to top component
 const ScrollToTop = () => {
@@ -86,6 +87,7 @@ function App() {
                   <Route path="/pricing" element={<Pricing />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/courses" element={<Courses />} />
+                  <Route path="/course/:id" element={<CourseDetail />} />
                 </Routes>
               </main>
               
