@@ -1,59 +1,72 @@
-import { FiMail } from 'react-icons/fi';
+// src/pages/Home.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   FiArrowRight, 
-  FiBookOpen, 
+  FiCode, 
   FiUsers, 
   FiAward, 
-  FiTarget,
+  FiBriefcase,
   FiCheckCircle,
-  FiArrowUp
+  FiTrendingUp,
+  FiLayers,
+  FiSmartphone,
+  FiGlobe
 } from 'react-icons/fi';
 
 const Home = () => {
-  const features = [
+  const services = [
     {
-      icon: FiCheckCircle,
-      title: 'Register',
-      description: 'Pay R2,000 registration fee and choose your subjects. Quick and easy enrollment process for matric upgrades.'
+      icon: FiCode,
+      title: 'Short Courses',
+      description: '3-6 month intensive programs in Python, Java, SQL, and Microsoft 365'
     },
-    {
-      icon: FiBookOpen,
-      title: 'Study',
-      description: 'Get expert tutoring and comprehensive study materials for your chosen subjects.'
-    },
-    {
-      icon: FiAward,
-      title: 'Upgrade',
-      description: 'Improve your marks and open doors to better opportunities and career prospects.'
-    }
-  ];
-
-  const itFeatures = [
     {
       icon: FiUsers,
       title: 'In-Service Training',
-      description: 'Are you studying IT and need in-service training? We welcome IT students seeking practical experience in web, systems, and platform development.'
+      description: 'Hands-on C# and MVC.NET training with real-world projects'
     },
     {
-      icon: FiTarget,
+      icon: FiBriefcase,
       title: 'Internships',
-      description: 'Gain hands-on guidance through mentorship and project-based learning opportunities as part of our IT training program.'
+      description: 'Professional internships in software development and web technologies'
     },
     {
-      icon: FiMail,
-      title: 'Apply',
-      description: 'Use our Contact page to express interest in in-service or internship opportunities. Upload your CV and specify your focus area.'
+      icon: FiTrendingUp,
+      title: 'Learnerships',
+      description: 'AI learnership programs with industry certification'
+    }
+  ];
+
+  const developmentServices = [
+    {
+      icon: FiGlobe,
+      title: 'Website Development',
+      description: 'Professional websites using HTML, React, and Tailwind CSS'
+    },
+    {
+      icon: FiSmartphone,
+      title: 'Mobile Apps',
+      description: 'Cross-platform mobile applications with React Native'
+    },
+    {
+      icon: FiLayers,
+      title: 'Portfolio Creation',
+      description: 'Stunning portfolios to showcase your skills and projects'
+    },
+    {
+      icon: FiAward,
+      title: 'Career Services',
+      description: 'CV writing, interview prep, and job placement support'
     }
   ];
 
   const stats = [
-    { number: '-', label: 'Pass Rate' },
-    { number: '-', label: 'Students' },
-    { number: '-', label: 'Year Experience' },
-    { number: '-', label: 'Subjects Offered' }
+    { number: '200+', label: 'Students Trained' },
+    { number: '95%', label: 'Success Rate' },
+    { number: '50+', label: 'Projects Completed' },
+    { number: '12+', label: 'Technologies' }
   ];
 
   return (
@@ -76,7 +89,6 @@ const Home = () => {
             >
               <h1 className="text-4xl md:text-7xl font-bold leading-tight">
                 <span className="flex items-center mb-4">
-                  {/* Logo only - no container, no gradient, no card styling */}
                   <img 
                     src="/images/campus/STKLogo2.png" 
                     alt="STK Logo" 
@@ -86,39 +98,30 @@ const Home = () => {
                     STK College
                   </span>
                 </span>
-
-                {/* Centered slogan */}
                 <span className="block text-lg md:text-2xl text-yellow-400 text-center mb-6">
-                  Shape the Future With Us
+                  Code Your Future With Us
                 </span>
-
-                {/* Slightly smaller main tagline */}
                 <span className="block text-2xl md:text-4xl mt-4 text-gray-100">
-                  Upgrade Your High School Subjects & IT Opportunities
+                  Premier IT Training & Development Services
                 </span>
               </h1>
               <p className="text-base md:text-lg text-gray-300 leading-relaxed mt-4 max-w-3xl font-medium">
-                STK College is a registered initiative preparing to launch official operations.
-              </p>
-              {/* Smaller descriptive paragraph */}
-              <p className="text-base md:text-lg text-gray-300 leading-relaxed mt-6 max-w-3xl font-medium">
-                Get a second chance to improve your high school results and unlock better opportunities for your future. 
-                We also welcome IT students seeking practical experience.
+                Transform your career with our comprehensive IT programs, from short courses to professional internships and custom development services.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 mt-8">
-              <Link
-                to="/matric-register"
-                className="btn-secondary-high-contrast inline-flex items-center justify-center px-10 py-5 text-lg font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              >
-                <span className="mr-3">Register Now</span>
-                <FiArrowRight className="w-6 h-6" />
-              </Link>
-              <Link
-                to="/about"
-                className="bg-white/10 backdrop-blur-md inline-flex items-center justify-center px-10 py-5 text-lg font-bold rounded-2xl text-white hover:bg-white/20 transition-all duration-300 border border-white/20 hover:border-white/40"
-              >
-                Learn More
-              </Link>
+                <Link
+                  to="/courses"
+                  className="btn-secondary-high-contrast inline-flex items-center justify-center px-10 py-5 text-lg font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                >
+                  <span className="mr-3">Explore Courses</span>
+                  <FiArrowRight className="w-6 h-6" />
+                </Link>
+                <Link
+                  to="/services"
+                  className="bg-white/10 backdrop-blur-md inline-flex items-center justify-center px-10 py-5 text-lg font-bold rounded-2xl text-white hover:bg-white/20 transition-all duration-300 border border-white/20 hover:border-white/40"
+                >
+                  Our Services
+                </Link>
               </div>
             </motion.div>
 
@@ -130,19 +133,18 @@ const Home = () => {
             >
               <div className="card-enhanced backdrop-blur-sm rounded-2xl p-8 border border-green-500/20">
                 <div className="space-y-6">
-                  <h3 className="text-2xl font-semibold text-white">Why Choose STK?</h3>
+                  <h3 className="text-2xl font-semibold text-white">Why Choose STK Tech?</h3>
                   <ul className="space-y-4">
                     {[
-                     'Matric Upgrade classes designed for better results',
-                     'Supportive tutors to help you pass with confidence',
-                     'Hands-on IT training with real-world projects',
-                     'Learn the latest tech skills in demand by employers',
-                     'Expert teachers with experience supporting learners',
-                     'Small class sizes for personalized attention',
-                     'Modern facilities and learning resources',
-                     'Flexible scheduling options',
-                     'Preparing learners for academic and career opportunities'
-
+                     'Industry-relevant curriculum',
+                     'Hands-on project experience',
+                     'Expert instructors with real-world experience',
+                     'Career support and job placement',
+                     'Flexible learning options',
+                     'Latest technologies and tools',
+                     'Portfolio development',
+                     'Professional certification preparation',
+                     'Networking opportunities'
                     ].map((item, index) => (
                       <motion.li
                         key={index}
@@ -187,7 +189,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Training Programs */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -197,16 +199,16 @@ const Home = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Why Choose STK College?
+              Training Programs
             </h2>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed font-medium">
-              Our proven process helps students upgrade their results and achieve their academic goals.
+              Comprehensive IT training designed to launch and advance your tech career
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => {
+              const Icon = service.icon;
               return (
                 <motion.div
                   key={index}
@@ -219,10 +221,10 @@ const Home = () => {
                     <Icon className="w-12 h-12 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors duration-300">
-                    {feature.title}
+                    {service.title}
                   </h3>
                   <p className="text-gray-200 leading-relaxed text-lg font-medium">
-                    {feature.description}
+                    {service.description}
                   </p>
                 </motion.div>
               );
@@ -231,7 +233,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* IT Opportunities Section */}
+      {/* Development Services */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -241,16 +243,16 @@ const Home = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Opportunities for IT Students
+              Development Services
             </h2>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
-              Join our comprehensive IT training program with hands-on experience and internship opportunities.
+              Professional development services to bring your ideas to life
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {itFeatures.map((feature, index) => {
-              const Icon = feature.icon;
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {developmentServices.map((service, index) => {
+              const Icon = service.icon;
               return (
                 <motion.div
                   key={index}
@@ -260,16 +262,13 @@ const Home = () => {
                   className="card-enhanced p-6 rounded-xl text-center hover-lift"
                 >
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl font-bold text-white">{index + 1}</span>
-                  </div>
-                  <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-6 h-6 text-green-400" />
+                    <Icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-2">
-                    {feature.title}
+                    {service.title}
                   </h3>
                   <p className="text-gray-200">
-                    {feature.description}
+                    {service.description}
                   </p>
                 </motion.div>
               );
@@ -288,27 +287,25 @@ const Home = () => {
             className="space-y-8"
           >
             <h2 className="text-3xl md:text-4xl font-bold">
-              Ready to Start Your Journey?
+              Ready to Start Your Tech Journey?
             </h2>
             <p className="text-xl text-gray-200 max-w-2xl mx-auto font-medium">
-              Join learners who are preparing to achieve their goals with STK College. 
-              Your future starts today.
-
+              Join successful graduates who have launched their careers in technology with STK College
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/matric-register"
+                to="/courses"
                 className="btn-secondary-high-contrast inline-flex items-center justify-center px-8 py-4 rounded-lg hover:shadow-lg transition-all duration-200"
               >
-                <FiArrowUp className="mr-2 w-5 h-5" />
-                Matric Registration
+                <FiTrendingUp className="mr-2 w-5 h-5" />
+                View All Courses
               </Link>
               <Link
-                to="/it-register"
+                to="/contact"
                 className="btn-blue-high-contrast inline-flex items-center justify-center px-8 py-4 rounded-lg hover:shadow-lg transition-all duration-200"
               >
-                <FiBookOpen className="mr-2 w-5 h-5" />
-                IT Course Registration
+                <FiBriefcase className="mr-2 w-5 h-5" />
+                Get Started
               </Link>
             </div>
           </motion.div>

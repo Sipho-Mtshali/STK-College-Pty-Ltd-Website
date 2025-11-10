@@ -18,74 +18,141 @@ const ChatBot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
 
-  // Simple responses
+  // Updated responses for IT focus
   const responses = {
-    'matric': `🎓 Matric Upgrade Program
+    'short courses': `🚀 IT Short Courses
 
-We help improve high school results:
+• Python Programming (3 months) - R4,500
+• Java Programming (3 months) - R4,500  
+• Microsoft 365 Suite (3 months) - R3,800
+• SQL Database (6 months) - R6,200
 
-• Expert tutoring
-• Flexible scheduling  
-• Small classes
-• 90% pass rate
+All courses include certificates and portfolio projects!`,
 
-Fees:
-Registration: R2,000
-Complete: R6,700
+    'python': `🐍 Python Programming Course
 
-Contact admissions for details.`,
-    
-    'it program': `💻 IT Professional Courses
+Duration: 3 months
+Price: R4,500
+Funding: Available through MICT SETA
 
-Courses available:
-• Software Development
-• Web Development
-• Database Management
-• Cybersecurity
+Learn:
+• Python fundamentals
+• Data structures
+• Web development with Django
+• Data analysis
+• Real-world projects
 
-Duration: 8-14 months
-Registration: R3,000
+Perfect for beginners!`,
 
-Contact IT department.`,
-    
-    'admission': `📝 Admission Process
+    'java': `☕ Java Programming Course
 
-1. Choose program
-2. Pay registration
-3. Complete form
-4. Start learning!
+Duration: 3 months  
+Price: R4,500
 
-Contact admissions for help.`,
-    
-    'fee': `💰 Fees & Payment
+Learn:
+• Core Java concepts
+• Object-oriented programming
+• Spring Framework
+• Database integration
+• Build practical applications
 
-Matric Upgrade:
-Registration: R2,000
-Complete: R6,700
+Start your programming career!`,
 
-IT Courses:
-Registration: R3,000
-Flexible plans
+    'microsoft': `💼 Microsoft 365 Mastery
 
-Contact finance for options.`,
-    
-    'contact': `📞 Contact STK College
+Duration: 3 months
+Price: R3,800
+
+Master:
+• Word (Advanced)
+• Excel (Formulas, PivotTables)
+• PowerPoint (Professional presentations)
+• Outlook & Teams
+• Office automation
+
+Boost your office skills!`,
+
+    'sql': `🗄️ SQL Database Course
+
+Duration: 6 months
+Price: R6,200
+
+Learn:
+• Database design
+• SQL queries
+• Stored procedures
+• Data analysis
+• MySQL & PostgreSQL
+
+Become a database expert!`,
+
+    'internship': `💻 Internship Program
+
+Technologies: C#, MVC.NET, SQL Server
+
+• 6-month intensive training
+• Real client projects
+• Mentorship from seniors
+• Portfolio development
+• Job placement assistance
+
+Transform from learner to professional!`,
+
+    'learnership': `🤖 AI Learnership
+
+Duration: 12 months
+Focus: Artificial Intelligence & Machine Learning
+
+• Python for AI
+• Machine Learning algorithms
+• Neural Networks
+• Data Science
+• AI project development
+
+Funded opportunities available!`,
+
+    'services': `🎨 Additional Services
+
+• Portfolio Creation - R2,500
+• Website Development (HTML, React, Tailwind) - From R5,000
+• Mobile App Development (React Native) - From R7,000
+• Custom Software Solutions - Quote based
+
+Turn your ideas into reality!`,
+
+    'pricing': `💰 Course Pricing
+
+SHORT COURSES:
+Python - R4,500
+Java - R4,500
+Microsoft 365 - R3,800
+SQL - R6,200
+
+SERVICES:
+Portfolio - R2,500
+Website - From R5,000
+Mobile App - From R7,000
+
+Payment plans available!`,
+
+    'contact': `📞 Contact STK College IT
 
 Phone: +27 76 362 7488
 Email: stkcollege@gmail.com
 Location: Durban, 4031
 
-Visit campus for a tour!`,
-    
+Visit for a free career consultation!`,
+
     'default': `Need more detailed information?
 
-Contact our team for:
-• Program details
+Contact our IT department for:
+• Course details & syllabus
 • Career guidance  
-• Pricing & payments
-• Campus tours
+• Payment plans
+• Funding options (MICT SETA)
+• Portfolio reviews
 
-They'll provide personalized help! 🎓`
+We'll help you start your tech career! 🚀`
   };
 
   // Scroll to bottom
@@ -102,7 +169,7 @@ They'll provide personalized help! 🎓`
     if (isOpen && messages.length === 0) {
       setMessages([{
         id: 1,
-        text: "👋 Hello! I'm STK College Assistant\n\nI can help with:\n• Matric Upgrade Programs\n• IT Courses\n• Admissions\n• Fees\n• Contact Info\n\nFor detailed help, contact our team!",
+        text: "👋 Hello! I'm STK College IT Assistant\n\nI can help with:\n• Short Courses (Python, Java, SQL, Microsoft)\n• Internships (C#, MVC.NET)\n• Learnerships (AI)\n• Development Services\n• Pricing & Funding\n\nLet's build your tech career!",
         sender: 'bot'
       }]);
     }
@@ -112,14 +179,24 @@ They'll provide personalized help! 🎓`
   const findResponse = (message) => {
     const lowerMessage = message.toLowerCase();
     
-    if (lowerMessage.includes('matric') || lowerMessage.includes('upgrade')) {
-      return responses.matric;
-    } else if (lowerMessage.includes('it') || lowerMessage.includes('computer')) {
-      return responses['it program'];
-    } else if (lowerMessage.includes('admission') || lowerMessage.includes('apply')) {
-      return responses.admission;
-    } else if (lowerMessage.includes('fee') || lowerMessage.includes('price')) {
-      return responses.fee;
+    if (lowerMessage.includes('python')) {
+      return responses.python;
+    } else if (lowerMessage.includes('java')) {
+      return responses.java;
+    } else if (lowerMessage.includes('microsoft') || lowerMessage.includes('office') || lowerMessage.includes('365')) {
+      return responses.microsoft;
+    } else if (lowerMessage.includes('sql') || lowerMessage.includes('database')) {
+      return responses.sql;
+    } else if (lowerMessage.includes('short') || lowerMessage.includes('course')) {
+      return responses['short courses'];
+    } else if (lowerMessage.includes('internship')) {
+      return responses.internship;
+    } else if (lowerMessage.includes('learnership') || lowerMessage.includes('ai')) {
+      return responses.learnership;
+    } else if (lowerMessage.includes('service') || lowerMessage.includes('portfolio') || lowerMessage.includes('website') || lowerMessage.includes('app')) {
+      return responses.services;
+    } else if (lowerMessage.includes('price') || lowerMessage.includes('fee') || lowerMessage.includes('cost')) {
+      return responses.pricing;
     } else if (lowerMessage.includes('contact') || lowerMessage.includes('phone')) {
       return responses.contact;
     } else {
@@ -177,7 +254,7 @@ They'll provide personalized help! 🎓`
       {/* Simple Chat Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 right-4 z-50 bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-all duration-200 sm:bottom-6 sm:right-6 sm:p-4"
+        className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all duration-200 sm:bottom-6 sm:right-6 sm:p-4"
         style={{ zIndex: 10000 }}
       >
         <FiMessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -186,7 +263,7 @@ They'll provide personalized help! 🎓`
       {/* Simple Chat Window */}
       {isOpen && (
         <div 
-          className="fixed z-50 bg-gray-900 rounded-lg shadow-xl border border-green-500 overflow-hidden"
+          className="fixed z-50 bg-gray-900 rounded-lg shadow-xl border border-blue-500 overflow-hidden"
           style={{
             bottom: '80px',
             right: '16px',
@@ -198,14 +275,14 @@ They'll provide personalized help! 🎓`
           }}
         >
           {/* Header - Always visible */}
-          <div className="bg-green-600 text-white p-3 flex justify-between items-center border-b border-green-500">
+          <div className="bg-blue-600 text-white p-3 flex justify-between items-center border-b border-blue-500">
             <div className="flex items-center space-x-2">
               <FiMessageCircle className="w-5 h-5" />
-              <span className="font-bold text-sm">STK College Assistant</span>
+              <span className="font-bold text-sm">STK IT Assistant</span>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-white hover:text-green-200 transition-colors p-1"
+              className="text-white hover:text-blue-200 transition-colors p-1"
             >
               <FiX className="w-5 h-5" />
             </button>
@@ -224,7 +301,7 @@ They'll provide personalized help! 🎓`
                 <div
                   className={`max-w-[80%] rounded-lg p-3 ${
                     message.sender === 'user'
-                      ? 'bg-green-600 text-white rounded-br-none'
+                      ? 'bg-blue-600 text-white rounded-br-none'
                       : 'bg-gray-700 text-white rounded-bl-none'
                   }`}
                 >
@@ -240,9 +317,9 @@ They'll provide personalized help! 🎓`
               <div className="flex justify-start">
                 <div className="bg-gray-700 text-white rounded-lg rounded-bl-none p-3 max-w-[80%]">
                   <div className="flex space-x-1">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                   </div>
                 </div>
               </div>
@@ -254,11 +331,11 @@ They'll provide personalized help! 🎓`
           {/* Quick Replies */}
           <div className="p-2 border-t border-gray-700 bg-gray-900">
             <div className="flex flex-wrap gap-1">
-              {['Matric', 'IT Programs', 'Admissions', 'Contact'].map((reply) => (
+              {['Python', 'Java', 'SQL', 'Internship', 'Pricing'].map((reply) => (
                 <button
                   key={reply}
                   onClick={() => handleQuickReply(reply)}
-                  className="px-2 py-1 bg-gray-700 hover:bg-green-600 text-white text-xs rounded border border-green-500 transition-colors"
+                  className="px-2 py-1 bg-gray-700 hover:bg-blue-600 text-white text-xs rounded border border-blue-500 transition-colors"
                 >
                   {reply}
                 </button>
@@ -267,14 +344,14 @@ They'll provide personalized help! 🎓`
           </div>
 
           {/* Contact CTA */}
-          <div className="p-2 border-t border-gray-700 bg-green-600/20">
+          <div className="p-2 border-t border-gray-700 bg-blue-600/20">
             <div className="text-center">
               <Link
                 to="/contact"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex items-center bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-xs font-semibold transition-colors w-full justify-center"
+                className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-xs font-semibold transition-colors w-full justify-center"
               >
-                Contact Our Team
+                Free Career Consultation
                 <FiArrowRight className="ml-1 w-3 h-3" />
               </Link>
             </div>
@@ -288,13 +365,13 @@ They'll provide personalized help! 🎓`
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Ask about courses, fees..."
-                className="flex-1 bg-gray-800 border border-gray-600 rounded px-2 py-1 text-white placeholder-gray-400 focus:outline-none focus:border-green-500 text-sm"
+                placeholder="Ask about Python, Java, internships..."
+                className="flex-1 bg-gray-800 border border-gray-600 rounded px-2 py-1 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 text-sm"
               />
               <button
                 onClick={() => handleSendMessage()}
                 disabled={!inputMessage.trim()}
-                className="bg-green-600 hover:bg-green-700 disabled:bg-gray-600 text-white p-2 rounded transition-colors"
+                className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 text-white p-2 rounded transition-colors"
               >
                 <FiSend className="w-4 h-4" />
               </button>

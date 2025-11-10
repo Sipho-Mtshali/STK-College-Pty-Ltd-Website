@@ -24,7 +24,7 @@ const Navbar = () => {
         { name: 'Testimonials', href: '/testimonials' }
       ]
     },
-    { name: 'Subjects', href: '/subjects' },
+    { name: 'Courses', href: '/courses' },
     { name: 'Pricing', href: '/pricing' },
     { name: 'Results', href: '/results' },
     { name: 'Matric Registration', href: '/matric-register' },
