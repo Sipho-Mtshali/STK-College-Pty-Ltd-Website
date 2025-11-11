@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   FiMail, 
@@ -21,16 +20,16 @@ const Footer = () => {
   const quickLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Matric Registration', path: '/matric-register' },
-    { name: 'IT Registration', path: '/it-register' },
+    { name: 'Courses', path: '/courses' },
+    { name: 'Registration', path: '/it-register' },
     { name: 'Contact', path: '/contact' }
   ];
 
   const programs = [
-    { name: 'Matric Upgrades', path: '/matric-register' },
     { name: 'IT Short course', path: '/it-register' },
     { name: 'Internships', path: '/it-register' },
-    { name: 'In-Service Training', path: '/it-register' }
+    { name: 'In-Service Training', path: '/it-register' },
+    { name: 'AI Learnership', path: '/it-register' }
   ];
 
   const contactInfo = [
@@ -69,8 +68,8 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Empowering students through quality education, matric upgrades, and IT training opportunities. 
-              Your success is our mission.
+              Empowering careers through quality IT education, professional training, and industry-relevant skills development. 
+              Your tech career success is our mission.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => {
