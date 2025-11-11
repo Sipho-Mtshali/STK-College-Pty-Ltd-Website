@@ -1,28 +1,29 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-
 import { FiBookOpen, FiUsers, FiClock, FiStar,
-  FiUser, FiMail, FiPhone } from 'react-icons/fi';
+  FiUser, FiMail, FiPhone, FiCode, FiDatabase, 
+  FiMonitor, FiCpu, FiBriefcase, FiAward } from 'react-icons/fi';
 
 const Staff = () => {
   const [staff, setStaff] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Actual STK College team members
+  // Updated STK College IT program team members
   const mockStaff = [
     {
       id: '1',
-      name: 'Mr S Mtshali',
-      position: 'Founder',
-      department: 'Management',
-      experience: '2+ years',
-      qualifications: 'School Development, Website and Software Development',
+      name: 'Sipho Mtshali',
+      position: 'Senior IT Instructor & Developer',
+      department: 'Programming & Development',
+      experience: '4+ years',
+      qualifications: 'Java Development, Python Programming, Web Development, Database Management',
       email: 'simphiwesipho55@gmail.com',
       phone: '+27763627488',
-      bio: 'Passionate about upgrading schools and creating better learning environments for all students.',
-      subjects: ['School Development', 'Education Reform', 'Website and software-development'],
+      bio: 'Passionate software developer and educator with extensive experience in programming and IT training. Specializes in Java, Python, web development, and database systems. Committed to helping students launch successful tech careers.',
+      subjects: ['Java Programming', 'Python Development', 'Web Development', 'Database Design', 'Software Engineering'],
       rating: 4.9,
       image: '/images/staff/SM3.png',
+      programs: ['Python Programming', 'Java Development', 'Web Development', 'SQL Database Management'],
       social: {
         linkedin: 'https://www.linkedin.com/in/sipho-mtshali-377784236/',
         github: 'https://github.com/Sipho-Mtshali'
@@ -30,104 +31,80 @@ const Staff = () => {
     },
     {
       id: '2',
-      name: 'Ms T Nkosi',
-      position: 'Finance',
-      department: 'Finance',
+      name: 'Thandeka Nkosi',
+      position: 'Program Coordinator & Finance Manager',
+      department: 'Administration & Finance',
       experience: '3+ years',
-      qualifications: 'Budget Management, Educational Funding',
+      qualifications: 'Program Management, Educational Funding, Student Support',
       email: 'thandekan736@gmail.com',
       phone: '+27735787190',
-      bio: 'Ensures every cent supports school improvements and student success.',
-      subjects: ['Budget Management', 'Educational Funding', 'Project Finance'],
+      bio: 'Ensures smooth program operations and manages funding opportunities including MICT SETA applications. Dedicated to supporting students throughout their learning journey.',
+      subjects: ['Program Coordination', 'Funding Management', 'Student Support', 'Administrative Services'],
       rating: 4.8,
       image: '/images/staff/thandeka.png',
+      programs: ['All Program Administration', 'Funding Applications', 'Student Services'],
       social: {
         linkedin: 'https://www.linkedin.com/in/thandeka-nkosi-40a23b217/?trk=contact-info'
       }
     },
     {
       id: '3',
-      name: 'Ms KK Mtshali',
-      position: 'Admin',
-      department: 'Administration',
-      experience: '1.5 years',
-      qualifications: 'Administrative Support, Educational Management',
-      email: 'sanele.mtshali@STKCollege.com',
-      bio: 'Keeps everything running smoothly to support school upgrades and academic progress.',
-      subjects: ['School Coordination', 'Administrative Support', 'Educational Management'],
+      name: 'SM Mkhwanazi',
+      position: 'Microsoft Office Facilitator',
+      department: 'Software Applications',
+      experience: '3+ years',
+      qualifications: 'Microsoft Office Suite, Business Applications, Office Technology',
+      email: 'smmkhwanazi@stkcollege.co.za',
+      bio: 'Expert in Microsoft Office applications with practical business experience. Specializes in helping students master Word, Excel, PowerPoint, and Teams for professional environments.',
+      subjects: ['Microsoft Word', 'Microsoft Excel', 'Microsoft PowerPoint', 'Microsoft Teams', 'Office Automation'],
       rating: 4.7,
-      image: '/Images/default-avatar.png',
+      image: '/images/staff/Mkhanazi.jpeg',
+      programs: ['Microsoft Office Complete Suite', 'Microsoft Word', 'Microsoft Excel', 'Microsoft PowerPoint', 'Microsoft Teams'],
       social: {}
     },
     {
       id: '4',
-      name: 'Ms N Dlamini',
-      position: 'Life Science Teacher',
-      department: 'Sciences',
-      experience: '5+ years',
-      qualifications: 'Biology Education, Classroom Management',
-      email: 'sanele.mtshali@STKCollege.com',
-      bio: 'Passionate Life Science educator dedicated to inspiring learners through engaging lessons on biology, the environment, and the human body. Committed to academic excellence and learner growth.',
-      subjects: ['Biology Education', 'Classroom Management', 'Student Mentoring', 'Science Communication'],
-      rating: 4.8,
-      image: '/images/staff/LS Teacher.jpeg',
+      name: 'KK Mtshali',
+      position: 'Administrative Support',
+      department: 'Administration',
+      experience: '2+ years',
+      qualifications: 'Administrative Management, Student Services, Office Operations',
+      email: 'admin@stkcollege.co.za',
+      bio: 'Provides comprehensive administrative support to ensure smooth operations and excellent student experience. Manages enrollments, scheduling, and student communications.',
+      subjects: ['Student Enrollment', 'Schedule Management', 'Administrative Support', 'Customer Service'],
+      rating: 4.7,
+      image: '/images/staff/default-admin.png',
+      programs: ['All Program Support', 'Enrollment Services', 'Student Communications'],
       social: {}
     },
     {
       id: '5',
-      name: 'Mr S Mbatha',
-      position: 'Mathematics Teacher',
-      department: 'Mathematics',
-      experience: '2+ years',
-      qualifications: 'Mathematics Education, Community Engagement',
-      email: 'smbatha@STKCollege.com',
-      bio: 'Eager to contribute fresh ideas to enhance school facilities and student experiences.',
-      subjects: ['Community Engagement', 'Project Assistance', 'School Support'],
-      rating: 4.6,
-      image: '/images/staff/office2.jpg',
+      name: 'STK College AI Team',
+      position: 'AI & Machine Learning Specialists',
+      department: 'Artificial Intelligence',
+      experience: '3+ years',
+      qualifications: 'Machine Learning, Deep Learning, Neural Networks, Data Science',
+      email: 'ai@stkcollege.co.za',
+      bio: 'Our AI team consists of experienced data scientists and machine learning engineers with expertise in modern AI technologies. They provide cutting-edge instruction in AI and machine learning applications.',
+      subjects: ['Machine Learning', 'Deep Learning', 'Neural Networks', 'Data Science', 'AI Applications'],
+      rating: 4.9,
+      image: '/images/staff/AI image.jpeg',
+      programs: ['AI & Machine Learning Learnership', 'Data Science Fundamentals'],
       social: {}
     },
     {
       id: '6',
-      name: 'Ms N Ntuli',
-      position: 'Physical Science Teacher',
-      department: 'Sciences',
-      experience: '4+ years',
-      qualifications: 'Physics & Chemistry Instruction, Laboratory Experimentation',
-      email: 'sanele.ntuli@STKCollege.com',
-      bio: 'Dedicated Physical Science teacher passionate about helping students understand the principles of physics and chemistry. Focused on creating hands-on experiments, fostering analytical thinking, and promoting scientific curiosity in the classroom.',
-      subjects: ['Physics & Chemistry Instruction', 'Laboratory Experimentation', 'Problem-Solving Skills'],
-      rating: 4.7,
-      image: '/images/staff/PS Teacher.jpeg',
-      social: {}
-    },
-    {
-      id: '7',
-      name: 'Mr SM Mkhwanazi',
-      position: 'Office Manangement',
-      department: 'Management',
-      experience: '2 years',
-      qualifications: 'Office Technology, Educational Support',
-      email: 'smmkhwanazi@stkcollege.com',
-      bio: 'Keeps everything running smoothly to support school upgrades and academic progress. Dedicated to ensuring students and staff have the resources they need.',
-      subjects: ['School Coordination', 'Administrative Support', 'Educational Management'],
-      rating: 4.7,
-      image: '/images/staff/Mkhanazi.jpeg',
-      social: {}
-    },
-        {
-      id: '8',
-      name: 'STK College AI',
-      position: 'Virtual Assistant & IT Tutor',
-      department: 'Technology',
-      experience: '24/7',
-      qualifications: 'Master of Artificial Intelligence',
-      email: 'ai@stkcollege.com',
-      phone: 'https://wa.me/ais/2539971289716097?s=5',
-      bio: 'STK College AI is an intelligent virtual assistant designed to support students in Matric upgrades, programming, and web development. Available 24/7, it helps learners with Java, HTML, CSS, and JavaScript, while also guiding parents through college services.',
-      subjects: ['Matric subject Support', 'Java, Website, mobile application and software development Tutoring', '24/7 Availability'],
-      rating: 4.9,
-      image: '/images/staff/AI image.jpeg',
+      name: 'Industry Experts',
+      position: 'Internship & Training Mentors',
+      department: 'Professional Development',
+      experience: '5+ years',
+      qualifications: 'Industry Experience, Project Management, Professional Mentoring',
+      email: 'internships@stkcollege.co.za',
+      bio: 'Our network of industry professionals provides real-world mentorship and guidance during internship and in-service training programs. They bring current industry practices and career insights.',
+      subjects: ['Software Development', 'Project Management', 'Industry Best Practices', 'Career Guidance'],
+      rating: 4.8,
+      image: '/images/staff/industry-experts.png',
+      programs: ['Software Development Internship', 'IT In-Service Training'],
       social: {}
     }
   ];
@@ -135,16 +112,13 @@ const Staff = () => {
   const departments = [...new Set(mockStaff.map(member => member.department))];
 
   useEffect(() => {
-    // In a real app, you would fetch from Firebase
-    // For now, we'll use mock data
     const fetchStaff = async () => {
       try {
-        // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 1000));
         setStaff(mockStaff);
       } catch (error) {
         console.error('Error fetching staff:', error);
-        setStaff(mockStaff); // Fallback to mock data
+        setStaff(mockStaff);
       } finally {
         setLoading(false);
       }
@@ -153,12 +127,50 @@ const Staff = () => {
     fetchStaff();
   }, []);
 
+  const getDepartmentIcon = (department) => {
+    switch (department) {
+      case 'Programming & Development':
+        return FiCode;
+      case 'Artificial Intelligence':
+        return FiCpu;
+      case 'Software Applications':
+        return FiMonitor;
+      case 'Professional Development':
+        return FiBriefcase;
+      case 'Administration & Finance':
+        return FiUsers;
+      case 'Administration':
+        return FiUser;
+      default:
+        return FiBookOpen;
+    }
+  };
+
+  const getDepartmentColor = (department) => {
+    switch (department) {
+      case 'Programming & Development':
+        return 'from-blue-500 to-blue-600';
+      case 'Artificial Intelligence':
+        return 'from-purple-500 to-purple-600';
+      case 'Software Applications':
+        return 'from-green-500 to-green-600';
+      case 'Professional Development':
+        return 'from-orange-500 to-orange-600';
+      case 'Administration & Finance':
+        return 'from-indigo-500 to-indigo-600';
+      case 'Administration':
+        return 'from-gray-500 to-gray-600';
+      default:
+        return 'from-green-500 to-blue-500';
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto mb-4"></div>
-          <p className="text-gray-300">Loading staff information...</p>
+          <p className="text-gray-300">Loading team information...</p>
         </div>
       </div>
     );
@@ -175,11 +187,11 @@ const Staff = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Meet Our Team
+            Meet Our IT Team
           </h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-            Our dedicated team of educators and support staff are committed to providing 
-            the best learning experience for every student at STK College.
+            Our dedicated team of IT professionals and educators are committed to providing 
+            industry-relevant training in programming, software development, and technology applications.
           </p>
         </motion.div>
 
@@ -195,120 +207,143 @@ const Staff = () => {
               <FiUsers className="w-8 h-8 text-white" />
             </div>
             <div className="text-3xl font-bold text-green-400 mb-2">{staff.length}</div>
-            <div className="text-white font-medium">Staff Members</div>
-          </div>
-          <div className="card-enhanced rounded-2xl p-6 text-center hover-lift">
-            <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <FiBookOpen className="w-8 h-8 text-white" />
-            </div>
-            <div className="text-3xl font-bold text-yellow-400 mb-2">{departments.length}</div>
-            <div className="text-white font-medium">Departments</div>
+            <div className="text-white font-medium">Team Members</div>
           </div>
           <div className="card-enhanced rounded-2xl p-6 text-center hover-lift">
             <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <FiBookOpen className="w-8 h-8 text-white" />
+            </div>
+            <div className="text-3xl font-bold text-blue-400 mb-2">{departments.length}</div>
+            <div className="text-white font-medium">Specialized Departments</div>
+          </div>
+          <div className="card-enhanced rounded-2xl p-6 text-center hover-lift">
+            <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <FiClock className="w-8 h-8 text-white" />
             </div>
-            <div className="text-3xl font-bold text-blue-400 mb-2">10+</div>
+            <div className="text-3xl font-bold text-yellow-400 mb-2">5+</div>
             <div className="text-white font-medium">Years Avg. Experience</div>
           </div>
           <div className="card-enhanced rounded-2xl p-6 text-center hover-lift">
-            <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <FiStar className="w-8 h-8 text-white" />
+            <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <FiAward className="w-8 h-8 text-white" />
             </div>
-            <div className="text-3xl font-bold text-green-400 mb-2">4.8</div>
+            <div className="text-3xl font-bold text-purple-400 mb-2">4.8</div>
             <div className="text-white font-medium">Average Rating</div>
           </div>
         </motion.div>
 
         {/* Staff Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {staff.map((member, index) => (
-            <motion.div
-              key={member.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="card-enhanced rounded-2xl overflow-hidden hover-lift"
-            >
-              {/* Profile Image */}
-              <div className="relative h-48 bg-gradient-to-br from-blue-600 to-blue-800">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {member.image && member.image !== '/Images/default-avatar.png' ? (
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-24 h-24 rounded-full object-cover border-4 border-white/20"
-                    />
-                  ) : (
-                    <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center">
-                      <FiUser className="w-12 h-12 text-white" />
+          {staff.map((member, index) => {
+            const DepartmentIcon = getDepartmentIcon(member.department);
+            return (
+              <motion.div
+                key={member.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="card-enhanced rounded-2xl overflow-hidden hover-lift border border-gray-700/50"
+              >
+                {/* Profile Header */}
+                <div className={`relative h-32 bg-gradient-to-br ${getDepartmentColor(member.department)}`}>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    {member.image ? (
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-20 h-20 rounded-full object-cover border-4 border-white/20"
+                      />
+                    ) : (
+                      <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center">
+                        <FiUser className="w-10 h-10 text-white" />
+                      </div>
+                    )}
+                  </div>
+                  <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
+                    <div className="flex items-center space-x-1">
+                      <FiStar className="w-4 h-4 text-yellow-400" />
+                      <span className="text-white text-sm font-medium">{member.rating}</span>
                     </div>
-                  )}
-                </div>
-                <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
-                  <div className="flex items-center space-x-1">
-                    <FiStar className="w-4 h-4 text-yellow-400" />
-                    <span className="text-white text-sm font-medium">{member.rating}</span>
                   </div>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
-                  <p className="text-green-400 font-semibold mb-2">{member.position}</p>
-                  <div className="flex items-center space-x-2 text-sm text-gray-300">
-                    <FiBookOpen className="w-4 h-4" />
-                    <span>{member.department}</span>
+                  <div className="absolute bottom-4 left-4">
+                    <div className="flex items-center space-x-2 bg-black/30 backdrop-blur-sm rounded-full px-3 py-1">
+                      <DepartmentIcon className="w-4 h-4 text-white" />
+                      <span className="text-white text-sm font-medium">{member.department}</span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="space-y-3 mb-4">
-                  <div className="flex items-center space-x-2 text-sm text-gray-300">
-                    <FiBookOpen className="w-4 h-4" />
-                    <span>{member.qualifications}</span>
+                {/* Content */}
+                <div className="p-6">
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
+                    <p className="text-green-400 font-semibold mb-2">{member.position}</p>
+                    <div className="flex items-center space-x-2 text-sm text-gray-300 mb-3">
+                      <FiClock className="w-4 h-4" />
+                      <span>{member.experience} experience</span>
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-2 text-sm text-gray-300">
-                    <FiClock className="w-4 h-4" />
-                    <span>{member.experience} experience</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-sm text-gray-300">
-                    <FiMail className="w-4 h-4" />
-                    <span className="truncate">{member.email}</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-sm text-gray-300">
-                    <FiPhone className="w-4 h-4" />
-                    <span>{member.phone}</span>
-                  </div>
-                </div>
 
-                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-                  {member.bio}
-                </p>
+                  <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                    {member.bio}
+                  </p>
 
-                <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-white mb-2">Specialties:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {member.subjects.map((subject, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full font-medium border border-green-500/30"
-                      >
-                        {subject}
-                      </span>
-                    ))}
+                  <div className="mb-4">
+                    <h4 className="text-sm font-semibold text-white mb-2">Programs:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {member.programs.map((program, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded font-medium border border-blue-500/30"
+                        >
+                          {program}
+                        </span>
+                      ))}
+                    </div>
                   </div>
+
+                  <div className="mb-4">
+                    <h4 className="text-sm font-semibold text-white mb-2">Expertise:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {member.subjects.slice(0, 3).map((subject, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded font-medium border border-green-500/30"
+                        >
+                          {subject}
+                        </span>
+                      ))}
+                      {member.subjects.length > 3 && (
+                        <span className="px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded">
+                          +{member.subjects.length - 3} more
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="space-y-2 mb-4">
+                    <div className="flex items-center space-x-2 text-sm text-gray-300">
+                      <FiMail className="w-4 h-4" />
+                      <span className="truncate">{member.email}</span>
+                    </div>
+                    {member.phone && (
+                      <div className="flex items-center space-x-2 text-sm text-gray-300">
+                        <FiPhone className="w-4 h-4" />
+                        <span>{member.phone}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <a 
+                    href={`mailto:${member.email}`}
+                    className="w-full btn-primary-high-contrast py-3 px-4 rounded-lg font-semibold transition-all duration-200 block text-center hover:no-underline hover:scale-105"
+                  >
+                    Contact {member.name.split(' ')[0]}
+                  </a>
                 </div>
-                <a 
-                  href={`mailto:${member.email}`}
-                  className="w-full btn-primary-high-contrast py-3 px-4 rounded-lg font-semibold transition-all duration-200 block text-center hover:no-underline"
-                >
-                  Contact {member.name.split(' ')[0]}
-                </a>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Call to Action */}
@@ -316,16 +351,27 @@ const Staff = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 card-enhanced rounded-2xl p-8 text-center"
+          className="mt-16 card-enhanced rounded-2xl p-8 text-center border border-green-500/20"
         >
-          <h2 className="text-3xl font-bold text-white mb-4">Join Our Team</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Join Our IT Training Team</h2>
           <p className="text-gray-200 mb-6 max-w-2xl mx-auto text-lg leading-relaxed">
-            Are you passionate about education? We're always looking for dedicated 
-            educators to join our team and make a difference in students' lives.
+            Are you passionate about technology education? We're always looking for experienced 
+            IT professionals and educators to join our team and help shape the next generation of tech talent.
           </p>
-          <button className="btn-secondary-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105">
-            View Open Positions
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="mailto:stkcollege@gmail.com"
+              className="btn-secondary-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105"
+            >
+              Send Your CV
+            </a>
+            <a
+              href="/contact"
+              className="btn-primary-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105"
+            >
+              Contact Us
+            </a>
+          </div>
         </motion.div>
       </div>
     </div>
