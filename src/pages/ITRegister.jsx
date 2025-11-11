@@ -50,7 +50,7 @@ const ITRegister = () => {
     {
       value: 'learnership',
       label: 'AI & Tech Learnership',
-      description: 'Comprehensive learnership program with MICT SETA funding opportunities',
+      description: 'Future learnership programs with planned MICT SETA funding opportunities',
       icon: '🤖',
       color: 'purple'
     },
@@ -72,7 +72,11 @@ const ITRegister = () => {
       price: 'R10,500',
       duration: '10 Weeks',
       level: 'Beginner to Intermediate',
-      funding: true,
+      funding: {
+        available: false,
+        planned: true,
+        description: 'Future funding opportunities planned'
+      },
       popular: true
     },
     {
@@ -82,7 +86,7 @@ const ITRegister = () => {
       price: 'R12,000',
       duration: '12 Weeks',
       level: 'Intermediate',
-      funding: false,
+      funding: null,
       popular: false
     },
     {
@@ -92,7 +96,7 @@ const ITRegister = () => {
       price: 'R4,500',
       duration: '6 Weeks',
       level: 'Beginner to Intermediate',
-      funding: false,
+      funding: null,
       popular: true
     },
     {
@@ -102,7 +106,7 @@ const ITRegister = () => {
       price: 'R6,500',
       duration: '8 Weeks',
       level: 'Beginner to Intermediate',
-      funding: false,
+      funding: null,
       popular: true
     },
     {
@@ -112,7 +116,7 @@ const ITRegister = () => {
       price: 'R3,000',
       duration: '5 Weeks',
       level: 'Beginner to Intermediate',
-      funding: false,
+      funding: null,
       popular: false
     },
     {
@@ -122,7 +126,7 @@ const ITRegister = () => {
       price: 'R1,000',
       duration: '2 Weeks',
       level: 'Beginner',
-      funding: false,
+      funding: null,
       popular: true
     },
     {
@@ -132,7 +136,7 @@ const ITRegister = () => {
       price: 'R20,500',
       duration: '10 Weeks',
       level: 'Intermediate',
-      funding: false,
+      funding: null,
       popular: true
     },
     {
@@ -142,7 +146,7 @@ const ITRegister = () => {
       price: 'R10,500',
       duration: '8 Weeks',
       level: 'Intermediate',
-      funding: false,
+      funding: null,
       popular: true
     },
     {
@@ -152,7 +156,11 @@ const ITRegister = () => {
       price: 'R25,000',
       duration: '12 Weeks',
       level: 'Advanced',
-      funding: false,
+      funding: {
+        available: false,
+        planned: true,
+        description: 'Future learnership opportunities planned'
+      },
       popular: false
     },
     {
@@ -162,7 +170,7 @@ const ITRegister = () => {
       price: 'R20,000',
       duration: '10 Weeks',
       level: 'Beginner to Advanced',
-      funding: false,
+      funding: null,
       popular: true
     }
   ];
@@ -266,7 +274,7 @@ const ITRegister = () => {
             IT & AI Programs Registration
           </h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
-            Choose from short courses, AI learnerships, or comprehensive internship programs
+            Express interest in our future short courses, AI learnerships, or comprehensive internship programs
           </p>
         </motion.div>
 
@@ -442,7 +450,7 @@ const ITRegister = () => {
                     Select Courses/Modules *
                   </label>
                   <p className="text-sm text-gray-400 mb-3">
-                    Choose the courses you want to enroll in (select at least one)
+                    Choose the courses you're interested in (select at least one)
                   </p>
                   <div className="grid grid-cols-1 gap-3 max-h-96 overflow-y-auto bg-gray-800 border border-gray-600 rounded-lg p-4">
                     {itCourses.map((course) => (
@@ -457,9 +465,9 @@ const ITRegister = () => {
                           <div className="flex items-start justify-between mb-1">
                             <span className="text-sm font-medium text-white">{course.name}</span>
                             <div className="flex items-center space-x-2">
-                              {course.funding && (
+                              {course.funding?.planned && (
                                 <span className="bg-blue-500 text-white px-2 py-1 rounded text-xs font-bold">
-                                  MICT SETA
+                                  Future MICT SETA
                                 </span>
                               )}
                               {course.popular && (
@@ -633,7 +641,7 @@ const ITRegister = () => {
                   >
                     <FiCheckCircle className="w-5 h-5 text-green-400 mr-3" />
                     <span className="text-green-400">
-                      Registration submitted successfully! We'll contact you soon.
+                      Registration submitted successfully! We'll contact you when programs become available.
                     </span>
                   </motion.div>
                 )}
@@ -689,8 +697,8 @@ const ITRegister = () => {
                       <span className="text-black text-sm font-bold">2</span>
                     </div>
                     <div>
-                      <p className="text-white font-medium">Register & Start Learning</p>
-                      <p className="text-gray-300 text-sm">Complete this form and begin your training immediately</p>
+                      <p className="text-white font-medium">Register & Express Interest</p>
+                      <p className="text-gray-300 text-sm">Complete this form to express interest in our programs</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
@@ -698,8 +706,8 @@ const ITRegister = () => {
                       <span className="text-black text-sm font-bold">3</span>
                     </div>
                     <div>
-                      <p className="text-white font-medium">Get Certified</p>
-                      <p className="text-gray-300 text-sm">Receive industry-recognized certificates upon completion</p>
+                      <p className="text-white font-medium">Get Started When Available</p>
+                      <p className="text-gray-300 text-sm">We'll contact you when programs become operational</p>
                     </div>
                   </div>
                 </div>
@@ -747,28 +755,28 @@ const ITRegister = () => {
               <div className="mb-4">
                 <div className="bg-purple-500/20 border border-purple-500 rounded-lg p-3 mb-4">
                   <p className="text-purple-400 text-sm font-semibold">
-                    🎓 MICT SETA Funding Available
+                    🎓 Future MICT SETA Opportunities Planned
                   </p>
                 </div>
                 
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-gray-300">Duration:</span>
-                    <span className="text-white font-semibold">12-24 Months</span>
+                    <span className="text-white font-semibold">12-24 Months (Planned)</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-300">Stipend:</span>
-                    <span className="text-white font-semibold">Available</span>
+                    <span className="text-gray-300">Status:</span>
+                    <span className="text-white font-semibold">In Development</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-300">Certification:</span>
-                    <span className="text-white font-semibold">NQF Level 5</span>
+                    <span className="text-white font-semibold">Future QCTO Accreditation</span>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h4 className="font-semibold text-purple-400 mb-3">Program Includes:</h4>
+                <h4 className="font-semibold text-purple-400 mb-3">Program Plans Include:</h4>
                 <div className="space-y-2 text-sm text-gray-300">
                   <div className="flex items-center">
                     <FiCheckCircle className="w-4 h-4 text-purple-400 mr-2" />
@@ -784,7 +792,7 @@ const ITRegister = () => {
                   </div>
                   <div className="flex items-center">
                     <FiCheckCircle className="w-4 h-4 text-purple-400 mr-2" />
-                    <span>Workplace Experience</span>
+                    <span>Workplace Experience Opportunities</span>
                   </div>
                   <div className="flex items-center">
                     <FiCheckCircle className="w-4 h-4 text-purple-400 mr-2" />
@@ -794,40 +802,32 @@ const ITRegister = () => {
               </div>
             </div>
 
-            {/* Requirements */}
+            {/* Current Status */}
             <div className="card-enhanced rounded-xl p-6 border border-blue-500/30">
               <h3 className="text-xl font-bold text-white mb-4">
-                Requirements
+                Current Status
               </h3>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-center">
                   <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
-                  Access to a computer
+                  Registered CIPC and NPO initiative
                 </li>
                 <li className="flex items-center">
                   <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
-                  Internet connection
+                  Preparing for QCTO accreditation
                 </li>
                 <li className="flex items-center">
                   <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
-                  Motivation to learn
+                  Planning future MICT SETA funding
                 </li>
-                {(isInternship || isLearnership) && (
-                  <>
-                    <li className="flex items-center">
-                      <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
-                      Updated CV/Resume
-                    </li>
-                    <li className="flex items-center">
-                      <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
-                      Academic transcripts
-                    </li>
-                    <li className="flex items-center">
-                      <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
-                      ID document copy
-                    </li>
-                  </>
-                )}
+                <li className="flex items-center">
+                  <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
+                  Facilities ready for training
+                </li>
+                <li className="flex items-center">
+                  <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
+                  Industry partnerships in development
+                </li>
               </ul>
             </div>
 
@@ -837,7 +837,7 @@ const ITRegister = () => {
                 Questions?
               </h3>
               <p className="text-gray-200 mb-4 font-medium">
-                Our IT department is here to help you choose the right program.
+                Our team is here to help you learn about our future programs.
               </p>
               <div className="space-y-2">
                 <p className="text-sm text-gray-300">

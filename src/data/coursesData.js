@@ -1,4 +1,3 @@
-// src/data/coursesData.js
 export const coursesData = {
   1: {
     id: 1,
@@ -95,10 +94,10 @@ By the end of this course, you'll be able to:
     ],
     popular: true,
     funding: {
-      available: true,
+      available: false,
+      planned: true,
       provider: 'MICT SETA',
-      fundedPrice: 'R0',
-      description: 'Fully funded for eligible candidates'
+      description: 'Future funding opportunities planned upon accreditation'
     },
     duration: '10 Weeks',
     level: 'Beginner to Intermediate',
@@ -698,7 +697,12 @@ You'll work on real-world projects, learn to build and train models, and underst
       }
     ],
     popular: false,
-    funding: null,
+    funding: {
+      available: false,
+      planned: true,
+      provider: 'MICT SETA',
+      description: 'Future learnership opportunities planned'
+    },
     duration: '12 Weeks',
     level: 'Advanced',
     certificate: true,

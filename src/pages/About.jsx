@@ -25,8 +25,8 @@ const About = () => {
     {
       icon: FiZap,
       title: 'AI Learnership',
-      description: 'MICT SETA funded learnership in Artificial Intelligence and Machine Learning',
-      features: ['MICT SETA Funding', 'NQF Level 5', 'Industry Projects', 'Career Placement']
+      description: 'Future learnership programs in Artificial Intelligence and Machine Learning',
+      features: ['Future MICT SETA Opportunities', 'Industry Projects', 'Career Placement', 'Advanced Training']
     }
   ];
 
@@ -38,8 +38,8 @@ const About = () => {
     },
     { 
       icon: FiUsers, 
-      title: 'MICT SETA Partner', 
-      description: 'Accredited training provider with funding opportunities' 
+      title: 'Registered Provider', 
+      description: 'CIPC registered initiative preparing for accreditation' 
     },
     { 
       icon: FiAward, 
@@ -48,8 +48,8 @@ const About = () => {
     },
     { 
       icon: FiTrendingUp, 
-      title: 'Career Ready', 
-      description: 'Graduates prepared for immediate employment' 
+      title: 'Future Ready', 
+      description: 'Preparing students for emerging tech opportunities' 
     }
   ];
 
@@ -80,8 +80,8 @@ const About = () => {
       icon: "📊"
     },
     {
-      title: "Funding Options",
-      description: "MICT SETA funding and flexible payment plans available",
+      title: "Future Funding",
+      description: "Preparing for QCTO accreditation and future funding opportunities",
       icon: "💰"
     }
   ];
@@ -102,7 +102,7 @@ const About = () => {
               About STK College
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
-              Empowering Future Tech Leaders Through Innovative IT Education
+              Building Future Tech Leaders Through Innovative IT Education
             </p>
           </motion.div>
         </div>
@@ -124,9 +124,9 @@ const About = () => {
               <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
               <p className="text-lg text-gray-200 leading-relaxed">
                 To provide cutting-edge IT education and training that equips students with 
-                practical skills for the digital economy. We bridge the gap between academic 
-                learning and industry requirements through our comprehensive programs in 
-                programming, AI, and technology.
+                practical skills for the digital economy. We are building the foundation to 
+                bridge the gap between academic learning and industry requirements through 
+                our comprehensive programs in programming, AI, and technology.
               </p>
             </motion.div>
 
@@ -141,9 +141,10 @@ const About = () => {
               </div>
               <h2 className="text-3xl font-bold text-white mb-4">Our Vision</h2>
               <p className="text-lg text-gray-200 leading-relaxed">
-                To be the leading provider of IT education and AI training in South Africa, 
+                To become a leading provider of IT education and AI training in South Africa, 
                 recognized for producing job-ready professionals who drive innovation and 
-                digital transformation across industries.
+                digital transformation across industries through accredited programs and 
+                future funding opportunities.
               </p>
             </motion.div>
           </div>
@@ -160,10 +161,10 @@ const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Transforming IT Education
+              Building the Future of IT Education
             </h2>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
-              Bridging the gap between academic learning and industry demands through practical, 
+              Preparing to bridge the gap between academic learning and industry demands through practical, 
               career-focused IT training programs.
             </p>
           </motion.div>
@@ -180,33 +181,33 @@ const About = () => {
               </div>
               
               <p>
-                STK College is a specialized IT training institution dedicated to preparing students 
+                STK College is a specialized IT training initiative dedicated to preparing students 
                 for successful careers in technology. Our programs are designed to meet the growing 
                 demand for skilled IT professionals in South Africa and beyond.
               </p>
               
               <p>
-                We offer a comprehensive range of programs from short courses in programming and 
-                Microsoft Office to advanced AI learnerships and internship opportunities. Our 
-                curriculum is constantly updated to reflect the latest industry trends and 
-                technologies.
+                We are currently preparing for QCTO accreditation and future MICT SETA funding opportunities. 
+                Our curriculum is being developed to reflect the latest industry trends and technologies, 
+                with current student numbers and program details serving as demonstration models as we 
+                build toward full operation.
               </p>
               
               <p>
-                As a MICT SETA accredited training provider, we offer funded learnership opportunities 
-                that make quality IT education accessible to more students. Our partnerships with 
-                industry leaders ensure that our graduates are well-prepared for the workforce.
+                As a registered CIPC and NPO initiative, we are building partnerships with industry leaders 
+                to ensure that our graduates will be well-prepared for the workforce once full accreditation 
+                is achieved.
               </p>
 
               <div className="bg-blue-500/20 border border-blue-500 rounded-xl p-6 mt-6">
-                <h3 className="text-xl font-bold text-white mb-3">Why Choose STK College?</h3>
+                <h3 className="text-xl font-bold text-white mb-3">Our Current Status</h3>
                 <ul className="space-y-2 text-gray-200">
-                  <li>• Industry-relevant curriculum developed with tech companies</li>
-                  <li>• Hands-on learning with real-world projects</li>
-                  <li>• Experienced instructors from the IT industry</li>
-                  <li>• Career support and job placement assistance</li>
-                  <li>• Flexible learning options to suit your schedule</li>
-                  <li>• MICT SETA funding opportunities for eligible students</li>
+                  <li>• Registered CIPC and NPO initiative</li>
+                  <li>• Preparing for QCTO accreditation</li>
+                  <li>• Planning future MICT SETA funding opportunities</li>
+                  <li>• Industry-relevant curriculum under development</li>
+                  <li>• Facilities ready for future training operations</li>
+                  <li>• Building industry partnerships</li>
                 </ul>
               </div>
             </motion.div>
@@ -224,10 +225,10 @@ const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Our Programs
+              Our Planned Programs
             </h2>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
-              Comprehensive IT training pathways designed for career success
+              Comprehensive IT training pathways being developed for career success
             </p>
           </motion.div>
 
@@ -367,7 +368,7 @@ const About = () => {
             </h2>
             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
               Join STK College and gain the skills you need to succeed in the rapidly evolving tech industry. 
-              Choose from our short courses, in-service training, internships, or AI learnership programs.
+              Choose from our planned short courses, in-service training, internships, or AI learnership programs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

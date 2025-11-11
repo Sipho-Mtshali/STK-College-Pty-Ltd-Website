@@ -29,10 +29,10 @@ const Courses = () => {
       features: ['Python Fundamentals', 'Django Web Framework', 'Data Analysis', 'Automation Scripting'],
       popular: true,
       funding: {
-        available: true,
+        available: false,
+        planned: true,
         provider: 'MICT SETA',
-        fundedPrice: 'R0',
-        description: 'Fully funded for eligible candidates'
+        description: 'Future funding opportunities planned'
       }
     },
     {
@@ -160,7 +160,12 @@ const Courses = () => {
       description: 'Comprehensive AI and Machine Learning program with hands-on projects.',
       features: ['Machine Learning', 'Neural Networks', 'Deep Learning', 'Real Projects'],
       popular: false,
-      funding: null
+      funding: {
+        available: false,
+        planned: true,
+        provider: 'MICT SETA',
+        description: 'Future learnership opportunities planned'
+      }
     },
     {
       id: 10,
@@ -216,34 +221,28 @@ const Courses = () => {
           </h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
             Discover our comprehensive IT training programs designed to launch your tech career. 
-            Quality education with MICT SETA funding opportunities.
+            Preparing for future accreditation and funding opportunities.
           </p>
         </motion.div>
 
-        {/* MICT SETA Banner */}
+        {/* Future Opportunities Banner */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-8"
         >
-          <div className="bg-gradient-to-r from-white-600 to-white-800 rounded-2xl p-6 border border-white-500/30 relative overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-6 border border-blue-500/30 relative overflow-hidden">
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="flex-1 text-center md:text-left mb-4 md:mb-0">
                 <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center md:justify-start">
                   <FiZap className="w-6 h-6 mr-2 text-yellow-400" />
-                  MICT SETA Funding Available
+                  Future Opportunities
                 </h3>
                 <p className="text-blue-100">
-                  Our Python Programming course is fully funded by MICT SETA for eligible candidates. 
-                  Apply today to study for <span className="font-bold text-white">FREE</span>!
+                  We are preparing for QCTO accreditation and future MICT SETA funding opportunities. 
+                  Join us as we build toward becoming an accredited training provider.
                 </p>
-              </div>
-              <div className="flex-shrink-0">
-                <img 
-                  src="/images/courses/mictsetalogo.png"  
-                  className="h-16 object-contain"
-                />
               </div>
             </div>
           </div>
@@ -346,14 +345,14 @@ const Courses = () => {
                   </div>
                 )}
                 
-               {/*  MICT SETA Funding Badge 
-                {course.funding?.available && (
+                {/* Future Funding Badge */}
+                {course.funding?.planned && (
                   <div className="absolute bottom-4 left-4">
                     <span className="bg-blue-500 text-white px-3 py-1 rounded text-sm font-bold shadow-lg flex items-center">
-                       Funded by MICT SETA
+                      Future Funding Planned
                     </span>
                   </div>
-                )}*/}
+                )}
               </div>
 
               {/* Course Content */}
@@ -395,23 +394,20 @@ const Courses = () => {
 
                 {/* Pricing */}
                 <div className="mb-6">
-                  {course.funding?.available ? (
+                  {course.funding?.planned ? (
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <div>
                           <span className="text-2xl font-bold text-green-400">
-                            {course.funding.fundedPrice}
-                          </span>
-                          <span className="text-sm text-gray-500 line-through ml-2">
                             {course.price}
                           </span>
                         </div>
                         <span className="text-sm text-blue-400 font-semibold bg-blue-500/20 px-2 py-1 rounded">
-                          MICT SETA
+                          Future MICT SETA
                         </span>
                       </div>
                       <div className="text-xs text-gray-400">
-                        Fully funded for eligible candidates
+                        {course.funding.description}
                       </div>
                     </div>
                   ) : (
@@ -437,7 +433,7 @@ const Courses = () => {
                     View Details
                   </Link>
                   <Link
-                    to="/register"
+                    to="/it-register"
                     className="flex-1 btn-primary-high-contrast py-3 px-4 rounded-lg text-sm font-medium text-center transition-all duration-200 transform hover:scale-105"
                   >
                     Enroll Now

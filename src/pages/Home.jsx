@@ -5,29 +5,29 @@ import { FiArrowRight, FiCode, FiUsers, FiAward,
   FiLayers, FiSmartphone, FiGlobe } from 'react-icons/fi';
 
 const Home = () => {
-// Update the services section to:
-const services = [
-  {
-    icon: FiCode,
-    title: 'Short Courses',
-    description: '3-6 month intensive programs in Python, Java, SQL, and Microsoft 365'
-  },
-  {
-    icon: FiUsers,
-    title: 'In-Service Training',
-    description: 'Hands-on C# and MVC.NET training with real-world projects'
-  },
-  {
-    icon: FiBriefcase,
-    title: 'Internships',
-    description: 'Professional internships in software development and web technologies'
-  },
-  {
-    icon: FiTrendingUp,
-    title: 'AI Learnerships',
-    description: 'MICT SETA funded learnership programs in Artificial Intelligence'
-  }
-];
+  // Update the services section to:
+  const services = [
+    {
+      icon: FiCode,
+      title: 'Short Courses',
+      description: '3-6 month intensive programs in Python, Java, SQL, and Microsoft 365'
+    },
+    {
+      icon: FiUsers,
+      title: 'In-Service Training',
+      description: 'Hands-on C# and MVC.NET training with real-world projects'
+    },
+    {
+      icon: FiBriefcase,
+      title: 'Internships',
+      description: 'Professional internships in software development and web technologies'
+    },
+    {
+      icon: FiTrendingUp,
+      title: 'AI Learnerships',
+      description: 'Future learnership programs in Artificial Intelligence and Machine Learning'
+    }
+  ];
 
   const developmentServices = [
     {
