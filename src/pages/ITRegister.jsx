@@ -304,7 +304,7 @@ const ITRegister = () => {
                       required: 'Full name is required',
                       minLength: { value: 2, message: 'Name must be at least 2 characters' }
                     })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
                     placeholder="Enter your full name"
                   />
                   {errors.fullName && (
@@ -324,7 +324,7 @@ const ITRegister = () => {
                   <input
                     type="text"
                     {...register('studentNumber')}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
                     placeholder="Enter your student number (if applicable)"
                   />
                 </div>
@@ -344,7 +344,7 @@ const ITRegister = () => {
                         message: 'Invalid email address'
                       }
                     })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
                     placeholder="Enter your email address"
                   />
                   {errors.email && (
@@ -370,7 +370,7 @@ const ITRegister = () => {
                         message: 'Invalid phone number'
                       }
                     })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
                     placeholder="Enter your phone number"
                   />
                   {errors.phone && (
@@ -389,7 +389,7 @@ const ITRegister = () => {
                   </label>
                   <select
                     {...register('educationLevel')}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
                   >
                     {educationLevels.map(level => (
                       <option key={level} value={level}>{level}</option>
@@ -405,7 +405,7 @@ const ITRegister = () => {
                   </label>
                   <select
                     {...register('experienceLevel')}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
                   >
                     {experienceLevels.map(level => (
                       <option key={level} value={level}>{level}</option>
@@ -424,12 +424,12 @@ const ITRegister = () => {
                   </p>
                   <div className="space-y-3">
                     {programTypes.map((program) => (
-                      <label key={program.value} className={`flex items-start space-x-3 p-4 bg-gray-800 border border-gray-600 rounded-lg hover:bg-gray-700 cursor-pointer transition-all duration-200 border-l-4 border-l-${program.color}-500`}>
+                      <label key={program.value} className={`flex items-start space-x-3 p-4 bg-gray-800 border border-gray-600 rounded-lg hover:bg-gray-700 cursor-pointer transition-all duration-200 border-l-4 ${program.color === 'yellow' ? 'border-l-yellow-500' : program.color === 'purple' ? 'border-l-purple-500' : 'border-l-blue-500'}`}>
                         <input
                           type="radio"
                           value={program.value}
                           {...register('programType')}
-                          className="w-4 h-4 text-green-500 border-gray-600 bg-gray-700 focus:ring-green-500 mt-1"
+                          className="w-4 h-4 text-yellow-500 border-gray-600 bg-gray-700 focus:ring-yellow-500 mt-1"
                         />
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-1">
@@ -459,7 +459,7 @@ const ITRegister = () => {
                           type="checkbox"
                           value={course.id}
                           {...register('itCourses', { required: 'Please select at least one course' })}
-                          className="w-4 h-4 text-green-500 border-gray-600 bg-gray-700 rounded focus:ring-green-500 mt-1"
+                          className="w-4 h-4 text-yellow-500 border-gray-600 bg-gray-700 rounded focus:ring-yellow-500 mt-1"
                         />
                         <div className="flex-1">
                           <div className="flex items-start justify-between mb-1">
@@ -487,7 +487,7 @@ const ITRegister = () => {
                               {course.level}
                             </div>
                             <div className="flex items-center">
-                              <FiDollarSign className="w-3 h-3 mr-1" />
+                              <span className="w-3 h-3 mr-1 flex items-center justify-center font-bold text-xs"></span>
                               {course.price}
                             </div>
                           </div>
@@ -520,11 +520,11 @@ const ITRegister = () => {
                           type="file"
                           accept=".pdf,.jpg,.jpeg,.png"
                           onChange={(e) => handleFileChange('cv', e)}
-                          className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-green-500 file:text-white hover:file:bg-green-600 transition-all duration-200"
+                          className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-yellow-500 file:text-gray-900 hover:file:bg-yellow-600 transition-all duration-200"
                         />
                         {selectedFiles.cv && (
-                          <div className="bg-green-500/20 border border-green-500 rounded-lg p-3">
-                            <p className="text-green-400 text-sm">
+                          <div className="bg-yellow-500/20 border border-yellow-500 rounded-lg p-3">
+                            <p className="text-yellow-400 text-sm">
                               <strong>Selected:</strong> {selectedFiles.cv.name} 
                               ({Math.round(selectedFiles.cv.size / 1024)} KB)
                             </p>
@@ -542,11 +542,11 @@ const ITRegister = () => {
                           type="file"
                           accept=".pdf,.jpg,.jpeg,.png"
                           onChange={(e) => handleFileChange('transcript', e)}
-                          className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-green-500 file:text-white hover:file:bg-green-600 transition-all duration-200"
+                          className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-yellow-500 file:text-gray-900 hover:file:bg-yellow-600 transition-all duration-200"
                         />
                         {selectedFiles.transcript && (
-                          <div className="bg-green-500/20 border border-green-500 rounded-lg p-3">
-                            <p className="text-green-400 text-sm">
+                          <div className="bg-yellow-500/20 border border-yellow-500 rounded-lg p-3">
+                            <p className="text-yellow-400 text-sm">
                               <strong>Selected:</strong> {selectedFiles.transcript.name} 
                               ({Math.round(selectedFiles.transcript.size / 1024)} KB)
                             </p>
@@ -564,11 +564,11 @@ const ITRegister = () => {
                           type="file"
                           accept=".pdf,.jpg,.jpeg,.png"
                           onChange={(e) => handleFileChange('idCopy', e)}
-                          className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-green-500 file:text-white hover:file:bg-green-600 transition-all duration-200"
+                          className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-yellow-500 file:text-gray-900 hover:file:bg-yellow-600 transition-all duration-200"
                         />
                         {selectedFiles.idCopy && (
-                          <div className="bg-green-500/20 border border-green-500 rounded-lg p-3">
-                            <p className="text-green-400 text-sm">
+                          <div className="bg-yellow-500/20 border border-yellow-500 rounded-lg p-3">
+                            <p className="text-yellow-400 text-sm">
                               <strong>Selected:</strong> {selectedFiles.idCopy.name} 
                               ({Math.round(selectedFiles.idCopy.size / 1024)} KB)
                             </p>
@@ -595,7 +595,7 @@ const ITRegister = () => {
                   <textarea
                     {...register('experience')}
                     rows={4}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
                     placeholder="Describe any previous experience with computers, programming, or IT..."
                   />
                 </div>
@@ -608,7 +608,7 @@ const ITRegister = () => {
                   <textarea
                     {...register('goals')}
                     rows={4}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
                     placeholder="What do you hope to achieve with this course? What are your career aspirations?"
                   />
                 </div>
@@ -621,7 +621,7 @@ const ITRegister = () => {
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900 mr-2"></div>
                       Submitting...
                     </>
                   ) : (
@@ -685,7 +685,7 @@ const ITRegister = () => {
                 <div className="space-y-3">
                   <div className="flex items-start space-x-3">
                     <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-black text-sm font-bold">1</span>
+                      <span className="text-gray-900 text-sm font-bold">1</span>
                     </div>
                     <div>
                       <p className="text-white font-medium">Select Your Courses</p>
@@ -694,7 +694,7 @@ const ITRegister = () => {
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-black text-sm font-bold">2</span>
+                      <span className="text-gray-900 text-sm font-bold">2</span>
                     </div>
                     <div>
                       <p className="text-white font-medium">Register & Express Interest</p>
@@ -703,7 +703,7 @@ const ITRegister = () => {
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-black text-sm font-bold">3</span>
+                      <span className="text-gray-900 text-sm font-bold">3</span>
                     </div>
                     <div>
                       <p className="text-white font-medium">Get Started When Available</p>
@@ -832,7 +832,7 @@ const ITRegister = () => {
             </div>
 
             {/* Contact Card */}
-            <div className="card-enhanced rounded-xl p-6 border border-green-500/30">
+            <div className="card-enhanced rounded-xl p-6 border border-yellow-500/30">
               <h3 className="text-xl font-bold text-white mb-4">
                 Questions?
               </h3>

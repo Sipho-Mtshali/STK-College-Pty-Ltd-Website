@@ -199,7 +199,7 @@ const Results = () => {
   const getProgramColor = (programType) => {
     switch (programType) {
       case 'Short Course':
-        return 'bg-green-500';
+        return 'bg-yellow-500';
       case 'Learnership':
         return 'bg-purple-500';
       case 'Internship':
@@ -215,7 +215,7 @@ const Results = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-500 mx-auto mb-4"></div>
           <p className="text-gray-300">Loading results...</p>
         </div>
       </div>
@@ -248,29 +248,29 @@ const Results = () => {
           className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12"
         >
           <div className="card-enhanced rounded-xl p-6 text-center">
-            <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <FiUser className="w-6 h-6 text-green-400" />
+            <div className="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <FiUser className="w-6 h-6 text-yellow-400" />
             </div>
             <div className="text-2xl font-bold text-white mb-2">{stats.totalStudents}</div>
             <div className="text-gray-300">Graduated Students</div>
           </div>
           <div className="card-enhanced rounded-xl p-6 text-center">
-            <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <FiArrowUp className="w-6 h-6 text-green-400" />
+            <div className="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <FiArrowUp className="w-6 h-6 text-yellow-400" />
             </div>
             <div className="text-2xl font-bold text-white mb-2">{Math.round(stats.averagePercentage)}%</div>
             <div className="text-gray-300">Average Score</div>
           </div>
           <div className="card-enhanced rounded-xl p-6 text-center">
-            <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <FiAward className="w-6 h-6 text-green-400" />
+            <div className="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <FiAward className="w-6 h-6 text-yellow-400" />
             </div>
             <div className="text-2xl font-bold text-white mb-2">{stats.distinctionRate}</div>
             <div className="text-gray-300">Distinctions</div>
           </div>
           <div className="card-enhanced rounded-xl p-6 text-center">
-            <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-              <FiStar className="w-6 h-6 text-green-400" />
+            <div className="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <FiStar className="w-6 h-6 text-yellow-400" />
             </div>
             <div className="text-2xl font-bold text-white mb-2">{stats.employmentRate}%</div>
             <div className="text-gray-300">Employment Rate</div>
@@ -293,7 +293,7 @@ const Results = () => {
                 placeholder="Search students or programs..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
               />
             </div>
 
@@ -303,7 +303,7 @@ const Results = () => {
               <select
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-green-500 focus:border-transparent appearance-none"
+                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-yellow-500 focus:border-transparent appearance-none"
               >
                 <option value="all">All Years</option>
                 {years.map(year => (
@@ -318,7 +318,7 @@ const Results = () => {
               <select
                 value={selectedProgram}
                 onChange={(e) => setSelectedProgram(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-green-500 focus:border-transparent appearance-none"
+                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-yellow-500 focus:border-transparent appearance-none"
               >
                 <option value="all">All Programs</option>
                 {programs.map(program => (
@@ -381,7 +381,7 @@ const Results = () => {
                 <div className="p-6">
                   <div className="mb-4">
                     <h3 className="text-xl font-bold text-white mb-1">{result.studentName}</h3>
-                    <p className="text-green-400 font-semibold">{result.program}</p>
+                    <p className="text-yellow-400 font-semibold">{result.program}</p>
                     <div className="flex items-center justify-between mt-2">
                       <span className="text-sm text-gray-400">Year: {result.year}</span>
                       <span className="text-lg font-bold text-white">{result.percentage}%</span>
@@ -413,13 +413,13 @@ const Results = () => {
                     </span>
                     <div className="flex space-x-2">
                       <button 
-                        className="text-green-400 hover:text-green-300 transition-colors duration-200"
+                        className="text-yellow-400 hover:text-yellow-300 transition-colors duration-200"
                         title="View Certificate"
                       >
                         <FiAward className="w-5 h-5" />
                       </button>
                       <button 
-                        className="text-green-400 hover:text-green-300 transition-colors duration-200"
+                        className="text-yellow-400 hover:text-yellow-300 transition-colors duration-200"
                         title="Download Result"
                       >
                         <FiDownload className="w-5 h-5" />
@@ -450,7 +450,7 @@ const Results = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 card-enhanced rounded-2xl p-8 text-center border border-green-500/20"
+          className="mt-16 card-enhanced rounded-2xl p-8 text-center border border-yellow-500/20"
         >
           <h2 className="text-2xl font-bold text-white mb-4">Start Your IT Career Journey</h2>
           <p className="text-gray-200 mb-6 max-w-2xl mx-auto font-medium">

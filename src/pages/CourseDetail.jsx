@@ -329,7 +329,7 @@ const CourseDetail = () => {
               {currentCurriculum.map((week, index) => (
                 <div key={index} className="card-enhanced p-6">
                   <div className="flex items-start mb-4">
-                    <div className="bg-green-500 text-white px-3 py-1 rounded-lg font-bold mr-4">
+                    <div className="bg-yellow-500 text-gray-900 px-3 py-1 rounded-lg font-bold mr-4">
                       {week.week}
                     </div>
                     <div>
@@ -339,7 +339,7 @@ const CourseDetail = () => {
                       <div className="space-y-2">
                         {week.topics.map((topic, topicIndex) => (
                           <div key={topicIndex} className="flex items-center text-gray-300 text-sm">
-                            <FiCheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />
+                            <FiCheckCircle className="w-4 h-4 text-primary-yellow mr-2 flex-shrink-0" />
                             <span>{topic}</span>
                           </div>
                         ))}
@@ -357,13 +357,13 @@ const CourseDetail = () => {
           <div className="space-y-8">
             <div className="flex flex-col md:flex-row items-start gap-8">
               <div className="flex-shrink-0">
-                <div className="w-32 h-32 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center">
+                <div className="w-32 h-32 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center">
                   <FiUser className="w-16 h-16 text-white" />
                 </div>
               </div>
               <div className="flex-1">
                 <h3 className="text-3xl font-bold text-white mb-2">{instructor.name}</h3>
-                <p className="text-green-400 text-lg mb-4">{instructor.role}</p>
+                <p className="text-primary-yellow text-lg mb-4">{instructor.role}</p>
                 <p className="text-gray-300 leading-relaxed mb-6">{instructor.bio}</p>
                 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
@@ -393,7 +393,7 @@ const CourseDetail = () => {
                 {instructor.expertise.map((skill, index) => (
                   <span
                     key={index}
-                    className="bg-gray-800 text-green-400 px-4 py-2 rounded-lg font-medium border border-green-500/30"
+                    className="bg-gray-800 text-primary-yellow px-4 py-2 rounded-lg font-medium border border-yellow-500/30"
                   >
                     {skill}
                   </span>
@@ -404,7 +404,7 @@ const CourseDetail = () => {
             <div className="border-t border-gray-700 pt-6">
               <h4 className="text-xl font-bold text-white mb-4">Contact Instructor</h4>
               <div className="flex items-center text-gray-300">
-                <FiMail className="w-5 h-5 mr-3 text-green-400" />
+                <FiMail className="w-5 h-5 mr-3 text-primary-yellow" />
                 <span>{instructor.email}</span>
               </div>
             </div>
@@ -432,7 +432,7 @@ const CourseDetail = () => {
                 <div key={review.id} className="card-enhanced p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center">
-                      <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mr-4">
                         <FiUser className="w-6 h-6 text-white" />
                       </div>
                       <div>
@@ -477,7 +477,7 @@ const CourseDetail = () => {
                 <div>
                   <label className="block text-gray-300 mb-2">Your Review</label>
                   <textarea
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                     rows="4"
                     placeholder="Share your experience with this course..."
                   ></textarea>
@@ -507,7 +507,7 @@ const CourseDetail = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {course.whatYouLearn.map((item, index) => (
                   <div key={index} className="flex items-start">
-                    <FiCheckCircle className="w-5 h-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                    <FiCheckCircle className="w-5 h-5 text-primary-yellow mr-3 mt-1 flex-shrink-0" />
                     <span className="text-gray-300">{item}</span>
                   </div>
                 ))}
@@ -519,7 +519,7 @@ const CourseDetail = () => {
               <div className="space-y-2">
                 {course.requirements.map((requirement, index) => (
                   <div key={index} className="flex items-center text-gray-300">
-                    <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-primary-yellow rounded-full mr-3"></div>
                     <span>{requirement}</span>
                   </div>
                 ))}
@@ -569,7 +569,7 @@ const CourseDetail = () => {
                 
                 {/* Badges */}
                 <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                  <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <span className="bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
                     {course.category}
                   </span>
                   {course.popular && (
@@ -589,22 +589,22 @@ const CourseDetail = () => {
             {/* Quick Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
               <div className="card-enhanced p-4 text-center">
-                <FiClock className="w-6 h-6 text-green-400 mx-auto mb-2" />
+                <FiClock className="w-6 h-6 text-primary-yellow mx-auto mb-2" />
                 <div className="text-sm text-gray-300">Duration</div>
                 <div className="font-semibold text-white">{course.duration}</div>
               </div>
               <div className="card-enhanced p-4 text-center">
-                <FiBookOpen className="w-6 h-6 text-green-400 mx-auto mb-2" />
+                <FiBookOpen className="w-6 h-6 text-primary-yellow mx-auto mb-2" />
                 <div className="text-sm text-gray-300">Lessons</div>
                 <div className="font-semibold text-white">{course.lessons}</div>
               </div>
               <div className="card-enhanced p-4 text-center">
-                <FiAward className="w-6 h-6 text-green-400 mx-auto mb-2" />
+                <FiAward className="w-6 h-6 text-primary-yellow mx-auto mb-2" />
                 <div className="text-sm text-gray-300">Level</div>
                 <div className="font-semibold text-white">{course.level}</div>
               </div>
               <div className="card-enhanced p-4 text-center">
-                <FiUsers className="w-6 h-6 text-green-400 mx-auto mb-2" />
+                <FiUsers className="w-6 h-6 text-primary-yellow mx-auto mb-2" />
                 <div className="text-sm text-gray-300">Students</div>
                 <div className="font-semibold text-white">{course.students}</div>
               </div>
@@ -645,7 +645,7 @@ const CourseDetail = () => {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-3xl font-bold text-green-400">
+                      <span className="text-3xl font-bold text-primary-yellow">
                         {course.funding.fundedPrice}
                       </span>
                       <span className="text-lg text-gray-500 line-through ml-3">
@@ -662,7 +662,7 @@ const CourseDetail = () => {
                 </div>
               ) : (
                 <div className="flex items-center justify-between">
-                  <span className="text-3xl font-bold text-green-400">
+                  <span className="text-3xl font-bold text-primary-yellow">
                     {course.price}
                   </span>
                   {course.originalPrice && (
@@ -690,7 +690,7 @@ const CourseDetail = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {course.features.map((feature, index) => (
                   <div key={index} className="flex items-center text-gray-300">
-                    <FiCheckCircle className="w-4 h-4 text-green-400 mr-2" />
+                    <FiCheckCircle className="w-4 h-4 text-primary-yellow mr-2" />
                     <span className="text-sm">{feature}</span>
                   </div>
                 ))}
@@ -714,7 +714,7 @@ const CourseDetail = () => {
                   onClick={() => setActiveTab(tab)}
                   className={`py-4 px-1 border-b-2 font-medium text-lg transition-colors duration-200 ${
                     activeTab === tab
-                      ? 'border-green-500 text-white'
+                      ? 'border-primary-yellow text-white'
                       : 'border-transparent text-gray-300 hover:text-white'
                   }`}
                 >
@@ -758,10 +758,10 @@ const CourseDetail = () => {
                     <h3 className="text-lg font-bold text-white mb-2">{relatedCourse.title}</h3>
                     <p className="text-gray-300 text-sm mb-4 line-clamp-2">{relatedCourse.description}</p>
                     <div className="flex items-center justify-between">
-                      <span className="text-green-400 font-bold">{relatedCourse.price}</span>
+                      <span className="text-primary-yellow font-bold">{relatedCourse.price}</span>
                       <Link
                         to={`/course/${relatedCourse.id}`}
-                        className="text-green-400 hover:text-green-300 text-sm font-semibold transition-colors duration-200"
+                        className="text-primary-yellow hover:text-yellow-300 text-sm font-semibold transition-colors duration-200"
                       >
                         View Details
                       </Link>

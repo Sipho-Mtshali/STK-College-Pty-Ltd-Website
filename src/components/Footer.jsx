@@ -50,8 +50,8 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white relative overflow-hidden border-t border-gray-700">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-green-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-72 h-72 bg-yellow-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-600 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -64,7 +64,7 @@ const Footer = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">STK College</h3>
-                <p className="text-green-400 text-sm font-medium">Shape the Future With Us</p>
+                <p className="text-yellow-400 text-sm font-medium">Shape the Future With Us</p>
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
@@ -78,7 +78,7 @@ const Footer = () => {
                   <a
                     key={index}
                     href={social.href}
-                    className={`w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 hover:bg-green-500 hover:text-white transition-all duration-200 transform hover:scale-110 border border-gray-700 ${social.name !== 'Facebook' ? 'pointer-events-none opacity-50' : ''}`}
+                    className={`w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 hover:bg-yellow-500 hover:text-white transition-all duration-200 transform hover:scale-110 border border-gray-700 ${social.name !== 'Facebook' ? 'pointer-events-none opacity-50' : ''}`}
                     aria-label={social.name}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -98,9 +98,9 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     to={link.path}
-                    className="text-gray-300 hover:text-green-400 transition-colors duration-200 flex items-center group"
+                    className="text-gray-300 hover:text-yellow-400 transition-colors duration-200 flex items-center group"
                   >
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+                    <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
                     {link.name}
                   </Link>
                 </li>
@@ -116,9 +116,9 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     to={program.path}
-                    className="text-gray-300 hover:text-green-400 transition-colors duration-200 flex items-center group"
+                    className="text-gray-300 hover:text-yellow-400 transition-colors duration-200 flex items-center group"
                   >
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+                    <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
                     {program.name}
                   </Link>
                 </li>
@@ -134,7 +134,7 @@ const Footer = () => {
                 const Icon = contact.icon;
                 return (
                   <li key={index} className="flex items-start space-x-3">
-                    <Icon className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+                    <Icon className="w-5 h-5 text-yellow-400 mt-1 flex-shrink-0" />
                     <span className="text-gray-300">{contact.text}</span>
                   </li>
                 );

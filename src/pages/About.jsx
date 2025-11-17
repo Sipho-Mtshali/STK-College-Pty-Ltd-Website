@@ -118,8 +118,8 @@ const About = () => {
               transition={{ duration: 0.8 }}
               className="card-enhanced p-8 rounded-xl hover-lift"
             >
-              <div className="w-16 h-16 bg-green-500/20 rounded-lg flex items-center justify-center mb-6">
-                <FiTarget className="w-8 h-8 text-green-400" />
+              <div className="w-16 h-16 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-6">
+                <FiTarget className="w-8 h-8 text-yellow-400" />
               </div>
               <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
               <p className="text-lg text-gray-200 leading-relaxed">
@@ -136,8 +136,8 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="card-enhanced p-8 rounded-xl hover-lift"
             >
-              <div className="w-16 h-16 bg-green-500/20 rounded-lg flex items-center justify-center mb-6">
-                <FiEye className="w-8 h-8 text-green-400" />
+              <div className="w-16 h-16 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-6">
+                <FiEye className="w-8 h-8 text-yellow-400" />
               </div>
               <h2 className="text-3xl font-bold text-white mb-4">Our Vision</h2>
               <p className="text-lg text-gray-200 leading-relaxed">
@@ -199,7 +199,7 @@ const About = () => {
                 is achieved.
               </p>
 
-              <div className="bg-blue-500/20 border border-blue-500 rounded-xl p-6 mt-6">
+              <div className="bg-yellow-500/20 border border-yellow-500 rounded-xl p-6 mt-6">
                 <h3 className="text-xl font-bold text-white mb-3">Our Current Status</h3>
                 <ul className="space-y-2 text-gray-200">
                   <li>• Registered CIPC and NPO initiative</li>
@@ -241,11 +241,11 @@ const About = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="card-enhanced p-6 rounded-xl hover-lift border-l-4 border-l-green-500"
+                  className="card-enhanced p-6 rounded-xl hover-lift border-l-4 border-l-yellow-500"
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-6 h-6 text-green-400" />
+                    <div className="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-6 h-6 text-yellow-400" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-semibold text-white mb-2">
@@ -257,7 +257,7 @@ const About = () => {
                       <div className="grid grid-cols-2 gap-2">
                         {program.features.map((feature, featureIndex) => (
                           <div key={featureIndex} className="flex items-center text-sm text-gray-300">
-                            <FiCheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0" />
+                            <FiCheckCircle className="w-4 h-4 text-yellow-400 mr-2 flex-shrink-0" />
                             {feature}
                           </div>
                         ))}
@@ -338,7 +338,7 @@ const About = () => {
                   transition={{ delay: index * 0.1 }}
                   className="card-enhanced p-6 rounded-xl text-center hover-lift"
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-2">
@@ -361,7 +361,7 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="card-enhanced p-12 rounded-2xl border border-green-500/30"
+            className="card-enhanced p-12 rounded-2xl border border-yellow-500/30"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Ready to Start Your IT Career?

@@ -254,7 +254,7 @@ We'll help you start your tech career! 🚀`
       {/* Simple Chat Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all duration-200 sm:bottom-6 sm:right-6 sm:p-4"
+        className="fixed bottom-4 right-4 z-50 bg-yellow-500 hover:bg-yellow-600 text-gray-900 p-3 rounded-full shadow-lg transition-all duration-200 sm:bottom-6 sm:right-6 sm:p-4"
         style={{ zIndex: 10000 }}
       >
         <FiMessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -263,7 +263,7 @@ We'll help you start your tech career! 🚀`
       {/* Simple Chat Window */}
       {isOpen && (
         <div 
-          className="fixed z-50 bg-gray-900 rounded-lg shadow-xl border border-blue-500 overflow-hidden"
+          className="fixed z-50 bg-gray-900 rounded-lg shadow-xl border border-yellow-500 overflow-hidden"
           style={{
             bottom: '80px',
             right: '16px',
@@ -275,14 +275,14 @@ We'll help you start your tech career! 🚀`
           }}
         >
           {/* Header - Always visible */}
-          <div className="bg-blue-600 text-white p-3 flex justify-between items-center border-b border-blue-500">
+          <div className="bg-yellow-500 text-gray-900 p-3 flex justify-between items-center border-b border-yellow-600">
             <div className="flex items-center space-x-2">
               <FiMessageCircle className="w-5 h-5" />
               <span className="font-bold text-sm">STK IT Assistant</span>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-white hover:text-blue-200 transition-colors p-1"
+              className="text-gray-900 hover:text-gray-700 transition-colors p-1"
             >
               <FiX className="w-5 h-5" />
             </button>
@@ -301,7 +301,7 @@ We'll help you start your tech career! 🚀`
                 <div
                   className={`max-w-[80%] rounded-lg p-3 ${
                     message.sender === 'user'
-                      ? 'bg-blue-600 text-white rounded-br-none'
+                      ? 'bg-yellow-500 text-gray-900 rounded-br-none'
                       : 'bg-gray-700 text-white rounded-bl-none'
                   }`}
                 >
@@ -317,9 +317,9 @@ We'll help you start your tech career! 🚀`
               <div className="flex justify-start">
                 <div className="bg-gray-700 text-white rounded-lg rounded-bl-none p-3 max-w-[80%]">
                   <div className="flex space-x-1">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                   </div>
                 </div>
               </div>
@@ -335,7 +335,7 @@ We'll help you start your tech career! 🚀`
                 <button
                   key={reply}
                   onClick={() => handleQuickReply(reply)}
-                  className="px-2 py-1 bg-gray-700 hover:bg-blue-600 text-white text-xs rounded border border-blue-500 transition-colors"
+                  className="px-2 py-1 bg-gray-700 hover:bg-yellow-500 text-white text-xs rounded border border-yellow-500 transition-colors"
                 >
                   {reply}
                 </button>
@@ -344,12 +344,12 @@ We'll help you start your tech career! 🚀`
           </div>
 
           {/* Contact CTA */}
-          <div className="p-2 border-t border-gray-700 bg-blue-600/20">
+          <div className="p-2 border-t border-gray-700 bg-yellow-500/20">
             <div className="text-center">
               <Link
                 to="/contact"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-xs font-semibold transition-colors w-full justify-center"
+                className="inline-flex items-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-3 py-1 rounded text-xs font-semibold transition-colors w-full justify-center"
               >
                 Free Career Consultation
                 <FiArrowRight className="ml-1 w-3 h-3" />
@@ -366,12 +366,12 @@ We'll help you start your tech career! 🚀`
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ask about Python, Java, internships..."
-                className="flex-1 bg-gray-800 border border-gray-600 rounded px-2 py-1 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 text-sm"
+                className="flex-1 bg-gray-800 border border-gray-600 rounded px-2 py-1 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500 text-sm"
               />
               <button
                 onClick={() => handleSendMessage()}
                 disabled={!inputMessage.trim()}
-                className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 text-white p-2 rounded transition-colors"
+                className="bg-yellow-500 hover:bg-yellow-600 disabled:bg-gray-600 text-gray-900 p-2 rounded transition-colors"
               >
                 <FiSend className="w-4 h-4" />
               </button>

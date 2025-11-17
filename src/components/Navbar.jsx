@@ -32,7 +32,7 @@ const Navbar = () => {
   const isAboutActive = location.pathname === '/about' || location.pathname === '/staff' || location.pathname === '/testimonials';
 
   return (
-    <nav className="bg-gray-900 shadow-lg sticky top-0 z-40 border-b border-gray-700">
+    <nav className="bg-gray-900 shadow-lg sticky top-0 z-40 border-b border-yellow-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -68,8 +68,8 @@ const Navbar = () => {
                       onClick={() => setIsAboutOpen(!isAboutOpen)}
                       className={`flex items-center space-x-1 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                         isAboutActive
-                          ? 'bg-blue-600 text-white shadow-lg'
-                          : 'text-gray-300 hover:text-green-400 hover:bg-gray-800'
+                          ? 'bg-yellow-500 text-gray-900 shadow-lg'
+                          : 'text-gray-300 hover:text-yellow-400 hover:bg-gray-800'
                       }`}
                     >
                       <span>{item.name}</span>
@@ -89,7 +89,7 @@ const Navbar = () => {
                               to={child.href}
                               className={`flex items-center px-4 py-2 text-sm transition-colors duration-200 ${
                                 location.pathname === child.href
-                                  ? 'bg-blue-600 text-white'
+                                  ? 'bg-yellow-500 text-gray-900'
                                   : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                               }`}
                               onClick={() => setIsAboutOpen(false)}
@@ -110,8 +110,8 @@ const Navbar = () => {
                   to={item.href}
                   className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? 'bg-blue-600 text-white shadow-lg'
-                      : 'text-gray-300 hover:text-green-400 hover:bg-gray-800'
+                      ? 'bg-yellow-500 text-gray-900 shadow-lg'
+                      : 'text-gray-300 hover:text-yellow-400 hover:bg-gray-800'
                   }`}
                 >
                   {item.name}
@@ -124,7 +124,7 @@ const Navbar = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-green-400 focus:outline-none focus:text-green-400 transition-colors duration-200"
+              className="text-gray-300 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 transition-colors duration-200"
             >
               {isOpen ? (
                 <FiX className="w-6 h-6" />
@@ -163,8 +163,8 @@ const Navbar = () => {
                           onClick={() => setIsOpen(false)}
                           className={`block px-3 py-2 rounded-md text-sm transition-all duration-200 ${
                             location.pathname === child.href
-                              ? 'bg-blue-600 text-white'
-                              : 'text-gray-300 hover:text-green-400 hover:bg-gray-800'
+                              ? 'bg-yellow-500 text-gray-900'
+                              : 'text-gray-300 hover:text-yellow-400 hover:bg-gray-800'
                           }`}
                         >
                           {child.name}
@@ -182,8 +182,8 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
                     isActive
-                      ? 'bg-blue-600 text-white shadow-lg'
-                      : 'text-gray-300 hover:text-green-400 hover:bg-gray-800'
+                      ? 'bg-yellow-500 text-gray-900 shadow-lg'
+                      : 'text-gray-300 hover:text-yellow-400 hover:bg-gray-800'
                   }`}
                 >
                   {item.name}

@@ -65,9 +65,9 @@ const Home = () => {
       <section className="relative bg-gradient-to-br from-blue-900 via-gray-900 to-blue-800 text-white overflow-hidden min-h-screen flex items-center">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-800/20 to-gray-900/20"></div>
         <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-10 left-10 w-72 h-72 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -84,7 +84,7 @@ const Home = () => {
                     alt="STK Logo" 
                     className="w-[95px] h-[95px] mr-6 object-contain"
                   />
-                  <span className="bg-gradient-to-r from-yellow-400 to-white bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
                     STK College
                   </span>
                 </span>
@@ -101,7 +101,7 @@ const Home = () => {
               <div className="flex flex-col sm:flex-row gap-6 mt-8">
                 <Link
                   to="/courses"
-                  className="btn-secondary-high-contrast inline-flex items-center justify-center px-10 py-5 text-lg font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="btn-primary-high-contrast inline-flex items-center justify-center px-10 py-5 text-lg font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 >
                   <span className="mr-3">Explore Courses</span>
                   <FiArrowRight className="w-6 h-6" />
@@ -121,7 +121,7 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="card-enhanced backdrop-blur-sm rounded-2xl p-8 border border-green-500/20">
+              <div className="card-enhanced backdrop-blur-sm rounded-2xl p-8 border border-yellow-500/20">
                 <div className="space-y-6">
                   <h3 className="text-2xl font-semibold text-white">Why Choose STK Tech?</h3>
                   <ul className="space-y-4">
@@ -167,7 +167,7 @@ const Home = () => {
                 transition={{ delay: index * 0.1 }}
                 className="card-enhanced rounded-2xl p-8 text-center card-hover"
               >
-                <div className="text-4xl md:text-5xl font-bold text-green-400 mb-3">
+                <div className="text-4xl md:text-5xl font-bold text-yellow-400 mb-3">
                   {stat.number}
                 </div>
                 <div className="text-white text-lg font-medium">
@@ -207,10 +207,10 @@ const Home = () => {
                   transition={{ delay: index * 0.1 }}
                   className="card-enhanced rounded-2xl p-8 text-center card-hover group"
                 >
-                  <div className="w-24 h-24 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                  <div className="w-24 h-24 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-300">
                     <Icon className="w-12 h-12 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="text-gray-200 leading-relaxed text-lg font-medium">
@@ -251,7 +251,7 @@ const Home = () => {
                   transition={{ delay: index * 0.1 }}
                   className="card-enhanced p-6 rounded-xl text-center hover-lift"
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-2">
@@ -285,14 +285,14 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/courses"
-                className="btn-secondary-high-contrast inline-flex items-center justify-center px-8 py-4 rounded-lg hover:shadow-lg transition-all duration-200"
+                className="btn-primary-high-contrast inline-flex items-center justify-center px-8 py-4 rounded-lg hover:shadow-lg transition-all duration-200"
               >
                 <FiTrendingUp className="mr-2 w-5 h-5" />
                 View All Courses
               </Link>
               <Link
                 to="/contact"
-                className="btn-blue-high-contrast inline-flex items-center justify-center px-8 py-4 rounded-lg hover:shadow-lg transition-all duration-200"
+                className="btn-secondary-high-contrast inline-flex items-center justify-center px-8 py-4 rounded-lg hover:shadow-lg transition-all duration-200"
               >
                 <FiBriefcase className="mr-2 w-5 h-5" />
                 Get Started

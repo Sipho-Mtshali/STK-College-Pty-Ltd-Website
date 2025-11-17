@@ -102,7 +102,10 @@ By the end of this course, you'll be able to:
     duration: '10 Weeks',
     level: 'Beginner to Intermediate',
     certificate: true,
-    language: 'English'
+    language: 'English',
+    color: 'yellow',
+    badgeColor: 'bg-yellow-500 text-gray-900',
+    gradient: 'from-yellow-500 to-yellow-600'
   },
   2: {
     id: 2,
@@ -187,7 +190,10 @@ This course covers everything from basic Java syntax to advanced enterprise appl
     duration: '12 Weeks',
     level: 'Intermediate',
     certificate: true,
-    language: 'English'
+    language: 'English',
+    color: 'yellow',
+    badgeColor: 'bg-yellow-500 text-gray-900',
+    gradient: 'from-yellow-500 to-yellow-600'
   },
   3: {
     id: 3,
@@ -262,7 +268,10 @@ You'll learn to create professional documents, use advanced formatting technique
     duration: '6 Weeks',
     level: 'Beginner to Intermediate',
     certificate: true,
-    language: 'English'
+    language: 'English',
+    color: 'yellow',
+    badgeColor: 'bg-yellow-500 text-gray-900',
+    gradient: 'from-yellow-500 to-yellow-600'
   },
   4: {
     id: 4,
@@ -337,7 +346,10 @@ This course covers formulas, functions, charts, pivot tables, and data analysis 
     duration: '8 Weeks',
     level: 'Beginner to Intermediate',
     certificate: true,
-    language: 'English'
+    language: 'English',
+    color: 'yellow',
+    badgeColor: 'bg-yellow-500 text-gray-900',
+    gradient: 'from-yellow-500 to-yellow-600'
   },
   5: {
     id: 5,
@@ -412,7 +424,10 @@ You'll learn design principles, animation techniques, and presentation skills th
     duration: '5 Weeks',
     level: 'Beginner to Intermediate',
     certificate: true,
-    language: 'English'
+    language: 'English',
+    color: 'yellow',
+    badgeColor: 'bg-yellow-500 text-gray-900',
+    gradient: 'from-yellow-500 to-yellow-600'
   },
   6: {
     id: 6,
@@ -477,7 +492,10 @@ Learn to streamline communication, manage projects, and collaborate effectively 
     duration: '2 Weeks',
     level: 'Beginner',
     certificate: true,
-    language: 'English'
+    language: 'English',
+    color: 'yellow',
+    badgeColor: 'bg-yellow-500 text-gray-900',
+    gradient: 'from-yellow-500 to-yellow-600'
   },
   7: {
     id: 7,
@@ -552,7 +570,10 @@ This course is perfect for aspiring database administrators, developers, and any
     duration: '10 Weeks',
     level: 'Intermediate',
     certificate: true,
-    language: 'English'
+    language: 'English',
+    color: 'yellow',
+    badgeColor: 'bg-yellow-500 text-gray-900',
+    gradient: 'from-yellow-500 to-yellow-600'
   },
   8: {
     id: 8,
@@ -627,7 +648,10 @@ You'll learn to create dynamic, interactive web applications that meet modern st
     duration: '8 Weeks',
     level: 'Intermediate',
     certificate: true,
-    language: 'English'
+    language: 'English',
+    color: 'yellow',
+    badgeColor: 'bg-yellow-500 text-gray-900',
+    gradient: 'from-yellow-500 to-yellow-600'
   },
   9: {
     id: 9,
@@ -706,7 +730,10 @@ You'll work on real-world projects, learn to build and train models, and underst
     duration: '12 Weeks',
     level: 'Advanced',
     certificate: true,
-    language: 'English'
+    language: 'English',
+    color: 'yellow',
+    badgeColor: 'bg-yellow-500 text-gray-900',
+    gradient: 'from-yellow-500 to-yellow-600'
   },
   10: {
     id: 10,
@@ -781,7 +808,10 @@ This course is perfect for anyone looking to master Microsoft Office for academi
     duration: '10 Weeks',
     level: 'Beginner to Advanced',
     certificate: true,
-    language: 'English'
+    language: 'English',
+    color: 'yellow',
+    badgeColor: 'bg-yellow-500 text-gray-900',
+    gradient: 'from-yellow-500 to-yellow-600'
   }
 };
 

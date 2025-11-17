@@ -17,7 +17,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Professional color scheme - Dark Blue/Navy Theme */
+/* Professional color scheme - Yellow/Gold Theme matching logo */
 .bg-primary-gradient {
   background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
 }
@@ -26,12 +26,12 @@ html {
   background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
 }
 
-.text-primary-dark {
-  color: #60a5fa;
+.text-primary-yellow {
+  color: #FFD700;
 }
 
 .shadow-custom {
-  box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
+  box-shadow: 0 10px 30px rgba(234, 179, 8, 0.3);
 }
 
 .card-hover {
@@ -40,22 +40,22 @@ html {
 
 .card-hover:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(34, 197, 94, 0.3);
+  box-shadow: 0 15px 40px rgba(234, 179, 8, 0.3);
 }
 
 /* Enhanced card visibility - Matching Contact page */
 .card-enhanced {
   background: rgba(30, 41, 59, 0.8);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  border: 1px solid rgba(234, 179, 8, 0.3);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   color: white;
   border-radius: 16px;
 }
 
 .card-enhanced:hover {
-  box-shadow: 0 12px 40px rgba(34, 197, 94, 0.4);
-  border-color: rgba(34, 197, 94, 0.6);
+  box-shadow: 0 12px 40px rgba(234, 179, 8, 0.4);
+  border-color: rgba(234, 179, 8, 0.6);
   transform: translateY(-2px);
 }
 
@@ -68,33 +68,33 @@ html {
   color: #bfdbfe !important;
 }
 
-/* High contrast buttons */
+/* High contrast buttons - Updated to yellow/gold */
 .btn-primary-high-contrast {
-  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
-  color: #ffffff !important;
+  background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%) !important;
+  color: #0F172A !important;
   border: none !important;
   font-weight: bold !important;
   transition: all 0.3s ease !important;
 }
 
 .btn-primary-high-contrast:hover {
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+  background: linear-gradient(135deg, #FBBF24 0%, #D97706 100%) !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(234, 179, 8, 0.4);
 }
 
 .btn-secondary-high-contrast {
-  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%) !important;
-  color: #ffffff !important;
+  background: linear-gradient(135deg, #1E40AF 0%, #1E3A8A 100%) !important;
+  color: #FFFFFF !important;
   border: none !important;
   font-weight: bold !important;
   transition: all 0.3s ease !important;
 }
 
 .btn-secondary-high-contrast:hover {
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%) !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
 }
 
 .btn-blue-high-contrast {
@@ -106,9 +106,9 @@ html {
 }
 
 .btn-blue-high-contrast:hover {
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%) !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
 }
 
 /* Ultra high contrast text */
@@ -117,8 +117,8 @@ html {
   font-weight: bold !important;
 }
 
-.text-ultra-blue {
-  color: #bfdbfe !important;
+.text-ultra-yellow {
+  color: #FFD700 !important;
   font-weight: bold !important;
 }
 
@@ -148,7 +148,7 @@ p, span, div {
 .btn-light {
   background: rgba(51, 65, 85, 0.8) !important;
   color: #ffffff !important;
-  border: 1px solid rgba(34, 197, 94, 0.5) !important;
+  border: 1px solid rgba(234, 179, 8, 0.5) !important;
   backdrop-filter: blur(10px);
 }
 
@@ -166,9 +166,9 @@ input, select, textarea {
 }
 
 input:focus, select:focus, textarea:focus {
-  border-color: #22c55e !important;
-  ring-color: #22c55e !important;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1) !important;
+  border-color: #FFD700 !important;
+  ring-color: #FFD700 !important;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1) !important;
 }
 
 input::placeholder, textarea::placeholder {
@@ -181,18 +181,18 @@ footer * {
 }
 
 footer a:hover {
-  color: #22c55e !important;
+  color: #FFD700 !important;
 }
 
 footer .text-secondary {
-  color: #22c55e !important;
+  color: #FFD700 !important;
 }
 
 /* Navbar */
 nav {
   background: rgba(15, 23, 42, 0.9) !important;
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(34, 197, 94, 0.2);
+  border-bottom: 1px solid rgba(234, 179, 8, 0.2);
 }
 
 nav * {
@@ -276,7 +276,7 @@ nav * {
 }
 
 .border-primary {
-  border-color: #22c55e !important;
+  border-color: #FFD700 !important;
 }
 
 /* Shadow updates */

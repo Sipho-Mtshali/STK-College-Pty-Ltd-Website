@@ -169,7 +169,7 @@ const Staff = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-500 mx-auto mb-4"></div>
           <p className="text-gray-300">Loading team information...</p>
         </div>
       </div>
@@ -203,17 +203,17 @@ const Staff = () => {
           className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16"
         >
           <div className="card-enhanced rounded-2xl p-6 text-center hover-lift">
-            <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <FiUsers className="w-8 h-8 text-white" />
             </div>
-            <div className="text-3xl font-bold text-green-400 mb-2">{staff.length}</div>
+            <div className="text-3xl font-bold text-yellow-400 mb-2">{staff.length}</div>
             <div className="text-white font-medium">Team Members</div>
           </div>
           <div className="card-enhanced rounded-2xl p-6 text-center hover-lift">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <FiBookOpen className="w-8 h-8 text-white" />
             </div>
-            <div className="text-3xl font-bold text-blue-400 mb-2">{departments.length}</div>
+            <div className="text-3xl font-bold text-yellow-400 mb-2">{departments.length}</div>
             <div className="text-white font-medium">Specialized Departments</div>
           </div>
           <div className="card-enhanced rounded-2xl p-6 text-center hover-lift">
@@ -224,10 +224,10 @@ const Staff = () => {
             <div className="text-white font-medium">Years Avg. Experience</div>
           </div>
           <div className="card-enhanced rounded-2xl p-6 text-center hover-lift">
-            <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <FiAward className="w-8 h-8 text-white" />
             </div>
-            <div className="text-3xl font-bold text-purple-400 mb-2">4.8</div>
+            <div className="text-3xl font-bold text-yellow-400 mb-2">4.8</div>
             <div className="text-white font-medium">Average Rating</div>
           </div>
         </motion.div>
@@ -277,7 +277,7 @@ const Staff = () => {
                 <div className="p-6">
                   <div className="mb-4">
                     <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
-                    <p className="text-green-400 font-semibold mb-2">{member.position}</p>
+                    <p className="text-yellow-400 font-semibold mb-2">{member.position}</p>
                     <div className="flex items-center space-x-2 text-sm text-gray-300 mb-3">
                       <FiClock className="w-4 h-4" />
                       <span>{member.experience} experience</span>
@@ -308,7 +308,7 @@ const Staff = () => {
                       {member.subjects.slice(0, 3).map((subject, idx) => (
                         <span
                           key={idx}
-                          className="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded font-medium border border-green-500/30"
+                          className="px-2 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded font-medium border border-yellow-500/30"
                         >
                           {subject}
                         </span>
@@ -351,7 +351,7 @@ const Staff = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 card-enhanced rounded-2xl p-8 text-center border border-green-500/20"
+          className="mt-16 card-enhanced rounded-2xl p-8 text-center border border-yellow-500/20"
         >
           <h2 className="text-3xl font-bold text-white mb-4">Join Our IT Training Team</h2>
           <p className="text-gray-200 mb-6 max-w-2xl mx-auto text-lg leading-relaxed">

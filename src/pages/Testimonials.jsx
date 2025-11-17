@@ -92,7 +92,7 @@ const Testimonials = () => {
       number: '90%',
       label: 'Pass Rate',
       icon: FiTrendingUp,
-      color: 'text-green-400'
+      color: 'text-yellow-400'
     },
     {
       number: '75%',
@@ -104,13 +104,13 @@ const Testimonials = () => {
       number: '105+',
       label: 'Successful Students',
       icon: FiUser,
-      color: 'text-blue-400'
+      color: 'text-yellow-400'
     },
     {
       number: '4.8/5',
       label: 'Average Rating',
       icon: FiStar,
-      color: 'text-purple-400'
+      color: 'text-yellow-400'
     }
   ];
 
@@ -118,11 +118,11 @@ const Testimonials = () => {
   const getAchievementColor = (achievement) => {
     switch (achievement) {
       case 'Distinction':
-        return 'bg-green-500/20 text-green-400 border-green-500/30';
+        return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
       case 'Pass':
         return 'bg-blue-500/20 text-blue-400 border-blue-500/30';
       default:
-        return 'bg-green-500/20 text-green-400 border-green-500/30';
+        return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
     }
   };
 
@@ -184,7 +184,7 @@ const Testimonials = () => {
             >
               {/* Quote Icon */}
               <div className="flex justify-between items-start mb-4">
-                <FiMessageSquare className="w-8 h-8 text-green-400 opacity-50" />
+                <FiMessageSquare className="w-8 h-8 text-yellow-400 opacity-50" />
                 <span className={`px-3 py-1 rounded-full text-sm font-bold border ${getAchievementColor(testimonial.achievement)}`}>
                   {testimonial.achievement}
                 </span>
@@ -211,7 +211,7 @@ const Testimonials = () => {
 
               {/* Student Info */}
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center overflow-hidden">
+                <div className="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center overflow-hidden">
                   <img 
                     src={testimonial.image} 
                     alt={testimonial.name}
@@ -220,7 +220,7 @@ const Testimonials = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-white">{testimonial.name}</h4>
-                  <p className="text-green-400 text-sm">{testimonial.status}</p>
+                  <p className="text-yellow-400 text-sm">{testimonial.status}</p>
                 </div>
               </div>
             </motion.div>
@@ -251,7 +251,7 @@ const Testimonials = () => {
             </Link>
             <Link
               to="/it-register"
-              className="btn-blue-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+              className="btn-primary-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
             >
               <FiUserPlus className="w-5 h-5 mr-2" />
               Register Now

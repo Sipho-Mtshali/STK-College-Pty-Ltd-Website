@@ -232,14 +232,14 @@ const Courses = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-8"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-6 border border-blue-500/30 relative overflow-hidden">
+          <div className="bg-gradient-to-r from-yellow-600 to-yellow-800 rounded-2xl p-6 border border-yellow-500/30 relative overflow-hidden">
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="flex-1 text-center md:text-left mb-4 md:mb-0">
                 <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center md:justify-start">
                   <FiZap className="w-6 h-6 mr-2 text-yellow-400" />
                   Future Opportunities
                 </h3>
-                <p className="text-blue-100">
+                <p className="text-yellow-100">
                   We are preparing for QCTO accreditation and future MICT SETA funding opportunities. 
                   Join us as we build toward becoming an accredited training provider.
                 </p>
@@ -264,7 +264,7 @@ const Courses = () => {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                     selectedCategory === category
-                      ? 'bg-green-500 text-white shadow-lg shadow-green-500/25'
+                      ? 'bg-yellow-500 text-gray-900 shadow-lg shadow-yellow-500/25'
                       : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
                   }`}
                 >
@@ -281,7 +281,7 @@ const Courses = () => {
                 placeholder="Search courses or instructors..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
               />
             </div>
           </div>
@@ -314,7 +314,7 @@ const Courses = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="card-enhanced rounded-xl overflow-hidden hover-lift group border border-gray-700/50 hover:border-green-500/30 transition-all duration-300"
+              className="card-enhanced rounded-xl overflow-hidden hover-lift group border border-gray-700/50 hover:border-yellow-500/30 transition-all duration-300"
             >
               {/* Course Image */}
               <div className="relative h-48 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
@@ -331,7 +331,7 @@ const Courses = () => {
                 
                 {/* Course Category Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+                  <span className="bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
                     {course.category}
                   </span>
                 </div>
@@ -348,7 +348,7 @@ const Courses = () => {
                 {/* Future Funding Badge */}
                 {course.funding?.planned && (
                   <div className="absolute bottom-4 left-4">
-                    <span className="bg-blue-500 text-white px-3 py-1 rounded text-sm font-bold shadow-lg flex items-center">
+                    <span className="bg-yellow-500 text-gray-900 px-3 py-1 rounded text-sm font-bold shadow-lg flex items-center">
                       Future Funding Planned
                     </span>
                   </div>
@@ -359,7 +359,7 @@ const Courses = () => {
               <div className="p-6">
                 {/* Course Title and Instructor */}
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors duration-300 line-clamp-2">
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors duration-300 line-clamp-2">
                     {course.title}
                   </h3>
                   <div className="flex items-center justify-between">
@@ -398,11 +398,11 @@ const Courses = () => {
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <div>
-                          <span className="text-2xl font-bold text-green-400">
+                          <span className="text-2xl font-bold text-yellow-400">
                             {course.price}
                           </span>
                         </div>
-                        <span className="text-sm text-blue-400 font-semibold bg-blue-500/20 px-2 py-1 rounded">
+                        <span className="text-sm text-yellow-400 font-semibold bg-yellow-500/20 px-2 py-1 rounded">
                           Future MICT SETA
                         </span>
                       </div>
@@ -412,7 +412,7 @@ const Courses = () => {
                     </div>
                   ) : (
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl font-bold text-green-400">
+                      <span className="text-2xl font-bold text-yellow-400">
                         {course.price}
                       </span>
                       {course.originalPrice && (
@@ -478,7 +478,7 @@ const Courses = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 card-enhanced rounded-2xl p-8 text-center border border-green-500/20"
+          className="mt-16 card-enhanced rounded-2xl p-8 text-center border border-yellow-500/20"
         >
           <h2 className="text-3xl font-bold text-white mb-4">
             Need Help Choosing a Course?
@@ -490,7 +490,7 @@ const Courses = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="btn-secondary-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+              className="btn-primary-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
             >
               <FiUsers className="w-5 h-5 mr-2" />
               Get Free Consultation
