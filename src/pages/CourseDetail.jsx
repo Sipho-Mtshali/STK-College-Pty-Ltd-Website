@@ -15,7 +15,7 @@ const CourseDetail = () => {
 
   if (!course) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 flex items-center justify-center py-12">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Course Not Found</h1>
           <p className="text-gray-300 mb-8">The course you're looking for doesn't exist.</p>
@@ -328,11 +328,11 @@ const CourseDetail = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {currentCurriculum.map((week, index) => (
                 <div key={index} className="card-enhanced p-6">
-                  <div className="flex items-start mb-4">
-                    <div className="bg-yellow-500 text-gray-900 px-3 py-1 rounded-lg font-bold mr-4">
+                  <div className="flex flex-col sm:flex-row items-start mb-4">
+                    <div className="bg-yellow-500 text-gray-900 px-3 py-1 rounded-lg font-bold mr-4 mb-2 sm:mb-0">
                       {week.week}
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h4 className="text-lg font-semibold text-white mb-2">
                         {week.title}
                       </h4>
@@ -356,12 +356,12 @@ const CourseDetail = () => {
         return (
           <div className="space-y-8">
             <div className="flex flex-col md:flex-row items-start gap-8">
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 mx-auto md:mx-0">
                 <div className="w-32 h-32 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center">
                   <FiUser className="w-16 h-16 text-white" />
                 </div>
               </div>
-              <div className="flex-1">
+              <div className="flex-1 text-center md:text-left">
                 <h3 className="text-3xl font-bold text-white mb-2">{instructor.name}</h3>
                 <p className="text-primary-yellow text-lg mb-4">{instructor.role}</p>
                 <p className="text-gray-300 leading-relaxed mb-6">{instructor.bio}</p>
@@ -389,7 +389,7 @@ const CourseDetail = () => {
 
             <div>
               <h4 className="text-xl font-bold text-white mb-4">Areas of Expertise</h4>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                 {instructor.expertise.map((skill, index) => (
                   <span
                     key={index}
@@ -403,7 +403,7 @@ const CourseDetail = () => {
 
             <div className="border-t border-gray-700 pt-6">
               <h4 className="text-xl font-bold text-white mb-4">Contact Instructor</h4>
-              <div className="flex items-center text-gray-300">
+              <div className="flex items-center justify-center md:justify-start text-gray-300">
                 <FiMail className="w-5 h-5 mr-3 text-primary-yellow" />
                 <span>{instructor.email}</span>
               </div>
@@ -415,9 +415,9 @@ const CourseDetail = () => {
         return (
           <div className="space-y-6">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-              <div>
+              <div className="text-center md:text-left">
                 <h3 className="text-2xl font-bold text-white mb-2">Student Reviews</h3>
-                <div className="flex items-center">
+                <div className="flex items-center justify-center md:justify-start">
                   <div className="flex items-center text-yellow-400 mr-4">
                     <FiStar className="w-6 h-6 fill-current" />
                     <span className="ml-1 text-xl font-bold text-white">{course.rating}</span>
@@ -430,8 +430,8 @@ const CourseDetail = () => {
             <div className="space-y-6">
               {reviews.map((review) => (
                 <div key={review.id} className="card-enhanced p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center">
+                  <div className="flex flex-col sm:flex-row items-start justify-between mb-4">
+                    <div className="flex items-center mb-4 sm:mb-0">
                       <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mr-4">
                         <FiUser className="w-6 h-6 text-white" />
                       </div>
@@ -440,8 +440,8 @@ const CourseDetail = () => {
                         <p className="text-gray-400 text-sm">{review.course}</p>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <div className="flex items-center text-yellow-400 mb-1">
+                    <div className="text-left sm:text-right">
+                      <div className="flex items-center text-yellow-400 mb-1 justify-center sm:justify-end">
                         {[...Array(5)].map((_, i) => (
                           <FiStar
                             key={i}
@@ -463,11 +463,11 @@ const CourseDetail = () => {
               <div className="space-y-4">
                 <div>
                   <label className="block text-gray-300 mb-2">Your Rating</label>
-                  <div className="flex items-center space-x-1">
+                  <div className="flex items-center space-x-1 justify-center md:justify-start">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <button
                         key={star}
-                        className="text-yellow-400 hover:text-yellow-300 transition-colors"
+                        className="text-yellow-400 hover:text-yellow-300 transition-colors duration-200"
                       >
                         <FiStar className="w-6 h-6" />
                       </button>
@@ -482,7 +482,7 @@ const CourseDetail = () => {
                     placeholder="Share your experience with this course..."
                   ></textarea>
                 </div>
-                <button className="btn-primary-high-contrast px-6 py-3 rounded-lg">
+                <button className="btn-primary-high-contrast px-6 py-3 rounded-lg w-full md:w-auto">
                   Submit Review
                 </button>
               </div>
@@ -559,7 +559,7 @@ const CourseDetail = () => {
           {/* Course Image and Basic Info */}
           <div>
             <div className="card-enhanced rounded-2xl overflow-hidden mb-6">
-              <div className="relative h-80 bg-gradient-to-br from-gray-800 to-gray-900">
+              <div className="relative h-64 sm:h-80 bg-gradient-to-br from-gray-800 to-gray-900">
                 <img 
                   src={course.image} 
                   alt={course.title}
@@ -612,14 +612,14 @@ const CourseDetail = () => {
           </div>
 
           {/* Course Details and Enrollment */}
-          <div className="card-enhanced p-8">
+          <div className="card-enhanced p-6 lg:p-8">
             <div className="mb-6">
-              <h1 className="text-4xl font-bold text-white mb-4">{course.title}</h1>
-              <p className="text-gray-300 text-lg leading-relaxed">{course.description}</p>
+              <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center lg:text-left">{course.title}</h1>
+              <p className="text-gray-300 text-lg leading-relaxed text-center lg:text-left">{course.description}</p>
             </div>
 
             {/* Rating and Instructor */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-4">
               <div className="flex items-center">
                 <div className="flex items-center text-yellow-400 mr-4">
                   <FiStar className="w-5 h-5 fill-current" />
@@ -643,8 +643,8 @@ const CourseDetail = () => {
             <div className="mb-6">
               {course.funding?.available ? (
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div>
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <div className="text-center sm:text-left">
                       <span className="text-3xl font-bold text-primary-yellow">
                         {course.funding.fundedPrice}
                       </span>
@@ -656,12 +656,12 @@ const CourseDetail = () => {
                       MICT SETA
                     </span>
                   </div>
-                  <p className="text-blue-300 text-sm">
+                  <p className="text-blue-300 text-sm text-center sm:text-left">
                     {course.funding.description}
                   </p>
                 </div>
               ) : (
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                   <span className="text-3xl font-bold text-primary-yellow">
                     {course.price}
                   </span>
@@ -686,7 +686,7 @@ const CourseDetail = () => {
 
             {/* Course Features */}
             <div className="border-t border-gray-700 pt-6">
-              <h3 className="text-lg font-semibold text-white mb-4">This course includes:</h3>
+              <h3 className="text-lg font-semibold text-white mb-4 text-center lg:text-left">This course includes:</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {course.features.map((feature, index) => (
                   <div key={index} className="flex items-center text-gray-300">
@@ -704,15 +704,15 @@ const CourseDetail = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="card-enhanced p-8 mb-8"
+          className="card-enhanced p-6 lg:p-8 mb-8"
         >
-          <div className="border-b border-gray-700 mb-6">
-            <nav className="flex space-x-8">
+          <div className="border-b border-gray-700 mb-6 overflow-x-auto">
+            <nav className="flex space-x-4 md:space-x-8 min-w-max">
               {['Overview', 'Curriculum', 'Instructor', 'Reviews'].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`py-4 px-1 border-b-2 font-medium text-lg transition-colors duration-200 ${
+                  className={`py-4 px-1 border-b-2 font-medium text-lg transition-colors duration-200 whitespace-nowrap ${
                     activeTab === tab
                       ? 'border-primary-yellow text-white'
                       : 'border-transparent text-gray-300 hover:text-white'
@@ -735,12 +735,12 @@ const CourseDetail = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="card-enhanced p-8"
+          className="card-enhanced p-6 lg:p-8"
         >
           <h2 className="text-3xl font-bold text-white mb-8 text-center">
             Related Courses
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {allCourses
               .filter(c => c.id !== course.id && c.category === course.category)
               .slice(0, 3)

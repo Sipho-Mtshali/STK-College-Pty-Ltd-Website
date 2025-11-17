@@ -295,7 +295,7 @@ const ITRegister = () => {
                 {/* Full Name */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiUser className="inline w-4 h-4 mr-2" />
+                    <FiUser className="inline w-4 h-4 mr-2 text-yellow-400" />
                     Full Name *
                   </label>
                   <input
@@ -318,7 +318,7 @@ const ITRegister = () => {
                 {/* Student Number */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiUser className="inline w-4 h-4 mr-2" />
+                    <FiUser className="inline w-4 h-4 mr-2 text-yellow-400" />
                     Student Number
                   </label>
                   <input
@@ -332,7 +332,7 @@ const ITRegister = () => {
                 {/* Email */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiMail className="inline w-4 h-4 mr-2" />
+                    <FiMail className="inline w-4 h-4 mr-2 text-yellow-400" />
                     Email Address *
                   </label>
                   <input
@@ -358,7 +358,7 @@ const ITRegister = () => {
                 {/* Phone */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiPhone className="inline w-4 h-4 mr-2" />
+                    <FiPhone className="inline w-4 h-4 mr-2 text-yellow-400" />
                     Phone Number *
                   </label>
                   <input
@@ -384,7 +384,7 @@ const ITRegister = () => {
                 {/* Highest Education Level */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiAward className="inline w-4 h-4 mr-2" />
+                    <FiAward className="inline w-4 h-4 mr-2 text-yellow-400" />
                     Highest Education Level
                   </label>
                   <select
@@ -400,7 +400,7 @@ const ITRegister = () => {
                 {/* Programming Experience Level */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiCode className="inline w-4 h-4 mr-2" />
+                    <FiCode className="inline w-4 h-4 mr-2 text-yellow-400" />
                     Programming Experience Level
                   </label>
                   <select
@@ -416,7 +416,7 @@ const ITRegister = () => {
                 {/* Program Type */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiBriefcase className="inline w-4 h-4 mr-2" />
+                    <FiBriefcase className="inline w-4 h-4 mr-2 text-yellow-400" />
                     Program Type *
                   </label>
                   <p className="text-sm text-gray-400 mb-3">
@@ -446,7 +446,7 @@ const ITRegister = () => {
                 {/* IT Courses Selection - Required */}
                 <div>
                   <label className="block text-sm font-medium text-gray-200 mb-2">
-                    <FiCode className="inline w-4 h-4 mr-2" />
+                    <FiCode className="inline w-4 h-4 mr-2 text-yellow-400" />
                     Select Courses/Modules *
                   </label>
                   <p className="text-sm text-gray-400 mb-3">
@@ -479,11 +479,11 @@ const ITRegister = () => {
                           </div>
                           <div className="flex items-center space-x-4 text-xs text-gray-300">
                             <div className="flex items-center">
-                              <FiClock className="w-3 h-3 mr-1" />
+                              <FiClock className="w-3 h-3 mr-1 text-yellow-400" />
                               {course.duration}
                             </div>
                             <div className="flex items-center">
-                              <FiAward className="w-3 h-3 mr-1" />
+                              <FiAward className="w-3 h-3 mr-1 text-yellow-400" />
                               {course.level}
                             </div>
                             <div className="flex items-center">
@@ -507,7 +507,7 @@ const ITRegister = () => {
                 {(isInternship || isLearnership) && (
                   <div>
                     <label className="block text-sm font-medium text-gray-200 mb-4">
-                      <FiFileText className="inline w-4 h-4 mr-2" />
+                      <FiFileText className="inline w-4 h-4 mr-2 text-yellow-400" />
                       Required Documents (PDF or image format) *
                     </label>
                     <div className="space-y-4">
@@ -626,7 +626,7 @@ const ITRegister = () => {
                     </>
                   ) : (
                     <>
-                      <FiSend className="w-5 h-5 mr-2" />
+                      <FiSend className="w-5 h-5 mr-2 text-gray-900" />
                       Submit Registration
                     </>
                   )}
@@ -679,7 +679,7 @@ const ITRegister = () => {
               {/* Procedure */}
               <div className="mb-6">
                 <h4 className="font-semibold text-yellow-400 mb-3 flex items-center">
-                  <FiTarget className="w-4 h-4 mr-2" />
+                  <FiTarget className="w-4 h-4 text-yellow-400 mr-2" />
                   Simple 3-Step Process:
                 </h4>
                 <div className="space-y-3">
@@ -716,7 +716,7 @@ const ITRegister = () => {
               {/* Benefits */}
               <div>
                 <h4 className="font-semibold text-yellow-400 mb-3 flex items-center">
-                  <FiCertificate className="w-4 h-4 mr-2" />
+                  <FiCertificate className="w-4 h-4 text-yellow-400 mr-2" />
                   Key Benefits:
                 </h4>
                 <div className="space-y-3">
@@ -776,26 +776,26 @@ const ITRegister = () => {
               </div>
 
               <div>
-                <h4 className="font-semibold text-purple-400 mb-3">Program Plans Include:</h4>
+                <h4 className="font-semibold text-yellow-400 mb-3">Program Plans Include:</h4>
                 <div className="space-y-2 text-sm text-gray-300">
                   <div className="flex items-center">
-                    <FiCheckCircle className="w-4 h-4 text-purple-400 mr-2" />
+                    <FiCheckCircle className="w-4 h-4 text-yellow-400 mr-2" />
                     <span>Python Programming & AI Fundamentals</span>
                   </div>
                   <div className="flex items-center">
-                    <FiCheckCircle className="w-4 h-4 text-purple-400 mr-2" />
+                    <FiCheckCircle className="w-4 h-4 text-yellow-400 mr-2" />
                     <span>Machine Learning & Data Science</span>
                   </div>
                   <div className="flex items-center">
-                    <FiCheckCircle className="w-4 h-4 text-purple-400 mr-2" />
+                    <FiCheckCircle className="w-4 h-4 text-yellow-400 mr-2" />
                     <span>Industry Projects & Portfolio Building</span>
                   </div>
                   <div className="flex items-center">
-                    <FiCheckCircle className="w-4 h-4 text-purple-400 mr-2" />
+                    <FiCheckCircle className="w-4 h-4 text-yellow-400 mr-2" />
                     <span>Workplace Experience Opportunities</span>
                   </div>
                   <div className="flex items-center">
-                    <FiCheckCircle className="w-4 h-4 text-purple-400 mr-2" />
+                    <FiCheckCircle className="w-4 h-4 text-yellow-400 mr-2" />
                     <span>Career Placement Support</span>
                   </div>
                 </div>
@@ -809,23 +809,23 @@ const ITRegister = () => {
               </h3>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-center">
-                  <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
+                  <FiCheckCircle className="w-4 h-4 text-yellow-400 mr-2" />
                   Registered CIPC and NPO initiative
                 </li>
                 <li className="flex items-center">
-                  <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
+                  <FiCheckCircle className="w-4 h-4 text-yellow-400 mr-2" />
                   Preparing for QCTO accreditation
                 </li>
                 <li className="flex items-center">
-                  <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
+                  <FiCheckCircle className="w-4 h-4 text-yellow-400 mr-2" />
                   Planning future MICT SETA funding
                 </li>
                 <li className="flex items-center">
-                  <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
+                  <FiCheckCircle className="w-4 h-4 text-yellow-400 mr-2" />
                   Facilities ready for training
                 </li>
                 <li className="flex items-center">
-                  <FiCheckCircle className="w-4 h-4 text-blue-400 mr-2" />
+                  <FiCheckCircle className="w-4 h-4 text-yellow-400 mr-2" />
                   Industry partnerships in development
                 </li>
               </ul>
