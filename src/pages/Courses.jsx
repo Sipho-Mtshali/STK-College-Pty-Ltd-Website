@@ -182,6 +182,22 @@ const Courses = () => {
       features: ['Word Mastery', 'Excel Expertise', 'PowerPoint Skills', 'Teams Collaboration'],
       popular: true,
       funding: null
+    },
+    {
+      id: 11,
+      title: 'Cybersecurity',
+      instructor: 'Sipho Mtshali',
+      category: 'Programming',
+      lessons: 18,
+      students: 0,
+      price: 'R25,000',
+      originalPrice: 'R30,000',
+      image: '/images/courses/java.jpg',
+      rating: 4.6,
+      description: 'Comprehensive Cybersecurity and enterprise application development.',
+      features: ['OOP Principles', 'Spring Framework', 'Database Integration', 'Project Development'],
+      popular: false,
+      funding: null
     }
   ];
 

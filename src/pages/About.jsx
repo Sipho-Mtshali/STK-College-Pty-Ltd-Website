@@ -8,7 +8,7 @@ const About = () => {
       icon: FiBookOpen,
       title: 'Short Courses',
       description: 'Focused IT training in programming, Microsoft Office, and web development',
-      features: ['Python, Java, SQL', 'Microsoft Office Suite', 'Web Development', 'Flexible Scheduling']
+      features: ['Python, Java, SQL, Cybersecurity', 'Microsoft Office Suite', 'Web Development', 'Flexible Scheduling']
     },
     {
       icon: FiUsers,
@@ -194,7 +194,7 @@ const About = () => {
               </p>
               
               <p>
-                As a registered CIPC and NPO initiative, we are building partnerships with industry leaders 
+                As a registered CIPC and NPC initiative, we are building partnerships with industry leaders 
                 to ensure that our graduates will be well-prepared for the workforce once full accreditation 
                 is achieved.
               </p>
@@ -202,7 +202,7 @@ const About = () => {
               <div className="bg-yellow-500/20 border border-yellow-500 rounded-xl p-6 mt-6">
                 <h3 className="text-xl font-bold text-white mb-3">Our Current Status</h3>
                 <ul className="space-y-2 text-gray-200">
-                  <li>• Registered CIPC and NPO initiative</li>
+                  <li>• Registered CIPC and NPC initiative</li>
                   <li>• Preparing for QCTO accreditation</li>
                   <li>• Planning future MICT SETA funding opportunities</li>
                   <li>• Industry-relevant curriculum under development</li>

@@ -2,9 +2,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { FiClock, FiUsers, FiAward, FiCheckCircle,
-  FiBookOpen, FiArrowLeft, FiStar, FiShare2, FiHeart,
-  FiUser, FiMail } from 'react-icons/fi';
+import { FiClock, FiUsers, FiAward, FiCheckCircle, FiBookOpen, FiArrowLeft, 
+         FiStar, FiShare2, FiHeart, FiUser, FiMail } from 'react-icons/fi';
 import { coursesData, allCourses } from '../data/coursesData';
 
 const CourseDetail = () => {
@@ -255,9 +254,9 @@ const CourseDetail = () => {
     'Sipho Mtshali': {
       name: 'Sipho Mtshali',
       role: 'Senior IT Instructor & Developer',
-      bio: 'Sipho Mtshali is an experienced IT professional with over 8 years of experience in software development and IT training. He specializes in Java, Python, and full-stack web development.',
+      bio: 'Sipho Mtshali is an experienced IT professional with over 4 years of experience in software development and IT training. He specializes in Java, Python, and full-stack web development.',
       expertise: ['Java Development', 'Python Programming', 'Web Development', 'Database Management'],
-      experience: '8+ years',
+      experience: '4+ years',
       email: 'sipho@stkcollege.co.za',
       courses: 10,
       rating: 4.8,
@@ -268,7 +267,7 @@ const CourseDetail = () => {
       role: 'AI & Machine Learning Specialists',
       bio: 'Our AI team consists of experienced data scientists and machine learning engineers with expertise in modern AI technologies and practical implementation.',
       expertise: ['Machine Learning', 'Deep Learning', 'Neural Networks', 'Data Science'],
-      experience: '5+ years',
+      experience: '3+ years',
       email: 'ai@stkcollege.co.za',
       courses: 3,
       rating: 4.9,

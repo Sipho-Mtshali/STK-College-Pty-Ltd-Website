@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiArrowRight, FiCode, FiUsers, FiAward, 
-  FiBriefcase, FiCheckCircle, FiTrendingUp,
-  FiLayers, FiSmartphone, FiGlobe } from 'react-icons/fi';
+import { FiArrowRight, FiCode, FiUsers, FiAward, FiBriefcase, FiCheckCircle, FiTrendingUp,
+         FiLayers, FiSmartphone, FiGlobe } from 'react-icons/fi';
 
 const Home = () => {
   // Update the services section to:
@@ -10,12 +9,12 @@ const Home = () => {
     {
       icon: FiCode,
       title: 'Short Courses',
-      description: '3-6 month intensive programs in Python, Java, SQL, and Microsoft 365'
+      description: '3-6 month intensive programs in Python, Java, Cybersecurity, SQL, and Microsoft 365'
     },
     {
       icon: FiUsers,
       title: 'In-Service Training',
-      description: 'Hands-on C# and MVC.NET training with real-world projects'
+      description: 'Hands-on C#, HTML, CSS, SQL and MVC.NET training with real-world projects'
     },
     {
       icon: FiBriefcase,
