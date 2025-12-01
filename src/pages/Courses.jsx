@@ -187,18 +187,19 @@ const Courses = () => {
       id: 11,
       title: 'Cybersecurity',
       instructor: 'Sipho Mtshali',
-      category: 'Programming',
+      category: 'Cybersecurity',
       lessons: 18,
       students: 0,
       price: 'R25,000',
       originalPrice: 'R30,000',
-      image: '/images/courses/java.jpg',
+      image: '/images/courses/cybersecurity.jpg',
       rating: 4.6,
-      description: 'Comprehensive Cybersecurity and enterprise application development.',
-      features: ['OOP Principles', 'Spring Framework', 'Database Integration', 'Project Development'],
+      description: 'Comprehensive cybersecurity training covering threat detection, defensive security, ethical hacking, and secure enterprise application development.',
+      features: ['Network Security Fundamentals', 'Ethical Hacking Techniques', 'Incident Detection & Response', 'Secure Application Development'],
       popular: false,
       funding: null
     }
+
   ];
 
   const [selectedCategory, setSelectedCategory] = React.useState('All Courses');
