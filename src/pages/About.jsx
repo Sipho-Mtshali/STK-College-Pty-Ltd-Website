@@ -26,14 +26,14 @@ const About = () => {
       icon: FiZap,
       title: 'AI Learnership',
       description: 'Future learnership programs in Artificial Intelligence and Machine Learning',
-      features: ['Future MICT SETA Opportunities', 'Industry Projects', 'Career Placement', 'Advanced Training']
+      features: ['Industry Projects', 'Career Placement', 'Advanced Training']
     }
   ];
 
   const achievements = [
     { 
       icon: FiCode, 
-      title: '10+ Courses', 
+      title: '5+ Courses', 
       description: 'Comprehensive IT and AI programs available' 
     },
     { 
