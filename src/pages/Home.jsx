@@ -122,7 +122,7 @@ const Home = () => {
             >
               <div className="card-enhanced backdrop-blur-sm rounded-2xl p-8 border border-yellow-500/20">
                 <div className="space-y-6">
-                  <h3 className="text-2xl font-semibold text-white">Why Choose STK Tech?</h3>
+                  <h3 className="text-2xl font-semibold text-white">Why Choose STK College?</h3>
                   <ul className="space-y-4">
                     {[
                      'Industry-relevant curriculum',

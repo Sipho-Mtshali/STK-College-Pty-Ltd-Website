@@ -146,7 +146,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-300 mb-4 md:mb-0">
-            <p>STK College is a registered CIPC and NPO initiative, preparing for QCTO accreditation and future MICT SETA funding opportunities. Current student numbers and program details are for demonstration purposes as we build toward full operation.
+            <p>STK College is a registered CIPC, preparing for QCTO accreditation and future MICT SETA funding opportunities. Current student numbers and program details are for demonstration purposes as we build toward full operation.
             <br></br>&copy; {currentYear} STK College (Pty) Ltd. All rights reserved.</p>
           </div>
           
