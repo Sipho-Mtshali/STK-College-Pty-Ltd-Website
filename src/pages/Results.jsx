@@ -27,7 +27,7 @@ const Results = () => {
   const mockResults = [
     {
       id: '1',
-      studentName: 'General Mtshali',
+      studentName: 'Sipho Mtshali',
       year: '2024',
       program: 'Python Programming',
       percentage: 92,

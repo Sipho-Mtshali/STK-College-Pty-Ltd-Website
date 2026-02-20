@@ -810,7 +810,7 @@ const ITRegister = () => {
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-center">
                   <FiCheckCircle className="w-4 h-4 text-yellow-400 mr-2" />
-                  Registered CIPC and NPO initiative
+                  Registered CIPC
                 </li>
                 <li className="flex items-center">
                   <FiCheckCircle className="w-4 h-4 text-yellow-400 mr-2" />
