@@ -24,7 +24,7 @@ const Navbar = () => {
       ]
     },
     { name: 'Courses', href: '/courses' },
-    { name: 'Results', href: '/results' },
+    { name: 'Campus Life', href: '/campus-life' },
     { name: 'Registration', href: '/it-register' },
     { name: 'Contact', href: '/contact' },
   ];

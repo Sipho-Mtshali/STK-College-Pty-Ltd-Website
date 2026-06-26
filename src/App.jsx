@@ -14,7 +14,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import ITRegister from './pages/ITRegister';
 import Staff from './pages/Staff';
-import Results from './pages/Results';
+import CampusLife from './pages/CampusLife';
 import Contact from './pages/Contact';
 import Courses from './pages/Courses';
 import Testimonials from './pages/Testimonials';
@@ -80,7 +80,7 @@ function App() {
                   <Route path="/staff" element={<Staff />} />
                   <Route path="/testimonials" element={<Testimonials />} />
                   <Route path="/it-register" element={<ITRegister />} />
-                  <Route path="/results" element={<Results />} />
+                  <Route path="/campus-life" element={<CampusLife />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/courses" element={<Courses />} />
                   <Route path="/course/:id" element={<CourseDetail />} />
