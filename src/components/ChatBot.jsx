@@ -3,16 +3,18 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-// Simple icons - no external dependencies
 import { 
   FiMessageCircle, 
   FiX, 
   FiSend, 
-  FiArrowRight
+  FiArrowRight,
+  FiMinimize2,
+  FiMaximize2
 } from 'react-icons/fi';
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -155,7 +157,6 @@ Contact our IT department for:
 We'll help you start your tech career! 🚀`
   };
 
-  // Scroll to bottom
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -175,7 +176,6 @@ We'll help you start your tech career! 🚀`
     }
   }, [isOpen]);
 
-  // Find response
   const findResponse = (message) => {
     const lowerMessage = message.toLowerCase();
     
@@ -204,13 +204,11 @@ We'll help you start your tech career! 🚀`
     }
   };
 
-  // Handle sending messages
   const handleSendMessage = async (message = null) => {
     const messageToSend = message || inputMessage.trim();
     
     if (!messageToSend) return;
 
-    // Add user message
     const userMessage = {
       id: Date.now(),
       text: messageToSend,
@@ -221,7 +219,6 @@ We'll help you start your tech career! 🚀`
     setInputMessage('');
     setIsTyping(true);
 
-    // Simulate typing delay
     setTimeout(() => {
       const response = findResponse(messageToSend);
       
@@ -236,12 +233,10 @@ We'll help you start your tech career! 🚀`
     }, 800);
   };
 
-  // Handle quick reply
   const handleQuickReply = (reply) => {
     handleSendMessage(reply);
   };
 
-  // Handle key press
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
@@ -251,134 +246,175 @@ We'll help you start your tech career! 🚀`
 
   return (
     <>
-      {/* Simple Chat Button */}
-      <button
+      {/* Floating Chat Button */}
+      <motion.button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 right-4 z-50 bg-yellow-500 hover:bg-yellow-600 text-gray-900 p-3 rounded-full shadow-lg transition-all duration-200 sm:bottom-6 sm:right-6 sm:p-4"
+        className="fixed bottom-6 right-6 z-50 bg-[#F4C542] hover:bg-[#e0b03a] text-[#0F2B5B] p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5 }}
         style={{ zIndex: 10000 }}
       >
-        <FiMessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
-      </button>
+        <FiMessageCircle className="w-6 h-6" />
+        <span className="sr-only">Chat with STK Assistant</span>
+        <span className="absolute -inset-1 rounded-full border-2 border-[#F4C542]/30 animate-ping"></span>
+      </motion.button>
 
-      {/* Simple Chat Window */}
-      {isOpen && (
-        <div 
-          className="fixed z-50 bg-gray-900 rounded-lg shadow-xl border border-yellow-500 overflow-hidden"
-          style={{
-            bottom: '80px',
-            right: '16px',
-            width: 'calc(100vw - 32px)',
-            maxWidth: '400px',
-            height: '500px',
-            maxHeight: '70vh',
-            zIndex: 10000
-          }}
-        >
-          {/* Header - Always visible */}
-          <div className="bg-yellow-500 text-gray-900 p-3 flex justify-between items-center border-b border-yellow-600">
-            <div className="flex items-center space-x-2">
-              <FiMessageCircle className="w-5 h-5" />
-              <span className="font-bold text-sm">STK IT Assistant</span>
-            </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="text-gray-900 hover:text-gray-700 transition-colors p-1"
-            >
-              <FiX className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* Messages Area */}
-          <div 
-            className="p-3 space-y-2 overflow-y-auto bg-gray-800"
-            style={{ height: 'calc(100% - 180px)' }}
+      {/* Chat Window */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed z-50 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden flex flex-col"
+            style={{
+              bottom: '90px',
+              right: '20px',
+              width: 'calc(100vw - 40px)',
+              maxWidth: '420px',
+              height: isMinimized ? 'auto' : '580px',
+              maxHeight: isMinimized ? 'auto' : '80vh',
+              zIndex: 10000,
+              boxShadow: '0 20px 60px rgba(15, 43, 91, 0.25)'
+            }}
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
           >
-            {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                <div
-                  className={`max-w-[80%] rounded-lg p-3 ${
-                    message.sender === 'user'
-                      ? 'bg-yellow-500 text-gray-900 rounded-br-none'
-                      : 'bg-gray-700 text-white rounded-bl-none'
-                  }`}
-                >
-                  <div className="whitespace-pre-line text-sm">
-                    {message.text}
+            {/* Header - Always visible with prominent X button */}
+            <div className="bg-gradient-to-r from-[#0F2B5B] to-[#1a3f7a] text-white px-5 py-3.5 flex justify-between items-center flex-shrink-0">
+              <div className="flex items-center space-x-3 min-w-0">
+                <div className="w-9 h-9 bg-[#F4C542]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <FiMessageCircle className="w-5 h-5 text-[#F4C542]" />
+                </div>
+                <div className="truncate">
+                  <span className="font-bold text-white text-sm block truncate">STK IT Assistant</span>
+                  <div className="flex items-center space-x-1.5">
+                    <span className="w-2 h-2 bg-green-400 rounded-full inline-block animate-pulse"></span>
+                    <span className="text-[10px] text-gray-300">Online</span>
                   </div>
                 </div>
               </div>
-            ))}
-
-            {/* Typing Indicator */}
-            {isTyping && (
-              <div className="flex justify-start">
-                <div className="bg-gray-700 text-white rounded-lg rounded-bl-none p-3 max-w-[80%]">
-                  <div className="flex space-x-1">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            <div ref={messagesEndRef} />
-          </div>
-
-          {/* Quick Replies */}
-          <div className="p-2 border-t border-gray-700 bg-gray-900">
-            <div className="flex flex-wrap gap-1">
-              {['Python', 'Java', 'SQL', 'Internship', 'Pricing'].map((reply) => (
+              
+              {/* Header Actions - Always visible */}
+              <div className="flex items-center space-x-1 flex-shrink-0">
                 <button
-                  key={reply}
-                  onClick={() => handleQuickReply(reply)}
-                  className="px-2 py-1 bg-gray-700 hover:bg-yellow-500 text-white text-xs rounded border border-yellow-500 transition-colors"
+                  onClick={() => setIsMinimized(!isMinimized)}
+                  className="text-gray-300 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/10"
+                  aria-label={isMinimized ? "Maximize chat" : "Minimize chat"}
                 >
-                  {reply}
+                  {isMinimized ? (
+                    <FiMaximize2 className="w-4 h-4" />
+                  ) : (
+                    <FiMinimize2 className="w-4 h-4" />
+                  )}
                 </button>
-              ))}
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-gray-300 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/10 bg-white/5"
+                  aria-label="Close chat"
+                >
+                  <FiX className="w-5 h-5" />
+                </button>
+              </div>
             </div>
-          </div>
 
-          {/* Contact CTA */}
-          <div className="p-2 border-t border-gray-700 bg-yellow-500/20">
-            <div className="text-center">
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="inline-flex items-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-3 py-1 rounded text-xs font-semibold transition-colors w-full justify-center"
-              >
-                Free Career Consultation
-                <FiArrowRight className="ml-1 w-3 h-3" />
-              </Link>
-            </div>
-          </div>
+            {/* Chat content - hidden when minimized */}
+            {!isMinimized && (
+              <>
+                {/* Messages Area */}
+                <div 
+                  className="px-5 py-4 space-y-3 overflow-y-auto bg-gray-50 flex-1"
+                  style={{ height: 'calc(100% - 200px)' }}
+                >
+                  {messages.map((message) => (
+                    <div
+                      key={message.id}
+                      className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                    >
+                      <div
+                        className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                          message.sender === 'user'
+                            ? 'bg-[#F4C542] text-[#0F2B5B] rounded-br-none'
+                            : 'bg-white text-gray-700 rounded-bl-none shadow-sm border border-gray-100'
+                        }`}
+                      >
+                        <div className="whitespace-pre-line">
+                          {message.text}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
 
-          {/* Input Area */}
-          <div className="p-2 border-t border-gray-700 bg-gray-900">
-            <div className="flex space-x-2">
-              <input
-                type="text"
-                value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Ask about Python, Java, internships..."
-                className="flex-1 bg-gray-800 border border-gray-600 rounded px-2 py-1 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500 text-sm"
-              />
-              <button
-                onClick={() => handleSendMessage()}
-                disabled={!inputMessage.trim()}
-                className="bg-yellow-500 hover:bg-yellow-600 disabled:bg-gray-600 text-gray-900 p-2 rounded transition-colors"
-              >
-                <FiSend className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+                  {/* Typing Indicator */}
+                  {isTyping && (
+                    <div className="flex justify-start">
+                      <div className="bg-white text-gray-700 rounded-2xl rounded-bl-none px-4 py-2.5 shadow-sm border border-gray-100">
+                        <div className="flex space-x-1.5">
+                          <div className="w-2.5 h-2.5 bg-[#F4C542] rounded-full animate-bounce"></div>
+                          <div className="w-2.5 h-2.5 bg-[#F4C542] rounded-full animate-bounce" style={{ animationDelay: '0.15s' }}></div>
+                          <div className="w-2.5 h-2.5 bg-[#F4C542] rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div ref={messagesEndRef} />
+                </div>
+
+                {/* Quick Replies */}
+                <div className="px-4 py-2.5 border-t border-gray-100 bg-white flex-shrink-0">
+                  <div className="flex flex-wrap gap-1.5">
+                    {['Python', 'Java', 'SQL', 'Internship', 'Pricing'].map((reply) => (
+                      <button
+                        key={reply}
+                        onClick={() => handleQuickReply(reply)}
+                        className="px-3 py-1.5 bg-gray-50 hover:bg-[#F4C542] hover:text-[#0F2B5B] text-gray-600 text-xs font-medium rounded-full border border-gray-200 hover:border-[#F4C542] transition-all duration-200"
+                      >
+                        {reply}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Contact CTA */}
+                <div className="px-4 py-2.5 border-t border-gray-100 bg-gray-50 flex-shrink-0">
+                  <Link
+                    to="/contact"
+                    onClick={() => setIsOpen(false)}
+                    className="inline-flex items-center justify-center w-full bg-[#F4C542] hover:bg-[#e0b03a] text-[#0F2B5B] font-bold px-4 py-2.5 rounded-lg text-sm transition-all duration-300 shadow-md hover:shadow-lg"
+                  >
+                    Free Career Consultation
+                    <FiArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </div>
+
+                {/* Input Area */}
+                <div className="p-3 border-t border-gray-100 bg-white flex-shrink-0">
+                  <div className="flex items-center space-x-2">
+                    <input
+                      type="text"
+                      value={inputMessage}
+                      onChange={(e) => setInputMessage(e.target.value)}
+                      onKeyPress={handleKeyPress}
+                      placeholder="Ask about Python, Java, internships..."
+                      className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F4C542] focus:border-transparent transition-all duration-200"
+                    />
+                    <button
+                      onClick={() => handleSendMessage()}
+                      disabled={!inputMessage.trim()}
+                      className="bg-[#F4C542] hover:bg-[#e0b03a] disabled:bg-gray-200 text-[#0F2B5B] p-2.5 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg disabled:shadow-none disabled:cursor-not-allowed"
+                    >
+                      <FiSend className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+              </>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

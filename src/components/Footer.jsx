@@ -40,48 +40,53 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: FiFacebook, href: 'https://www.facebook.com/share/1CCmHaTpaj/?mibextid=wwXIfr', name: 'Facebook' },
-    { icon: FiTwitter, href: '#', name: 'Twitter' },
-    { icon: FiInstagram, href: '#', name: 'Instagram' },
-    { icon: FiLinkedin, href: '#', name: 'LinkedIn' }
+    { icon: FiFacebook, href: 'https://www.facebook.com/share/1CCmHaTpaj/?mibextid=wwXIfr', name: 'Facebook', active: true },
+    { icon: FiTwitter, href: '#', name: 'Twitter', active: false },
+    { icon: FiInstagram, href: '#', name: 'Instagram', active: false },
+    { icon: FiLinkedin, href: '#', name: 'LinkedIn', active: false }
   ];
 
   return (
-    <footer className="bg-gray-900 text-white relative overflow-hidden border-t border-gray-700">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-yellow-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-600 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-white text-[#0F2B5B] border-t border-gray-100 shadow-[0_-4px_20px_rgba(15,43,91,0.04)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="flex items-center justify-center">
-                <img src="/images/campus/STKLogo2.png" alt="STK Logo" className="w-12 h-12" />
+              <div className="flex items-center justify-center overflow-hidden w-14 h-14">
+                <img 
+                  src="/images/campus/STKLogo2.png" 
+                  alt="STK Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">STK College</h3>
-                <p className="text-yellow-400 text-sm font-medium">Shape the Future With Us</p>
+                <h3 className="text-2xl font-bold text-[#0F2B5B] tracking-tight">STK College</h3>
+                <p className="text-[#F4C542] text-sm font-semibold tracking-wide uppercase">
+                  Shape the Future With Us
+                </p>
               </div>
             </div>
-            <p className="text-gray-300 mb-6 leading-relaxed">
+            <p className="text-gray-600 mb-6 leading-relaxed text-sm">
               Empowering careers through quality IT education, professional training, and industry-relevant skills development. 
               Your tech career success is our mission.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
                 return (
                   <a
                     key={index}
                     href={social.href}
-                    className={`w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 hover:bg-yellow-500 hover:text-white transition-all duration-200 transform hover:scale-110 border border-gray-700 ${social.name !== 'Facebook' ? 'pointer-events-none opacity-50' : ''}`}
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                      social.active
+                        ? 'bg-[#0F2B5B] text-white hover:bg-[#F4C542] hover:text-[#0F2B5B] shadow-sm hover:shadow-md transform hover:-translate-y-0.5'
+                        : 'bg-gray-100 text-gray-400 cursor-not-allowed opacity-50'
+                    }`}
                     aria-label={social.name}
                     target="_blank"
                     rel="noopener noreferrer"
+                    {...(!social.active && { onClick: (e) => e.preventDefault() })}
                   >
                     <Icon className="w-5 h-5" />
                   </a>
@@ -92,15 +97,18 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-6">Quick Links</h3>
+            <h4 className="text-sm font-bold text-[#0F2B5B] uppercase tracking-wider mb-5 relative">
+              Quick Links
+              <span className="block w-8 h-0.5 bg-[#F4C542] mt-2"></span>
+            </h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     to={link.path}
-                    className="text-gray-300 hover:text-yellow-400 transition-colors duration-200 flex items-center group"
+                    className="text-gray-600 hover:text-[#F4C542] transition-colors duration-200 flex items-center group text-sm"
                   >
-                    <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#F4C542] mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
                     {link.name}
                   </Link>
                 </li>
@@ -110,15 +118,18 @@ const Footer = () => {
 
           {/* Programs */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-6">Programs</h3>
+            <h4 className="text-sm font-bold text-[#0F2B5B] uppercase tracking-wider mb-5 relative">
+              Programs
+              <span className="block w-8 h-0.5 bg-[#F4C542] mt-2"></span>
+            </h4>
             <ul className="space-y-3">
               {programs.map((program, index) => (
                 <li key={index}>
                   <Link
                     to={program.path}
-                    className="text-gray-300 hover:text-yellow-400 transition-colors duration-200 flex items-center group"
+                    className="text-gray-600 hover:text-[#F4C542] transition-colors duration-200 flex items-center group text-sm"
                   >
-                    <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#F4C542] mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
                     {program.name}
                   </Link>
                 </li>
@@ -128,14 +139,17 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-6">Contact Info</h3>
+            <h4 className="text-sm font-bold text-[#0F2B5B] uppercase tracking-wider mb-5 relative">
+              Contact Info
+              <span className="block w-8 h-0.5 bg-[#F4C542] mt-2"></span>
+            </h4>
             <ul className="space-y-4">
               {contactInfo.map((contact, index) => {
                 const Icon = contact.icon;
                 return (
-                  <li key={index} className="flex items-start space-x-3">
-                    <Icon className="w-5 h-5 text-yellow-400 mt-1 flex-shrink-0" />
-                    <span className="text-gray-300">{contact.text}</span>
+                  <li key={index} className="flex items-start space-x-3 text-sm">
+                    <Icon className="w-5 h-5 text-[#F4C542] mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-600">{contact.text}</span>
                   </li>
                 );
               })}
@@ -144,21 +158,24 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-300 mb-4 md:mb-0">
-            <p>STK College is a registered CIPC, preparing for QCTO accreditation and future MICT SETA funding opportunities. Current student numbers and program details are for demonstration purposes as we build toward full operation.
-            <br></br>&copy; {currentYear} STK College (Pty) Ltd. All rights reserved.</p>
+        <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-gray-500 text-sm text-center md:text-left">
+            <p>
+              STK College is a registered CIPC, preparing for QCTO accreditation and future MICT SETA funding opportunities. 
+              Current student numbers and program details are for demonstration purposes as we build toward full operation.
+            </p>
+            <p className="mt-2">
+              &copy; {currentYear} STK College (Pty) Ltd. All rights reserved.
+            </p>
           </div>
           
-          <div className="flex items-center space-x-6">
-            <button
-              onClick={scrollToTop}
-              className="btn-primary-high-contrast w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:shadow-lg"
-              aria-label="Scroll to top"
-            >
-              <FiArrowUp className="w-5 h-5" />
-            </button>
-          </div>
+          <button
+            onClick={scrollToTop}
+            className="w-10 h-10 rounded-full bg-[#0F2B5B] text-white hover:bg-[#F4C542] hover:text-[#0F2B5B] transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-xl transform hover:-translate-y-0.5"
+            aria-label="Scroll to top"
+          >
+            <FiArrowUp className="w-5 h-5" />
+          </button>
         </div>
       </div>
     </footer>
