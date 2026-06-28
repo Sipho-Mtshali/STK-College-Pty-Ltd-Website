@@ -1,7 +1,24 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FiStar, FiUser, FiAward, FiMessageSquare,
-  FiTrendingUp, FiBookOpen, FiMail, FiUserPlus } from 'react-icons/fi';
+import { 
+  FiStar, FiUser, FiAward, FiMessageSquare, FiTrendingUp, 
+  FiBookOpen, FiMail, FiUserPlus, FiArrowRight, FiCheckCircle,
+  FiClock, FiBriefcase
+} from 'react-icons/fi';
+
+// ─── Animation variants ───
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08 }
+  }
+};
 
 const Testimonials = () => {
   const testimonials = [
@@ -10,7 +27,7 @@ const Testimonials = () => {
       name: 'Lilitha Mhle',
       course: 'Technical Programming',
       rating: 5,
-      text: 'I\'m Lilitha Mhle grateful for the guidance and support of my amazing tutor, Sipho Mtshali which helped me achieve a Distinction in Technical Programming. Thank you so much.',
+      text: 'I\'m grateful for the guidance and support of my amazing tutor, Sipho Mtshali, which helped me achieve a Distinction in Technical Programming. Thank you so much.',
       image: '/images/students/mhle.jpeg',
       status: 'Second year student - Programmer',
       achievement: 'Distinction'
@@ -30,7 +47,7 @@ const Testimonials = () => {
       name: 'Dlamini Akhona',
       course: 'Programming Module',
       rating: 5,
-      text: 'Hello Mr Mtshali! I just wanted to say thank you for believing in me. I\'m proud to say that I\'ve passed the module you tutored me in with distinction. Your guidance and support made all the difference!',
+      text: 'I just wanted to say thank you for believing in me. I\'m proud to say that I\'ve passed the module you tutored me in with distinction. Your guidance and support made all the difference!',
       image: '/images/students/Akhona.jpeg',
       status: 'Final year student - Software Engineer',
       achievement: 'Distinction'
@@ -40,7 +57,7 @@ const Testimonials = () => {
       name: 'Ntombela Minenhle',
       course: 'Programming',
       rating: 5,
-      text: 'I am truly grateful for your support and lessons, Mr. Mtshali. Your guidance helped me overcome challenges I thought were impossible, improving from 22% to passing the module with 60%. Thank you so much!"',
+      text: 'I am truly grateful for your support and lessons, Mr. Mtshali. Your guidance helped me overcome challenges I thought were impossible, improving from 22% to passing the module with 60%. Thank you so much!',
       image: '/images/students/minenhle.jpeg',
       status: 'Second year student - Software Developer',
       achievement: 'Pass'
@@ -50,7 +67,7 @@ const Testimonials = () => {
       name: 'Blessings',
       course: 'SQL Database',
       rating: 5,
-      text: 'I want to sincerely thank you for your exceptional guidance in SQL. Your teaching made complex concepts easy to understand, and I feel confident in my ability to work with databases now. Your dedication truly made a difference in my learning journey!',
+      text: 'I want to sincerely thank you for your exceptional guidance in SQL. Your teaching made complex concepts easy to understand, and I feel confident in my ability to work with databases now.',
       image: '/images/students/Blessings.jpeg',
       status: 'Database Student',
       achievement: 'Distinction'
@@ -60,7 +77,7 @@ const Testimonials = () => {
       name: 'Sibisi Michael',
       course: 'Technical Programming',
       rating: 5,
-      text: 'STK College staff, I hope you\'re all doing well. Your contribution in helping us with TP has been invaluable. You\'ve laid a strong foundation for us to grasp more in programming. Keep on supporting other students. We\'re grateful for your efforts. Wishing you all the best!',
+      text: 'STK College staff, your contribution in helping us with TP has been invaluable. You\'ve laid a strong foundation for us to grasp more in programming. Keep supporting other students. We\'re grateful!',
       image: '/images/students/sibisi.jpeg',
       status: 'Programming Student',
       achievement: 'Pass'
@@ -80,7 +97,7 @@ const Testimonials = () => {
       name: 'Magingxa Yolisa',
       course: 'Technical Programming',
       rating: 5,
-      text: 'I\'m Yolisa Magingxa. Mr. Mtshali\'s dedication and exceptional teaching skills were truly inspiring. His guidance and support helped me excel in the module and boosted my confidence in technical programming and database development.',
+      text: 'Mr. Mtshali\'s dedication and exceptional teaching skills were truly inspiring. His guidance and support helped me excel in the module and boosted my confidence in technical programming.',
       image: '/images/students/Yolisa.jpeg',
       status: 'Software Development Student',
       achievement: 'Distinction'
@@ -88,184 +105,203 @@ const Testimonials = () => {
   ];
 
   const stats = [
-    {
-      number: '90%',
-      label: 'Pass Rate',
-      icon: FiTrendingUp,
-      color: 'text-yellow-400'
-    },
-    {
-      number: '75%',
-      label: 'Distinction Rate',
-      icon: FiAward,
-      color: 'text-yellow-400'
-    },
-    {
-      number: '105+',
-      label: 'Successful Students',
-      icon: FiUser,
-      color: 'text-yellow-400'
-    },
-    {
-      number: '4.8/5',
-      label: 'Average Rating',
-      icon: FiStar,
-      color: 'text-yellow-400'
-    }
+    { number: '90%', label: 'Pass Rate', icon: FiTrendingUp },
+    { number: '75%', label: 'Distinction Rate', icon: FiAward },
+    { number: '105+', label: 'Successful Students', icon: FiUser },
+    { number: '4.8/5', label: 'Average Rating', icon: FiStar }
   ];
 
-  // Function to get badge color based on achievement
   const getAchievementColor = (achievement) => {
-    switch (achievement) {
-      case 'Distinction':
-        return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
-      case 'Pass':
-        return 'bg-blue-500/20 text-blue-400 border-blue-500/30';
-      default:
-        return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
-    }
+    return achievement === 'Distinction' 
+      ? 'bg-[#F4C542]/20 text-[#F4C542] border-[#F4C542]/30'
+      : 'bg-blue-500/20 text-blue-400 border-blue-500/30';
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Student Testimonials
-          </h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-            Hear from our successful students across IT programming, short courses, and professional training programs
-          </p>
-        </motion.div>
+    <div className="bg-white text-gray-800">
 
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
-        >
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <div
-                key={index}
-                className="card-enhanced rounded-2xl p-6 text-center hover-lift"
-              >
-                <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon className={`w-6 h-6 ${stat.color}`} />
-                </div>
-                <div className={`text-2xl md:text-3xl font-bold ${stat.color} mb-2`}>
-                  {stat.number}
-                </div>
-                <div className="text-white font-medium text-sm">
-                  {stat.label}
-                </div>
-              </div>
-            );
-          })}
-        </motion.div>
-
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="card-enhanced rounded-2xl p-6 hover-lift"
-            >
-              {/* Quote Icon */}
-              <div className="flex justify-between items-start mb-4">
-                <FiMessageSquare className="w-8 h-8 text-yellow-400 opacity-50" />
-                <span className={`px-3 py-1 rounded-full text-sm font-bold border ${getAchievementColor(testimonial.achievement)}`}>
-                  {testimonial.achievement}
-                </span>
-              </div>
-
-              {/* Rating */}
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <FiStar
-                    key={i}
-                    className={`w-5 h-5 ${
-                      i < testimonial.rating
-                        ? 'text-yellow-400 fill-current'
-                        : 'text-gray-600'
-                    }`}
-                  />
-                ))}
-              </div>
-
-              {/* Testimonial Text */}
-              <p className="text-gray-200 mb-6 leading-relaxed italic">
-                "{testimonial.text}"
-              </p>
-
-              {/* Student Info */}
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white">{testimonial.name}</h4>
-                  <p className="text-yellow-400 text-sm">{testimonial.status}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+      {/* ─────────────── HERO ─────────────── */}
+      <section className="relative min-h-[50vh] flex items-center overflow-hidden bg-[#0F2B5B]">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&q=80"
+            alt="Student success"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F2B5B]/90 to-[#0F2B5B]/70"></div>
         </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20 w-full">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="text-center text-white"
+          >
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              Student <span className="text-[#F4C542]">Testimonials</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
+              Hear from our successful students across IT programming, short courses, and professional training programs.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 card-enhanced rounded-2xl p-8 text-center"
-        >
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Transform Your Future?
-          </h2>
-          <p className="text-gray-200 mb-6 max-w-2xl mx-auto text-lg leading-relaxed">
-            Join hundreds of successful students who have launched their tech careers through our 
-            comprehensive IT programs, in-service training, internships, and AI learnerships. Your success story starts here!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/courses"
-              className="btn-secondary-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
-            >
-              <FiBookOpen className="w-5 h-5 mr-2" />
-              View Programs
-            </Link>
-            <Link
-              to="/it-register"
-              className="btn-primary-high-contrast px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
-            >
-              <FiUserPlus className="w-5 h-5 mr-2" />
-              Register Now
-            </Link>
-            <a
-              href="mailto:stkcollege@gmail.com"
-              className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 hover:bg-white/20 border border-white/20 flex items-center justify-center"
-            >
-              <FiMail className="w-5 h-5 mr-2" />
-              Email Us
-            </a>
+      {/* ─────────────── STATISTICS ─────────────── */}
+      <section className="py-12 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="flex justify-center mb-3">
+                    <div className="w-12 h-12 bg-[#F4C542]/20 rounded-full flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-[#F4C542]" />
+                    </div>
+                  </div>
+                  <div className="text-2xl md:text-3xl font-bold text-[#0F2B5B]">{stat.number}</div>
+                  <div className="text-gray-600 text-sm">{stat.label}</div>
+                </motion.div>
+              );
+            })}
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </section>
+
+      {/* ─────────────── TESTIMONIALS GRID ─────────────── */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F2B5B] mb-4">
+              What Our <span className="text-[#F4C542]">Students Say</span>
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Real stories from real students who transformed their careers with STK College.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {testimonials.map((testimonial) => (
+              <motion.div
+                key={testimonial.id}
+                variants={fadeUp}
+                className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100 hover:border-[#F4C542]/30 group"
+              >
+                {/* Header: Quote icon + Achievement badge */}
+                <div className="flex justify-between items-start mb-4">
+                  <FiMessageSquare className="w-8 h-8 text-[#F4C542] opacity-40" />
+                  <span className={`px-3 py-1 rounded-full text-xs font-bold border ${getAchievementColor(testimonial.achievement)}`}>
+                    {testimonial.achievement}
+                  </span>
+                </div>
+
+                {/* Rating */}
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <FiStar
+                      key={i}
+                      className={`w-5 h-5 ${
+                        i < testimonial.rating
+                          ? 'text-[#F4C542] fill-current'
+                          : 'text-gray-300'
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <p className="text-gray-700 text-sm leading-relaxed italic mb-5">
+                  "{testimonial.text}"
+                </p>
+
+                {/* Student info */}
+                <div className="flex items-center gap-4 pt-4 border-t border-gray-100">
+                  <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#0F2B5B] text-sm">{testimonial.name}</h4>
+                    <p className="text-[#F4C542] text-xs font-medium">{testimonial.course}</p>
+                    <p className="text-gray-500 text-xs">{testimonial.status}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ─────────────── CALL TO ACTION ─────────────── */}
+      <section className="relative py-16 bg-[#0F2B5B] overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&q=80"
+            className="w-full h-full object-cover opacity-10"
+            alt=""
+          />
+        </div>
+        <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center text-white">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Transform <span className="text-[#F4C542]">Your Future</span>?
+            </h2>
+            <p className="text-lg text-gray-200 max-w-2xl mx-auto mb-8">
+              Join hundreds of successful students who have launched their tech careers through our 
+              comprehensive IT programs, in-service training, internships, and AI learnerships.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/courses"
+                className="bg-white/10 border border-white/30 hover:bg-white/20 px-8 py-3 rounded-lg transition-all duration-300 inline-flex items-center justify-center"
+              >
+                <FiBookOpen className="mr-2 w-5 h-5" />
+                View Programs
+              </Link>
+              <Link
+                to="/it-register"
+                className="bg-[#F4C542] hover:bg-[#e0b03a] text-[#0F2B5B] font-bold px-8 py-3 rounded-lg transition-all duration-300 inline-flex items-center justify-center"
+              >
+                <FiUserPlus className="mr-2 w-5 h-5" />
+                Register Now
+              </Link>
+              <a
+                href="mailto:stkcollege@gmail.com"
+                className="bg-white/10 border border-white/30 hover:bg-white/20 px-8 py-3 rounded-lg transition-all duration-300 inline-flex items-center justify-center"
+              >
+                <FiMail className="mr-2 w-5 h-5" />
+                Email Us
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
     </div>
   );
 };

@@ -1,6 +1,21 @@
 import { motion } from 'framer-motion';
-import { FiTarget, FiEye, FiUsers, FiAward, FiBookOpen, FiCheckCircle,
-         FiCode, FiBriefcase, FiZap, FiTrendingUp } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { 
+  FiTarget, FiEye, FiUsers, FiAward, FiBookOpen, FiCheckCircle,
+  FiCode, FiBriefcase, FiZap, FiTrendingUp, FiMonitor, FiClock,
+  FiCpu, FiGlobe, FiArrowRight
+} from 'react-icons/fi';
+
+// ─── Animation variants ───
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } }
+};
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.8 } }
+};
 
 const About = () => {
   const programs = [
@@ -55,51 +70,61 @@ const About = () => {
 
   const features = [
     {
-      title: "Practical Learning",
-      description: "Hands-on projects and real-world scenarios to build practical skills",
-      icon: "💻"
+      title: 'Practical Learning',
+      description: 'Hands-on projects and real-world scenarios to build practical skills.',
+      icon: FiMonitor
     },
     {
-      title: "Expert Instructors",
-      description: "Industry professionals with years of experience in IT and AI",
-      icon: "👨‍🏫"
+      title: 'Expert Instructors',
+      description: 'Industry professionals with years of experience in IT and AI.',
+      icon: FiUsers
     },
     {
-      title: "Flexible Programs",
-      description: "Full-time, part-time, and online options to suit your schedule",
-      icon: "⏰"
+      title: 'Flexible Programs',
+      description: 'Full-time, part-time, and online options to suit your schedule.',
+      icon: FiClock
     },
     {
-      title: "Career Support",
-      description: "Job placement assistance and career guidance services",
-      icon: "🎯"
+      title: 'Career Support',
+      description: 'Job placement assistance and career guidance services.',
+      icon: FiBriefcase
     },
     {
-      title: "Modern Curriculum",
-      description: "Up-to-date content reflecting current industry trends and technologies",
-      icon: "📊"
+      title: 'Modern Curriculum',
+      description: 'Up-to-date content reflecting current industry trends and technologies.',
+      icon: FiCpu
     },
     {
-      title: "Future Funding",
-      description: "Preparing for QCTO accreditation and future funding opportunities",
-      icon: "💰"
+      title: 'Future Funding',
+      description: 'Preparing for QCTO accreditation and future funding opportunities.',
+      icon: FiTrendingUp
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-gray-900 to-blue-800 text-white py-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-800/20 to-gray-900/20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-white text-gray-800">
+
+      {/* ──────────────────────────────────────────────
+          HERO SECTION (Dark Blue with Overlay)
+          ────────────────────────────────────────────── */}
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-[#0F2B5B]">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&q=80"
+            alt="STK College campus"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F2B5B]/90 to-[#0F2B5B]/70"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center space-y-6"
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="text-center text-white"
           >
-            <h1 className="text-4xl md:text-6xl font-bold">
-              About STK College
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              About <span className="text-[#F4C542]">STK College</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
               Building Future Tech Leaders Through Innovative IT Education
@@ -108,21 +133,24 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ──────────────────────────────────────────────
+          MISSION & VISION (Two‑column)
+          ────────────────────────────────────────────── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="card-enhanced p-8 rounded-xl hover-lift"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow"
             >
-              <div className="w-16 h-16 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-6">
-                <FiTarget className="w-8 h-8 text-yellow-400" />
+              <div className="w-16 h-16 bg-[#F4C542]/20 rounded-full flex items-center justify-center mb-6">
+                <FiTarget className="w-8 h-8 text-[#F4C542]" />
               </div>
-              <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
-              <p className="text-lg text-gray-200 leading-relaxed">
+              <h2 className="text-3xl font-bold text-[#0F2B5B] mb-4">Our Mission</h2>
+              <p className="text-gray-600 text-lg leading-relaxed">
                 To provide cutting-edge IT education and training that equips students with 
                 practical skills for the digital economy. We are building the foundation to 
                 bridge the gap between academic learning and industry requirements through 
@@ -131,16 +159,17 @@ const About = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="card-enhanced p-8 rounded-xl hover-lift"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow"
             >
-              <div className="w-16 h-16 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-6">
-                <FiEye className="w-8 h-8 text-yellow-400" />
+              <div className="w-16 h-16 bg-[#F4C542]/20 rounded-full flex items-center justify-center mb-6">
+                <FiEye className="w-8 h-8 text-[#F4C542]" />
               </div>
-              <h2 className="text-3xl font-bold text-white mb-4">Our Vision</h2>
-              <p className="text-lg text-gray-200 leading-relaxed">
+              <h2 className="text-3xl font-bold text-[#0F2B5B] mb-4">Our Vision</h2>
+              <p className="text-gray-600 text-lg leading-relaxed">
                 To become a leading provider of IT education and AI training in South Africa, 
                 recognized for producing job-ready professionals who drive innovation and 
                 digital transformation across industries through accredited programs and 
@@ -150,85 +179,76 @@ const About = () => {
           </div>
         </div>
       </section>
-      
-      {/* Our Story */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Building the Future of IT Education
-            </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
-              Preparing to bridge the gap between academic learning and industry demands through practical, 
-              career-focused IT training programs.
-            </p>
-          </motion.div>
 
-          <div className="max-w-4xl mx-auto">
+      {/* ──────────────────────────────────────────────
+          OUR STORY (Split layout)
+          ────────────────────────────────────────────── */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-gray-200 text-lg leading-relaxed space-y-6"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="rounded-2xl overflow-hidden shadow-xl"
             >
-              <div className="text-center mb-8">
-                <img src="/images/campus/STKLogo2.png" alt="STK College Logo" className="w-40 h-40 mx-auto" />
-              </div>
-              
-              <p>
-                STK College is a specialized IT training initiative dedicated to preparing students 
-                for successful careers in technology. Our programs are designed to meet the growing 
-                demand for skilled IT professionals in South Africa and beyond.
-              </p>
-              
-              <p>
-                We are currently preparing for QCTO accreditation and future MICT SETA funding opportunities. 
-                Our curriculum is being developed to reflect the latest industry trends and technologies, 
-                with current student numbers and program details serving as demonstration models as we 
-                build toward full operation.
-              </p>
-              
-              <p>
-                As a registered CIPC, we are building partnerships with industry leaders 
-                to ensure that our graduates will be well-prepared for the workforce once full accreditation 
-                is achieved.
-              </p>
-
-              <div className="bg-yellow-500/20 border border-yellow-500 rounded-xl p-6 mt-6">
-                <h3 className="text-xl font-bold text-white mb-3">Our Current Status</h3>
-                <ul className="space-y-2 text-gray-200">
-                  <li>• Registered CIPC</li>
-                  <li>• Preparing for QCTO accreditation</li>
-                  <li>• Planning future MICT SETA funding opportunities</li>
-                  <li>• Industry-relevant curriculum under development</li>
-                  <li>• Facilities ready for future training operations</li>
-                  <li>• Building industry partnerships</li>
-                </ul>
+              <img 
+                src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80"
+                alt="STK College campus"
+                className="w-full h-auto object-cover"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0F2B5B] mb-6">
+                Our <span className="text-[#F4C542]">Story</span>
+              </h2>
+              <div className="space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  STK College is a specialized IT training initiative dedicated to preparing students 
+                  for successful careers in technology. Our programs are designed to meet the growing 
+                  demand for skilled IT professionals in South Africa and beyond.
+                </p>
+                <p>
+                  We are currently preparing for QCTO accreditation and future MICT SETA funding opportunities. 
+                  Our curriculum is being developed to reflect the latest industry trends and technologies.
+                </p>
+                <div className="bg-white rounded-xl p-6 border border-gray-200">
+                  <h4 className="font-bold text-[#0F2B5B] mb-2">Current Status</h4>
+                  <ul className="space-y-1 text-sm">
+                    <li className="flex items-center gap-2"><FiCheckCircle className="text-[#F4C542]" /> Registered CIPC</li>
+                    <li className="flex items-center gap-2"><FiCheckCircle className="text-[#F4C542]" /> Preparing for QCTO accreditation</li>
+                    <li className="flex items-center gap-2"><FiCheckCircle className="text-[#F4C542]" /> Industry‑relevant curriculum</li>
+                  </ul>
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Programs */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ──────────────────────────────────────────────
+          PLANNED PROGRAMS (Card grid)
+          ────────────────────────────────────────────── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Our Planned Programs
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F2B5B] mb-4">
+              Our <span className="text-[#F4C542]">Planned Programs</span>
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
-              Comprehensive IT training pathways being developed for career success
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Comprehensive IT training pathways being developed for career success.
             </p>
           </motion.div>
 
@@ -238,26 +258,23 @@ const About = () => {
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="card-enhanced p-6 rounded-xl hover-lift border-l-4 border-l-yellow-500"
+                  className="bg-gray-50 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow border-l-4 border-l-[#F4C542]"
                 >
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-6 h-6 text-yellow-400" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-[#F4C542]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-6 h-6 text-[#F4C542]" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-white mb-2">
-                        {program.title}
-                      </h3>
-                      <p className="text-gray-200 mb-4">
-                        {program.description}
-                      </p>
+                    <div>
+                      <h3 className="text-xl font-bold text-[#0F2B5B] mb-2">{program.title}</h3>
+                      <p className="text-gray-600 mb-3">{program.description}</p>
                       <div className="grid grid-cols-2 gap-2">
-                        {program.features.map((feature, featureIndex) => (
-                          <div key={featureIndex} className="flex items-center text-sm text-gray-300">
-                            <FiCheckCircle className="w-4 h-4 text-yellow-400 mr-2 flex-shrink-0" />
+                        {program.features.map((feature, fi) => (
+                          <div key={fi} className="flex items-center text-sm text-gray-700">
+                            <FiCheckCircle className="w-4 h-4 text-[#F4C542] mr-2 flex-shrink-0" />
                             {feature}
                           </div>
                         ))}
@@ -271,59 +288,67 @@ const About = () => {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ──────────────────────────────────────────────
+          WHY LEARN WITH US (Feature Grid)
+          ────────────────────────────────────────────── */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Why Learn With Us
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F2B5B] mb-4">
+              Why <span className="text-[#F4C542]">Learn With Us</span>
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
-              Experience the difference with our student-centered approach to IT education
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Experience the difference with our student-centered approach to IT education.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="card-enhanced p-6 rounded-xl text-center hover-lift"
-              >
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-white mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-200">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow text-center"
+                >
+                  <div className="w-16 h-16 bg-[#F4C542]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-[#F4C542]" />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0F2B5B] mb-3">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Achievements */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ──────────────────────────────────────────────
+          ACHIEVEMENTS (Stats Cards)
+          ────────────────────────────────────────────── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Our Commitment
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F2B5B] mb-4">
+              Our <span className="text-[#F4C542]">Commitment</span>
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto font-medium">
-              Building a reputation for excellence in IT education and training
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Building a reputation for excellence in IT education and training.
             </p>
           </motion.div>
 
@@ -333,20 +358,17 @@ const About = () => {
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="card-enhanced p-6 rounded-xl text-center hover-lift"
+                  className="bg-gray-50 rounded-2xl p-6 text-center shadow-md hover:shadow-lg transition-shadow"
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-[#F4C542] rounded-full flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">
-                    {achievement.title}
-                  </h3>
-                  <p className="text-gray-200">
-                    {achievement.description}
-                  </p>
+                  <h3 className="text-2xl font-bold text-[#0F2B5B] mb-2">{achievement.title}</h3>
+                  <p className="text-gray-600">{achievement.description}</p>
                 </motion.div>
               );
             })}
@@ -354,39 +376,50 @@ const About = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* ──────────────────────────────────────────────
+          FINAL CTA (Dark Blue)
+          ────────────────────────────────────────────── */}
+      <section className="relative py-20 bg-[#0F2B5B] overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&q=80"
+            className="w-full h-full object-cover opacity-20"
+            alt=""
+          />
+        </div>
+        <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="card-enhanced p-12 rounded-2xl border border-yellow-500/30"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Start Your IT Career?
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+              Ready to Start <br />
+              <span className="text-[#F4C542]">Your IT Career</span>?
             </h2>
-            <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-              Join STK College and gain the skills you need to succeed in the rapidly evolving tech industry. 
-              Choose from our planned short courses, in-service training, internships, or AI learnership programs.
+            <p className="text-xl text-gray-200 max-w-2xl mx-auto mb-8">
+              Join STK College and gain the skills you need to succeed in the rapidly evolving tech industry.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/courses"
-                className="btn-primary-high-contrast px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105"
+              <Link
+                to="/courses"
+                className="bg-[#F4C542] hover:bg-[#e0b03a] text-[#0F2B5B] font-bold px-10 py-4 rounded-lg text-lg transition-all duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl"
               >
                 View All Courses
-              </a>
-              <a
-                href="/it-register"
-                className="btn-secondary-high-contrast px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105"
+                <FiArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+              <Link
+                to="/it-register"
+                className="border border-white/30 hover:bg-white/10 px-10 py-4 rounded-lg text-lg transition-all duration-300 inline-flex items-center justify-center"
               >
                 Apply Now
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>
       </section>
+
     </div>
   );
 };
