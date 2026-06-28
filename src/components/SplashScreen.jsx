@@ -30,9 +30,11 @@ const SplashScreen = ({ onComplete }) => {
           setTimeout(onComplete, 600);
           return 100;
         }
-        return prev + 2;
+        // Slower increment: +1.2% every 70ms → ~5.8 seconds to reach 100%
+        // Plus the 600ms delay → ~6.4 seconds total
+        return prev + 1.2;
       });
-    }, 50);
+    }, 70); // Increased interval from 50ms to 70ms
 
     return () => clearInterval(timer);
   }, [onComplete]);
