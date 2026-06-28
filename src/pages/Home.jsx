@@ -5,6 +5,7 @@ import {
   FiCheckCircle, FiStar, FiCalendar, FiTrendingUp, FiMapPin, FiMail,
   FiUser, FiMonitor, FiCpu, FiGlobe, FiServer, FiLayers
 } from 'react-icons/fi';
+import { useState, useEffect } from 'react';
 
 // ─── Animation variants ───
 const fadeUp = {
@@ -22,6 +23,57 @@ const Home = () => {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
+  // ─── Carousel state ───
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Array of images to slide through
+  const heroImages = [
+    {
+      src: '/images/gallery/classroom/p2_isiqalo_25-05-2026.jpeg',
+      alt: 'Java programming class'
+    },
+    {
+      src: '/images/gallery/classroom/p10_isiqalo_25-05-2026.jpeg',
+      alt: 'Python programming session'
+    },
+    {
+      src: '/images/gallery/labs/instructor1.jpeg',
+      alt: 'Web development workshop'
+    },
+    {
+      src: '/images/gallery/labs/java.JPEG',
+      alt: 'Database management training'
+    }
+  ];
+
+  // Auto-slide every 6 seconds (matching Google Sites example)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Manual navigation
+  const goToSlide = (index) => {
+    setCurrentImageIndex(index);
+  };
+
+  const nextSlide = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? heroImages.length - 1 : prevIndex - 1
+    );
+  };
+
   return (
     <div className="bg-white text-gray-800">
       
@@ -32,7 +84,7 @@ const Home = () => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&q=80"
+            src="/images/gallery/labs/java.JPEG"
             alt="STK College campus"
             className="w-full h-full object-cover opacity-40"
           />
@@ -84,19 +136,68 @@ const Home = () => {
               </div>
             </motion.div>
 
-            {/* Right Image (optional decorative) */}
+            {/* ─── RIGHT: AUTO-SLIDING CAROUSEL ─── */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="hidden lg:block"
             >
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80"
-                  alt="Students"
-                  className="w-full h-auto object-cover"
-                />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] group">
+                {/* Slide Container */}
+                <div className="relative w-full h-full overflow-hidden">
+                  <div 
+                    className="flex transition-transform duration-700 ease-in-out h-full"
+                    style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+                  >
+                    {heroImages.map((img, idx) => (
+                      <div key={idx} className="w-full flex-shrink-0 h-full">
+                        <img 
+                          src={img.src} 
+                          alt={img.alt} 
+                          className="w-full h-full object-cover transition-filter duration-500 group-hover:grayscale"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* ─── Navigation Arrows (hidden by default, show on hover) ─── */}
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#0F2B5B] rounded-full w-10 h-10 flex items-center justify-center text-2xl font-light opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 shadow-lg z-10"
+                  aria-label="Previous image"
+                >
+                  ‹
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#0F2B5B] rounded-full w-10 h-10 flex items-center justify-center text-2xl font-light opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 shadow-lg z-10"
+                  aria-label="Next image"
+                >
+                  ›
+                </button>
+
+                {/* ─── Dot Indicators (hidden by default, show on hover) ─── */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                  {heroImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToSlide(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        currentImageIndex === index 
+                          ? 'bg-white scale-125 shadow-lg' 
+                          : 'bg-white/50 hover:bg-white/80'
+                      }`}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
+
+                {/* ─── Image Counter (subtle, always visible) ─── */}
+                <div className="absolute top-3 right-3 bg-black/40 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-full z-10 font-medium">
+                  {currentImageIndex + 1} / {heroImages.length}
+                </div>
               </div>
             </motion.div>
           </div>
@@ -223,14 +324,14 @@ const Home = () => {
                 description: 'Essential computer skills for the modern workplace.',
                 duration: '3 Months',
                 certificate: 'Yes',
-                image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80'
+                image:"/images/gallery/gallery/computerliteracybackground.png",
               },
               {
                 title: 'Python Programming',
                 description: 'Build real-world applications with Python.',
                 duration: '4 Months',
                 certificate: 'Yes',
-                image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80'
+                image:"/images/gallery/gallery/pythonbackground.png",
               },
               {
                 title: 'Web Development',
@@ -369,7 +470,7 @@ const Home = () => {
               className="col-span-2 row-span-2 rounded-2xl overflow-hidden shadow-md"
             >
               <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+                src= "/images/gallery/labs/java.JPEG"
                 alt="Computer Lab"
                 className="w-full h-full object-cover"
               />
@@ -382,7 +483,7 @@ const Home = () => {
               className="rounded-2xl overflow-hidden shadow-md"
             >
               <img 
-                src="https://images.unsplash.com/photo-1523050854058-8df90110c7f1?w=600&q=80"
+                src= "/images/gallery/labs/instructor2.jpeg"
                 alt="Graduation"
                 className="w-full h-full object-cover"
               />
@@ -444,7 +545,7 @@ const Home = () => {
               className="rounded-2xl overflow-hidden shadow-xl"
             >
               <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80"
+                src= "/images/staff/S.Mtshali.jpeg"
                 alt="Graduate"
                 className="w-full h-auto object-cover"
               />
@@ -658,7 +759,7 @@ const Home = () => {
       <section className="relative py-20 bg-[#0F2B5B] overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&q=80"
+            src="/images/gallery/labs/java.JPEG"
             className="w-full h-full object-cover opacity-20"
             alt=""
           />

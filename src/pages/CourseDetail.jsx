@@ -540,7 +540,7 @@ const CourseDetail = () => {
       <section className="relative min-h-[40vh] flex items-center overflow-hidden bg-[#0F2B5B]">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&q=80"
+            src="/images/gallery/labs/java.JPEG"
             alt="STK College campus"
             className="w-full h-full object-cover opacity-30"
           />
