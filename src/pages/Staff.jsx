@@ -93,7 +93,7 @@ const Staff = () => {
       bio: 'Provides comprehensive administrative support to ensure smooth operations and excellent student experience. Manages enrollments, scheduling, and student communications.',
       subjects: ['Enrollment', 'Scheduling', 'Support', 'Customer Service'],
       rating: 4.7,
-      image: '/images/staff/default-admin.png',
+      image: '/images/staff/PS Teacher.jpeg',
       programs: ['All Program Support', 'Enrollment Services', 'Student Communications'],
       social: {}
     },
@@ -123,7 +123,7 @@ const Staff = () => {
       bio: 'Our network of industry professionals provides real-world mentorship and guidance during internship and in-service training programs. They bring current industry practices and career insights.',
       subjects: ['Software Dev', 'Project Management', 'Best Practices', 'Career Guidance'],
       rating: 4.8,
-      image: '/images/staff/industry-experts.png',
+      image: '/images/staff/LS Teacher.jpeg',
       programs: ['Software Development Internship', 'IT In-Service Training'],
       social: {}
     }
@@ -139,17 +139,14 @@ const Staff = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // ─── Filters ──────────────────────────────────────
   const filteredStaff = selectedDepartment === 'All'
     ? staff
     : staff.filter(m => m.department === selectedDepartment);
 
-  // ─── Toggle expand ─────────────────────────────────
   const toggleExpand = (id) => {
     setExpandedId(expandedId === id ? null : id);
   };
 
-  // ─── Loading ──────────────────────────────────────
   if (loading) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
@@ -161,7 +158,6 @@ const Staff = () => {
     );
   }
 
-  // ─── Department Icon Helper ──────────────────────
   const getDeptIcon = (dept) => {
     const map = {
       'Programming & Development': FiCode,
@@ -176,17 +172,16 @@ const Staff = () => {
 
   const getDeptColor = (dept) => {
     const map = {
-      'Programming & Development': 'bg-blue-500',
-      'Artificial Intelligence': 'bg-purple-500',
-      'Software Applications': 'bg-green-500',
-      'Professional Development': 'bg-orange-500',
-      'Administration & Finance': 'bg-indigo-500',
-      'Administration': 'bg-gray-500',
+      'Programming & Development': 'bg-blue-600',
+      'Artificial Intelligence': 'bg-purple-600',
+      'Software Applications': 'bg-green-600',
+      'Professional Development': 'bg-orange-600',
+      'Administration & Finance': 'bg-indigo-600',
+      'Administration': 'bg-gray-600',
     };
     return map[dept] || 'bg-[#F4C542]';
   };
 
-  // ─── Statistics ──────────────────────────────────
   const stats = [
     { number: staff.length, label: 'Team Members', icon: FiUsers },
     { number: departments.length - 1, label: 'Departments', icon: FiGrid },
@@ -197,7 +192,7 @@ const Staff = () => {
   return (
     <div className="bg-white text-gray-800">
 
-      {/* ─────────────── HERO ─────────────── */}
+      {/* HERO */}
       <section className="relative min-h-[50vh] flex items-center overflow-hidden bg-[#0F2B5B]">
         <div className="absolute inset-0 z-0">
           <img 
@@ -224,7 +219,7 @@ const Staff = () => {
         </div>
       </section>
 
-      {/* ─────────────── STATISTICS ─────────────── */}
+      {/* STATISTICS */}
       <section className="py-12 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -252,10 +247,9 @@ const Staff = () => {
         </div>
       </section>
 
-      {/* ─────────────── FILTER & GRID ─────────────── */}
+      {/* FILTER & GRID */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          {/* Filter Tabs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -277,7 +271,6 @@ const Staff = () => {
             ))}
           </motion.div>
 
-          {/* Staff Cards */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -298,36 +291,45 @@ const Staff = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.4 }}
-                    className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group"
+                    className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 group"
                   >
-                    {/* Card Header with Image */}
-                    <div className={`relative h-32 ${deptColor}`}>
+                    {/* ─── PREMIUM CARD HEADER ─── */}
+                    <div className={`relative h-48 ${deptColor} overflow-hidden`}>
+                      {/* Subtle pattern overlay */}
+                      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMzAgMTBhMjAgMjAgMCAxIDAgMCA0MCAyMCAyMCAwIDAgMCAwLTQweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=')] bg-repeat opacity-20"></div>
+                      
                       <div className="absolute inset-0 flex items-center justify-center">
                         {member.image ? (
                           <img 
                             src={member.image} 
                             alt={member.name}
-                            className="w-20 h-20 rounded-full object-cover border-4 border-white/30 shadow-lg"
+                            className="w-28 h-28 rounded-full object-cover border-4 border-white shadow-2xl transform transition-transform group-hover:scale-105"
+                            onError={(e) => {
+                              e.target.onerror = null;
+                              e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=F4C542&color=0F2B5B&size=128`;
+                            }}
                           />
                         ) : (
-                          <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center">
-                            <FiUser className="w-10 h-10 text-white" />
+                          <div className="w-28 h-28 bg-white/20 rounded-full flex items-center justify-center border-4 border-white shadow-2xl">
+                            <FiUser className="w-14 h-14 text-white" />
                           </div>
                         )}
                       </div>
-                      <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
-                        <div className="flex items-center gap-1">
-                          <FiStar className="w-4 h-4 text-yellow-400 fill-current" />
-                          <span className="text-white text-sm font-medium">{member.rating}</span>
-                        </div>
+
+                      {/* Rating badge */}
+                      <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1 text-white text-sm font-medium flex items-center gap-1">
+                        <FiStar className="w-4 h-4 text-yellow-400 fill-current" />
+                        {member.rating}
                       </div>
-                      <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-black/30 backdrop-blur-sm rounded-full px-3 py-1">
-                        <IconDept className="w-4 h-4 text-white" />
-                        <span className="text-white text-sm font-medium">{member.department}</span>
+
+                      {/* Department badge */}
+                      <div className="absolute bottom-4 left-4 bg-black/30 backdrop-blur-sm rounded-full px-3 py-1 text-white text-xs font-medium flex items-center gap-1">
+                        <IconDept className="w-4 h-4" />
+                        {member.department}
                       </div>
                     </div>
 
-                    {/* Card Body */}
+                    {/* ─── CARD BODY ─── */}
                     <div className="p-6">
                       <h3 className="text-xl font-bold text-[#0F2B5B] group-hover:text-[#F4C542] transition-colors">
                         {member.name}
@@ -338,7 +340,6 @@ const Staff = () => {
                         <span>{member.experience} experience</span>
                       </div>
 
-                      {/* Short bio */}
                       <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
                         {member.bio}
                       </p>
@@ -403,7 +404,6 @@ const Staff = () => {
                         )}
                       </AnimatePresence>
 
-                      {/* Actions */}
                       <div className="mt-4 flex items-center justify-between">
                         <button
                           onClick={() => toggleExpand(member.id)}
@@ -435,7 +435,7 @@ const Staff = () => {
         </div>
       </section>
 
-      {/* ─────────────── TEAM VALUES ─────────────── */}
+      {/* VALUES */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
@@ -481,7 +481,7 @@ const Staff = () => {
         </div>
       </section>
 
-      {/* ─────────────── CALL TO ACTION ─────────────── */}
+      {/* CTA */}
       <section className="relative py-16 bg-[#0F2B5B] overflow-hidden">
         <div className="absolute inset-0">
           <img 

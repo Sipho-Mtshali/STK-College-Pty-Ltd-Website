@@ -171,7 +171,7 @@ const CampusLife = () => {
                 description: 'Build modern websites using the latest technologies and industry best practices.',
                 date: 'Coming Soon',
                 type: 'Coding',
-                media: '/images/gallery/workshops/web-dev.jpg',
+                media: '/images/gallery/gallery/webbackground.png',
                 isVideo: false
               },
               {
@@ -187,7 +187,7 @@ const CampusLife = () => {
                 description: 'Learn SQL, database design, and data management for real-world applications.',
                 date: 'Coming Soon',
                 type: 'IT',
-                media: '/images/gallery/workshops/database-training.jpg',
+                media: '/images/gallery/gallery/databasebackground.png',
                 isVideo: false
               },
               {
@@ -195,7 +195,7 @@ const CampusLife = () => {
                 description: 'Explore artificial intelligence with practical, hands-on ML model building.',
                 date: 'Coming Soon',
                 type: 'Advanced',
-                media: '/images/gallery/workshops/ai-workshop.jpg',
+                media: '/images/courses/ai.png',
                 isVideo: false
               }
             ].map((workshop, index) => (
@@ -300,7 +300,7 @@ const CampusLife = () => {
                 title: 'Student Collaboration',
                 description: 'Group learning and collaborative projects that prepare students for the modern workplace.',
                 type: 'Team-Based',
-                media: '/images/gallery/student-collaboration.jpg',
+                media: '/images/gallery/labs/studentCollaborate.jpeg',
                 isVideo: false
               }
             ].map((lab, index) => (
@@ -375,7 +375,7 @@ const CampusLife = () => {
                 title: 'Computer Literacy Classes',
                 description: 'Hands-on computer training from basics to advanced skills. Our computer literacy program has successfully trained hundreds of students.',
                 type: 'Most Popular',
-                media: '/images/gallery/classroom/literacy-class.mp4',
+                media: '/images/gallery/classroom/studentInExcel.mp4',
                 isVideo: true
               },
               {
@@ -470,14 +470,14 @@ const CampusLife = () => {
               {
                 title: 'Best Computer Literacy Graduate',
                 description: 'Recognizing excellence in our flagship Computer Literacy program with top-performing students.',
-                year: '2024',
+                year: '2026',
                 media: '/images/gallery/awards/computer-literacy-award.jpg',
                 isVideo: false
               },
               {
                 title: 'Certification Ceremony',
                 description: 'Celebrating our graduates as they receive their completion certificates in a formal ceremony.',
-                year: '2024',
+                year: '2026',
                 media: '/images/gallery/awards/certification-ceremony.mp4',
                 isVideo: true
               },
@@ -491,7 +491,7 @@ const CampusLife = () => {
               {
                 title: 'Most Improved Student',
                 description: 'Recognizing students who have shown remarkable progress and dedication to their learning journey.',
-                year: '2023',
+                year: '2025',
                 media: '/images/gallery/awards/most-improved.jpg',
                 isVideo: false
               },
@@ -862,7 +862,7 @@ const CampusLife = () => {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             {[
               {
-                number: '600+',
+                number: '452+',
                 label: 'Students Trained',
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -871,7 +871,7 @@ const CampusLife = () => {
                 )
               },
               {
-                number: '40+',
+                number: '5+',
                 label: 'Workshops Hosted',
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -889,7 +889,7 @@ const CampusLife = () => {
                 )
               },
               {
-                number: '120+',
+                number: '15+',
                 label: 'Projects Completed',
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -898,7 +898,7 @@ const CampusLife = () => {
                 )
               },
               {
-                number: '95%',
+                number: '72%',
                 label: 'Student Satisfaction',
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
