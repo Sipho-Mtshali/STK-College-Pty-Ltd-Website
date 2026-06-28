@@ -1,0 +1,21 @@
+{
+  "name": "STK College",
+  "short_name": "STK College",
+  "description": "IT Training & AI Education in South Africa",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F2B5B",
+  "theme_color": "#0F2B5B",
+  "icons": [
+    {
+      "src": "/images/campus/STKLogo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/campus/STKLogo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
