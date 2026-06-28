@@ -13,21 +13,12 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } }
 };
 
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.8 } }
-};
-
 const Home = () => {
-  // For parallax effect on hero image (optional)
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
-  // ─── Carousel state ───
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  // Array of images to slide through
-  const heroImages = [
+  // ─── Carousel data ───
+  const originalImages = [
     {
       src: '/images/gallery/classroom/p2_isiqalo_25-05-2026.jpeg',
       alt: 'Java programming class'
@@ -43,35 +34,68 @@ const Home = () => {
     {
       src: '/images/gallery/labs/java.JPEG',
       alt: 'Database management training'
+    },
+    {
+      src: '/images/gallery/classroom/facilitatorComputer.jpeg',
+      alt: 'Computer workshop'
+    },
+    {
+      src: '/images/gallery/classroom/facilitatorExcel.jpeg',
+      alt: 'Excel workshop'
     }
   ];
 
-  // Auto-slide every 6 seconds (matching Google Sites example)
+  // ─── Build slide array with clones for infinite loop ───
+  // We add a clone of the last slide at the beginning, and a clone of the first at the end.
+  const slides = [
+    originalImages[originalImages.length - 1], // last clone
+    ...originalImages,
+    originalImages[0] // first clone
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(1); // start on the first real slide
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Auto‑slide every 6 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
-      );
+      if (!isTransitioning) {
+        setCurrentIndex((prev) => prev + 1);
+      }
     }, 6000);
-
     return () => clearInterval(interval);
-  }, []);
+  }, [isTransitioning]);
+
+  // Handle transition end to reset index if we're on a clone
+  const handleTransitionEnd = () => {
+    setIsTransitioning(false);
+    if (currentIndex === 0) {
+      // We were on the last clone -> jump to the real last slide (without animation)
+      setCurrentIndex(originalImages.length);
+    } else if (currentIndex === slides.length - 1) {
+      // We were on the first clone -> jump to the real first slide
+      setCurrentIndex(1);
+    }
+  };
 
   // Manual navigation
   const goToSlide = (index) => {
-    setCurrentImageIndex(index);
+    // index is 0-based for original images
+    setCurrentIndex(index + 1); // +1 because of the leading clone
   };
 
   const nextSlide = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
-    );
+    if (!isTransitioning) {
+      setCurrentIndex((prev) => prev + 1);
+      setIsTransitioning(true);
+    }
   };
 
   const prevSlide = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === 0 ? heroImages.length - 1 : prevIndex - 1
-    );
+    if (!isTransitioning) {
+      setCurrentIndex((prev) => prev - 1);
+      setIsTransitioning(true);
+    }
   };
 
   return (
@@ -81,7 +105,6 @@ const Home = () => {
           SECTION 1 — HERO
           ────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0F2B5B]">
-        {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
             src="/images/gallery/labs/java.JPEG"
@@ -122,7 +145,6 @@ const Home = () => {
                   Explore Courses
                 </Link>
               </div>
-              {/* Trust Badges */}
               <div className="flex flex-wrap gap-6 pt-6 text-sm text-gray-300">
                 <span className="flex items-center gap-2">
                   <FiCheckCircle className="text-[#F4C542] w-4 h-4" /> Registered CIPC
@@ -136,7 +158,7 @@ const Home = () => {
               </div>
             </motion.div>
 
-            {/* ─── RIGHT: AUTO-SLIDING CAROUSEL ─── */}
+            {/* ─── RIGHT: CAROUSEL (FIXED: full‑width slides + infinite loop) ─── */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -144,13 +166,13 @@ const Home = () => {
               className="hidden lg:block"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] group">
-                {/* Slide Container */}
                 <div className="relative w-full h-full overflow-hidden">
                   <div 
-                    className="flex transition-transform duration-700 ease-in-out h-full"
-                    style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+                    className="flex transition-transform duration-1000 ease-in-out h-full"
+                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                    onTransitionEnd={handleTransitionEnd}
                   >
-                    {heroImages.map((img, idx) => (
+                    {slides.map((img, idx) => (
                       <div key={idx} className="w-full flex-shrink-0 h-full">
                         <img 
                           src={img.src} 
@@ -162,41 +184,43 @@ const Home = () => {
                   </div>
                 </div>
 
-                {/* ─── Navigation Arrows (hidden by default, show on hover) ─── */}
+                {/* ─── Navigation Arrows ─── */}
                 <button
                   onClick={prevSlide}
                   className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#0F2B5B] rounded-full w-10 h-10 flex items-center justify-center text-2xl font-light opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 shadow-lg z-10"
-                  aria-label="Previous image"
+                  aria-label="Previous"
                 >
                   ‹
                 </button>
                 <button
                   onClick={nextSlide}
                   className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#0F2B5B] rounded-full w-10 h-10 flex items-center justify-center text-2xl font-light opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 shadow-lg z-10"
-                  aria-label="Next image"
+                  aria-label="Next"
                 >
                   ›
                 </button>
 
-                {/* ─── Dot Indicators (hidden by default, show on hover) ─── */}
+                {/* ─── Dot Indicators ─── */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                  {heroImages.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => goToSlide(index)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        currentImageIndex === index 
-                          ? 'bg-white scale-125 shadow-lg' 
-                          : 'bg-white/50 hover:bg-white/80'
-                      }`}
-                      aria-label={`Go to slide ${index + 1}`}
-                    />
-                  ))}
-                </div>
-
-                {/* ─── Image Counter (subtle, always visible) ─── */}
-                <div className="absolute top-3 right-3 bg-black/40 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-full z-10 font-medium">
-                  {currentImageIndex + 1} / {heroImages.length}
+                  {originalImages.map((_, index) => {
+                    // Map the currentIndex (which includes clones) to the original image index
+                    let isActive = false;
+                    if (currentIndex === 0) isActive = index === originalImages.length - 1; // last clone -> last original
+                    else if (currentIndex === slides.length - 1) isActive = index === 0; // first clone -> first original
+                    else isActive = currentIndex - 1 === index;
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => goToSlide(index)}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                          isActive 
+                            ? 'bg-white scale-125 shadow-lg' 
+                            : 'bg-white/50 hover:bg-white/80'
+                        }`}
+                        aria-label={`Go to slide ${index + 1}`}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             </motion.div>
@@ -204,17 +228,16 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ──────────────────────────────────────────────
-          SECTION 2 — STATISTICS
-          ────────────────────────────────────────────── */}
+      {/* ─── The rest of your sections (unchanged) ─── */}
+      {/* SECTION 2 — STATISTICS */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { number: 250, label: 'Students Trained', icon: FiUsers, suffix: '+' },
-              { number: 12, label: 'Courses', icon: FiBookOpen, suffix: '+' },
-              { number: 95, label: 'Employment Rate', icon: FiBriefcase, suffix: '%' },
-              { number: 5, label: 'Years of Excellence', icon: FiAward, suffix: '+' }
+              { number: 5, label: 'Courses', icon: FiBookOpen, suffix: '+' },
+              { number: 64, label: 'Employment Rate', icon: FiBriefcase, suffix: '%' },
+              { number: 4, label: 'Years of Excellence', icon: FiAward, suffix: '+' }
             ].map((stat, index) => {
               const Icon = stat.icon;
               return (
@@ -244,9 +267,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ──────────────────────────────────────────────
-          SECTION 3 — ABOUT STK
-          ────────────────────────────────────────────── */}
+      {/* SECTION 3 — ABOUT */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -297,9 +318,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ──────────────────────────────────────────────
-          SECTION 4 — FEATURED COURSES
-          ────────────────────────────────────────────── */}
+      {/* SECTION 4 — COURSES (unchanged) */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
@@ -338,14 +357,14 @@ const Home = () => {
                 description: 'Create modern websites with HTML, CSS, and React.',
                 duration: '5 Months',
                 certificate: 'Yes',
-                image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80'
+                image:"/images/gallery/gallery/webbackground.png",
               },
               {
                 title: 'Database Management',
                 description: 'Master SQL and database design for business.',
                 duration: '3 Months',
                 certificate: 'Yes',
-                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80'
+                image:"/images/gallery/gallery/databasebackground.png",
               }
             ].map((course, index) => (
               <motion.div
@@ -389,9 +408,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ──────────────────────────────────────────────
-          SECTION 5 — WHY CHOOSE STK (3×2 Feature Cards)
-          ────────────────────────────────────────────── */}
+      {/* SECTION 5 — WHY CHOOSE (unchanged) */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
@@ -440,9 +457,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ──────────────────────────────────────────────
-          SECTION 6 — CAMPUS EXPERIENCE (Masonry Gallery)
-          ────────────────────────────────────────────── */}
+      {/* SECTION 6 — CAMPUS (unchanged) */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
@@ -461,7 +476,6 @@ const Home = () => {
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-min">
-            {/* Larger image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -496,7 +510,7 @@ const Home = () => {
               className="rounded-2xl overflow-hidden shadow-md"
             >
               <img 
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80"
+                src= "/images/gallery/classroom/class.jpeg"
                 alt="Workshops"
                 className="w-full h-full object-cover"
               />
@@ -509,7 +523,7 @@ const Home = () => {
               className="rounded-2xl overflow-hidden shadow-md"
             >
               <img 
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80"
+                src= "/images/gallery/labs/studentCollaborate2.jpeg"
                 alt="Students"
                 className="w-full h-full object-cover"
               />
@@ -522,7 +536,7 @@ const Home = () => {
               className="rounded-2xl overflow-hidden shadow-md"
             >
               <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80"
+                src= "/images/gallery/classroom/groupOf5.jpeg"
                 alt="Campus"
                 className="w-full h-full object-cover"
               />
@@ -531,9 +545,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ──────────────────────────────────────────────
-          SECTION 7 — STUDENT SUCCESS
-          ────────────────────────────────────────────── */}
+      {/* SECTION 7 — STUDENT SUCCESS (unchanged) */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -583,9 +595,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ──────────────────────────────────────────────
-          SECTION 8 — ADMISSION PROCESS (Horizontal Timeline)
-          ────────────────────────────────────────────── */}
+      {/* SECTION 8 — ADMISSION (unchanged) */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
@@ -639,9 +649,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ──────────────────────────────────────────────
-          SECTION 9 — LATEST NEWS & EVENTS
-          ────────────────────────────────────────────── */}
+      {/* SECTION 9 — NEWS (unchanged) */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
@@ -655,7 +663,7 @@ const Home = () => {
               Latest <span className="text-[#F4C542]">News & Events</span>
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Stay updated with what’s happening at STK College.
+              Stay updated with what's happening at STK College.
             </p>
           </motion.div>
 
@@ -665,13 +673,13 @@ const Home = () => {
                 title: 'Graduation Ceremony 2024',
                 date: 'December 15, 2024',
                 description: 'Celebrating the achievements of our latest graduates.',
-                image: 'https://images.unsplash.com/photo-1523050854058-8df90110c7f1?w=600&q=80'
+                image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80'
               },
               {
                 title: 'New Computer Lab Opening',
-                date: 'November 20, 2024',
+                date: 'June 05, 2026',
                 description: 'State-of-the-art facility equipped with the latest technology.',
-                image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80'
+                image: '/images/gallery/labs/computerLab.jpeg'
               },
               {
                 title: 'Industry Guest Speaker Series',
@@ -712,9 +720,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ──────────────────────────────────────────────
-          SECTION 10 — PARTNERS & ACCREDITATION (Scrolling Logos)
-          ────────────────────────────────────────────── */}
+      {/* SECTION 10 — PARTNERS (unchanged) */}
       <section className="py-16 bg-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
@@ -730,32 +736,28 @@ const Home = () => {
             <p className="text-gray-600">We collaborate with leading organisations to deliver quality education.</p>
           </motion.div>
 
-          {/* Scrolling Logo Strip */}
-          <div className="relative overflow-hidden">
-            <motion.div
-              className="flex gap-16 items-center whitespace-nowrap"
-              animate={{ x: ['0%', '-100%'] }}
-              transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-            >
-              {/* Duplicate for seamless loop */}
-              {[...Array(2)].map((_, i) => (
-                <div key={i} className="flex gap-16 items-center">
-                  <span className="text-4xl font-bold text-gray-300">Logo 1</span>
-                  <span className="text-4xl font-bold text-gray-300">Logo 2</span>
-                  <span className="text-4xl font-bold text-gray-300">Logo 3</span>
-                  <span className="text-4xl font-bold text-gray-300">Logo 4</span>
-                  <span className="text-4xl font-bold text-gray-300">Logo 5</span>
-                </div>
-              ))}
-            </motion.div>
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16">
+            <div className="flex items-center">
+              <img 
+                src="/images/gallery/gallery/openEDG.png" 
+                alt="OpenEDG Partner" 
+                className="h-20 w-auto object-contain md:h-24 lg:h-28"
+                onError={(e) => e.target.src = 'https://via.placeholder.com/200x80?text=OpenEDG'}
+              />
+            </div>
+            <div className="flex items-center">
+              <img 
+                src="/images/gallery/gallery/isiqalo.jpg" 
+                alt="Isiqalo Partner" 
+                className="h-20 w-auto object-contain md:h-24 lg:h-28"
+                onError={(e) => e.target.src = 'https://via.placeholder.com/200x80?text=Isiqalo'}
+              />
+            </div>
           </div>
-          <p className="text-center text-gray-400 text-sm mt-4">(Partner logos will be displayed here)</p>
         </div>
       </section>
 
-      {/* ──────────────────────────────────────────────
-          SECTION 11 — FINAL CTA
-          ────────────────────────────────────────────── */}
+      {/* SECTION 11 — CTA (unchanged) */}
       <section className="relative py-20 bg-[#0F2B5B] overflow-hidden">
         <div className="absolute inset-0">
           <img 
