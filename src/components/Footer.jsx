@@ -9,6 +9,7 @@ import {
   FiLinkedin,
   FiArrowUp
 } from 'react-icons/fi';
+import { AiFillTikTok } from 'react-icons/ai';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -37,14 +38,15 @@ const Footer = () => {
     { icon: FiPhone, text: '+27 76 362 7488' },
     { icon: FiPhone, text: '+27 73 578 7190' },
     { icon: FiMail, text: 'stkcollege@gmail.com' },
-    { icon: FiMapPin, text: '511 Griffiths Mxenge Hwy, Durban, 4031' }
+    { icon: FiMapPin, text: 'STK College, 511 Griffiths Mxenge Hwy, Durban, 4031' }
   ];
 
   const socialLinks = [
     { icon: FiFacebook, href: 'https://www.facebook.com/share/1CCmHaTpaj/?mibextid=wwXIfr', name: 'Facebook', active: true },
     { icon: FiTwitter, href: '#', name: 'Twitter', active: false },
     { icon: FiInstagram, href: 'https://www.instagram.com/stk_college?igsh=dWlpY3pzaTU3ZDly', name: 'Instagram', active: true },
-    { icon: FiLinkedin, href: '#', name: 'LinkedIn', active: false }
+    { icon: FiLinkedin, href: '#', name: 'LinkedIn', active: false },
+    { icon: AiFillTikTok, href: 'https://www.tiktok.com/@stk_college', name: 'TikTok', active: false }
   ];
 
   return (
