@@ -42,7 +42,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: FiFacebook, href: 'https://www.facebook.com/share/1CCmHaTpaj/?mibextid=wwXIfr', name: 'Facebook', active: true },
     { icon: FiTwitter, href: '#', name: 'Twitter', active: false },
-    { icon: FiInstagram, href: '#', name: 'Instagram', active: false },
+    { icon: FiInstagram, href: 'https://www.instagram.com/stk_college?igsh=dWlpY3pzaTU3ZDly', name: 'Instagram', active: true },
     { icon: FiLinkedin, href: '#', name: 'LinkedIn', active: false }
   ];
 

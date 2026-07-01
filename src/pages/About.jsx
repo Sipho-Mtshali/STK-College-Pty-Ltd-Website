@@ -20,7 +20,7 @@ const About = () => {
       icon: FiBookOpen,
       title: 'Short Courses',
       description: 'Focused IT training in programming, Microsoft Office, and web development',
-      features: ['Python, Java, SQL, Cybersecurity', 'Microsoft Office Suite', 'Web Development', 'Flexible Scheduling']
+      features: ['Python, Java, SQL, Cybersecurity', 'Microsoft Office Suite', 'Web Development', 'Computer Literacy']
     },
     {
       icon: FiUsers,
