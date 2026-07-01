@@ -5,7 +5,8 @@ import { registrationService } from '../firebase/firestoreService';
 import { 
   FiUser, FiMail, FiPhone, FiCheckCircle, FiAlertCircle, FiSend, 
   FiCode, FiAward, FiBriefcase, FiFileText, FiPlay, FiTarget,
-  FiAward as FiCertificate, FiDollarSign, FiClock, FiArrowRight
+  FiAward as FiCertificate, FiDollarSign, FiClock, FiArrowRight,
+  FiMapPin, FiCalendar, FiUserCheck, FiHome, FiGlobe, FiInfo
 } from 'react-icons/fi';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
@@ -47,22 +48,22 @@ const ITRegister = () => {
   const programTypes = [
     {
       value: 'short-course',
-      label: 'Short Course Only',
-      description: 'Individual IT modules and programming courses',
+      label: 'Short Course Registration',
+      description: 'Register for individual IT and digital skills modules',
       icon: '📚',
       color: 'yellow'
     },
     {
       value: 'learnership',
-      label: 'AI & Tech Learnership',
-      description: 'Future learnership programs with planned MICT SETA funding opportunities',
+      label: 'AI & Tech Learnership (Planned)',
+      description: 'Structured learnership pathway aligned to future MICT SETA opportunities',
       icon: '🤖',
       color: 'purple'
     },
     {
       value: 'in-service training-internship',
-      label: 'In-Service + Internship',
-      description: 'Training followed by internship opportunity',
+      label: 'In-Service Training & Internship',
+      description: 'Classroom training followed by workplace exposure opportunities',
       icon: '💼',
       color: 'blue'
     }
@@ -73,8 +74,8 @@ const ITRegister = () => {
       id: 'python',
       name: 'Python Programming',
       category: 'Programming',
-      price: 'R10,500',
-      duration: '10 Weeks',
+      price: 'R3,500',
+      duration: '12 Weeks',
       level: 'Beginner to Intermediate',
       funding: {
         available: false,
@@ -87,7 +88,7 @@ const ITRegister = () => {
       id: 'java',
       name: 'Java Development',
       category: 'Programming',
-      price: 'R12,000',
+      price: 'R3,800',
       duration: '12 Weeks',
       level: 'Intermediate',
       funding: null,
@@ -97,7 +98,7 @@ const ITRegister = () => {
       id: 'word',
       name: 'Microsoft Word (Beginner - Intermediate)',
       category: 'Microsoft Office',
-      price: 'R4,500',
+      price: 'R1,200',
       duration: '6 Weeks',
       level: 'Beginner to Intermediate',
       funding: null,
@@ -107,7 +108,7 @@ const ITRegister = () => {
       id: 'excel',
       name: 'Microsoft Excel (Beginner - Intermediate)',
       category: 'Microsoft Office',
-      price: 'R6,500',
+      price: 'R1,500',
       duration: '8 Weeks',
       level: 'Beginner to Intermediate',
       funding: null,
@@ -117,7 +118,7 @@ const ITRegister = () => {
       id: 'powerpoint',
       name: 'Microsoft PowerPoint (Beginner - Intermediate)',
       category: 'Microsoft Office',
-      price: 'R3,000',
+      price: 'R1,200',
       duration: '5 Weeks',
       level: 'Beginner to Intermediate',
       funding: null,
@@ -127,7 +128,7 @@ const ITRegister = () => {
       id: 'teams',
       name: 'Microsoft Teams',
       category: 'Microsoft Office',
-      price: 'R1,000',
+      price: 'R900',
       duration: '2 Weeks',
       level: 'Beginner',
       funding: null,
@@ -137,7 +138,7 @@ const ITRegister = () => {
       id: 'sql',
       name: 'SQL Database Management',
       category: 'Database',
-      price: 'R20,500',
+      price: 'R3,500',
       duration: '10 Weeks',
       level: 'Intermediate',
       funding: null,
@@ -147,7 +148,7 @@ const ITRegister = () => {
       id: 'webdev',
       name: 'Website Development',
       category: 'Web Development',
-      price: 'R10,500',
+      price: 'R3,500',
       duration: '8 Weeks',
       level: 'Intermediate',
       funding: null,
@@ -157,13 +158,13 @@ const ITRegister = () => {
       id: 'ai',
       name: 'AI & Machine Learning',
       category: 'AI & Machine Learning',
-      price: 'R25,000',
+      price: 'R4,500',
       duration: '12 Weeks',
       level: 'Advanced',
       funding: {
         available: false,
         planned: true,
-        description: 'Future learnership opportunities planned'
+        description: 'Future funding opportunities planned'
       },
       popular: false
     },
@@ -171,7 +172,17 @@ const ITRegister = () => {
       id: 'office-suite',
       name: 'Microsoft Office Complete Suite',
       category: 'Microsoft Office',
-      price: 'R20,000',
+      price: 'R3,000',
+      duration: '10 Weeks',
+      level: 'Beginner to Advanced',
+      funding: null,
+      popular: true
+    },
+    {
+      id: 'Cybersecurity',
+      name: 'Cybersecurity',
+      category: 'Cybersecurity',
+      price: 'R4,000',
       duration: '10 Weeks',
       level: 'Beginner to Advanced',
       funding: null,
@@ -260,7 +271,7 @@ const ITRegister = () => {
     <>
       <SEO
         title="IT & AI Program Registration"
-        description="Register your interest for STK College's IT short courses, AI learnerships, internships, and in-service training programs."
+        description="Register for STK College's IT short courses, AI learnerships, internships, and in-service training programmes."
         canonical="https://stkcollege.org/it-register"
         keywords="IT registration South Africa, programming courses enrollment, AI learnership application, STK College registration"
       />
@@ -291,10 +302,11 @@ const ITRegister = () => {
               className="text-center text-white"
             >
               <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                IT & AI Programs <span className="text-[#F4C542]">Registration</span>
+                Student <span className="text-[#F4C542]">Registration</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-                Express interest in our future short courses, AI learnerships, or comprehensive internship programs
+                Complete the registration form below to apply for one or more of our IT and Digital Skills programmes. 
+                Upon successful completion of programme requirements, students will receive an official Certificate of Completion from STK College.
               </p>
             </motion.div>
           </div>
@@ -311,6 +323,50 @@ const ITRegister = () => {
                 transition={{ duration: 0.7 }}
                 className="lg:col-span-2"
               >
+                {/* ─── PROGRAMME INFORMATION CARD ─── */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="mb-8 bg-white rounded-2xl shadow-md border border-gray-100 p-6"
+                >
+                  <h3 className="text-xl font-bold text-[#0F2B5B] mb-4 flex items-center">
+                    <FiInfo className="w-5 h-5 text-[#F4C542] mr-2" />
+                    Programme Information
+                  </h3>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                    <div>
+                      <span className="text-gray-500">Duration</span>
+                      <p className="font-medium text-[#0F2B5B]">3 Months</p>
+                    </div>
+                    <div>
+                      <span className="text-gray-500">Award</span>
+                      <p className="font-medium text-[#0F2B5B]">Certificate of Completion</p>
+                    </div>
+                    <div>
+                      <span className="text-gray-500">Delivery Mode</span>
+                      <p className="font-medium text-[#0F2B5B]">Contact-Based Training</p>
+                    </div>
+                    <div>
+                      <span className="text-gray-500">Campus</span>
+                      <p className="font-medium text-[#0F2B5B]">STK College</p>
+                    </div>
+                    <div>
+                      <span className="text-gray-500">Language</span>
+                      <p className="font-medium text-[#0F2B5B]">English</p>
+                    </div>
+                    <div>
+                      <span className="text-gray-500">Entry Requirements</span>
+                      <p className="font-medium text-[#0F2B5B]">Basic computer literacy is recommended</p>
+                    </div>
+                    <div className="col-span-2">
+                      <span className="text-gray-500">Class Size</span>
+                      <p className="font-medium text-[#0F2B5B]">Limited intake per cohort</p>
+                    </div>
+                  </div>
+                </motion.div>
+
                 <div className="bg-white rounded-2xl shadow-md p-8 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
                   <h2 className="text-2xl font-bold text-[#0F2B5B] mb-6">
                     Student Information
@@ -337,19 +393,6 @@ const ITRegister = () => {
                           {errors.fullName.message}
                         </p>
                       )}
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        <FiUser className="inline w-4 h-4 mr-2 text-[#F4C542]" />
-                        Student Number
-                      </label>
-                      <input
-                        type="text"
-                        {...register('studentNumber')}
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F4C542] focus:border-transparent transition-all duration-200"
-                        placeholder="Enter your student number (if applicable)"
-                      />
                     </div>
 
                     <div>
@@ -404,6 +447,87 @@ const ITRegister = () => {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <FiUser className="inline w-4 h-4 mr-2 text-[#F4C542]" />
+                        South African ID Number / Passport Number
+                      </label>
+                      <input
+                        type="text"
+                        {...register('idNumber')}
+                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F4C542] focus:border-transparent transition-all duration-200"
+                        placeholder="Enter your ID or passport number"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <FiCalendar className="inline w-4 h-4 mr-2 text-[#F4C542]" />
+                        Date of Birth
+                      </label>
+                      <input
+                        type="date"
+                        {...register('dob')}
+                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#F4C542] focus:border-transparent transition-all duration-200"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <FiUserCheck className="inline w-4 h-4 mr-2 text-[#F4C542]" />
+                        Gender
+                      </label>
+                      <select
+                        {...register('gender')}
+                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#F4C542] focus:border-transparent transition-all duration-200"
+                      >
+                        <option value="">Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                        <option value="prefer-not">Prefer not to say</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <FiHome className="inline w-4 h-4 mr-2 text-[#F4C542]" />
+                        Residential Address
+                      </label>
+                      <input
+                        type="text"
+                        {...register('address')}
+                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F4C542] focus:border-transparent transition-all duration-200"
+                        placeholder="Street address"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <FiMapPin className="inline w-4 h-4 mr-2 text-[#F4C542]" />
+                        City
+                      </label>
+                      <input
+                        type="text"
+                        {...register('city')}
+                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F4C542] focus:border-transparent transition-all duration-200"
+                        placeholder="Enter your city"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <FiGlobe className="inline w-4 h-4 mr-2 text-[#F4C542]" />
+                        Province
+                      </label>
+                      <input
+                        type="text"
+                        {...register('province')}
+                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F4C542] focus:border-transparent transition-all duration-200"
+                        placeholder="Enter your province"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
                         <FiAward className="inline w-4 h-4 mr-2 text-[#F4C542]" />
                         Highest Education Level
                       </label>
@@ -435,10 +559,10 @@ const ITRegister = () => {
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         <FiBriefcase className="inline w-4 h-4 mr-2 text-[#F4C542]" />
-                        Program Type *
+                        Programme Type *
                       </label>
                       <p className="text-sm text-gray-500 mb-3">
-                        Select one of the options you want to apply for.
+                        Select the programme you wish to apply for.
                       </p>
                       <div className="space-y-3">
                         {programTypes.map((program) => (
@@ -624,6 +748,58 @@ const ITRegister = () => {
                       />
                     </div>
 
+                    {/* ─── IMPORTANT NOTICE ─── */}
+                    <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-lg">
+                      <h4 className="font-bold text-amber-800 flex items-center">
+                        <FiAlertCircle className="w-5 h-5 mr-2" />
+                        Important
+                      </h4>
+                      <ul className="mt-2 text-sm text-amber-700 space-y-1 list-disc pl-5">
+                        <li>This is a private training programme offered by STK College.</li>
+                        <li>Successful students who meet all requirements will receive a Certificate of Completion.</li>
+                        <li>Submission of this registration form does not guarantee admission.</li>
+                        <li>Admission is subject to availability and verification of submitted information.</li>
+                      </ul>
+                    </div>
+
+                    {/* ─── DECLARATION ─── */}
+                    <div className="space-y-3 bg-gray-50 p-4 rounded-lg border border-gray-200">
+                      <h4 className="font-bold text-[#0F2B5B]">Declaration</h4>
+                      <label className="flex items-start space-x-3">
+                        <input
+                          type="checkbox"
+                          {...register('declaration1', { required: 'You must agree to the declaration' })}
+                          className="w-4 h-4 text-[#F4C542] border-gray-300 rounded focus:ring-[#F4C542] mt-1"
+                        />
+                        <span className="text-sm text-gray-700">I declare that the information provided in this application is true and correct.</span>
+                      </label>
+                      {errors.declaration1 && (
+                        <p className="text-sm text-red-500">{errors.declaration1.message}</p>
+                      )}
+                      <label className="flex items-start space-x-3">
+                        <input
+                          type="checkbox"
+                          {...register('declaration2', { required: 'You must agree to the declaration' })}
+                          className="w-4 h-4 text-[#F4C542] border-gray-300 rounded focus:ring-[#F4C542] mt-1"
+                        />
+                        <span className="text-sm text-gray-700">I understand that submission of this registration form does not guarantee admission into any programme.</span>
+                      </label>
+                      {errors.declaration2 && (
+                        <p className="text-sm text-red-500">{errors.declaration2.message}</p>
+                      )}
+                      <label className="flex items-start space-x-3">
+                        <input
+                          type="checkbox"
+                          {...register('declaration3', { required: 'You must agree to the declaration' })}
+                          className="w-4 h-4 text-[#F4C542] border-gray-300 rounded focus:ring-[#F4C542] mt-1"
+                        />
+                        <span className="text-sm text-gray-700">I consent to being contacted by STK College regarding my application and programme updates.</span>
+                      </label>
+                      {errors.declaration3 && (
+                        <p className="text-sm text-red-500">{errors.declaration3.message}</p>
+                      )}
+                    </div>
+
                     <button
                       type="submit"
                       disabled={isSubmitting || ((isInternship || isLearnership) && !allRequiredFilesUploaded)}
@@ -646,10 +822,13 @@ const ITRegister = () => {
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="flex items-center p-4 bg-green-50 border border-green-200 rounded-lg text-green-700"
+                        className="flex items-start p-4 bg-green-50 border border-green-200 rounded-lg text-green-700"
                       >
-                        <FiCheckCircle className="w-5 h-5 mr-3 text-green-500" />
-                        <span>Registration submitted successfully! We'll contact you when programs become available.</span>
+                        <FiCheckCircle className="w-5 h-5 mr-3 text-green-500 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-medium">Your registration has been successfully submitted.</p>
+                          <p className="text-sm mt-1">Our Admissions Office will review your application and contact you within 2–5 working days regarding the next steps.</p>
+                        </div>
                       </motion.div>
                     )}
 
@@ -674,76 +853,76 @@ const ITRegister = () => {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="space-y-6"
               >
+                {/* ─── WHY STUDY AT STK COLLEGE ─── */}
                 <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300">
                   <h3 className="text-xl font-bold text-[#0F2B5B] mb-4 flex items-center">
                     <FiPlay className="w-5 h-5 text-[#F4C542] mr-2" />
-                    Short Courses - How It Works
+                    Why Study at STK College
                   </h3>
-                  
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-[#F4C542] mb-3 flex items-center">
-                      <FiTarget className="w-4 h-4 mr-2" />
-                      Simple 3-Step Process:
-                    </h4>
-                    <div className="space-y-3">
-                      <div className="flex items-start space-x-3">
-                        <div className="w-6 h-6 bg-[#F4C542] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-[#0F2B5B] text-sm font-bold">1</span>
-                        </div>
-                        <div>
-                          <p className="text-[#0F2B5B] font-medium">Select Your Courses</p>
-                          <p className="text-gray-600 text-sm">Choose from 10+ IT courses and programming languages</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="w-6 h-6 bg-[#F4C542] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-[#0F2B5B] text-sm font-bold">2</span>
-                        </div>
-                        <div>
-                          <p className="text-[#0F2B5B] font-medium">Register & Express Interest</p>
-                          <p className="text-gray-600 text-sm">Complete this form to express interest in our programs</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="w-6 h-6 bg-[#F4C542] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-[#0F2B5B] text-sm font-bold">3</span>
-                        </div>
-                        <div>
-                          <p className="text-[#0F2B5B] font-medium">Get Started When Available</p>
-                          <p className="text-gray-600 text-sm">We'll contact you when programs become operational</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <ul className="space-y-3 text-sm">
+                    <li className="flex items-start">
+                      <FiCheckCircle className="w-5 h-5 text-[#F4C542] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Practical, industry-focused training</span>
+                    </li>
+                    <li className="flex items-start">
+                      <FiCheckCircle className="w-5 h-5 text-[#F4C542] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Small class sizes for individual attention</span>
+                    </li>
+                    <li className="flex items-start">
+                      <FiCheckCircle className="w-5 h-5 text-[#F4C542] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Curriculum aligned to workplace skills needs</span>
+                    </li>
+                    <li className="flex items-start">
+                      <FiCheckCircle className="w-5 h-5 text-[#F4C542] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Official Certificate of Completion upon success</span>
+                    </li>
+                    <li className="flex items-start">
+                      <FiCheckCircle className="w-5 h-5 text-[#F4C542] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Experienced facilitators and mentors</span>
+                    </li>
+                    <li className="flex items-start">
+                      <FiCheckCircle className="w-5 h-5 text-[#F4C542] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Career guidance and support</span>
+                    </li>
+                    <li className="flex items-start">
+                      <FiCheckCircle className="w-5 h-5 text-[#F4C542] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Job readiness preparation</span>
+                    </li>
+                    <li className="flex items-start">
+                      <FiCheckCircle className="w-5 h-5 text-[#F4C542] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Supportive learning environment</span>
+                    </li>
+                  </ul>
+                </div>
 
-                  <div>
-                    <h4 className="font-semibold text-[#F4C542] mb-3 flex items-center">
-                      <FiCertificate className="w-4 h-4 mr-2" />
-                      Key Benefits:
-                    </h4>
-                    <div className="space-y-3">
-                      <div className="flex items-start space-x-3">
-                        <FiCheckCircle className="w-5 h-5 text-[#F4C542] mt-0.5 flex-shrink-0" />
-                        <div>
-                          <p className="text-[#0F2B5B] font-medium">Learn Specific Skills</p>
-                          <p className="text-gray-600 text-sm">Focus only on technologies you need for your career goals</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <FiCheckCircle className="w-5 h-5 text-[#F4C542] mt-0.5 flex-shrink-0" />
-                        <div>
-                          <p className="text-[#0F2B5B] font-medium">Flexible Schedule</p>
-                          <p className="text-gray-600 text-sm">Study at your own pace with 24/7 access to materials</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <FiCheckCircle className="w-5 h-5 text-[#F4C542] mt-0.5 flex-shrink-0" />
-                        <div>
-                          <p className="text-[#0F2B5B] font-medium">No Prerequisites</p>
-                          <p className="text-gray-600 text-sm">Start learning immediately without formal qualifications</p>
-                        </div>
-                      </div>
+                {/* ─── CERTIFICATE OF COMPLETION CARD ─── */}
+                <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                  <h3 className="text-xl font-bold text-[#0F2B5B] mb-4 flex items-center">
+                    <FiCertificate className="w-5 h-5 text-[#F4C542] mr-2" />
+                    Certificate of Completion
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Students who successfully complete their selected programme and meet all assessment requirements will be awarded an official STK College Certificate of Completion.
+                  </p>
+                </div>
+
+                {/* ─── TUITION FEES ─── */}
+                <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                  <h3 className="text-xl font-bold text-[#0F2B5B] mb-4 flex items-center">
+                    <FiDollarSign className="w-5 h-5 text-[#F4C542] mr-2" />
+                    Tuition Fees
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center border-b border-gray-100 pb-2">
+                      <span className="text-gray-600">Registration Fee</span>
+                      <span className="font-bold text-[#0F2B5B]">R500</span>
                     </div>
+                    <p className="text-sm text-gray-600">
+                      Remaining balance payable before course commencement.
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Payment plans may be available upon request.
+                    </p>
                   </div>
                 </div>
 
@@ -756,7 +935,7 @@ const ITRegister = () => {
                   <div className="mb-4">
                     <div className="bg-purple-50 border border-purple-200 rounded-lg p-3 mb-4">
                       <p className="text-purple-700 text-sm font-semibold">
-                        🎓 Future MICT SETA Opportunities Planned
+                        🎓 Planned Learnership Opportunities
                       </p>
                     </div>
                     
@@ -777,7 +956,7 @@ const ITRegister = () => {
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-[#F4C542] mb-3">Program Plans Include:</h4>
+                    <h4 className="font-semibold text-[#F4C542] mb-3">Programme Plans Include:</h4>
                     <div className="space-y-2 text-sm text-gray-600">
                       <div className="flex items-center">
                         <FiCheckCircle className="w-4 h-4 text-[#F4C542] mr-2" />
@@ -810,23 +989,27 @@ const ITRegister = () => {
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-center">
                       <FiCheckCircle className="w-4 h-4 text-[#F4C542] mr-2" />
-                      Registered CIPC
+                      Registered Company
                     </li>
                     <li className="flex items-center">
                       <FiCheckCircle className="w-4 h-4 text-[#F4C542] mr-2" />
-                      Preparing for QCTO accreditation
+                      Private Skills Development Provider
                     </li>
                     <li className="flex items-center">
                       <FiCheckCircle className="w-4 h-4 text-[#F4C542] mr-2" />
-                      Planning future MICT SETA funding
+                      Issuing Certificate of Completion
                     </li>
                     <li className="flex items-center">
                       <FiCheckCircle className="w-4 h-4 text-[#F4C542] mr-2" />
-                      Facilities ready for training
+                      Industry-Based Practical Training Delivery
                     </li>
                     <li className="flex items-center">
                       <FiCheckCircle className="w-4 h-4 text-[#F4C542] mr-2" />
-                      Industry partnerships in development
+                      Preparing for Future QCTO Accreditation
+                    </li>
+                    <li className="flex items-center">
+                      <FiCheckCircle className="w-4 h-4 text-[#F4C542] mr-2" />
+                      Exploring Future MICT SETA Partnerships
                     </li>
                   </ul>
                 </div>
@@ -836,7 +1019,7 @@ const ITRegister = () => {
                     Questions?
                   </h3>
                   <p className="text-gray-600 mb-4 font-medium">
-                    Our team is here to help you learn about our future programs.
+                    Our team is here to help you learn about our programmes.
                   </p>
                   <div className="space-y-2 text-sm text-gray-600">
                     <p><strong>Phone:</strong> +27 76 362 7488</p>
