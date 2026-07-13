@@ -583,12 +583,13 @@ const Home = () => {
                     {[...Array(5)].map((_, i) => <FiStar key={i} className="w-5 h-5 fill-current" />)}
                   </div>
                   <blockquote className="text-xl text-gray-700 italic mb-4">
-                    "The practical training at STK College gave me the confidence and skills to land my first internship. I'm now working as a junior developer."
+                    "This partnership reflects our shared commitment to empowering young people through practical, industry-focused skills training. 
+                    Together, STK College and Isiqalo Institute continue to create opportunities that prepare learners for employment and entrepreneurship."
                   </blockquote>
                   <div className="border-t border-gray-200 pt-4">
-                    <p className="font-bold text-[#0F2B5B] text-lg">Lilitha Mhle</p>
-                    <p className="text-gray-600">Technical Programming Graduate</p>
-                    <p className="text-[#F4C542] font-semibold">Software Development Intern at DUT AppFactory</p>
+                    <p className="font-bold text-[#0F2B5B] text-lg">Sipho Mtshali & Simphiwe Goniwe</p>
+                    <p className="text-gray-600">Founder, STK College & Founder, Isiqalo Institute</p>
+                    <p className="text-[#F4C542] font-semibold">Strategic Partnership for Skills Development & Youth Empowerment</p>
                   </div>
                 </div>
                 <div className="mt-6">

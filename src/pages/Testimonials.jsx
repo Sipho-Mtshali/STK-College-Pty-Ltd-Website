@@ -30,23 +30,33 @@ const Testimonials = () => {
       name: 'Lilitha Mhle',
       course: 'Technical Programming',
       rating: 5,
-      text: 'I\'m grateful for the guidance and support of my amazing tutor, Sipho Mtshali, which helped me achieve a Distinction in Technical Programming. Thank you so much.',
+      text: 'I\'m grateful for the guidance and support of my amazing Facilitator, Sipho Mtshali, which helped me achieve a Distinction in Technical Programming. Thank you so much.',
       image: '/images/students/mhle.jpeg',
-      status: 'Second year student - Programmer',
+      status: 'Software Developer  - Intern',
       achievement: 'Distinction'
     },
     {
       id: 2,
+      name: 'Asiphe Magubane',
+      course: 'Computer Literacy',
+      rating: 5,
+      text: 'The Computer Literacy course gave me the confidence to use Microsoft Word, Excel, PowerPoint, and email. The practical lessons made learning easy, and I highly recommend this course to anyone starting out.',
+      image: '/images/students/Jili.jpeg',
+      status: 'Computer Literacy Student',
+      achievement: 'Distinction'
+    },
+    {
+      id: 3,
       name: 'Minenhle Mabuyakhulu',
       course: 'Technical Programming I',
-      rating: 4.5,
+      rating: 5,
       text: 'I\'m truly honored to express my gratitude for the incredible help that enabled me to achieve a Distinction in Technical Programming I with flying colors. I deeply appreciate my tutor\'s hard work. Thank you!',
       image: '/images/students/vegy.jpeg',
       status: 'Student - Software Developer',
       achievement: 'Distinction'
     },
     {
-      id: 3,
+      id: 4,
       name: 'Dlamini Akhona',
       course: 'Programming Module',
       rating: 5,
@@ -56,7 +66,7 @@ const Testimonials = () => {
       achievement: 'Distinction'
     },
     {
-      id: 4,
+      id: 5,
       name: 'Ntombela Minenhle',
       course: 'Programming',
       rating: 5,
@@ -66,7 +76,17 @@ const Testimonials = () => {
       achievement: 'Pass'
     },
     {
-      id: 5,
+      id: 6,
+      name: 'Silindele Sinethemba Ndwalane',
+      course: 'Computer Literacy',
+      rating: 5,
+      text: 'Thank you Mr mtshali for the opportunity to be part of the computer literacy program. I gained valuable skills in computer basics that employers are looking for. I am grateful for your support and guidance.',
+      image: '/images/students/Ndwalane.jpeg',
+      status: 'Computer Literacy Student',
+      achievement: 'Pass'
+    },
+    {
+      id: 7,
       name: 'Blessings',
       course: 'SQL Database',
       rating: 5,
@@ -76,7 +96,7 @@ const Testimonials = () => {
       achievement: 'Distinction'
     },
     {
-      id: 6,
+      id: 8,
       name: 'Sibisi Michael',
       course: 'Technical Programming',
       rating: 5,
@@ -86,7 +106,7 @@ const Testimonials = () => {
       achievement: 'Pass'
     },
     {
-      id: 7,
+      id: 9,
       name: 'Mbuyazi Mzamo',
       course: 'Programming',
       rating: 5,
@@ -96,7 +116,17 @@ const Testimonials = () => {
       achievement: 'Distinction'
     },
     {
-      id: 8,
+      id: 10,
+      name: 'Malibongwe Siphelele Msimango',
+      course: 'Computer Literacy',
+      rating: 5,
+      text: 'I\'m proud to have completed the Computer Literacy course. It improved my digital skills and boosted my confidence in using technology. Thank you to Mr. Mtshali and STK College for making this achievement possible.',
+      image: '/images/students/Msimango.jpeg',
+      status: 'Computer Literacy Student',
+      achievement: 'Pass'
+    },
+    {
+      id: 11,
       name: 'Magingxa Yolisa',
       course: 'Technical Programming',
       rating: 5,
