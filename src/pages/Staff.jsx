@@ -45,7 +45,7 @@ const Staff = () => {
       bio: 'Passionate software developer and educator with extensive experience in programming and IT training. Specializes in Java, Python, web development, and database systems. Committed to helping students launch successful tech careers.',
       subjects: ['Java', 'Python', 'Web Dev', 'Database', 'Software Engineering'],
       rating: 4.9,
-      image: '/images/staff/SM3.png',
+      image: '/images/staff/crop.jpg',
       programs: ['Python Programming', 'Java Development', 'Web Development', 'SQL Database Management'],
       social: {
         linkedin: 'https://www.linkedin.com/in/sipho-mtshali-377784236/',
@@ -87,7 +87,7 @@ const Staff = () => {
     },
     {
       id: '4',
-      name: 'KK Mtshali',
+      name: 'N Ntuli',
       position: 'Administrative Support',
       department: 'Administration',
       experience: '2+ years',
