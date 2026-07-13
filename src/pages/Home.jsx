@@ -281,7 +281,7 @@ const Home = () => {
                 className="rounded-2xl overflow-hidden shadow-xl"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80"
+                  src="/images/gallery/gallery/AllStudents.jpg"
                   alt="STK College campus"
                   loading="lazy"
                   className="w-full h-auto object-cover"
@@ -436,7 +436,7 @@ const Home = () => {
                 { icon: FiUsers, title: 'Experienced Lecturers', desc: 'Learn from industry professionals with years of practical experience.' },
                 { icon: FiCpu, title: 'Modern Computer Labs', desc: 'State-of-the-art facilities equipped with the latest technology.' },
                 { icon: FiBriefcase, title: 'Career Support', desc: 'Job placement assistance and professional development guidance.' },
-                { icon: FiAward, title: 'Accredited Certificates', desc: 'Receive recognised certifications that add value to your CV.' },
+                { icon: FiAward, title: 'Completion Certificates', desc: 'Receive recognised certifications that add value to your CV.' },
                 { icon: FiClock, title: 'Flexible Learning', desc: 'Full-time, part-time, and online options to suit your schedule.' }
               ].map((item, index) => {
                 const Icon = item.icon;
@@ -566,7 +566,7 @@ const Home = () => {
                 className="rounded-2xl overflow-hidden shadow-xl"
               >
                 <img 
-                  src="/images/staff/S.Mtshali.jpeg"
+                  src="/images/gallery/gallery/FoundersInBanners.jpg"
                   alt="Graduate of STK College"
                   loading="lazy"
                   className="w-full h-auto object-cover"
@@ -588,7 +588,7 @@ const Home = () => {
                   <div className="border-t border-gray-200 pt-4">
                     <p className="font-bold text-[#0F2B5B] text-lg">Lilitha Mhle</p>
                     <p className="text-gray-600">Technical Programming Graduate</p>
-                    <p className="text-[#F4C542] font-semibold">Junior Developer at TechCorp</p>
+                    <p className="text-[#F4C542] font-semibold">Software Development Intern at DUT AppFactory</p>
                   </div>
                 </div>
                 <div className="mt-6">
@@ -680,10 +680,10 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
-                  title: 'Graduation Ceremony 2024',
-                  date: 'December 15, 2024',
-                  description: 'Celebrating the achievements of our latest graduates.',
-                  image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80'
+                  title: 'Certificate Handover Ceremony 2026',
+                  date: 'July 03, 2026',
+                  description: 'Celebrating learners who successfully completed their skills training through our partnership with Isiqalo Institute and received Certificates of Completion.',
+                  image: '/images/gallery/gallery/AllStudents.jpg'
                 },
                 {
                   title: 'New Computer Lab Opening',
@@ -693,7 +693,7 @@ const Home = () => {
                 },
                 {
                   title: 'Industry Guest Speaker Series',
-                  date: 'October 10, 2024',
+                  date: 'October 10, 2025',
                   description: 'Leading tech professionals share their insights with students.',
                   image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80'
                 }

@@ -164,8 +164,8 @@ const Footer = () => {
         <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-gray-500 text-sm text-center md:text-left">
             <p>
-              STK College is a registered CIPC, preparing for QCTO accreditation and future MICT SETA funding opportunities. 
-              Current student numbers and program details are for demonstration purposes as we build toward full operation.
+              STK College is a CIPC-registered training institution preparing for QCTO accreditation. 
+              We have successfully trained 300+ learners through partnerships and continue to provide practical skills development and Certificates of Completion.
             </p>
             <p className="mt-2">
               &copy; {currentYear} STK College (Pty) Ltd. All rights reserved.
