@@ -477,43 +477,43 @@ const CampusLife = () => {
                 {
                   title: 'Student of the Year',
                   description: 'Awarded to outstanding students who have demonstrated exceptional academic performance and commitment to their studies.',
-                  year: '2024',
-                  media: '/images/gallery/awards/student-of-year.jpg',
+                  year: '2026',
+                  media: '/images/gallery/gallery/student-of-the-year.JPG',
                   isVideo: false
                 },
                 {
                   title: 'Best Computer Literacy Graduate',
                   description: 'Recognizing excellence in our flagship Computer Literacy program with top-performing students.',
                   year: '2026',
-                  media: '/images/gallery/awards/computer-literacy-award.jpg',
+                  media: '/images/gallery/gallery/computer-literacy-award.jpg',
                   isVideo: false
                 },
                 {
                   title: 'Certification Ceremony',
                   description: 'Celebrating our graduates as they receive their completion certificates in a formal ceremony.',
                   year: '2026',
-                  media: '/images/gallery/awards/certification-ceremony.mp4',
+                  media: '/images/gallery/gallery/certification-ceremony.mp4',
                   isVideo: true
                 },
                 {
                   title: 'Academic Excellence Award',
                   description: 'Awarded to students with outstanding academic achievement across all programs.',
                   year: '2023',
-                  media: '/images/gallery/awards/academic-excellence.jpg',
+                  media: '/images/gallery/gallery/academic-excellence.jpg',
                   isVideo: false
                 },
                 {
                   title: 'Most Improved Student',
                   description: 'Recognizing students who have shown remarkable progress and dedication to their learning journey.',
-                  year: '2025',
-                  media: '/images/gallery/awards/most-improved.jpg',
+                  year: '2026',
+                  media: '/images/gallery/gallery/improved.JPG',
                   isVideo: false
                 },
                 {
                   title: 'Graduation Ceremony',
                   description: 'Celebrating the achievements of all graduates with a formal graduation ceremony and certificate handover.',
                   year: '2024',
-                  media: '/images/gallery/awards/graduation-ceremony.mp4',
+                  media: '/images/gallery/gallery/graduation-ceremony.mp4',
                   isVideo: true
                 }
               ].map((award, index) => {
@@ -755,34 +755,34 @@ const CampusLife = () => {
                 {
                   title: 'Computer Literacy Graduation Ceremony',
                   description: 'Celebrating the success of our Computer Literacy graduates with certificates and awards.',
-                  date: 'December 2024',
+                  date: 'July 2026',
                   type: 'Graduation',
-                  media: '/images/gallery/events/graduation-2024.mp4',
+                  media: '/images/gallery/gallery/AllStudents.jpg',
                   isVideo: true
                 },
                 {
                   title: 'Java Bootcamp Workshop',
                   description: 'Intensive 2-day Java programming workshop for beginners and intermediate learners.',
-                  date: 'November 2024',
+                  date: 'November 2025',
                   type: 'Workshop',
-                  media: '/images/gallery/events/java-bootcamp.jpg',
+                  media: '/images/gallery/labs/java.JPEG',
                   isVideo: false
                 },
                 {
                   title: 'Career Guidance Seminar',
                   description: 'Expert advice on career paths, job opportunities, and professional development in IT.',
-                  date: 'October 2024',
+                  date: 'October 2025',
                   type: 'Seminar',
-                  media: '/images/gallery/events/career-seminar.jpg',
+                  media: '/images/gallery/gallery/Goniwe.jpg',
                   isVideo: false
                 },
                 {
                   title: 'Guest Speaker: Industry Expert',
                   description: 'Special guest from the tech industry sharing insights on emerging technologies and trends.',
-                  date: 'September 2024',
+                  date: 'June 2026',
                   type: 'Guest Speaker',
-                  media: '/images/gallery/events/guest-speaker.mp4',
-                  isVideo: true
+                  media: '/images/staff/crop.jpg',
+                  isVideo: false
                 },
                 {
                   title: 'Microsoft Office Certification Day',

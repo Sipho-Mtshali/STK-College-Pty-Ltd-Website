@@ -199,7 +199,7 @@ const About = () => {
                 className="rounded-2xl overflow-hidden shadow-xl"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80"
+                  src="/images/gallery/gallery/AllStudents.jpg"
                   alt="STK College campus"
                   loading="lazy"
                   className="w-full h-auto object-cover"
