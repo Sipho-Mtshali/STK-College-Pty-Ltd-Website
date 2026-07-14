@@ -329,3 +329,7 @@ nav * {
 .fixed.z-50 {
   z-index: 10000;
 }
+/* index.css – add at the end */
+nav.sticky {
+  top: 56px !important;  /* height of the top bar */
+}

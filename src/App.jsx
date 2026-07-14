@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 // Components
 import SplashScreen from './components/SplashScreen';
 import Navbar from './components/Navbar';
+import TopBar from './components/TopBar';   // <-- new import
 import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
 
@@ -35,18 +36,14 @@ function App() {
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    // Check if user has visited before
     const hasVisited = localStorage.getItem('stk-visited');
-    
     if (hasVisited) {
       setShowSplash(false);
     } else {
-      // Show splash for 4 seconds for first-time visitors
       const timer = setTimeout(() => {
         setShowSplash(false);
         localStorage.setItem('stk-visited', 'true');
       }, 4000);
-
       return () => clearTimeout(timer);
     }
   }, []);
@@ -71,8 +68,8 @@ function App() {
               className="flex flex-col min-h-screen"
             >
               <ScrollToTop />
+              <TopBar />           {/* ← Top bar placed here */}
               <Navbar />
-              
               <main className="flex-grow">
                 <Routes>
                   <Route path="/" element={<Home />} />
@@ -86,7 +83,6 @@ function App() {
                   <Route path="/course/:id" element={<CourseDetail />} />
                 </Routes>
               </main>
-              
               <Footer />
               <ChatBot />
             </motion.div>
