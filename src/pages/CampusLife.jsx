@@ -8,19 +8,20 @@ const CampusLife = () => {
   // ─── State for Photo Gallery filtering ───
   const [selectedCategory, setSelectedCategory] = useState('All');
 
+  // ─── Updated Gallery Items with placeholder images ───
   const galleryItems = [
-    { title: 'Computer Literacy Workshop', category: 'Workshops', span: 'col-span-2 row-span-2', media: '/images/gallery/gallery/workshop-1.jpg', isVideo: false },
-    { title: 'Java Coding Session', category: 'Workshops', media: '/images/gallery/gallery/workshop-2.jpg', isVideo: false },
-    { title: 'Computer Lab Session', category: 'Labs', media: '/images/gallery/labs/instructor1jpeg', isVideo: false },
-    { title: 'Student Collaboration', category: 'Labs', media: '/images/gallery/gallery/lab-2.jpg', isVideo: false },
-    { title: 'Graduation Ceremony 2024', category: 'Graduation', span: 'col-span-2', media: '/images/gallery/gallery/graduation-1.jpg', isVideo: false },
-    { title: 'Certificate Handover', category: 'Certificates', media: '/images/gallery/gallery/certificate-1.jpg', isVideo: false },
-    { title: 'Student Project Showcase', category: 'Projects', media: '/images/gallery/gallery/project-1.jpg', isVideo: false },
-    { title: 'Awards Ceremony', category: 'Events', media: '/images/gallery/gallery/awards-1.jpg', isVideo: false },
-    { title: 'Hackathon Competition', category: 'Competitions', media: '/images/gallery/gallery/competition-1.jpg', isVideo: false },
-    { title: 'Microsoft Office Training', category: 'Workshops', media: '/images/gallery/gallery/training-1.jpg', isVideo: false },
-    { title: 'Graduation Celebration', category: 'Graduation', media: '/images/gallery/gallery/graduation-2.jpg', isVideo: false },
-    { title: 'Industry Guest Speaker', category: 'Events', media: '/images/gallery/gallery/speaker-1.jpg', isVideo: false }
+    { title: 'Computer Literacy Workshop', category: 'Workshops', span: 'col-span-2 row-span-2', media: '/images/gallery/classroom/p10_isiqalo_25-05-2026.jpeg', isVideo: false },
+    { title: 'Java Coding Session', category: 'Workshops', media: '/images/gallery/labs/java.JPEG', isVideo: false },
+    { title: 'Computer Lab Session', category: 'Labs', media: '/images/gallery/labs/instructor2.jpeg', isVideo: false },
+    { title: 'Student Collaboration', category: 'Labs', media: '/images/gallery/labs/studentCollaborate.jpeg', isVideo: false },
+    { title: 'Graduation Ceremony 2026', category: 'Graduation', span: 'col-span-2', media: '/images/gallery/gallery/AllStudents.jpg', isVideo: false },
+    { title: 'Certificate Handover', category: 'Certificates', media: '/images/gallery/gallery/handOver.JPG', isVideo: false },
+    { title: 'Student Project Showcase', category: 'Projects', media: '/images/gallery/gallery/student_project_showcase.png', isVideo: false },
+    { title: 'Awards Ceremony', category: 'Events', media: '/images/gallery/gallery/FoundersInBanners.jpg', isVideo: false },
+    { title: 'Hackathon Competition', category: 'Competitions', media: '/images/gallery/gallery/hackathon_competition.png', isVideo: false },
+    { title: 'Microsoft Office Training', category: 'Workshops', media: '/images/gallery/classroom/facilitatorExcel.jpeg', isVideo: false },
+    { title: 'Graduation Celebration', category: 'Graduation', media: '/images/gallery/gallery/AllStudents.jpg', isVideo: false },
+    { title: 'Industry Guest Speaker', category: 'Events', media: '/images/gallery/gallery/Mtshali.jpg', isVideo: false }
   ];
 
   const filteredGallery = selectedCategory === 'All' 
