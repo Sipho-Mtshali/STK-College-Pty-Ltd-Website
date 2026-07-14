@@ -16,7 +16,7 @@ const CampusLife = () => {
     { title: 'Student Collaboration', category: 'Labs', media: '/images/gallery/labs/studentCollaborate.jpeg', isVideo: false },
     { title: 'Graduation Ceremony 2026', category: 'Graduation', span: 'col-span-2', media: '/images/gallery/gallery/AllStudents.jpg', isVideo: false },
     { title: 'Certificate Handover', category: 'Certificates', media: '/images/gallery/gallery/handOver.JPG', isVideo: false },
-    { title: 'Student Project Showcase', category: 'Projects', media: '/images/gallery/gallery/student_project_showcase.png', isVideo: false },
+    { title: 'Student Project Showcase', category: 'Projects', media: '/images/gallery/gallery/calculator.png', isVideo: false },
     { title: 'Awards Ceremony', category: 'Events', media: '/images/gallery/gallery/FoundersInBanners.jpg', isVideo: false },
     { title: 'Hackathon Competition', category: 'Competitions', media: '/images/gallery/gallery/hackathon_competition.png', isVideo: false },
     { title: 'Microsoft Office Training', category: 'Workshops', media: '/images/gallery/classroom/facilitatorExcel.jpeg', isVideo: false },
@@ -633,7 +633,7 @@ const CampusLife = () => {
                   description: 'Students showcase their mastery of Microsoft Office, file management, and essential computer skills.',
                   technology: 'Microsoft Office',
                   category: 'Computer Literacy',
-                  media: '/images/gallery/projects/literacy-portfolio.jpg',
+                  media: '/images/gallery/gallery/computerPortfolio.png',
                   isVideo: false
                 },
                 {
@@ -641,7 +641,7 @@ const CampusLife = () => {
                   description: 'A fully functional student management system built with SQL and Java for data management.',
                   technology: 'Java, SQL',
                   category: 'Database',
-                  media: '/images/gallery/projects/database-system.jpg',
+                  media: '/images/gallery/gallery/JavaProject.png',
                   isVideo: false
                 },
                 {
@@ -649,7 +649,7 @@ const CampusLife = () => {
                   description: 'Students design and build their own professional portfolio websites using modern web technologies.',
                   technology: 'HTML, CSS, JavaScript',
                   category: 'Web Development',
-                  media: '/images/gallery/projects/personal-website.jpg',
+                  media: '/images/gallery/gallery/studentWebsite.png',
                   isVideo: false
                 },
                 {
@@ -665,7 +665,7 @@ const CampusLife = () => {
                   description: 'Real-world data analysis using spreadsheets, formulas, and data visualization techniques.',
                   technology: 'Excel, Data Analysis',
                   category: 'Data Skills',
-                  media: '/images/gallery/projects/data-analysis.jpg',
+                  media: '/images/gallery/gallery/studentExcelProject.png',
                   isVideo: false
                 },
                 {
@@ -673,7 +673,7 @@ const CampusLife = () => {
                   description: 'Students solve real-world technical support scenarios and document their troubleshooting process.',
                   technology: 'IT Support, Troubleshooting',
                   category: 'Technical Skills',
-                  media: '/images/gallery/projects/it-support.jpg',
+                  media: '/images/gallery/gallery/IT-Support.png',
                   isVideo: false
                 }
               ].map((project, index) => (
