@@ -75,7 +75,7 @@ const ITRegister = () => {
       name: 'Python Programming',
       category: 'Programming',
       price: 'R3,500',
-      duration: '12 Weeks',
+      duration: '10 Weeks',
       level: 'Beginner to Intermediate',
       funding: {
         available: false,
@@ -90,17 +90,27 @@ const ITRegister = () => {
       category: 'Programming',
       price: 'R3,800',
       duration: '12 Weeks',
-      level: 'Intermediate',
+      level: 'Beginner - Advanced',
       funding: null,
       popular: false
     },
     {
+      id: 'computer-literacy',
+      name: 'Computer Literacy Fundamentals',
+      category: 'Computer Literacy',
+      price: 'R2,500',
+      duration: '8 Weeks',
+      level: 'Beginner',
+      funding: null,
+      popular: true
+    },
+    {
       id: 'word',
-      name: 'Microsoft Word (Beginner - Intermediate)',
+      name: 'Microsoft Word (Beginner - Advanced)',
       category: 'Microsoft Office',
       price: 'R1,200',
       duration: '6 Weeks',
-      level: 'Beginner to Intermediate',
+      level: 'Beginner to Advanced',
       funding: null,
       popular: true
     },
@@ -140,7 +150,7 @@ const ITRegister = () => {
       category: 'Database',
       price: 'R3,500',
       duration: '10 Weeks',
-      level: 'Intermediate',
+      level: 'Beginner - Advanced',
       funding: null,
       popular: true
     },
@@ -150,7 +160,7 @@ const ITRegister = () => {
       category: 'Web Development',
       price: 'R3,500',
       duration: '8 Weeks',
-      level: 'Intermediate',
+      level: 'Beginner - Intermediate',
       funding: null,
       popular: true
     },
@@ -160,7 +170,7 @@ const ITRegister = () => {
       category: 'AI & Machine Learning',
       price: 'R4,500',
       duration: '12 Weeks',
-      level: 'Advanced',
+      level: 'Beginner - Advanced',
       funding: {
         available: false,
         planned: true,
