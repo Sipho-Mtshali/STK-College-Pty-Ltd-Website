@@ -26,7 +26,7 @@ const Courses = () => {
       students: 0,
       price: 'R3,500',
       originalPrice: 'R4,800',
-      image: '/images/courses/python.jpg',
+      image: '/images/gallery/gallery/pythonbackground.png',
       rating: 4.8,
       description: 'Master Python programming from basics to advanced concepts including web development and data analysis.',
       features: ['Python Fundamentals', 'Django Web Framework', 'Data Analysis', 'Automation Scripting'],
@@ -47,7 +47,7 @@ const Courses = () => {
       students: 0,
       price: 'R3,800',
       originalPrice: 'R5,200',
-      image: '/images/courses/java.jpg',
+      image: '/images/gallery/gallery/javabackground.png',
       rating: 4.6,
       description: 'Comprehensive Java programming and enterprise application development.',
       features: ['OOP Principles', 'Spring Framework', 'Database Integration', 'Project Development'],
@@ -56,6 +56,22 @@ const Courses = () => {
     },
     {
       id: 3,
+      title: 'Computer Literacy Fundamentals',
+      instructor: 'Sipho Mtshali',
+      category: 'Computer Literacy',
+      lessons: 25,
+      students: 0,
+      price: 'R2,500',
+      originalPrice: 'R3,200',
+      image: '/images/gallery/gallery/computerliteracybackground.png',
+      rating: 4.9,
+      description: 'A complete computer literacy course designed to develop essential digital skills, covering Microsoft Word, Excel, and PowerPoint for everyday academic, personal, and workplace use.',
+      features: ['Microsoft Word Basics', 'Microsoft Excel Fundamentals', 'PowerPoint Presentations', 'Computer Essentials'],
+      popular: true,
+      funding: null
+    },
+    {
+      id: 4,
       title: 'Microsoft Word (Beginner - Intermediate)',
       instructor: 'Sipho Mtshali',
       category: 'Microsoft Office',
@@ -71,7 +87,7 @@ const Courses = () => {
       funding: null
     },
     {
-      id: 4,
+      id: 5,
       title: 'Microsoft Excel (Beginner - Intermediate)',
       instructor: 'Sipho Mtshali',
       category: 'Microsoft Office',
@@ -87,7 +103,7 @@ const Courses = () => {
       funding: null
     },
     {
-      id: 5,
+      id: 6,
       title: 'Microsoft PowerPoint (Beginner - Intermediate)',
       instructor: 'Sipho Mtshali',
       category: 'Microsoft Office',
@@ -103,7 +119,7 @@ const Courses = () => {
       funding: null
     },
     {
-      id: 6,
+      id: 7,
       title: 'Microsoft Teams',
       instructor: 'Sipho Mtshali',
       category: 'Microsoft Office',
@@ -119,7 +135,7 @@ const Courses = () => {
       funding: null
     },
     {
-      id: 7,
+      id: 8,
       title: 'SQL Database Management',
       instructor: 'Sipho Mtshali',
       category: 'Database',
@@ -127,7 +143,7 @@ const Courses = () => {
       students: 0,
       price: 'R3,500',
       originalPrice: 'R4,800',
-      image: '/images/courses/sql-dbms.jpg',
+      image: '/images/gallery/gallery/databasebackground.png',
       rating: 4.9,
       description: 'Comprehensive database management and SQL programming course.',
       features: ['Database Design', 'Advanced Queries', 'Stored Procedures', 'Performance Tuning'],
@@ -135,7 +151,7 @@ const Courses = () => {
       funding: null
     },
     {
-      id: 8,
+      id: 9,
       title: 'Website Development',
       instructor: 'Sipho Mtshali',
       category: 'Web Development',
@@ -143,7 +159,7 @@ const Courses = () => {
       students: 0,
       price: 'R3,500',
       originalPrice: 'R4,800',
-      image: '/images/courses/webdev.jpg',
+      image: '/images/gallery/gallery/webbackground.png',
       rating: 4.7,
       description: 'Modern web development with React.js and related technologies.',
       features: ['React Components', 'Hooks & State', 'API Integration', 'Deployment'],
@@ -151,7 +167,7 @@ const Courses = () => {
       funding: null
     },
     {
-      id: 9,
+      id: 10,
       title: 'AI & Machine Learning',
       instructor: 'STK College AI',
       category: 'AI & Machine Learning',
@@ -172,7 +188,7 @@ const Courses = () => {
       }
     },
     {
-      id: 10,
+      id: 11,
       title: 'Microsoft Office Complete Suite',
       instructor: 'Sipho Mtshali',
       category: 'Microsoft Office',
@@ -180,7 +196,7 @@ const Courses = () => {
       students: 0,
       price: 'R3,000',
       originalPrice: 'R4,200',
-      image: '/images/courses/ms office.png',
+      image: '/images/gallery/gallery/msofficebackground.png',
       rating: 4.9,
       description: 'Complete Microsoft Office training covering Word, Excel, PowerPoint, and Teams.',
       features: ['Word Mastery', 'Excel Expertise', 'PowerPoint Skills', 'Teams Collaboration'],
@@ -188,7 +204,7 @@ const Courses = () => {
       funding: null
     },
     {
-      id: 11,
+      id: 12,
       title: 'Cybersecurity',
       instructor: 'Sipho Mtshali',
       category: 'Cybersecurity',
@@ -207,6 +223,7 @@ const Courses = () => {
 
   const [selectedCategory, setSelectedCategory] = React.useState('All Courses');
   const [searchTerm, setSearchTerm] = React.useState('');
+  const [lightboxImage, setLightboxImage] = React.useState(null);
 
   const filteredCourses = courses.filter(course => {
     const matchesCategory = selectedCategory === 'All Courses' || course.category === selectedCategory;
@@ -214,6 +231,23 @@ const Courses = () => {
                          course.instructor.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  // Close lightbox with Escape key
+  React.useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') setLightboxImage(null);
+    };
+    if (lightboxImage) {
+      document.addEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'hidden'; // prevent scrolling
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'auto';
+    };
+  }, [lightboxImage]);
 
   const WhatsAppIcon = () => (
     <svg 
@@ -362,7 +396,10 @@ const Courses = () => {
                   transition={{ delay: index * 0.1 }}
                   className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100 group"
                 >
-                  <div className="relative h-48 bg-gray-100 overflow-hidden">
+                  <div 
+                    className="relative h-48 bg-gray-100 overflow-hidden cursor-pointer"
+                    onClick={() => setLightboxImage(course.image)}
+                  >
                     <img 
                       src={course.image} 
                       alt={course.title}
@@ -541,6 +578,34 @@ const Courses = () => {
           </div>
         </section>
       </div>
+
+      {/* ─── LIGHTBOX MODAL ─── */}
+      {lightboxImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          onClick={() => setLightboxImage(null)} // click backdrop to close
+        >
+          <div 
+            className="relative max-w-5xl w-full max-h-[90vh] bg-white rounded-lg shadow-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+          >
+            <button
+              onClick={() => setLightboxImage(null)}
+              className="absolute top-4 right-4 z-10 bg-white/90 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg transition-all duration-200"
+              aria-label="Close fullscreen image"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <img
+              src={lightboxImage}
+              alt="Full view"
+              className="w-full h-full object-contain max-h-[90vh]"
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 };
