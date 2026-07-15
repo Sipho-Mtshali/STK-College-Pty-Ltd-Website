@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FiUsers, FiBookOpen, FiSearch, FiStar, FiZap, FiArrowRight } from 'react-icons/fi';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
 import { organizationSchema, breadcrumbSchema } from '../data/schema';
+// Import the unified data source
+import { allCourses } from '../data/coursesData';
 
 const Courses = () => {
   const courseCategories = [
@@ -13,217 +15,17 @@ const Courses = () => {
     'Microsoft Office',
     'Database',
     'Web Development',
-    'AI & Machine Learning'
+    'AI & Machine Learning',
+    'Cybersecurity',
+    'Computer Literacy'
   ];
 
-  const courses = [
-    {
-      id: 1,
-      title: 'Python Programming',
-      instructor: 'Sipho Mtshali',
-      category: 'Programming',
-      lessons: 15,
-      students: 0,
-      price: 'R3,500',
-      originalPrice: 'R4,800',
-      image: '/images/gallery/gallery/pythonbackground.png',
-      rating: 4.8,
-      description: 'Master Python programming from basics to advanced concepts including web development and data analysis.',
-      features: ['Python Fundamentals', 'Django Web Framework', 'Data Analysis', 'Automation Scripting'],
-      popular: true,
-      funding: {
-        available: false,
-        planned: true,
-        provider: 'MICT SETA',
-        description: 'Future funding opportunities planned'
-      }
-    },
-    {
-      id: 2,
-      title: 'Java Development',
-      instructor: 'Sipho Mtshali',
-      category: 'Programming',
-      lessons: 18,
-      students: 0,
-      price: 'R3,800',
-      originalPrice: 'R5,200',
-      image: '/images/gallery/gallery/javabackground.png',
-      rating: 4.6,
-      description: 'Comprehensive Java programming and enterprise application development.',
-      features: ['OOP Principles', 'Spring Framework', 'Database Integration', 'Project Development'],
-      popular: false,
-      funding: null
-    },
-    {
-      id: 3,
-      title: 'Computer Literacy Fundamentals',
-      instructor: 'Sipho Mtshali',
-      category: 'Computer Literacy',
-      lessons: 25,
-      students: 0,
-      price: 'R2,500',
-      originalPrice: 'R3,200',
-      image: '/images/gallery/gallery/computerliteracybackground.png',
-      rating: 4.9,
-      description: 'A complete computer literacy course designed to develop essential digital skills, covering Microsoft Word, Excel, and PowerPoint for everyday academic, personal, and workplace use.',
-      features: ['Microsoft Word Basics', 'Microsoft Excel Fundamentals', 'PowerPoint Presentations', 'Computer Essentials'],
-      popular: true,
-      funding: null
-    },
-    {
-      id: 4,
-      title: 'Microsoft Word (Beginner - Intermediate)',
-      instructor: 'Sipho Mtshali',
-      category: 'Microsoft Office',
-      lessons: 12,
-      students: 0,
-      price: 'R1,200',
-      originalPrice: 'R1,700',
-      image: '/images/courses/word-intermediate.jpg',
-      rating: 4.7,
-      description: 'Complete Word training from basic document creation to advanced formatting and collaboration.',
-      features: ['Document Creation', 'Advanced Formatting', 'Mail Merge', 'Collaboration Tools'],
-      popular: true,
-      funding: null
-    },
-    {
-      id: 5,
-      title: 'Microsoft Excel (Beginner - Intermediate)',
-      instructor: 'Sipho Mtshali',
-      category: 'Microsoft Office',
-      lessons: 15,
-      students: 0,
-      price: 'R1,500',
-      originalPrice: 'R2,100',
-      image: '/images/courses/excel.jpg',
-      rating: 4.8,
-      description: 'Master Excel from basic spreadsheets to advanced formulas, charts, and data analysis.',
-      features: ['Formulas & Functions', 'Charts & Graphs', 'Data Analysis', 'Pivot Tables'],
-      popular: true,
-      funding: null
-    },
-    {
-      id: 6,
-      title: 'Microsoft PowerPoint (Beginner - Intermediate)',
-      instructor: 'Sipho Mtshali',
-      category: 'Microsoft Office',
-      lessons: 10,
-      students: 0,
-      price: 'R1,200',
-      originalPrice: 'R1,700',
-      image: '/images/courses/powepoint.png',
-      rating: 4.6,
-      description: 'Create professional presentations with animations, transitions, and multimedia integration.',
-      features: ['Slide Design', 'Animations', 'Multimedia Integration', 'Presentation Skills'],
-      popular: false,
-      funding: null
-    },
-    {
-      id: 7,
-      title: 'Microsoft Teams',
-      instructor: 'Sipho Mtshali',
-      category: 'Microsoft Office',
-      lessons: 6,
-      students: 0,
-      price: 'R900',
-      originalPrice: 'R1,300',
-      image: '/images/courses/teams.jpg',
-      rating: 4.8,
-      description: 'Master Microsoft Teams for effective collaboration and communication in modern workplaces.',
-      features: ['Team Management', 'Meetings & Calls', 'File Sharing', 'Integration'],
-      popular: true,
-      funding: null
-    },
-    {
-      id: 8,
-      title: 'SQL Database Management',
-      instructor: 'Sipho Mtshali',
-      category: 'Database',
-      lessons: 20,
-      students: 0,
-      price: 'R3,500',
-      originalPrice: 'R4,800',
-      image: '/images/gallery/gallery/databasebackground.png',
-      rating: 4.9,
-      description: 'Comprehensive database management and SQL programming course.',
-      features: ['Database Design', 'Advanced Queries', 'Stored Procedures', 'Performance Tuning'],
-      popular: true,
-      funding: null
-    },
-    {
-      id: 9,
-      title: 'Website Development',
-      instructor: 'Sipho Mtshali',
-      category: 'Web Development',
-      lessons: 16,
-      students: 0,
-      price: 'R3,500',
-      originalPrice: 'R4,800',
-      image: '/images/gallery/gallery/webbackground.png',
-      rating: 4.7,
-      description: 'Modern web development with React.js and related technologies.',
-      features: ['React Components', 'Hooks & State', 'API Integration', 'Deployment'],
-      popular: true,
-      funding: null
-    },
-    {
-      id: 10,
-      title: 'AI & Machine Learning',
-      instructor: 'STK College AI',
-      category: 'AI & Machine Learning',
-      lessons: 30,
-      students: 0,
-      price: 'R4,500',
-      originalPrice: 'R6,000',
-      image: '/images/courses/ai.png',
-      rating: 4.9,
-      description: 'Comprehensive AI and Machine Learning program with hands-on projects.',
-      features: ['Machine Learning', 'Neural Networks', 'Deep Learning', 'Real Projects'],
-      popular: false,
-      funding: {
-        available: false,
-        planned: true,
-        provider: 'MICT SETA',
-        description: 'Future learnership opportunities planned'
-      }
-    },
-    {
-      id: 11,
-      title: 'Microsoft Office Complete Suite',
-      instructor: 'Sipho Mtshali',
-      category: 'Microsoft Office',
-      lessons: 35,
-      students: 0,
-      price: 'R3,000',
-      originalPrice: 'R4,200',
-      image: '/images/gallery/gallery/msofficebackground.png',
-      rating: 4.9,
-      description: 'Complete Microsoft Office training covering Word, Excel, PowerPoint, and Teams.',
-      features: ['Word Mastery', 'Excel Expertise', 'PowerPoint Skills', 'Teams Collaboration'],
-      popular: true,
-      funding: null
-    },
-    {
-      id: 12,
-      title: 'Cybersecurity',
-      instructor: 'Sipho Mtshali',
-      category: 'Cybersecurity',
-      lessons: 18,
-      students: 0,
-      price: 'R4,000',
-      originalPrice: 'R5,500',
-      image: '/images/courses/cybersecurity.jpg',
-      rating: 4.6,
-      description: 'Comprehensive cybersecurity training covering threat detection, defensive security, ethical hacking, and secure enterprise application development.',
-      features: ['Network Security Fundamentals', 'Ethical Hacking Techniques', 'Incident Detection & Response', 'Secure Application Development'],
-      popular: false,
-      funding: null
-    }
-  ];
+  // Use the imported data directly
+  const courses = allCourses;
 
-  const [selectedCategory, setSelectedCategory] = React.useState('All Courses');
-  const [searchTerm, setSearchTerm] = React.useState('');
-  const [lightboxImage, setLightboxImage] = React.useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('All Courses');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [lightboxImage, setLightboxImage] = useState(null);
 
   const filteredCourses = courses.filter(course => {
     const matchesCategory = selectedCategory === 'All Courses' || course.category === selectedCategory;
@@ -233,13 +35,13 @@ const Courses = () => {
   });
 
   // Close lightbox with Escape key
-  React.useEffect(() => {
+  useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === 'Escape') setLightboxImage(null);
     };
     if (lightboxImage) {
       document.addEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'hidden'; // prevent scrolling
+      document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
@@ -583,11 +385,11 @@ const Courses = () => {
       {lightboxImage && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
-          onClick={() => setLightboxImage(null)} // click backdrop to close
+          onClick={() => setLightboxImage(null)}
         >
           <div 
             className="relative max-w-5xl w-full max-h-[90vh] bg-white rounded-lg shadow-2xl overflow-hidden"
-            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setLightboxImage(null)}
