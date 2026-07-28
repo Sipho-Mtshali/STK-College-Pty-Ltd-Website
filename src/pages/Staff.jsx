@@ -42,7 +42,7 @@ const Staff = () => {
       qualifications: 'Java Development, Python Programming, Web Development, Database Management',
       email: 'simphiwesipho55@gmail.com',
       phone: '+27763627488',
-      bio: 'Passionate software developer and educator with extensive experience in programming and IT training. Specializes in Java, Python, web development, and database systems. Committed to helping students launch successful tech careers.',
+      bio: 'Passionate software developer and educator with extensive experience in programming and IT training. Specializes in Java, Python, web development, and database systems. Committed to helping students launch successful tech careers. Mr Sipho Mtshali is a Founder and CEO of STK College, with a strong background in software development and IT education. He has been instrumental in shaping the curriculum and ensuring that students receive practical, industry-relevant training.',
       subjects: ['Java', 'Python', 'Web Dev', 'Database', 'Software Engineering'],
       rating: 4.9,
       image: '/images/staff/crop.jpg',
