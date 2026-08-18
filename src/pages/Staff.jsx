@@ -45,7 +45,7 @@ const Staff = () => {
       bio: 'Passionate software developer and educator with extensive experience in programming and IT training. Specializes in Java, Python, web development, and database systems. Committed to helping students launch successful tech careers. Mr Sipho Mtshali is a Founder and CEO of STK College, with a strong background in software development and IT education. He has been instrumental in shaping the curriculum and ensuring that students receive practical, industry-relevant training.',
       subjects: ['Java', 'Python', 'Web Dev', 'Database', 'Software Engineering'],
       rating: 4.9,
-      image: '/images/staff/crop.jpg',
+      image: '/images/staff/Founder & CEO.png',
       programs: ['Python Programming', 'Java Development', 'Web Development', 'SQL Database Management'],
       social: {
         linkedin: 'https://www.linkedin.com/in/sipho-mtshali-377784236/',
@@ -64,7 +64,7 @@ const Staff = () => {
       bio: 'Ensures smooth program operations and manages funding opportunities including MICT SETA applications. Dedicated to supporting students throughout their learning journey.',
       subjects: ['Program Coordination', 'Funding', 'Student Support', 'Administration'],
       rating: 4.8,
-      image: '/images/staff/thandeka.png',
+      image: '/images/staff/tn.jpeg',
       programs: ['All Program Administration', 'Funding Applications', 'Student Services'],
       social: {
         linkedin: 'https://www.linkedin.com/in/thandeka-nkosi-40a23b217/'
