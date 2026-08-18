@@ -587,8 +587,8 @@ const Home = () => {
                     Together, STK College and Isiqalo Institute continue to create opportunities that prepare learners for employment and entrepreneurship."
                   </blockquote>
                   <div className="border-t border-gray-200 pt-4">
-                    <p className="font-bold text-[#0F2B5B] text-lg">Sipho Mtshali & Simphiwe Goniwe</p>
-                    <p className="text-gray-600">Founder, STK College & Founder, Isiqalo Institute</p>
+                    <p className="font-bold text-[#0F2B5B] text-lg">Mr. S Goniwe & Mr. S Mtshali</p>
+                    {/*<p className="text-gray-600">Founder, STK College & Founder, Isiqalo Institute</p>*/}
                     <p className="text-[#F4C542] font-semibold">Strategic Partnership for Skills Development & Youth Empowerment</p>
                   </div>
                 </div>
