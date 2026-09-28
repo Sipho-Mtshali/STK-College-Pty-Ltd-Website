@@ -36,17 +36,30 @@ const Staff = () => {
     {
       id: '1',
       name: 'Sipho Mtshali',
-      position: 'Senior IT Instructor & Developer',
-      department: 'Programming & Development',
+      position: 'Founder, CEO & Lead ICT Facilitator',
+      department: 'Executive Leadership & ICT Training',
       experience: '4+ years',
-      qualifications: 'Java Development, Python Programming, Web Development, Database Management',
+      qualifications: 'Software Development, Java Programming, Python Programming, Web Development, Database Management',
       email: 'simphiwesipho55@gmail.com',
       phone: '+27763627488',
-      bio: 'Passionate software developer and educator with extensive experience in programming and IT training. Specializes in Java, Python, web development, and database systems. Committed to helping students launch successful tech careers. Mr Sipho Mtshali is a Founder and CEO of STK College, with a strong background in software development and IT education. He has been instrumental in shaping the curriculum and ensuring that students receive practical, industry-relevant training.',
-      subjects: ['Java', 'Python', 'Web Dev', 'Database', 'Software Engineering'],
+      bio: 'Leading practical ICT education while facilitating Java, Python, Computer Literacy, Web Development and Database Management programmes.',
+      subjects: [
+        'Python Programming',
+        'Java Programming',
+        'Computer Literacy',
+        'Web Development',
+        'Database Management',
+        'Software Engineering'
+      ],
       rating: 4.9,
       image: '/images/staff/Founder & CEO.png',
-      programs: ['Python Programming', 'Java Development', 'Web Development', 'SQL Database Management'],
+      programs: [
+        'Python Programming',
+        'Java Programming',
+        'Computer Literacy',
+        'Web Development',
+        'SQL Database Management'
+      ],
       social: {
         linkedin: 'https://www.linkedin.com/in/sipho-mtshali-377784236/',
         github: 'https://github.com/Sipho-Mtshali'

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   FiArrowRight, FiUsers, FiBookOpen, FiBriefcase, FiAward, FiClock, 
   FiCheckCircle, FiStar, FiCalendar, FiTrendingUp, FiMapPin, FiMail,
@@ -16,8 +16,8 @@ const fadeUp = {
 };
 
 const Home = () => {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  /*const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);*/
 
   // ─── Carousel data ───
   const originalImages = [
@@ -751,11 +751,20 @@ const Home = () => {
             <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16">
               <div className="flex items-center">
                 <img 
-                  src="/images/gallery/gallery/openEDG.png" 
+                  src="/images/gallery/gallery/openEDGLogo.png" 
                   alt="OpenEDG Partner"
                   loading="lazy"
                   className="h-20 w-auto object-contain md:h-24 lg:h-28"
                   onError={(e) => e.target.src = 'https://via.placeholder.com/200x80?text=OpenEDG'}
+                />
+              </div>
+              <div className="flex items-center">
+                <img 
+                  src="/images/gallery/gallery/pythonInstituteLogo.png" 
+                  alt="Python Institute Partner"
+                  loading="lazy"
+                  className="h-20 w-auto object-contain md:h-24 lg:h-28"
+                  onError={(e) => e.target.src = 'https://via.placeholder.com/200x80?text=Python+Institute'}
                 />
               </div>
               <div className="flex items-center">
